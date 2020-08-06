@@ -1,0 +1,363 @@
+---
+title: 'PPOL564 | Reading List'
+date: 'Fall 2020'
+output: 
+  html_document:
+    css: style.css
+    theme: flatly
+    highlight: default
+    toc_depth: 3
+    toc: true
+    toc_collapsed: true
+    toc_float: true
+---
+
+### [Home](../index.html)
+
+
+### Regarding the Readings
+
+Below I've outlined the complete reading list for PPOL564. I've broken the readings up into "Required" and "Additional Resources and Suggested Materials" for each week of class. Two things to note about the reading list:
+
+First, for some weeks, there are a lot of different readings (e.g., Week 7), and for other weeks there are fewer readings but the readings are more involve (e.g., Week 12). The readings for this course are meant to _support_ the concepts and materials covered during lecture. I encourage students to first **_skim the readings_** prior to consuming the asynchronous lecture material and attending the synchronous class, then to **_reference and re-read/skim_** the readings after lecture. This will help you better absorb the main points. It's always easier to read when you (a) know the point of the reading, and (b) have a better sense of why you're reading it. **_I do not expect that students will have thoroughly read through everything_** prior to the start of lecture. But those that do will get more out of the lectures. 
+
+Second, for most weeks, the reading are open source --- that is, the readings are free and available online. This is done to keep the cost of the course down. I only request that you purchase one book, which you will continue to use in DS II (so it's worth getting).
+
+> **James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). "An Introduction to Statistical Learning: with Applications in R". _New York: springer_.**
+
+If links break for any of the readings, please let the professor and/or TA know as soon as possible. 
+
+
+<br><hr><br>
+
+### Week 1: Introductions, Installations, and IDEs
+
+<br>
+
+- **_Required Readings_**
+  + [Jupyter Notebook for Beginners: A tutorial](https://www.dataquest.io/blog/jupyter-notebook-tutorial/) - Pryke, Benjamin - www.dataquest.io
+  + [Using Python with RStudio and reticulate](https://docs.rstudio.com/tutorials/user/using-python-with-rstudio-and-reticulate/) - rstudio.com
+  + [Use Atom + Hydrogen!](https://acarril.github.io/posts/atom-hydrogen) - Carril, Alvaro
+  
+
+<br>  
+
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+  + More on Jupyter Notebooks and IPython
+      + [Chapter 1: IPython: Beyond Normal Python](https://jakevdp.github.io/PythonDataScienceHandbook/index.html) - Python Data Science Handbook - VanderPlas, Jake
+  + More on Atom + Hydrogen 
+      + [Atom's Hydrogen for writing data science projects with Python](https://towardsdatascience.com/atoms-hydrogen-for-writing-data-science-projects-using-python-46b6507fcdf7) - Linggar, Rake
+  + More on RStudio + Reticulate
+      + [R & Python: A Love Story](https://rstudio.com/solutions/r-and-python/) - rstudio.com
+      + [RStudio 1.2 Preview: Reticulated Python](https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/)
+  
+<br>
+  
+### Week 2: Version Control, Workflow, and Reproducibility
+
+<!-- _Note: This is a reading heavy week. The Healy reading is straightforward, the other readings less so. For the `Git` reading: skim, get the general idea of how version control works, and then reference the reading when using Git yourself. For the Python environment reading, the aim is to make you aware of Python environments, so a good skim will do the trick._ -->
+
+<br>
+
+- **_Required Readings_**
+  - [The Plain Person's Guide to Plain Text Social Science](http://plain-text.co/) - Healy, Kieran
+    + Ch. 1: Introduction
+    + Ch. 2: Keep a Record
+    + Ch. 3: Write and Edit
+    + Ch. 4: Reproduce Work
+  - [Pro Git](https://git-scm.com/book/en/v2) - Chacon & Straub 
+    + Ch. 1: Getting Started
+    + Ch. 2: Git Basics
+  - [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/) - realpython.com
+    
+<br>
+
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+  - [GitHub for Atom](https://github.atom.io/)
+  - [Ch. 13 Detect Git from RStudio -Happy Git with R](https://happygitwithr.com/rstudio-see-git.html) - Bryan, Jenny & Jim Hester
+
+<br>
+
+### Week 3: Introduction to Object-Oriented Programming in Python
+
+<br>
+
+- **_Required Readings_**
+  - [Ch. 1.8 - 1.12: Getting Started with Data](https://runestone.academy/runestone/books/published/pythonds/Introduction/GettingStartedwithData.html) - Miller, Brad and David Ranum
+  - Data Carpentry
+    - [Python Fundamentals](https://swcarpentry.github.io/python-novice-inflammation/01-intro/index.html)
+    - [Repeated Actions with Loops](https://swcarpentry.github.io/python-novice-inflammation/04-loop/index.html) 
+    - [Making Choices](https://swcarpentry.github.io/python-novice-inflammation/07-cond/index.html) 
+    - [Creating Functions ](https://swcarpentry.github.io/python-novice-inflammation/08-func/index.html) 
+    - [Storing Multiple Values in Lists](https://swcarpentry.github.io/python-novice-inflammation/05-lists/index.html)
+
+
+<!-- <br> -->
+
+<!-- - <font color = "steelblue">**_Strongly Recommended_**</font> <br>_Note: these readings are dense, so skim on the first read and then return when you have deeper questions about data type's behavior_ -->
+
+<!--   - Ch. 4: Introducing Python Object types - Lutz - (See Canvas)  -->
+<!--   - Ch. 14: Iterations and Comprehensions - Lutz - (See Canvas)  -->
+  
+<br>
+
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+    - [Mutable vs Immutable Objects in Python](https://medium.com/@meghamohan/mutable-and-immutable-side-of-python-c2145cf72747)
+    - [Installing Packages using PyPi](https://packaging.python.org/tutorials/installing-packages/) (i.e. installing packages using the `pip` shell command)
+    - [Installing Packages using Anaconda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) (i.e. installing packages using the `conda` shell command. Requires having an Anaconda distribution installed.)
+
+
+<br>
+
+### Week 4: Introduction to Algorithms
+
+<br>
+  
+- **_Required Readings_**
+   - [Ch. 3: Analysis](https://runestone.academy/runestone/books/published/pythonds/AlgorithmAnalysis/toctree.html) - Miller, Brad and David Ranum
+   - [Ch. 4: Basic Data Structures](https://runestone.academy/runestone/books/published/pythonds/BasicDS/toctree.html) (in part) - Miller, Brad and David Ranum
+      + Read 4.1 - 4.3, 4.10, 4.15
+   - [Ch. 6 Sorting and Searching](https://runestone.academy/runestone/books/published/pythonds/SortSearch/toctree.html) - Miller, Brad and David Ranum
+  
+  
+<br>
+
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+   - [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
+   - [All You Need to Know About Big O Notation](https://skerritt.blog/big-o/) - Skerritt, Brandon
+   - [Analyzing Complexity of Code through Python](https://www.datacamp.com/community/tutorials/analyzing-complexity-code-python?tap_a=5644-dce66f&tap_s=357540-5b28dd) - datacamp.com - Khatri, Saneep
+
+<br>
+
+### Week 5: From Nested Lists to Data Frames
+
+<br>
+  
+- **_Required Readings_**
+  - [Ch. 2: Introduction to Numpy](https://jakevdp.github.io/PythonDataScienceHandbook/index.html) - Python Data Science Handbook - VanderPlas, Jake
+  - Ch. 3 (in part): Data Manipulation with Pandas
+    + [Introducing Pandas Objects](https://jakevdp.github.io/PythonDataScienceHandbook/03.01-introducing-pandas-objects.html)
+    + [Data Indexing and Selection](https://jakevdp.github.io/PythonDataScienceHandbook/03.02-data-indexing-and-selection.html)
+    + [Hierarchical Indexing](https://jakevdp.github.io/PythonDataScienceHandbook/03.05-hierarchical-indexing.html)
+
+
+<br>
+
+### Week 6: Data Wrangling in Python 
+
+<br>
+
+- **_Required Readings_**
+  - [Ch. 3: Data Manipulation with Pandas](https://jakevdp.github.io/PythonDataScienceHandbook/index.html) - Python Data Science Handbook - VanderPlas, Jake 
+
+<br>
+
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+  + [Python Pandas Tutorial: A Complete Introduction for Beginners](https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/#)
+  + [Data Wrangling with Pandas Cheat Sheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf) - pandas.pydata.org
+  + [dplyr-style Data Manipulation with Pipes in Python](https://towardsdatascience.com/dplyr-style-data-manipulation-with-pipes-in-python-380dcb137000) - Allen, Akinkunle
+
+
+<br>
+
+### Week 7: Data Visualization and Exploration
+
+<!-- _Note: This is a reading heavy week. My suggestion is to skim and then reference later when building your own plots._ -->
+
+
+<br>
+
+- **_Required Readings_**
+  - Theory
+      -  [Ch. 2: Visualizing data: Mapping data onto aesthetics](https://serialmentor.com/dataviz/aesthetic-mapping.html) - Fundamentals of Data Visualization - Wilke, Claus
+      - [Ch. 4: Color scales](https://serialmentor.com/dataviz/color-basics.html) - Fundamentals of Data Visualization - Wilke, Claus
+  - In-Practice
+    - [Making Plots With `plotnine`](https://datacarpentry.org/python-ecology-lesson/07-visualization-ggplot-python/index.html) - i.e. `ggplot` in Python
+    - [Ch. 4: Visualization with Matplotlib](https://jakevdp.github.io/PythonDataScienceHandbook/index.html) - Python Data Science Handbook - VanderPlas, Jake - i.e. `matplotlib` and `seaborn` libraries
+  
+  
+<br>
+  
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+  - [The Python Graph Gallery](https://python-graph-gallery.com/)
+  - Bokeh - For interactive Graphics
+    - [Bokeh User Guide](https://docs.bokeh.org/en/latest/docs/user_guide.html#userguide)
+    - [Bokeh Tutorial](https://mybinder.org/v2/gh/bokeh/bokeh-notebooks/master?filepath=tutorial%2F00%20-%20Introduction%20and%20Setup.ipynb)
+  - Visualizing Different Data Type - Fundamentals of Data Visualization - Wilke, Claus (More Theory)
+      - [Ch. 5: Directory of Visualizations](https://serialmentor.com/dataviz/directory-of-visualizations.html) - `datviz`
+      - [Ch. 6: Visualizing Amounts](https://serialmentor.com/dataviz/visualizing-amounts.html) - `datviz`
+      - [Ch. 7: Visualizing Distributions](https://serialmentor.com/dataviz/histograms-density-plots.html) - `datviz`
+      - [Ch. 10: Visualizing Proportions](https://serialmentor.com/dataviz/visualizing-proportions.html) - `datviz`
+      - [Ch. 12: Visualizing Associations](https://serialmentor.com/dataviz/visualizing-associations.html) - `datviz`
+  - [Image File Formats](https://serialmentor.com/dataviz/image-file-formats.html) - Fundamentals of Data Visualization - Wilke, Claus
+
+<br>
+
+### Week 8: Scraping and Grabbing: Drawing from (Un-)Structured Data Sources
+
+<br>
+
+- **_Required Readings_**
+
+  + _Web Scraping_
+      - [Ultimate Guide to Web Scraping with Python Part 1: Requests and BeautifulSoup](https://www.learndatasci.com/tutorials/ultimate-guide-web-scraping-w-python-requests-and-beautifulsoup/) - LearnDataSci - Martin, Brendan
+      + _On the legality of webscraping_
+          + [Web Scraping and Crawling are Perfectly Legal, Right?](https://benbernardblog.com/web-scraping-and-crawling-are-perfectly-legal-right/)
+          + [robots.txt](http://www.robotstxt.org/robotstxt.html)
+          
+  + _APIs_
+      - [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/) - realpython.org
+      
+  + _Databases_
+      - [Introduction to Python SQL Libraries](https://realpython.com/python-sql-libraries/) - realpython.com
+      - [SQL to Pandas DataFrame (with examples)](https://datatofish.com/sql-to-pandas-dataframe/) - datatofish.com
+      
+  + _Documents_ (PDF, Word)
+      - [Chapter 13 – Working with PDF and Word Documents](https://automatetheboringstuff.com/chapter13/) - automatetheboringstuff.com
+      
+<br>
+
+<!-- ### Week 8: Introduction to Text-as-Data -->
+
+<!-- <br> -->
+
+<!-- - **_Required Readings_**: -->
+
+<!-- <br> -->
+
+<!-- - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> -->
+<!--   - Relevant Modules: -->
+<!--     - [`TextBlob`](https://textblob.readthedocs.io/en/dev/) -->
+<!--     - [`NLTK`](http://www.nltk.org/index.html) -->
+<!--     - [`spaCy`](https://spacy.io/usage/facts-figures/) -->
+
+<!-- <br> -->
+
+### Week 9: Introduction to Statistical Learning
+
+<br>
+
+- **_Required Readings_**:
+  - What is statistical learning?  - **James et al. Ch. 2** 
+  - Resampling Methods - **James et al. Ch. 5** 
+  
+<br>  
+  
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font>
+  - Scikit-learn documentation 
+    + [Preprocessing](https://scikit-learn.org/stable/modules/preprocessing.html) - scikit-learn.org
+    + [Cross-Validation](https://scikit-learn.org/stable/modules/cross_validation.html) - scikit-learn.org
+    + [Pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html) - scikit-learn.org
+  
+<br>
+
+
+### Week 10: Linear Regression
+
+<br>
+
+- **_Required Readings_**:
+  - See lecture notes for video content covering key linear algebra concepts.
+  - [The Linear Algebra View of Least-Squares Regression](https://medium.com/@andrew.chamberlain/the-linear-algebra-view-of-least-squares-regression-f67044b7f39b) - Chamberlain, Andrew
+  - Linear Models - **James et al. Ch. 3.1 - 3.3**
+  
+  
+<br>
+  
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font>  
+  - Scikit-learn documentation
+    - [Linear Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) - scikit-learn.org
+
+<br>
+
+
+### Week 11: Gradient Descent 
+
+<br>
+
+- **_Required Readings_**:
+  - See lecture notes for video content covering key calculus concepts.
+  - [Introduction to the Gradient Descent Algorithm](https://medium.com/@montjoile/an-introduction-to-gradient-descent-algorithm-34cf3cee752b) - Garcia, Sara
+  - [Gradient Descent - Simply Explained](https://towardsdatascience.com/gradient-descent-simply-explained-1d2baa65c757) - Shung, Koo
+  - Classification - **James et al. Ch. 4.1 & 4.2**
+  - Logistic Regression - **James et al. Ch. 4.3**
+  
+<br>
+  
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font>
+  - Scikit-learn documentation
+    - [Stochastic Gradient Descent](https://scikit-learn.org/stable/modules/sgd.html) - scikit-learn.org
+    - [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)  - scikit-learn.org
+
+<br>
+
+
+### Week 12: Introduction to Non-Parametric Approaches to Supervised Learning
+
+<br>
+
+- **_Required Readings_**:
+  - K Nearest Neighbors - **James et al. Ch. 2.2.3 & 3.5**
+  - Tree-Based Methods - **James et al. Ch. 8.1 - 8.2** 
+  
+<br>
+  
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font>
+    + Montgomery et. al. (2018) "Tree-Based Models for Political Science Data". American Journal of Political Science. (See Canvas)
+    + Scikit-learn documentation:
+        + [Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html) - scikit-learn.org
+        + Trees
+            + [Decision Trees](https://scikit-learn.org/stable/modules/tree.html#regression) - scikit-learn.org
+            + [Forests of randomized trees](https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees) - scikit-learn.org
+    
+<br>
+
+
+### Week 13: Peeking inside the Black Box: Introduction to Interpretable Machine Learning
+
+<br>
+
+- **_Required Readings_**:
+  + [Ch. 2: Interpretability](https://christophm.github.io/interpretable-ml-book/interpretability.html) - Interpretable Machine Learning - Molnar, Christoph
+  + [Ch. 5.5: Permutation Feature Importance](https://christophm.github.io/interpretable-ml-book/feature-importance.html) - Interpretable Machine Learning - Molnar, Christoph
+  + [Ch. 5.1: Partial Dependency Plots](https://christophm.github.io/interpretable-ml-book/pdp.html) - Interpretable Machine Learning - Molnar, Christoph
+  + [Ch. 5.2: Individual Conditional Expectation](https://christophm.github.io/interpretable-ml-book/ice.html) - Interpretable Machine Learning - Molnar, Christoph
+  + [Ch. 5.4: Feature Interaction](https://christophm.github.io/interpretable-ml-book/interaction.html) - Interpretable Machine Learning - Molnar, Christoph
+  
+<br>
+
+
+
+<!-- ### Week 10: Introduction to Supervised Learning: Classification -->
+
+<!-- <br> -->
+
+<!-- - **_Required Readings_**: -->
+<!--   - Classification - **James et al. Ch. 4.1 & 4.2** -->
+<!--   - Logistic Regression - **James et al. Ch. 4.3** -->
+<!--   - _(Refresh from Week 9)_ Tree-Based & KNN Methods  -->
+
+<!-- - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> -->
+<!--     + On Implementation, consult the scikit-learn documentation: -->
+<!--         + [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) -->
+<!--         + [1.6.2. Nearest Neighbors Classification](https://scikit-learn.org/stable/modules/neighbors.html) -->
+<!--         + Trees -->
+<!--             + [1.10.1. Decision Trees (Classification)](https://scikit-learn.org/stable/modules/tree.html#classification) -->
+<!--             + [1.11.2. Forests of randomized trees](https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees) -->
+
+<!-- <br> -->
+
+<!-- ### Week 12: Special Topics: Geospatial Data -->
+
+<!-- <br> -->
+
+<!-- - **_Required Readings_**: -->
+<!--   - [Fundamentals of Data viz](https://serialmentor.com/dataviz/geospatial-data.html) , chapter 15 -->
+
+<!-- <br> -->
+
+<!-- ### Week 13: Special Topics: Text-as-Data -->
+
+<!-- <br> -->
+
+<!-- - **_Required Readings_**: -->

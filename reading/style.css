@@ -1,0 +1,49 @@
+/* Whole document: */
+title{
+  font-family: Garamond;
+}
+
+subtitle{
+  font-family: Garamond;
+}
+
+body{
+  font-family: Garamond;
+  font-size: 16pt;
+}
+
+/* Headers */
+h1{
+  font-size: 40pt;
+  font-family: Garamond;
+}
+
+h2{
+  font-size: 30pt;
+  font-family: Garamond;
+}
+
+h3{
+  font-size: 24pt;
+  font-family: Garamond;
+}
+
+h4{
+  font-size: 24pt;
+  font-family: Garamond;
+}
+
+.tabset{
+  font-size: 16pt;
+  font-family: Garamond;
+}
+
+.tabset-h4{
+  font-size: 24pt;
+  font-family: Garamond;
+}
+
+.tabset-body{
+  font-size: 16pt;
+  font-family: Garamond;
+}
