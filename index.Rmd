@@ -1,4 +1,5 @@
 ---
+pagetitle: PPOL564 - DS1 - Foundations
 output: 
   html_document:
     css: style.css
