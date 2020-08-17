@@ -17,20 +17,13 @@ output:
 
 ### Regarding the Readings
 
-Below I've outlined the complete reading list for PPOL564. I've broken the readings up into "Required" and "Additional Resources and Suggested Materials" for each week of class. Two things to note about the reading list:
+> Below I've outlined the complete reading list for PPOL564. I've broken the readings up into "Required" and "Additional Resources and Suggested Materials" for each week of class. For some weeks, there are a lot of different readings (e.g., Week 7), and for other weeks there are fewer readings but the readings are more involve (e.g., Week 12). The readings for this course are meant to support the concepts and materials covered during lecture. I encourage students to first **_lightly skim the readings_** prior to consuming the asynchronous lecture material, and then to **_read/heavy-skim_** the readings before the synchronous lecture. This will help you better absorb the main points. It's always easier to read when you have a sense of where you're going.
 
-First, for some weeks, there are a lot of different readings (e.g., Week 7), and for other weeks there are fewer readings but the readings are more involve (e.g., Week 12). The readings for this course are meant to _support_ the concepts and materials covered during lecture. I encourage students to first **_skim the readings_** prior to consuming the asynchronous lecture material and attending the synchronous class, then to **_reference and re-read/skim_** the readings after lecture. This will help you better absorb the main points. It's always easier to read when you (a) know the point of the reading, and (b) have a better sense of why you're reading it. **_I do not expect that students will have thoroughly read through everything_** prior to the start of lecture. But those that do will get more out of the lectures. 
-
-Second, for most weeks, the reading are open source --- that is, the readings are free and available online. This is done to keep the cost of the course down. I only request that you purchase one book, which you will continue to use in DS II (so it's worth getting).
-
-> **James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). "An Introduction to Statistical Learning: with Applications in R". _New York: springer_.**
-
-If links break for any of the readings, please let the professor and/or TA know as soon as possible. 
-
+> For most weeks, the reading are readings are freely available online. If links break for any of the readings, please let the professor and/or TA know as soon as possible.  
 
 <br><hr><br>
 
-### Week 1: Introductions, Installations, and IDEs
+### **Week 1: Choosing your Poison**<br>_Introductions, Installations, and IDEs_
 
 <br>
 
@@ -53,7 +46,7 @@ If links break for any of the readings, please let the professor and/or TA know 
   
 <br>
   
-### Week 2: Version Control, Workflow, and Reproducibility
+### **Week 2: Time Travel and Other Necessities**<br>_Version Control, Workflow, and Reproducibility_
 
 <!-- _Note: This is a reading heavy week. The Healy reading is straightforward, the other readings less so. For the `Git` reading: skim, get the general idea of how version control works, and then reference the reading when using Git yourself. For the Python environment reading, the aim is to make you aware of Python environments, so a good skim will do the trick._ -->
 
@@ -78,7 +71,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <br>
 
-### Week 3: Introduction to Object-Oriented Programming in Python
+### **Week 3: Learning Parseltongue**<br>_Introduction to Object-Oriented Programming in Python_
 
 <br>
 
@@ -109,7 +102,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <br>
 
-### Week 4: Introduction to Algorithms
+### **Week 4: On Time and Space**<br>_Introduction to Algorithms and Data Structures_
 
 <br>
   
@@ -129,7 +122,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <br>
 
-### Week 5: From Nested Lists to Data Frames
+### **Week 5: Long Live the Data Frame**<br>_From Nested Lists to Data Frames_
 
 <br>
   
@@ -143,7 +136,8 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <br>
 
-### Week 6: Data Wrangling in Python 
+
+### **Week 6: Modern Snake Charming**<br>_Approaches to Data Manipulation in Python_
 
 <br>
 
@@ -160,7 +154,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <br>
 
-### Week 7: Data Visualization and Exploration
+### **Week 7: Interrogation Techniques**<br>_Data Visualization and Exploration_
 
 <!-- _Note: This is a reading heavy week. My suggestion is to skim and then reference later when building your own plots._ -->
 
@@ -193,7 +187,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <br>
 
-### Week 8: Scraping and Grabbing: Drawing from (Un-)Structured Data Sources
+### **Week 8: Automated Heists**<br>_Drawing from (Un-)Structured Data Sources_
 
 <br>
 
@@ -233,7 +227,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 
 <!-- <br> -->
 
-### Week 9: Introduction to Statistical Learning
+### **Week 9: The Signal and the Noise**<br>_Introduction to Statistical Learning_
 
 <br>
 
@@ -252,7 +246,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 <br>
 
 
-### Week 10: Linear Regression
+### **Week 10: Casting Shadows in $N$-Dimensions**<br>_Continuous Outcomes and Linear Regression_
 
 <br>
 
@@ -271,7 +265,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 <br>
 
 
-### Week 11: Gradient Descent 
+### **Week 11: Hot Dog, Not Hot Dog**<br>_Classification and Gradient Descent_
 
 <br>
 
@@ -292,7 +286,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 <br>
 
 
-### Week 12: Introduction to Non-Parametric Approaches to Supervised Learning
+### **Week 12: Trees and Neighbors**<br>_Introduction to Non-Parametric Approaches to Supervised Learning_
 
 <br>
 
@@ -313,7 +307,7 @@ If links break for any of the readings, please let the professor and/or TA know 
 <br>
 
 
-### Week 13: Peeking inside the Black Box: Introduction to Interpretable Machine Learning
+### **Week 13: Peeking inside the Black Box**<br>_Introduction to Interpretable Machine Learning_
 
 <br>
 

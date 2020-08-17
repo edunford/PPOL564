@@ -35,22 +35,20 @@ require(kableExtra)
 
 <br>
 
-```{r,echo=F,message=F,results='asis'}
+```{r,echo=F,message=F,warning=F,results='asis'}
 read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
   # select(-`Class No.`,-CD,-Assignment) %>% 
   filter(Topic != "No Class") %>% 
   {.[is.na(.)]="";.} %>% 
-  kable(., "html", booktabs = T,align = c('c','l','l')) %>%
-  # kable(., "latex", booktabs = T,align = c('c','l','l')) %>%
+  kable(., "html", booktabs = T,align = c('c','l','l','l','c')) %>%
   kable_styling(latex_options = c("striped", 
                                   "scale_down","repeat_header"),
-                # full_width = T,font_size = 11
-                full_width = T,font_size =  18
-                ) %>% 
+                full_width = T,font_size =  20) %>% 
   column_spec(1,width = '.5in') %>% 
-  column_spec(2,width = '2in') %>% 
-  column_spec(3,width = '3in') %>%
-  column_spec(4,width = '2in') 
+  column_spec(2,width = '1in') %>% 
+  column_spec(3,width = '3in') %>% 
+  column_spec(4,width = '2in') %>% 
+  column_spec(5,width = '1in')
 ```
 
 <br>
@@ -65,8 +63,7 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 <br>
 <br>
 
-- Access an [**Online Version**](syllabus/PPOL564-Syllabus.html)
-- [**Download**](syllabus/PPOL564-Syllabus.pdf) a `.pdf` version locally. 
+#### Access an [**online version**](syllabus/PPOL564-Syllabus.html)/[**`.pdf` version**](syllabus/PPOL564-Syllabus.pdf).
 
 <br>
 <br>
@@ -79,7 +76,7 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 <br>
 <br>
 
-#### List of all [required reading](readings/reading-list.html).
+#### List of all [**required reading**](readings/reading-list.html).
 
 <br>
 <br>
@@ -96,7 +93,7 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 #### [Eric Dunford](www.ericdunford.com) (Professor)
 
 - **Office**: 404 Old North
-- **Office Hours**: Tuesdays 3pm to 5pm
+- **Office Hours**: Tuesdays 9am to 11am
 - **Email**: [eric.dunford@georgetown.edu](mailto:eric.dunford@georgetown.edu)
 
 <br>
@@ -107,65 +104,71 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 - **Email**: [eml119@georgetown.edu](mailto:eml119@georgetown.edu)
 
 <br>
+
+#### Slack
+
+The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2020). Please click on the [Class Slack Channel Invite](https://join.slack.com/t/georgetown-jt44872/shared_invite/zt-gntolqrn-BiCH6ChQTKKODMyb5PdRAw) to join the class work-space. 
+
+<br>
 <br>
 <br>
 <hr>
 <br>
 
 # Lecture Materials
-_Lecture materials will go live approximately one week prior to the scheduled meeting date._
+_Ansynchronous lecture materials will go live approximately one week prior to the scheduled synchronous meeting date._
 
 <br><br>
 
-### Week 1: _Introductions, Installations, and IDEs_
+### **Week 1: Choosing your Poison**<br>_Introductions, Installations, and IDEs_
 
 <br><br>
 
-### Week 2: _Version Control, Workflow, and Reproducibility_
+### **Week 2: Time Travel and Other Necessities**<br>_Version Control, Workflow, and Reproducibility_
 
 <br><br>
 
-### Week 3: _Introduction to Object-Oriented Programming in Python_
+### **Week 3: Learning Parseltongue**<br>_Introduction to Object-Oriented Programming in Python_
 
 <br><br>
 
-### Week 4: _Introduction to Algorithms_
+### **Week 4: On Time and Space**<br>_Introduction to Algorithms and Data Structures_
 
 <br><br>
 
-### Week 5: _From Nested Lists to Data Frames_
+### **Week 5: Long Live the Data Frame**<br>_From Nested Lists to Data Frames_
 
 <br><br>
 
-### Week 6: _Data Wrangling in Python_
+### **Week 6: Modern Snake Charming**<br>_Approaches to Data Manipulation in Python_
 
 <br><br>
 
-### Week 7: _Data Visualization and Exploration_
+### **Week 7: Interrogation Techniques**<br>_Data Visualization and Exploration_
 
 <br><br>
 
-### Week 8: _Scraping and Grabbing: Drawing from (Un-)Structured Data Sources_
+### **Week 8: Automated Heists**<br>_Drawing from (Un-)Structured Data Sources_
 
 <br><br>
 
-### Week 9: _Introduction to Statistical Learning_
+### **Week 9: The Signal and the Noise**<br>_Introduction to Statistical Learning_
 
 <br><br>
 
-### Week 10: _Linear Regression_
+### **Week 10: Casting Shadows in $N$-Dimensions**<br>_Continuous Outcomes and Linear Regression_
 
 <br><br>
 
-### Week 11: _Gradient Descent _
+### **Week 11: Hot Dog, Not Hot Dog**<br>_Classification and Gradient Descent_
 
 <br><br>
 
-### Week 12: _Introduction to Non-Parametric Approaches to Supervised Learning_
+### **Week 12: Trees and Neighbors**<br>_Introduction to Non-Parametric Approaches to Supervised Learning_
 
 <br><br>
 
-### Week 13: _Peeking inside the Black Box: Introduction to Interpretable Machine Learning_
+### **Week 13: Peeking inside the Black Box**<br>_Introduction to Interpretable Machine Learning_
 
 <br><br><br><br>
 

@@ -1,18 +1,19 @@
 ---
 fontsize: 12pt
+pagetitle: "PPOL 564 | Syllabus"
 output:
-  # pdf_document: default
-  html_document:
-    css: style.css
-    theme: flatly
-    highlight: default
-    toc_depth: 3
-    toc: true
-    toc_collapsed: true
-    toc_float: true
+  pdf_document: default
+  # html_document:
+  #   css: style.css
+  #   theme: flatly
+  #   highlight: default
+  #   toc_depth: 3
+  #   toc: true
+  #   toc_collapsed: true
+  #   toc_float: true
 ---
 
-### [Home](../index.html)
+<!-- ### [Home](../index.html) -->
 
 
 \begin{center}
@@ -50,8 +51,7 @@ require(kableExtra)
 
 # Course Description
 
-
-This first course in the core data science sequence teaches Data Science for Public Policy (DSPP) students how to synthesize disparate, possibly unstructured data in order to draw meaningful insights. Topics covered include the fundamentals of object-oriented programming in Python; literate programming; an introduction to algorithms and data types; data wrangling, visualization, and extraction; and an introduction to machine learning methods. In addition, students will be exposed to Git and Github for version control and reproducible research. The course aims to offer DSPP students a foundation in computational approaches to data processing and modeling. In doing so, the course offers a practical toolkit for data exploration. The objective of the course is to equip DSPP students with the skills to incorporate data into their decision-making and analysis, which they will hone and develop further in Data Science II and III. No prior programming experience is assumed or required. 
+This first course in the core data science sequence teaches Data Science for Public Policy (DSPP) students how to synthesize disparate, possibly unstructured data in order to draw meaningful insights. Topics covered include the fundamentals of object-oriented programming in Python; literate programming; an introduction to algorithms and data types; data wrangling, visualization, and extraction; and an introduction to machine learning methods. In addition, students will be exposed to Git and Github for version control and reproducible research. The objective of the course is to teach students how incorporate data into their decision-making and analysis. No prior programming experience is assumed or required. 
 
 # Time and location
 
@@ -71,12 +71,14 @@ Holidays/Breaks/Away (No class):
 
 The lecture will be broken up into _synchronous_ and _asynchronous_ components. 
 
-- The **_asynchronous components_** will cover the main concepts of the lecture. These materials will take the form of embedded videos in class lecture notes on the course website. Students are required to review this content along with the lecture notes and readings prior to the start of class. **_Asynchronous materials will be made available a **week prior** to the schedule lecture date_.**
+- The **_asynchronous components_** will cover the main concepts of the lecture. These materials will take the form of embedded videos in class lecture notes on the course website. Students are required to review this content along with the lecture notes and readings prior to the start of class. **_Asynchronous materials will be made available a **week prior** to the scheduled lecture date_.**
 - The **_synchronous component_** will take place at the scheduled class time and will involve active coding walkthrough, breakout group sessions, and questions. The aim of the synchronous class time is to reinforce the concepts covered in the asynchronous lecture materials. Thus, it is imperative that students complete the asynchronous material _prior to the start of the synchronous lecture_. 
 
-Note that this class is scheduled to meet weekly for 2.5 hours. I will do my best to ensure that the asynchronous and synchronous material in combination does not exceed 2.5 hours weekly. Put differently, students will not be required to commit more than 2.5 hours to lecture. This does not include readings or homework; rather, bifurcating lecture materials into synchronous and asynchronous components is necessary when learning virtually. Zoom fatigue is real, and lectures that exceed an 1.5 hours are not effective. When we do meet in-person, five minute breaks will be taken approximately every 40 minutes. 
+Note that this class is scheduled to meet weekly for 2.5 hours. I will do my best to ensure that the asynchronous and synchronous material in combination does not exceed 2.5 hours weekly. Put differently, students will not be required to commit more than 2.5 hours to lecture. This does not include readings, homework and/or coding discussions; rather, bifurcating lecture materials into synchronous and asynchronous components is necessary when learning virtually. Zoom fatigue is real, and lectures that exceed an 1.5 hours are not effective. When we do meet in-person, five minute breaks will be taken approximately every 40 minutes. 
 
 **All synchronous lecture material will be recorded and stored on the class Canvas site.** Students who are unable to attend the synchronous lecture will be able to review the materials covered in class at a future date. 
+
+**For students attending class from afar** (i.e. in time zones more than 4 hours off Eastern standard time), participating in the synchronous lecture component may not be a viable option. Please let the professor know if you're planning on attending the course from afar. These students will not be required to attend synchronous components of the lecture. _It is the students responsibility to review all lecture materials and to keep pace with the course._
 
 # Course Objectives
 
@@ -88,9 +90,9 @@ The course aims to provide students with the following competencies:
 
 - Learn to manipulate and explore data with Pandas and other tools. 
 
-- Understand algorithmic complexity.
+- General understanding of analyzing algorithms and data structures.
 
-- Learn to extract and process data from unstructured sources, such as the web.
+- Learn to extract and process data from structured and unstructured sources.
 
 - Learn to use statistical learning approaches to effectively explore and ask questions from data.
 
@@ -109,7 +111,7 @@ The course aims to provide students with the following competencies:
 
 **Class Website**: A class website (www.ericdunford.com/ppol564) will be used throughout the course and should be checked on a regular basis for lecture materials and required readings. 
 
-**Class Slack Channel**: The class also has a dedicated slack channel (ppol564-foundations.slack.com). The channel serves as an open forum to discuss, collaborate, pose problems/questions, and offer solutions. Students are encouraged to pose any questions they have there as this will provide the professor and TA the means of answering the question so that all can see the response. If you're unfamiliar with, please consult the following start-up tutorial (https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members). Please follow the [**_invite link_**](https://join.slack.com/t/ppol564-foundations/shared_invite/enQtNzM1Njg0NDk0MzI3LWRhYWFjMWMyM2UwOTBlMjg2ZWI3YmZmYjE0NTQzYzM1NWIyZjJkZGJmMTZjNjU0OWZjMzY0YjYyOTMyYmNiMTU) to be added to the Slack channel.
+**Class Slack Channel**: The class also has a dedicated slack channel (ppol564-foundations.slack.com). The channel serves as an open forum to discuss, collaborate, pose problems/questions, and offer solutions. Students are encouraged to pose any questions they have there as this will provide the professor and TA the means of answering the question so that all can see the response. If you're unfamiliar with, please consult the following start-up tutorial (https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members). Please follow the [**_invite link_**](https://join.slack.com/t/georgetown-jt44872/shared_invite/zt-gntolqrn-BiCH6ChQTKKODMyb5PdRAw) to be added to the Slack channel.
 
 **Canvas**: A Canvas site (http://canvas.georgetown.edu) will be used throughout the course and should be checked on a regular basis for announcements, readings, and assignments. All readings and assignments will be posted on Canvas; they will not be distributed in class or by e-mail. Support for Canvas is available at (202) 687-4949
 
@@ -119,13 +121,29 @@ The course aims to provide students with the following competencies:
 
 | **Assignment**                   | **Percentage of Grade** | 
 |----------------------------------|:-----------------------:|
-| Attendance/Participation	       |		       10%           |
-| Problem sets	                   |		       45%           |
-| Final Project                    |		       45%           |
+| Participation	                   |		       5%            |
+| Coding Discussion             	 |		       15%           |
+| Problem sets	                   |		       40%           |
+| Final Project                    |		       40%           |
 
-**Preparation and Participation** (10%): It is imperative that you arrive to class prepared for lecture and any hands-on activities during the lab. As a result, 10% of each student’s grade will be based on class participation. See "Attendance/Participation" in the Course Policies section for more details.
+**Preparation and Participation** (5%): It is imperative that students keep up with they asynchronous materials and attend synchronous lectures on time. See the "Participation" section in the Course Policies section for more details.
 
-**Problem Sets** (45%): Students will be assigned five problem sets over the course of the semesters. While you are encouraged to discuss the problem sets with your peers and/or consult online resources, **the finished product must be your own work**. The goal of the assignment is to reinforce the student’s comprehension of the materials covered in each section. All assignments will be posted Wednesday afternoon by 6:00PM (i.e., by the scheduled end of class) on the class Canvas site for the weeks marked on the syllabus. Problem sets are due on the date and time posted on Canvas and must be submitted on Canvas. Generally, a week will be allotted to complete each assignment. **_Late assignments will be penalized a letter grade for every day they are overdue_**.
+**Coding Discussions** (15%): Some weeks there will be a coding problem/prompt/dataset to explore pushed to the class Github repository. Students will be required to submit an original response to the prompt. A point will be awarded for (1) submitting on time and (2) the quality of the submission. "Quality" is defined as an _original_, well-commented, and clear solution/analysis (i.e. the solution follows the guidelines required for assignments - see below).^[Students are encouraged to generate a response before looking at the responses of their peers. If a student appears to have copied an answer of another student, we'll examine the time stamp and only award a quality point to the first entry of the timeline of responses that appear duplicative.] 
+
+All submission must be posted Sunday 11:59 PM (EST). The schedule for the coding assignments are listed below.
+
+| No.   | Coding Discussion Week | Date Assigned |
+|:-----:|:-----------------------:|:---------------:|
+   1  |        Week 2         |  September 2 
+   2  |        Week 3         |  September 9 
+   3  |        Week 6         |  September 30
+   4  |        Week 10        |  October 28
+   5  |        Week 11        |  November 4
+   6  |        Week 12        |  November 11
+   
+The goal of the coding discussions is to apply a concept learned during the week in a way that helps build a greater level of programming fluency. Programming skills are honed through active usage and repetition. Learning to read other people’s code and detecting issues is vital to successful collaborations in applied work. The point is not to be “right” necessarily but rather to try, learn, and collaborate. 
+
+**Problem Sets** (40%): Students will be assigned four problem sets over the course of the semesters. While you are encouraged to discuss the problem sets with your peers and/or consult online resources, **the finished product must be your own work**. The goal of the assignment is to reinforce the student’s comprehension of the materials covered in each section. All assignments will be posted Wednesday afternoon by 6:00PM (i.e., by the scheduled end of class) on the class Canvas site for the weeks marked on the syllabus. Problem sets are due on the date and time posted on Canvas and must be submitted on Canvas. Generally, a week will be allotted to complete each assignment. **_Late assignments will be penalized a letter grade for every day they are overdue_**.
 
 The assignments can be in the form of a Jupyter Notebook (`.ipynb`) or R Markdown (`.Rmd`). Student's must submit completed assignments as a rendered `.html` file to Canvas on the assigned due date. All assignment submissions must adhere to the following guidelines: 
 
@@ -145,10 +163,9 @@ The follow schedule lays out when each assignment will be assigned.
     No. 1     |  September 16  | September 23 |
     No. 2     |  October 7     | October 14   |
     No. 3     |  October 14    | October 21   |
-    No. 4     |  November 4    | November 11  |
-    No. 5     |  November 18   | November 25  |
+    No. 4     |  November 18   | November 25  |
 
-**Final Project** (45%): Data science is an applied field and therefore, it is important that you understand how to conduct a complete analysis from collecting data, to cleaning and analyzing it, to presenting your findings. Toward the end of the semester, you will complete an independent data science project, _applying concepts learned throughout the course_. The project is composed of three parts: a 2 page project proposal, an in-class presentation, and a 12-page project report. Due dates and breakdowns for the project are as follows: 
+**Final Project** (40%): Data science is an applied field and therefore, it is important that you understand how to conduct a complete analysis from collecting data, to cleaning and analyzing it, to presenting your findings. Toward the end of the semester, you will complete an independent data science project, _applying concepts learned throughout the course_. The project is composed of three parts: a 2 page project proposal, an in-class presentation, and a 12-page project report. Due dates and breakdowns for the project are as follows: 
 
 |      **Requirement**      |     **Due**    | **Length**  |  **Percentage** | 
 | ------------------------- |  ------------- | ----------- | ----------------|
@@ -158,7 +175,7 @@ The follow schedule lays out when each assignment will be assigned.
 
 **_Students will use Git/Github for version control to track progress made on their analysis._** Each student will be required to create a public Github repository and use it to track progress made on the project. Failure to version control one's work on the project could result in a deduction in points on all components of the project.
 
-Details regarding each aspect of the project will be posted on the course website leading up to the first due date (i.e. the Project Proposal). Until then, we will not discuss the project in class. The reason for this is that students need to reach a basic level of data competency before thinking through a project idea. Thus, discussion of the final project and the development of a project proposal will align with the final portion of the class; once we've broadly covered most of the fundamental data topics covered in this course.
+Details regarding each aspect of the project will be posted on the course website leading up to the first due date (i.e. the Project Proposal). Until then, we will not discuss the project in class. The reason for this is that students need to reach a basic level of data competency before thinking through a project idea. Thus, discussion of the final project and the development of a project proposal will align with the final portion of the class.
 
 # Grading
 
@@ -202,42 +219,40 @@ F  | < 70%
 
 ### Participation
 
-Participation is required in this course. Participation can be decomposed into attendance (class and recitation), engagement, and completing the class assignments. Specifically, I define "engagement" as:
+Participation is required in this course. I define participation as:
 
-- Asking questions and participating in class (over Zoom).
-- During live lecture, cameras are active at all times. 
+- Attending synchronous lecture components over Zoom.
+- Completing the readings and asynchronous materials prior to the synchronous lecture.
+- Asking questions and participating in class.
+- During synchronous lectures, cameras are active at all times. 
 - Paying attention to the professor during lecture 
-    - When **_in-person_**
-        + Not looking at your computer screen for extended periods of time;
-        + Never looking at your phone during class;
-        + No side conversations during lecture.
-    - When **_virtual_**
-        + Review asynchronous materials prior to the start of class;
-        + Engage in break-out group discussions. 
+- Engage in break-out group discussions when assigned.
+- Responding to questions asked during synchronous sessions. 
+    <!-- - When **_in-person_** -->
+    <!--     + Not looking at your computer screen for extended periods of time; -->
+    <!--     + Never looking at your phone during class; -->
+    <!--     + No side conversations during lecture. -->
 
 I reserve the right to deduct points from students who are not participating as expected. 
 
+<!-- ### Attendance  -->
 
-### Attendance 
+<!-- Being virtual, "attending" class will take multiple forms.  -->
 
-Attendance will be taken every class. 
+<!-- - **_When in-person_**, a sheet of paper will be made available at the front of the room at the start of every class. Students must write their name on the paper. The **_paper will be removed 5 minutes after the start of class_**. Students who walk in late after that point will not have an opportunity to write their name and will be considered absent. This log will be used, in part, to calculate the attendance grade. --> 
 
-- **_When in-person_**, a sheet of paper will be made available at the front of the room at the start of every class. Students must write their name on the paper. The **_paper will be removed 5 minutes after the start of class_**. Students who walk in late after that point will not have an opportunity to write their name and will be considered absent. This log will be used, in part, to calculate the attendance grade.
+<!-- - **_When virtual_**, attendance will be drawn from the Zoom attendance log. The instructor will take attendance at the start of class. Students who join the Zoom call after that point will not be counted.  -->
 
-- **_When virtual_**, attendance will be drawn from the Zoom attendance log. The instructor will take attendance at the start of class. Students who join the Zoom call after that point will not be counted. 
+<!-- If absent, each student is responsible to make up the materials missed during a lecture on their own. All lecture notes/lecture materials will be posted on the class website. Thus, students who missed a lecture should reach out to their peers in the class for lecture notes. It is not the responsibility of the Professor/TA to fill absentee students in on any missed content. -->
 
-If absent, each student is responsible to make up the materials missed during a lecture on their own. All lecture notes/lecture materials will be posted on the class website. Thus, students who missed a lecture should reach out to their peers in the class for lecture notes. It is not the responsibility of the Professor/TA to fill absentee students in on any missed content.
-
-**For students attending class from afar** (in particular, students currently in China), participating in the synchronous lecture component may not be a viable option given the time difference. Please let the professor know if you're planning on attending the course from afar. If so, it is the students responsibility to review all lecture materials and to keep pace with the course. See "Asynchronous & Synchronous Lectures" for more information on how the lecture materials will be recorded and distributed. 
 
 ### Communication
 
+- Class-relevant and/or coding-related questions, `Slack` is the preferred method of communication. Please use the general or the relevant channel for these questions. 
+
 - For private questions concerning the class, email is the preferred method of communication. All email messages must originate from your Georgetown University email account(s). Please use a professional salutation, proper spelling and grammar, and patience in waiting for a response. The professor reserves the right to not respond to emails that are drafted inappropriately. **_Please email the professor and the TA directly rather than through the Canvas messaging system._** Emails sent through CANVAS will be ignored. 
 
-- For general, class-relevant questions, `Slack` is the preferred method of communication. Please use the general or the relevant channel for these questions. 
-
-- I will respond to all emails/slack questions within 24 hours of being sent during a weekday. I will not
-respond to emails/slack sent late Friday (after 5PM) or during the weekend until Monday (9AM). Please plan accordingly if you have questions regarding current or upcoming assignments. Please address the professor and TA by their last name unless stated otherwise.
+- I will respond to all emails/slack questions **_within 24 hours_** of being sent during a weekday. **_I will not respond to emails/slack sent late Friday (after 5:00 pm) or during the weekend until Monday (9:00 am)_**. Please plan accordingly if you have questions regarding current or upcoming assignments. Please address the professor and TA by their last name unless stated otherwise.
 
 ### Electronic Devices
 When meeting in-person: the use of laptops, tablets, or other mobile devices is permitted _only for class-related work_. Audio and video recording is not allowed unless prior approval is given by the professor. Please mute all electronic devices during class.
@@ -290,23 +305,23 @@ More information about campus resources and reporting sexual misconduct can be f
 
 # Course Calendar 
 
-```{r,echo=F,message=F,results='asis'}
+```{r,echo=F,message=F,error=F,warning=F,results='asis'}
 read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
   # select(-`Class No.`,-CD,-Assignment) %>% 
-  filter(Topic != "No Class") %>% 
-  {.[is.na(.)]="";.} %>% 
-  kable(., "html", booktabs = T,align = c('c','l','l')) %>%
-  # kable(., "latex", booktabs = T,align = c('c','l','l')) %>%
+  # filter(Topic != "No Class") %>% 
+  {.[is.na(.)]="";.} %>%
+  # kable(., "html", booktabs = T,align = c('c','l','l','l','c')) %>%
+  kable(., "latex", booktabs = T,align = c('c','l','l','l','c')) %>%
   kable_styling(latex_options = c("striped", 
                                   "scale_down","repeat_header"),
-                # full_width = T,font_size = 11
-                full_width = T,font_size =  18
+                full_width = T,font_size = 12
+                # full_width = T,font_size =  18
                 ) %>% 
   column_spec(1,width = '.5in') %>% 
-  column_spec(2,width = '2in') %>% 
-  column_spec(3,width = '3in') %>%
-  column_spec(4,width = '2in')
+  column_spec(2,width = '1in') %>% 
+  column_spec(3,width = '3in') %>% 
+  column_spec(4,width = '2in') %>% 
+  column_spec(5,width = '1in')
 ```
-
 
 **IMPORTANT: This syllabus is subject to change and may be amended throughout the course to reflect any changes deemed necessary by the professor. Any changes will be announced in class or over Slack.**
