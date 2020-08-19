@@ -71,7 +71,7 @@ output:
 
 <br>
 
-### **Week 3: Learning Parseltongue**<br>_Introduction to Object-Oriented Programming in Python_
+### **Week 3: Learning Parseltongue**<br>_Object-Oriented Programming in Python_
 
 <br>
 
@@ -251,7 +251,6 @@ output:
 <br>
 
 - **_Required Readings_**:
-  - See lecture notes for video content covering key linear algebra concepts.
   - [The Linear Algebra View of Least-Squares Regression](https://medium.com/@andrew.chamberlain/the-linear-algebra-view-of-least-squares-regression-f67044b7f39b) - Chamberlain, Andrew
   - Linear Models - **James et al. Ch. 3.1 - 3.3**
   
@@ -265,28 +264,56 @@ output:
 <br>
 
 
-### **Week 11: Hot Dog, Not Hot Dog**<br>_Classification and Gradient Descent_
+<!-- Classification and Gradient Descent -->
+
+<!-- ### **Week 11: Hot Dog, Not Hot Dog**<br>_Classification and Gradient Descent_ -->
+
+<!-- <br> -->
+
+<!-- - **_Required Readings_**: -->
+<!--   - See lecture notes for video content covering key calculus concepts. -->
+<!--   - [Introduction to the Gradient Descent Algorithm](https://medium.com/@montjoile/an-introduction-to-gradient-descent-algorithm-34cf3cee752b) - Garcia, Sara -->
+<!--   - [Gradient Descent - Simply Explained](https://towardsdatascience.com/gradient-descent-simply-explained-1d2baa65c757) - Shung, Koo -->
+<!--   - Classification - **James et al. Ch. 4.1 & 4.2** -->
+<!--   - Logistic Regression - **James et al. Ch. 4.3** -->
+
+<!-- <br> -->
+
+<!-- - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> -->
+<!--   - Scikit-learn documentation -->
+<!--     - [Stochastic Gradient Descent](https://scikit-learn.org/stable/modules/sgd.html) - scikit-learn.org -->
+<!--     - [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)  - scikit-learn.org -->
+
+
+
+
+### **Week 11: Hot Dog, Not Hot Dog**<br>_Probability, Bayes Theorem, and Classification_
 
 <br>
 
 - **_Required Readings_**:
-  - See lecture notes for video content covering key calculus concepts.
-  - [Introduction to the Gradient Descent Algorithm](https://medium.com/@montjoile/an-introduction-to-gradient-descent-algorithm-34cf3cee752b) - Garcia, Sara
-  - [Gradient Descent - Simply Explained](https://towardsdatascience.com/gradient-descent-simply-explained-1d2baa65c757) - Shung, Koo
   - Classification - **James et al. Ch. 4.1 & 4.2**
-  - Logistic Regression - **James et al. Ch. 4.3**
+  - "Less and Less and Less Wrong" - Nate Silver, "The Signal and the Noise" (See Canvas)
+  - [A Gentle Introduction to Bayes Theorem for Machine Learning](https://machinelearningmastery.com/bayes-theorem-for-machine-learning/) - Brownlee, Jason
+  - [Naive Bayes from Scratch](https://machinelearningmastery.com/classification-as-conditional-probability-and-the-naive-bayes-algorithm/) - Brownlee, Jason
   
+
 <br>
-  
+
 - <font color = "grey">**_Additional Resources and Suggested Materials_**</font>
   - Scikit-learn documentation
-    - [Stochastic Gradient Descent](https://scikit-learn.org/stable/modules/sgd.html) - scikit-learn.org
-    - [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)  - scikit-learn.org
+    - [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html) - scikit-learn.org
+    - On using a linear model fo classification
+      - Logistic Regression - **James et al. Ch. 4.3**
+      - [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)  - scikit-learn.org
+
 
 <br>
 
 
-### **Week 12: Trees and Neighbors**<br>_Introduction to Non-Parametric Approaches to Supervised Learning_
+
+
+### **Week 12: Trees and Neighbors**<br>_Non-Parametric Approaches to Supervised Learning_
 
 <br>
 
@@ -307,7 +334,7 @@ output:
 <br>
 
 
-### **Week 13: Peeking inside the Black Box**<br>_Introduction to Interpretable Machine Learning_
+### **Week 13: Peeking inside the Black Box**<br>_Interpretable Machine Learning_
 
 <br>
 

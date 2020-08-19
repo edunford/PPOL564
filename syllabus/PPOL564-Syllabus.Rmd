@@ -34,7 +34,7 @@ require(kableExtra)
 # Instructor
 **Professor**: Eric Dunford 
 
-- **Office**: 404 Old North
+- **Office**: Bedroom (formerly 404 Old North)
 - **Office Hours**: Tuesdays 9:00am to 11:00am (EST) or by appointment
 - **Email**: [eric.dunford@georgetown.edu](mailto:eric.dunford@georgetown.edu)
 - **Pronouns**: He/Him
@@ -79,6 +79,16 @@ Note that this class is scheduled to meet weekly for 2.5 hours. I will do my bes
 **All synchronous lecture material will be recorded and stored on the class Canvas site.** Students who are unable to attend the synchronous lecture will be able to review the materials covered in class at a future date. 
 
 **For students attending class from afar** (i.e. in time zones more than 4 hours off Eastern standard time), participating in the synchronous lecture component may not be a viable option. Please let the professor know if you're planning on attending the course from afar. These students will not be required to attend synchronous components of the lecture. _It is the students responsibility to review all lecture materials and to keep pace with the course._
+
+## Virtual Classroom
+
+
+We will use [**Zoom**](https://zoom.us/download) (a web-conferencing platform) to hold class each week. Class will meet at its regularly scheduled time each week for synchronous lectures. If you do not have Zoom, you can download it [**here**](https://zoom.us/download) prior to the start of class. 
+
+A link for the synchronous component of the weekly lecture along with a link for virtual office hours is posted on the course website and Canvas. Students will use this link to access the live Zoom call for lecture. 
+
+**_If the link breaks or does not function properly, please check the `#general` channel on Slack for information regarding the new link. If there is no message regarding a new link, please contact the professor and/or TA via Slack._** All synchronous lecture material will be recorded.
+
 
 # Course Objectives
 
@@ -126,7 +136,7 @@ The course aims to provide students with the following competencies:
 | Problem sets	                   |		       40%           |
 | Final Project                    |		       40%           |
 
-**Preparation and Participation** (5%): It is imperative that students keep up with they asynchronous materials and attend synchronous lectures on time. See the "Participation" section in the Course Policies section for more details.
+**Preparation and Participation** (5%): It is imperative that students keep up with the asynchronous materials and attend synchronous lectures on time. See the "Participation" section in the Course Policies section for more details.
 
 **Coding Discussions** (15%): Some weeks there will be a coding problem/prompt/dataset to explore pushed to the class Github repository. Students will be required to submit an original response to the prompt. A point will be awarded for (1) submitting on time and (2) the quality of the submission. "Quality" is defined as an _original_, well-commented, and clear solution/analysis (i.e. the solution follows the guidelines required for assignments - see below).^[Students are encouraged to generate a response before looking at the responses of their peers. If a student appears to have copied an answer of another student, we'll examine the time stamp and only award a quality point to the first entry of the timeline of responses that appear duplicative.] 
 
@@ -233,7 +243,7 @@ Participation is required in this course. I define participation as:
     <!--     + Never looking at your phone during class; -->
     <!--     + No side conversations during lecture. -->
 
-I reserve the right to deduct points from students who are not participating as expected. 
+I reserve the right to deduct participation points from students who are not participating as expected. 
 
 <!-- ### Attendance  -->
 
@@ -314,7 +324,7 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
   kable(., "latex", booktabs = T,align = c('c','l','l','l','c')) %>%
   kable_styling(latex_options = c("striped", 
                                   "scale_down","repeat_header"),
-                full_width = T,font_size = 12
+                full_width = T,font_size = 13
                 # full_width = T,font_size =  18
                 ) %>% 
   column_spec(1,width = '.5in') %>% 

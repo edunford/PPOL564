@@ -57,6 +57,29 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 <hr>
 <br>
 
+## Virtual Classroom
+
+
+<br> 
+
+
+#### [**Virtual Zoom Classroom**](https://georgetown.zoom.us/j/98660441600)
+  
+<br>
+  
+#### [**Virtual Zoom Office Hours**](https://georgetown.zoom.us/j/96444963432) (Tuesdays 9am - 11am)
+
+  
+<br>
+
+Recurrent Zoom link can also be found on Canvas. If the link breaks or does not function properly, please check the `#general` channel on Slack for information regarding the new link. If there is no message regarding a new link, please contact the professor and/or TA via Slack. All synchronous lecture material will be recorded.
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+
 
 ## Syllabus
 
@@ -85,6 +108,20 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 <br>
 
 
+## Project
+
+<br>
+
+Data science is an applied field and therefore, it is important that you understand how to conduct a complete analysis from collecting data, to cleaning and analyzing it, to presenting your findings. Toward this end, students are required to complete an independent data science project, _applying concepts learned throughout the course_. The project is composed of three parts: a 2 page project proposal, an in-class presentation, and a 12-page project report.
+
+**_More information regarding the final project will be circulated during class on Week 8_**
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+
 
 ## Contact
 
@@ -92,7 +129,7 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 
 #### [Eric Dunford](www.ericdunford.com) (Professor)
 
-- **Office**: 404 Old North
+- **Office**: Bedroom (formerly 404 Old North)
 - **Office Hours**: Tuesdays 9am to 11am
 - **Email**: [eric.dunford@georgetown.edu](mailto:eric.dunford@georgetown.edu)
 
@@ -116,7 +153,7 @@ The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-
 <br>
 
 # Lecture Materials
-_Ansynchronous lecture materials will go live approximately one week prior to the scheduled synchronous meeting date._
+_Asynchronous lecture materials will go live approximately one week prior to the scheduled synchronous meeting date._
 
 <br><br>
 
@@ -128,7 +165,7 @@ _Ansynchronous lecture materials will go live approximately one week prior to th
 
 <br><br>
 
-### **Week 3: Learning Parseltongue**<br>_Introduction to Object-Oriented Programming in Python_
+### **Week 3: Learning Parseltongue**<br>_Object-Oriented Programming in Python_
 
 <br><br>
 
@@ -160,15 +197,15 @@ _Ansynchronous lecture materials will go live approximately one week prior to th
 
 <br><br>
 
-### **Week 11: Hot Dog, Not Hot Dog**<br>_Classification and Gradient Descent_
+### **Week 11: Hot Dog, Not Hot Dog**<br>_Probability, Bayes Theorem, and Classification_
 
 <br><br>
 
-### **Week 12: Trees and Neighbors**<br>_Introduction to Non-Parametric Approaches to Supervised Learning_
+### **Week 12: Trees and Neighbors**<br>_Non-Parametric Approaches to Supervised Learning_
 
 <br><br>
 
-### **Week 13: Peeking inside the Black Box**<br>_Introduction to Interpretable Machine Learning_
+### **Week 13: Peeking inside the Black Box**<br>_Interpretable Machine Learning_
 
 <br><br><br><br>
 
