@@ -43,6 +43,8 @@ output:
   + More on RStudio + Reticulate
       + [R & Python: A Love Story](https://rstudio.com/solutions/r-and-python/) - rstudio.com
       + [RStudio 1.2 Preview: Reticulated Python](https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/)
+  + [On using LaTex to write math in markdown](https://docx2latex.com/tutorials/Mathematical-equations-LaTeX.html) - docx2latex.com
+    
   
 <br>
   
@@ -59,14 +61,15 @@ output:
     + Ch. 3: Write and Edit
     + Ch. 4: Reproduce Work
   - [Pro Git](https://git-scm.com/book/en/v2) - Chacon & Straub 
-    + Ch. 1: Getting Started
-    + Ch. 2: Git Basics
+    + [Ch. 1: Getting Started](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+    + [Ch. 2: Git Basics](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
   - [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/) - realpython.com
     
 <br>
 
 - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
-  - [GitHub for Atom](https://github.atom.io/)
+  - [Ch. 3: Git Branching](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) - Pro Git
+  - [GitHub for Atom](https://github.atom.io/) - github.atom.io
   - [Ch. 13 Detect Git from RStudio -Happy Git with R](https://happygitwithr.com/rstudio-see-git.html) - Bryan, Jenny & Jim Hester
 
 <br>
@@ -77,6 +80,7 @@ output:
 
 - **_Required Readings_**
   - [Ch. 1.8 - 1.12: Getting Started with Data](https://runestone.academy/runestone/books/published/pythonds/Introduction/GettingStartedwithData.html) - Miller, Brad and David Ranum
+  - [Mutable vs Immutable Objects in Python](https://medium.com/@meghamohan/mutable-and-immutable-side-of-python-c2145cf72747) - Mohan, Megha
   - Data Carpentry
     - [Python Fundamentals](https://swcarpentry.github.io/python-novice-inflammation/01-intro/index.html)
     - [Repeated Actions with Loops](https://swcarpentry.github.io/python-novice-inflammation/04-loop/index.html) 
@@ -95,7 +99,6 @@ output:
 <br>
 
 - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
-    - [Mutable vs Immutable Objects in Python](https://medium.com/@meghamohan/mutable-and-immutable-side-of-python-c2145cf72747)
     - [Installing Packages using PyPi](https://packaging.python.org/tutorials/installing-packages/) (i.e. installing packages using the `pip` shell command)
     - [Installing Packages using Anaconda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html) (i.e. installing packages using the `conda` shell command. Requires having an Anaconda distribution installed.)
 
@@ -194,22 +197,32 @@ output:
 - **_Required Readings_**
 
   + _Web Scraping_
-      - [Ultimate Guide to Web Scraping with Python Part 1: Requests and BeautifulSoup](https://www.learndatasci.com/tutorials/ultimate-guide-web-scraping-w-python-requests-and-beautifulsoup/) - LearnDataSci - Martin, Brendan
+      - [Tutorial: Python Web Scraping Using BeautifulSoup](https://www.dataquest.io/blog/web-scraping-tutorial-python/) - dataquest.io
       + _On the legality of webscraping_
           + [Web Scraping and Crawling are Perfectly Legal, Right?](https://benbernardblog.com/web-scraping-and-crawling-are-perfectly-legal-right/)
-          + [robots.txt](http://www.robotstxt.org/robotstxt.html)
           
   + _APIs_
       - [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/) - realpython.org
       
   + _Databases_
-      - [Introduction to Python SQL Libraries](https://realpython.com/python-sql-libraries/) - realpython.com
       - [SQL to Pandas DataFrame (with examples)](https://datatofish.com/sql-to-pandas-dataframe/) - datatofish.com
       
   + _Documents_ (PDF, Word)
       - [Chapter 13 – Working with PDF and Word Documents](https://automatetheboringstuff.com/chapter13/) - automatetheboringstuff.com
       
 <br>
+
+- <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
+  + [CSS Selector Reference](https://www.w3schools.com/cssref/css_selectors.asp) - w3schools.com
+  + More on webscraping:
+    + [Ultimate Guide to Web Scraping with Python Part 1: Requests and BeautifulSoup](https://www.learndatasci.com/tutorials/ultimate-guide-web-scraping-w-python-requests-and-beautifulsoup/) - LearnDataSci - Martin, Brendan
+    + [robots.txt](http://www.robotstxt.org/robotstxt.html)
+  + More on SQL in Python:
+    + [Introduction to Python SQL Libraries](https://realpython.com/python-sql-libraries/) - realpython.com
+    + Survey various SQL commands in this [SQL Tutorial](https://www.w3schools.com/sql/default.asp) - w3shools.com
+    
+<br>
+
 
 <!-- ### Week 8: Introduction to Text-as-Data -->
 
@@ -325,6 +338,7 @@ output:
   
 - <font color = "grey">**_Additional Resources and Suggested Materials_**</font>
     + Montgomery et. al. (2018) "Tree-Based Models for Political Science Data". American Journal of Political Science. (See Canvas)
+    + [An Introduction to the Bootstrap Method](https://towardsdatascience.com/an-introduction-to-the-bootstrap-method-58bcb51b4d60) - towarddatascience.com
     + Scikit-learn documentation:
         + [Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html) - scikit-learn.org
         + Trees
