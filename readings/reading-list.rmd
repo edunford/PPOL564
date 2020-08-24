@@ -62,13 +62,18 @@ output:
     + Ch. 4: Reproduce Work
   - [Pro Git](https://git-scm.com/book/en/v2) - Chacon & Straub 
     + [Ch. 1: Getting Started](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+        + Read 1.1 - 1.3
     + [Ch. 2: Git Basics](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+        + Only read 2.1 - 2.5
+    + [ Ch. 3: Git Branching](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) 
   - [Python Virtual Environments: A Primer](https://realpython.com/python-virtual-environments-a-primer/) - realpython.com
     
 <br>
 
 - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> 
-  - [Ch. 3: Git Branching](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell) - Pro Git
+  - More on Git/Github in Pro Git:
+    + [Read 1.4 - 1.7](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line) for help on installation and commandline
+    + Read [Ch. 6](https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration) for more information regarding Git + Github.
   - [GitHub for Atom](https://github.atom.io/) - github.atom.io
   - [Ch. 13 Detect Git from RStudio -Happy Git with R](https://happygitwithr.com/rstudio-see-git.html) - Bryan, Jenny & Jim Hester
 
