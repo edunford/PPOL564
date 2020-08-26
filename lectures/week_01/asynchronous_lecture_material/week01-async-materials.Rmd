@@ -1,121 +1,79 @@
 ---
-pagetitle: PPOL564 - DS1 - Foundations
+pagetitle: "PPOL564 | Week 1 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Choosing Your Poison <br> _Introductions, Installations, and IDEs_</center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 1 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University<br><br> </center>
 output: 
   html_document:
-    css: style.css
-    theme: flatly
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
     highlight: breezedark
-    toc_depth: 3
+    theme: flatly
     toc: true
-    toc_collapsed: true
-    toc_float: true
 ---
 
-```{r,include=F}
-# Packages for reading in the tables
-require(tidyverse)
-require(kableExtra)
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
 
-<center><h1>Data Science I: Foundations</h1></center>
-<center><h2>PPOL564-01</h2></center>
-<center>**Fall 2020**</center>
-<center>**Georgetown University**</center>
+# Learning Objectives 
+
+<br>
+
+- **Introduce the course**
+  + What we'll cover in this course
+  + Assignments and expectation
+  + Learning during a Pandemic
+    + How we'll communicate (Slack/Office Hours)
+    + Grading expectations
+    + Asynchronous and Synchronous Lectures
+    
+- Using **Slack** & passing code
+
+- Discuss all the things you need to **install** and how to do it. 
+
+- Take a tour of the various **Integrated Development Environments** (IDE)s we'll come in contact with in this class.
+
+  + Jupyter Notebooks
+  + Atom + Hydrogen (which uses a Jupyter kernel for interactive evaluation)
+  + RStudio + `reticulate`
+
+
+- Using **Markdown** and **Latex** in Jupyter Notebooks and/or RMarkdown
+
+- **`magic` commands** when using a Jupyter Kernel (Jupyter Notebook/Atom + Hydrogen)
+
+- Cover some **commandline basics**
 
 <br>
 
 
 
-# Course Outline {.tabset .tabset-fade .tabset-pills}
+<br><hr><br>
 
 
-## Course Schedule
+# Installations {.tabset .tabset-pills}
+
 
 <br>
 
-```{r,echo=F,message=F,warning=F,results='asis'}
-read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
-  # select(-`Class No.`,-CD,-Assignment) %>% 
-  filter(Topic != "No Class") %>% 
-  {.[is.na(.)]="";.} %>% 
-  kable(., "html", booktabs = T,align = c('c','l','l','l','c')) %>%
-  kable_styling(latex_options = c("striped", 
-                                  "scale_down","repeat_header"),
-                full_width = T,font_size =  20) %>% 
-  column_spec(1,width = '.5in') %>% 
-  column_spec(2,width = '1in') %>% 
-  column_spec(3,width = '3in') %>% 
-  column_spec(4,width = '2in') %>% 
-  column_spec(5,width = '1in')
-```
+Throughout the semester, I will use the commandline and many different IDEs when coding in Python or using Git. Here is an overview of these tools with instructions on how to install them. (These materials are also on the main course website).
 
 <br>
-<br>
-<br>
-<hr>
-<br>
 
-## Virtual Classroom
+## _
 
-
-<br> 
-
-
-#### [**Virtual Zoom Classroom**](https://georgetown.zoom.us/j/98660441600)
-  
-<br>
-  
-#### [**Virtual Zoom Office Hours**](https://georgetown.zoom.us/j/96444963432) (Tuesdays 9am - 11am)
-
-  
-<br>
-
-Recurrent Zoom link can also be found on Canvas. If the link breaks or does not function properly, please check the `#general` channel on Slack for information regarding the new link. If there is no message regarding a new link, please contact the professor and/or TA via Slack. All synchronous lecture material will be recorded.
-
-<br>
-<br>
 <br>
 <hr>
 <br>
 
 
-## Syllabus
-
-<br>
-<br>
-
-#### Access an [**online version**](syllabus/PPOL564-Syllabus.html)/[**`.pdf` version**](syllabus/PPOL564-Syllabus.pdf).
-
-<br>
-<br>
-<br>
-<hr>
-<br>
-
-## Readings
-
-<br>
-<br>
-
-#### List of all [**required reading**](readings/reading-list.html).
-
-<br>
-<br>
-<br>
-<hr>
-<br>
-
-## Installations {.tabset}
-
-<br>
-
-Throughout the semester, the instructor will use the commandline and many different IDEs when coding in Python or using Git. The following lists those different software and provides guidance on installation. _If you run into issues, please reach out to the Teaching Assistant for assistance._ 
-
-<br>
-
-### Commandline
+## Commandline
 
 <br>
 
@@ -129,7 +87,7 @@ Finally, you'll notice that my terminal will have a slightly different look than
 <hr>
 <br>
 
-### Python3 
+## Python3 
 
 <br>
 
@@ -150,7 +108,7 @@ An alternative way to install Python3 is to download an [**Anaconda** distributi
 <hr>
 <br>
 
-### Jupyter Notebook
+## Jupyter Notebook
 
 <br> 
 
@@ -171,7 +129,7 @@ If you've installed Python using Anaconda, the distribution provides a click-abl
 <hr>
 <br>
 
-### Atom + `hydrogen`
+## Atom + `hydrogen`
 
 <br>
 
@@ -221,7 +179,7 @@ There is also a dedicated package manager built into Atom which you can use to d
 <hr>
 <br>
 
-### RStudio + `reticulate`
+## RStudio + `reticulate`
 
 <br>
 
@@ -241,7 +199,7 @@ To install `RStudio`, [download from the following link](https://www.rstudio.com
 <hr>
 <br>
 
-### Other Software
+## Other Software
 
 <br>
 
@@ -259,106 +217,110 @@ Here is an overview of other text editors that are popular for programming in Py
 <hr>
 <br>
 
+# Markdown + $\LaTeX$
 
-## Project
+<br>
+
+## Markdown 
+
+One of the primary advantages of using notebooks (Jupyter and RMarkdown) when writing code is that we can mix code with prose (text). That is, we can put the code side-by-side with the analysis, combining both analytics with insight.  
+
+[Markdown](https://www.markdownguide.org) offers a lightweight language for formatting text. The following [cheatsheet](https://www.markdownguide.org/cheat-sheet/) provides a useful guide of various Markdown commands. 
+
+Try rendering Markdown code in a Jupyter Notebook and/or RMarkdown (`.rmd`).
 
 <br>
 
-Data science is an applied field and therefore, it is important that you understand how to conduct a complete analysis from collecting data, to cleaning and analyzing it, to presenting your findings. Toward this end, students are required to complete an independent data science project, _applying concepts learned throughout the course_. The project is composed of three parts: a 2 page project proposal, an in-class presentation, and a 12-page project report.
+## $\LaTeX$
 
-**_More information regarding the final project will be circulated during class on Week 8_**
+[$\LaTeX$](https://www.latex-project.org/about/) ("Lah-Tec") is a "document preparation system for high-quality typesetting. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing." At it's best LaTeX allows for complete customization of a document from scratch. In practice, this usually means "typing pretty math equations". At it's worst LaTeX is convoluted and fine way to waste one's time. 
+
+We'll use LaTeX to write and render mathematical formulas. LaTeX plays well with markdown, making it easy to write text, code, _and math_! This will be useful when we need to be technical. 
+
+LaTeX math has it's own syntax that can be hard to use when first starting out. You'll get used to it as we see it pop up throughout the program. 
 
 <br>
+
+**Example 1**: Math equation inline with some text. Note the `$$` single dollar signs. 
+
+```{latex}
+This is my model $y_i = \beta_0 + \beta_1 x_i + \epsilon_i$.
+```
+
+**Result**:
+
+> This is my model $y_i = \beta_0 + \beta_1 x_i + \epsilon$.
+
 <br>
+
+**Example 2**: A stand along math equation. Note the double dollar signs.
+
+```{latex}
+$$ pr(y_i = 1) = \frac{1}{1 + e^{\beta_0 + \beta_1 x_i}}$$
+```
+
+**Result**:
+
+> $$ pr(y_i = 1) = \frac{1}{1 + e^{\beta_0 + \beta_1 x_i}}$$
+
+<br> 
+
+
+We'be provided some resources in this week's supplemental [readings](https://docx2latex.com/tutorials/Mathematical-equations-LaTeX.html) to help you navigate the labyrinth that is LaTeX.
+
 <br>
 <hr>
 <br>
 
-
-## Contact
-
-<br>
-
-#### [Eric Dunford](http://ericdunford.com/) (Professor)
-
-- **Office**: Bedroom (formerly 404 Old North)
-- **Office Hours**: Tuesdays 9am to 11am (See `Virtual Classroom` tab for link)
-- **Email**: [eric.dunford@georgetown.edu](mailto:eric.dunford@georgetown.edu)
+# Jupyter `magic` Commands
 
 <br>
 
-#### Eric LaRose (Teaching Assistant)
+Magic commands are special commands that can be executed in a Jupyter code cell (so these commands will be relevant if you're in a Jupyter Notebook or using Atom + Hydrogen). Magic commands are prefixed by the `%` character. These magic commands are designed to succinctly solve various common problems in standard data analysis.
 
-- **Office Hours**: [Book an appointment via Calendly](https://calendly.com/eml119/)
-- **Email**: [eml119@georgetown.edu](mailto:eml119@georgetown.edu)
+Magic commands come in two flavors:
 
-<br>
+- **line magics**, which are denoted by a single `%` prefix and operate on a single line of input,
+- **cell magics**, which are denoted by a double `%%` prefix and operate on multiple lines of input.
 
-#### Slack
+Here is a [short Jupyter Notebook](using-jupyter-notebooks.html) that walks through some useful magic commands. In addition, it also provides guidance on **Notebook Extensions** to add functionality to a Jupyter Notebook. 
 
-The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2020). Please click on the [Class Slack Channel Invite](https://join.slack.com/t/georgetown-jt44872/shared_invite/zt-gntolqrn-BiCH6ChQTKKODMyb5PdRAw) to join the class work-space. 
 
-<br>
-<br>
 <br>
 <hr>
 <br>
 
-# Lecture Materials
-_Asynchronous lecture materials will go live approximately one week prior to the scheduled synchronous meeting date._
+# Commandline Basics
 
-<br><br>
+<br>
 
-### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html)
+The following outlines a few common commands that will be useful as you move forward. Disclaimer: some of these commands may differ given your operating system, but it's only quick Google search to find out how things are done on your machine.
 
-<br><br>
+- `pwd`: check working directory
+- `cd <path>`: change working directory
+    + `cd ..`: go back to the last directory
+    + `cd  `: go to the top directory
+    + `cd -`: go back to where you once where
+- `ls`: list all files in the working directory
+- `mkdir <dir name>`: make a directory
+- `mv <old path> <new path>`: move file from old path to new path
+- `cp <old path> <new path>`: copy file from old path to new path
+- `ctr + c`: stops current execution.
+- `cat <file>`: print the entire file
+- `head`: view the start of a file to some $N$ number of lines
+    - `head -n 3 file`
+- `tail`: view the end of a file to some $N$ number of lines
+    - `tail -n 3 file`
 
-### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html)
-
-<br><br>
-
-### **Week 3: Learning Parseltongue**<br>_Object-Oriented Programming in Python_
-
-<br><br>
-
-### **Week 4: On Time and Space**<br>_Introduction to Algorithms and Data Structures_
-
-<br><br>
-
-### **Week 5: Long Live the Data Frame**<br>_From Nested Lists to Data Frames_
-
-<br><br>
-
-### **Week 6: Modern Snake Charming**<br>_Approaches to Data Manipulation in Python_
-
-<br><br>
-
-### **Week 7: Interrogation Techniques**<br>_Data Visualization and Exploration_
-
-<br><br>
-
-### **Week 8: Automated Heists**<br>_Drawing from (Un-)Structured Data Sources_
-
-<br><br>
-
-### **Week 9: The Signal and the Noise**<br>_Introduction to Statistical Learning_
-
-<br><br>
-
-### **Week 10: Casting Shadows in $N$-Dimensions**<br>_Continuous Outcomes and Linear Regression_
-
-<br><br>
-
-### **Week 11: Hot Dog, Not Hot Dog**<br>_Probability, Bayes Theorem, and Classification_
-
-<br><br>
-
-### **Week 12: Trees and Neighbors**<br>_Non-Parametric Approaches to Supervised Learning_
-
-<br><br>
-
-### **Week 13: Peeking inside the Black Box**<br>_Interpretable Machine Learning_
-
-<br><br><br><br>
-
-<hr>
+- Making a file:
+    - `touch <file name>`
+    - `echo 'text' > file`
+        
+- Renaming a File:
+    - `mv <old file name> <new file name>`
+    
+- Asking for help:
+    - `man <command name>`
+    - `<command name> -h`
+    
+<br>

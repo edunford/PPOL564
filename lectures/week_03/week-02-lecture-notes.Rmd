@@ -1,0 +1,996 @@
+---
+title:  <a href="http://ericdunford.com/ppol564/">Back</a> <br><br><center> Think Steps, Not Syntax </center>
+subtitle: <center> Programming Fundamentals in R and Python <br> Part 1 - The Basics <br><br>  Week 2 </center><br>
+author: <center> Lecture Notes for PPOL564 (Georgetown University) <br> Dr. Eric Dunford (ed769@georgetown.edu) </center>
+output: 
+  html_document:
+    css: style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+    toc_float: 
+      collapsed: false
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+- A
+- B
+- C
+
+# Being Language Agnostic
+
+Which programming language is best for data science/computational social science: R or Python? As one grows particularly adept in a single language, it's easy to pick a side. You're more capable in one and thus you prefer it over the one you're less sure how to use. It's true that certain languages are better suited for certain tasks. For example, R was built for statistics, and thus, a wide variety of statistical operations come "baked into" R, so when performing a statistical analysis, it often makes sense to incorporate `R` into your workflow. Likewise, Python is a full scripting language that is versatile and capable of tackling a broad range of computing tasks. When building efficient programs to process data, Python offers a class logic that can make internal management of data stable and efficient.
+
+This course takes an agnostic approach to learning programming for computational social science. Both R and Python are tools and both these tools are _useful_. Both languages have robust communities of users (so it's easy to get help); both offer great libraries for data processing and visualization; and both have developed and robust machine learning libraries. Both languages have a lot to offer. 
+ 
+In this lesson (and this course), we'll learn about the fundamental components to each of these languages side by side. In doing so, you'll be able to point out the similarities and differences between the two languages, and build a more comprehensive understanding of both. Think of yourself like a newborn where one parent is speaking in Spanish and the other in English. You'll absorb both but often mix up the languages. That's okay! The aim is fluency, and learning to discern the differences between the two languages is part of that process.
+
+You never know which language you might need and when. There is an advantage to being bilingual in both coding languages. Doing so will make you both flexible and competitive (on the job market). Moreover, with packages like [`reticulate`](https://rstudio.github.io/reticulate/), it's easy to integrate R and Python into a single work flow. Thus, don't think of either language as existing in competition; think of them as one should... as tools.
+
+<br>
+
+# Think Steps, Not Syntax 
+
+As you learn to program in R and Python, focus on what you're doing, not how you're doing it. Programming helps us think about problem in steps. What operations need to be performed to get us from point A to point B? Being able to compartmentalize a problem into actionable steps is valuable in both conceptual and practical terms. 
+
+In this lecture, I'll walk through the fundamentals of programming in Python and R. I've organized the discussion around common concepts, such as objects or loops. R and Python are different languages built on different principles; however, they share common features and logic. This lecture is by no means exhaustive, but it'll get help lay the foundation for the more advanced methods that we'll cover later in the course.
+
+<br>
+
+# Part 1: The Basics 
+
+
+<!-- ## _ {.tabset .tabset-pills}-->
+
+<!-- <hr><br><br> -->
+
+## Objects {.tabset}
+
+Both R and Python make reference to "objects". In both languages, a **class** defines the behavior of objects. However, R and python differ fundamentally in what an object _is_. 
+
+Python is an [object-oriented programming language](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) where the object plays a more fundamental role for how we structure a program. Specifically, OOP allows one to bundle properties and behavior into individual objects. In Python, objects can hold both the data and the methods used to manipulate that data. R, one the other hand, is a [functional programming language](http://adv-r.had.co.nz/Functional-programming.html) where functions are objects and data is manipulated using functions. 
+
+At first glance, the distinction is subtle, but the way we build programs in R and Python differs considerably. In practice, the OOP vs. Functional distinction changes how one engages with objects instantiated in the environment. In Python, methods (functions) are self-contained in the object; whereas in R functions are external to the object. 
+
+Let's explore the differences between objects in both languages. 
+
+<br>
+
+### _
+
+<br><hr>
+
+### Python
+
+<br>
+
+`=` is the **assignment** operator in Python. When using it, a **reference** is assigned to an object (e.g. below, `x` references the object `4` in the statement `x = 4`). There can be multiple references to the same object (more on this below). 
+
+```{python}
+x = 4
+```
+
+An **_objects type_** is defined at runtime (also known as ["duck typing"](https://en.wikipedia.org/wiki/Duck_typing))
+
+- Python is a dynamically typed language, which differs from other languages where type must be made explicit (e.g. cpp)
+- Type cannot be changed once established.
+  
+```{python}
+type(x)
+```
+
+Objects are assigned a unique **_object id_** when initiated in python.
+```{python}
+id(x)
+```
+An objects **_class_** provides a blueprint for object behavior and functionality. We use the pointer `.` to access an objects methods. 
+
+```
+x.
+  |
+  V
+   __add__()  # method dictating behavior to the `+` operator 
+   __mult__() # method dictating behavior to the `*` operator 
+   __mod__()  # method dictating behavior to the `%` operator 
+   __eq__()   # method dictating behavior to the `==` operator 
+     .
+     .
+     .
+```
+
+Objects are **_instantiated_** upon assignment. A **class** has certain properties and methods that we use to assign and access variables and methods (functions) that perform some predefined procedure on the objects. 
+
+For example, below I instantiate a list object containing 4 integer values. `x` is now an object of class 'list', and list classes have different properties and methods than other class types. 
+
+```{python}
+x = [1,2,3,4]
+```
+
+Here we can print out all the different methods using the `dir()` function (which provides an internal directory of all the methods contained within the class). As we can see, there is a lot going on inside this single list object!
+```{python}
+dir(x)
+```
+
+<br><hr>
+
+### R
+
+There are three standard assignment operators in `R`:
+
+- `<-`
+- `=`
+- `assign()`
+
+"Best practice" is to use the `<-` assignment operator.
+
+Below I create three objects and connect them into a single vector using `c()`.
+
+```{r}
+x1 <- 1
+x2 = 2
+assign("x3",3)
+c(x1, x2, x3)
+```
+
+Once assigned, an object has a **_class_**. A class describes the properties of the **_data type_** and/or **_data structure_** assigned to an object. We can use the function `class()` to find out what kind of data type or structure our object is. Understanding what class of object one is dealing with is important as it will determine what kind of manipulations one can do or what functions an object will work with.
+
+```{r}
+x <- 5
+class(x)
+
+y <- "school"
+class(y)
+
+z <- matrix(1:5)
+class(z)
+```
+
+Unlike Python, objects aren't endowed with properties and methods (functions). Rather the class of an object determines what kind of manipulations once do or what functions an object will work with. 
+
+<br><hr>
+
+## Data Types {.tabset}
+
+We've seen that when creating objects in both R and Python, we dynamically assign a class. Object behavior depends on the **_type_** of data that is being stored. Thus, different data types will have different properties. 
+
+Collection data types in Python and data structures in R make it possible to hold multiple scalar data values (or even other data collection types) in a single object. This is quite useful as we can organize vast amounts of information using a single reference. 
+
+However, in order to access the data contained within a specific collection/structure, we need to understand how the data is structured. Specifically, we need to use:
+
+1. a numerical index or named key necessary to access data in the object;
+2. (for Python in particular) class methods that come baked into the object when created. 
+
+For both R and Python data objects, we can make reference to the specific position data using an **index**. There is a key difference between the two languages:
+
+- Python relies on a **zero-based index**;
+- R relies on a **one-based index**. 
+
+What does this means? Well the difference in index makes references to the **_starting position_** of the data entries. For example, consider the following Python list. To access the first position in this list, we make reference to it starting with `0`.
+
+```{python}
+# Python list example
+x = [1,2,3,4,5]
+x[0]
+```
+
+Likewise, consider the following vector in R. To access the first position in the vector, we make reference to it starting with `1`.
+
+```{r}
+# R vector example
+x <- c(1,2,3,4,5)
+x[1]
+```
+
+In short, the difference in the index is determines how you count when referencing positions in the collection. 
+
+To get at the value `3` in the `x` object we'd use the interger `2` in Python (signifying the 3rd position in the list) and a `3` in R (signifying the 3rd position in the vector).
+
+```{python}
+# Python
+x[2]
+```
+
+
+```{r}
+# R
+x[3]
+```
+
+Let's examine the different types of objects that we can create more closely. We'll see that both R and Python have similar data types, but the way we engage with the data object differs considerably between the two languages. 
+
+<br>
+
+### _
+
+<br><hr>
+
+### Python {.tabset}
+
+There are two ways of instantiating a data class in Python:
+
+1. **Literals**: syntatic representation in Python, e.g. `[]`
+2. **Constructors**: class constructors, e.g. `list()`
+
+
+Python comes with a number of built-in data types. When talking about data types, it's useful to differentiate between **_scalar_** types (data types that hold one piece of information, like a digit) and **_collection_** types (data types that hold multiple pieces of information). These built-in data types are the building blocks for more complex data types, like a pandas DataFrame (which we'll cover later). 
+
+<br>
+<br>
+
+#### Scalars
+
+<br>
+
+<center> **Scalar Data Types** </center>
+
+|  _Type_ | _Description_ | _Example_ | _Literal_ | _Constructor_ |
+|:-----:|:-------------|:-----------:|:-----------:|:-----------:|
+| `int`| integer types | `4` |`x = 4` |  `int(4)` |
+|`float`| 64-bit floating point numbers | `4.567` | `x = 4.567` | `float(4)` |
+|`bool`| boolean logical values | `True`| `x = True` | `bool(0)` |
+| `None`|  null object (serves as a valuable place holder) | `None` | `x = None` | | 
+
+<br>
+<br>
+
+Note two things from the above table: 
+
+1. the literal occurs through assignment, and 
+2. the constructor can be used to **_coerce_** one data type into another.
+
+Here we assign an integer (`3`) to the object `x`. 
+```{python}
+x = 3
+x
+type(x)
+```
+
+Now let's coerce the integer to a float using the constructor `float()`.
+
+```{python}
+float(x)
+```
+Note that behavior of the object being coerced depends both on the initial class and the output class. Below we can see that when coercing `3` into an integer class, the value becomes `True`. This is because all non-zero values are treated at `True` in a boolean context. The output depends on the behavior of the `bool()` class. 
+
+```{python}
+bool(3)
+```
+
+Not every object can be coerced. In fact, every class object contains instructions on regarding what constructors it can play along with. Note when we look at all the methods in the `int` object instanitiated in `x`, we see a `__bool__` method. This method provides instructions on how to convert the `int` class into a `bool` class. 
+
+```{python}
+x = 3
+dir(x)
+```
+
+```{python}
+x.__bool__()
+```
+
+> NOTE: the double underscores (`__`) are known as **"dunder"** in Python. Dunder methods describe how the object interfaces with other methods in the Python environment, such as with constructors or operators like addition. 
+
+<br><hr>
+
+#### Collections {.tabset}
+
+<br>
+
+<center> **Collection Data Types** </center>
+
+|  _Type_   |  _Description_  | _Example_ | _Mutable_ | _Literal_ | _Constructor_ |
+|:------:|:------|:------:|:------:|:-----------:|:-----------:|
+| `list` | heterogeneous sequences of objects | `[1,"2",True]` | &#10003; | `x = ["c","a","t"]` | `x = list("cat")` |
+| `str`  | sequences of characters | `"A word"` | &#10008; |  `x = "12345"` | `x = str(12345)` |
+| `dicts`|  associative array of key/value mappings | `{"a": 1}`| keys &#10008; values  &#10003; | `x = {'a':1}` | `x = dict(a = 1)`|
+| `sets` | unordered collection of _distinct_ objects | `{1,2}` | &#10003; | `x = {1,2}` | `x = set([1,2])`|
+|`tuples`| heterogeneous sequence | `(1,2)` | &#10008; | `x = (1,2)` | `x = tuple([1,2])`|
+
+Each built-in collection data type in Python is distinct in important ways. Let's examine some of these differences. Recall that an object's class defines how the object behaves with operators and its methods. I'll explore some of the differences in behavior for each class type. 
+
+<br><hr>
+
+##### _
+
+<br><hr>
+
+##### `list` {.tabset}
+
+**Lists** allow for heterogeneous membership in the various object types. This means one can hold many different data types (even other collection types!). In a list, one can change items contained within the object after creating the instance. This will have important properties and implications (see "Mutable Objects" tab).
+
+```{python}
+x = [1, 2.2, "str", True, None] 
+x
+```
+
+A list constructor takes in an **_iterable object_** as input. (We'll delve more into what makes an object iterable when covering loops in the next lecture, but the key is that the object must have an `.__iter__()` method.)
+
+```{python}
+list("This")
+```
+At it's core, a list is a bucket for collecting different types of information. This makes it useful for collecting data items when one needs to store them. For example, we can store multiple container types in a list.
+
+```{python}
+a = (1,2,3,4) # Tuple
+b = {"a":1,"b":2} # Dictionary
+c = [1,2,3,4] # List
+
+together = [a,b,c] # Combine these different container objects into a list
+together
+```
+
+###### Indices & Slicing
+
+**Using indices with `lists`**
+
+In a list we can extract and replace elements using a 0-based index.
+
+```{python}
+school_name = list("Georgetown")
+school_name
+```
+
+```{python}
+# Access the 6th element in the list
+school_name[5]
+```
+
+```{python}
+# Replace the 6th element with a new item
+school_name[5] = 1000
+school_name
+```
+
+Note that the **_0-based index can also work in reverse_**. We can see how this would play out below. Starting with `-1` one needs to _count backward_ from the end of the list.
+
+```
+standard index:  0,  1 ,   2  ,   3 ,  4
+                [1, 2.2, "str", True, None]
+reverse index:   -5, -4 ,  -3  ,  -2 ,  -1
+```
+
+```{python}
+x[-3]
+```
+Finally, we can reference an entire range of values in a `list` by **slicing**.  We use the `:` operator to slice in Python where we reference the starting and ending positions using integers (as we did when indexing).
+
+<center>`<start here>:<to the value before here>`</center>
+
+The "to the value before here" here part is a little confusing, so let's see it in practice. 
+
+```{python}
+x = [1,2,3,4,5,6]
+x[1:4]
+```
+
+is 
+
+```
+ 0  1  2  3  4  5
+[1, 2, 3, 4, 5, 6]
+    ^  ^  ^
+```
+
+When we leave a one side of the `:` operator open, we get all the values to the end or the beginning, given which side of the `:` operator we left open. 
+
+```{python}
+x[:4]
+```
+
+```{python}
+x[4:]
+```
+
+###### Methods
+
+`list` objects are instantiated with a number of methods upon creation. Outlined below are the different methods available.
+
+<br>
+
+<center>**Methods in object type `list`**</center>
+
+| Method  | Description |
+|:---------|:---------|
+|**`.append()`**| L.append(object) -> None -- append object to end|
+|**`.clear()`**| L.clear() -> None -- remove all items from L|
+|**`.copy()`**| L.copy() -> list -- a shallow copy of L|
+|**`.count()`**| L.count(value) -> integer -- return number of occurrences of value|
+|**`.extend()`**| L.extend(iterable) -> None -- extend list by appending elements from the iterable|
+|**`.index()`**| L.index(value, [start, [stop]]) -> integer -- return first index of value. Raises ValueError if the value is not present.|
+|**`.insert()`**| L.insert(index, object) -- insert object before index|
+|**`.pop()`**| L.pop([index]) -> item -- remove and return item at index (default last). Raises IndexError if list is empty or index is out of range.|
+|**`.remove()`**| L.remove(value) -> None -- remove first occurrence of value. Raises ValueError if the value is not present.|
+|**`.reverse()`**| L.reverse() -- reverse *IN PLACE*|
+|**`.sort()`**| L.sort(key=None, reverse=False) -> None -- stable sort *IN PLACE*|
+
+Let's explore some of the common methods used. 
+
+```{python}
+country_list = ["Russia","Latvia","United States","Nigeria","Mexico","India","Costa Rica"]
+```
+
+**Inserting values**
+
+_Option 1_: use the `.append()` method.
+
+```{python}
+country_list.append("Germany")
+country_list
+```
+_Option 2_: use the `+` (add) operator.
+
+```{python}
+country_list = country_list + ['Canada']
+country_list
+```
+
+> **Addition means "append"?**: Recall that an objects class dictates how it behaves in place of different operators. A `list` object has a `.__add__()` method built into it that provides instructions for what the object should do when it encounters `+` operator. Likewise, when it encounters a `*` multiplication operator and so on. This is why it's so important to know the class that you're using. Different object classes == different behavior.  
+
+**Deleting values**
+
+
+_Option 1_: use the `del` operator + index.
+
+```{python}
+# Drop Latvia
+del country_list[1]
+country_list
+```
+_Option 2_: use the `.remove()` method
+
+```{python}
+country_list.remove("Nigeria")
+country_list
+```
+
+**Sorting values**
+
+```{python}
+country_list.sort()
+country_list
+```
+
+<br><hr>
+
+##### `str` {.tabset}
+
+**_Strings are containers too_**. String elements can be accessed using a 0-based index, much like objects in a list.
+
+```{python}
+s = "This is a string"
+s[:4]
+```
+The literal for a string is quotations: `''` or `""`. When layering quotations, one needs to opt for the quotation type different than the one used to instantiate the string object. 
+
+```{python}
+s = 'This is a "string"'
+print(s)
+
+s = "This is a 'string'"
+print(s)
+```
+
+A **Multiline string** can be created using three sets of quotations. This is useful when writing documentation for a function. 
+
+```{python}
+s2 = '''
+This is a long string!
+    
+    With many lines
+    
+    Many. Lines.
+'''
+print(s2)
+```
+###### Indices and Slicing
+
+Indexing and slicing a `str`ing follows the same logic as a `list`.
+
+```{python}
+school_name = "Georgetown"
+
+school_name[3] # Request a specific position
+
+school_name[-3] # Can negate to "count backwards" in the container
+
+school_name[4:9] # Can use the slice operator 
+```
+
+
+###### Methods
+
+`str` types are really useful because so many common regular expression (regex) methods are baked into the string object when created. Note that the operators for addition and multiplication take on different functionality for strings (as they do for other class objects).
+
+<center>**Methods in object type `str`**</center>
+
+| Method  | Description |
+|:---------|:---------|
+|**`.capitalize()`**| S.capitalize() -> str|
+|**`.casefold()`**| S.casefold() -> str|
+|**`.center()`**| S.center(width[, fillchar]) -> str|
+|**`.count()`**| S.count(sub[, start[, end]]) -> int|
+|**`.encode()`**| S.encode(encoding='utf-8', errors='strict') -> bytes|
+|**`.endswith()`**| S.endswith(suffix[, start[, end]]) -> bool|
+|**`.expandtabs()`**| S.expandtabs(tabsize=8) -> str|
+|**`.find()`**| S.find(sub[, start[, end]]) -> int|
+|**`.format()`**| S.format(*args, **kwargs) -> str|
+|**`.format_map()`**| S.format_map(mapping) -> str|
+|**`.index()`**| S.index(sub[, start[, end]]) -> int|
+|**`.isalnum()`**| S.isalnum() -> bool|
+|**`.isalpha()`**| S.isalpha() -> bool|
+|**`.isdecimal()`**| S.isdecimal() -> bool|
+|**`.isdigit()`**| S.isdigit() -> bool|
+|**`.isidentifier()`**| S.isidentifier() -> bool|
+|**`.islower()`**| S.islower() -> bool|
+|**`.isnumeric()`**| S.isnumeric() -> bool|
+|**`.isprintable()`**| S.isprintable() -> bool|
+|**`.isspace()`**| S.isspace() -> bool|
+|**`.istitle()`**| S.istitle() -> bool|
+|**`.isupper()`**| S.isupper() -> bool|
+|**`.join()`**| S.join(iterable) -> str|
+|**`.ljust()`**| S.ljust(width[, fillchar]) -> str|
+|**`.lower()`**| S.lower() -> str|
+|**`.lstrip()`**| S.lstrip([chars]) -> str|
+|**`.maketrans()`**| Return a translation table usable for str.translate().|
+|**`.partition()`**| S.partition(sep) -> (head, sep, tail)|
+|**`.replace()`**| S.replace(old, new[, count]) -> str|
+|**`.rfind()`**| S.rfind(sub[, start[, end]]) -> int|
+|**`.rindex()`**| S.rindex(sub[, start[, end]]) -> int|
+|**`.rjust()`**| S.rjust(width[, fillchar]) -> str|
+|**`.rpartition()`**| S.rpartition(sep) -> (head, sep, tail)|
+|**`.rsplit()`**| S.rsplit(sep=None, maxsplit=-1) -> list of strings|
+|**`.rstrip()`**| S.rstrip([chars]) -> str|
+|**`.split()`**| S.split(sep=None, maxsplit=-1) -> list of strings|
+|**`.splitlines()`**| S.splitlines([keepends]) -> list of strings|
+|**`.startswith()`**| S.startswith(prefix[, start[, end]]) -> bool|
+|**`.strip()`**| S.strip([chars]) -> str|
+|**`.swapcase()`**| S.swapcase() -> str|
+|**`.title()`**| S.title() -> str|
+|**`.translate()`**| S.translate(table) -> str|
+|**`.upper()`**| S.upper() -> str|
+|**`.zfill()`**| S.zfill(width) -> str|
+
+<br> 
+
+We can leverage the various string methods process textual data. We'll explore text processing later in this course, but for now, it's useful to play around with the various string methods to get a feel for how they work. One thing that should become clear is that one can clean text rather easily with the methods inherent to a string object. 
+
+```{python}
+my_str = "Regression is a common statistical learning technique"
+
+my_str.lower() # convert to lower
+
+my_str.upper() # convert to upper
+
+my_str.replace("Regression","Random Forest") # Replace a word in the string
+
+my_str.split() # Split the string up into a list
+```
+
+
+
+<br><hr>
+
+##### `tuple` {.tabset}
+
+**Tuples** are heterogeneous data collection types meaning, like lists they can take any type of object.
+
+```{python}
+tup = (1,True,"Cat",[5,6,7])
+tup
+```
+
+**Tuples** are immutable in that once created, elements cannot be added or removed. (More on this on the "Mutable vs. Immutable" tab)
+
+```{python,eval=F}
+tup[1] = 44
+```
+
+```
+TypeError: 'tuple' object does not support item assignment
+
+Detailed traceback: 
+  File "<string>", line 1, in <module>
+```
+
+0-based index to access values, though the values cannot be changed.
+
+```{python}
+tup[3]
+```
+
+One can **_unpack_** a tuple into multiple objects. Below we unpack the tuple `(1,2,3)` and store each individual value in a separate object. 
+
+```{python}
+a,b,c = (1,2,3)
+a
+b
+c
+```
+
+**Adding** two or more tuples combines them.
+```{python}
+(1,2,3) + ("A","B")
+```
+
+**Multiplying** a tuple repeats the tuple.
+
+```{python}
+(1,2,3) * 3
+```
+
+<br><hr>
+
+##### `dict` {.tabset}
+
+A **dictionary** is an associative array of key-value pairs, which are indexed by the keys. There is no intrinsic ordering of the keys. 
+
+```{python}
+my_dict = {'b': 4, 'a': 7, 'c': 9.2}
+my_dict
+```
+
+To access values within a dictionary, we reference its key.
+
+```{python}
+my_dict["a"]
+```
+
+Keys can't be changed once created (immutable), but the values can be changed. In addition, keys cannot be duplicates. So each key is associated with a specific data value. This allows for quick look-ups using a concept known as [hashing](https://en.wikipedia.org/wiki/Hash_function).
+
+We can combine dictionary with other data types (such as a list) to make an efficient and effective data structure.
+
+```{python}
+grades = {"John": [90,88,95,86],"Susan":[87,91,92,89],"Chad":[56,None,72,77]}
+```
+
+We can use the keys for efficient look up.
+
+```{python}
+grades["John"]
+```
+
+We can also use the `.get()` method to get the values that correspond to a specific key.
+```{python}
+grades.get("Susan")
+```
+<br>
+
+###### Accessing key-value pairs
+
+To print a listing of all available keys, use the `.keys()` method.
+
+```{python}
+grades.keys()
+```
+
+Likewise, we can print all values using the `.values()` method.
+
+```{python}
+grades.values()
+```
+
+Finally, we can collect all key value pairs (as a tuple) using the `.items()` method.
+
+```{python}
+grades.items()
+```
+<br>
+
+###### Updating 
+
+We can add new dictionary data entries using the `.update()` method.
+
+```{python}
+new_entry = {"Wendy":[99,98,97,94]} # Another student dictionary entry with grades
+grades.update(new_entry) # Update the current dictionary 
+grades
+```
+In a similar fashion, we can update the dictionary directly by providing a new key entry and storing the data.
+
+```{python}
+grades["Seth"] = [66,72,79,81]
+grades
+```
+
+One can also **drop** keys by `.pop()`ing the key value pair out of the collection...
+
+```{python}
+grades.pop("Seth")
+```
+...or deleting the key using the `del` operator.
+```{python}
+del grades['Wendy']
+grades
+```
+
+Likewise, one can drop values by:
+
+- overwriting the original data stored in the key
+- dropping the key (and thus deleting the data value)
+- clearing the dictionary (and deleting _all_ the data values stored within. )
+
+```{python}
+# Example of using .clear()
+grades.clear()
+grades
+```
+<br>
+
+###### Methods
+
+<br>
+
+<center>**Methods in object type `dict`**</center>
+
+| Method  | Description |
+|:---------|:---------|
+|**`.clear()`**| D.clear() -> None.  Remove all items from D.|
+|**`.copy()`**| D.copy() -> a shallow copy of D|
+|**`.fromkeys()`**| Returns a new dict with keys from iterable and values equal to value.|
+|**`.get()`**| D.get(k[,d]) -> D[k] if k in D, else d.  d defaults to None.|
+|**`.items()`**| D.items() -> a set-like object providing a view on D's items|
+|**`.keys()`**| D.keys() -> a set-like object providing a view on D's keys|
+|**`.pop()`**| D.pop(k[,d]) -> v, remove specified key and return the corresponding value. If key is not found, d is returned if given, otherwise KeyError is raised|
+|**`.popitem()`**| D.popitem() -> (k, v), remove and return some (key, value) pair as a 2-tuple; but raise KeyError if D is empty.|
+|**`.setdefault()`**| D.setdefault(k[,d]) -> D.get(k,d), also set D[k]=d if k not in D|
+|**`.update()`**| D.update([E, ]**F) -> None.  Update D from dict/iterable E and F. If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k] If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v In either case, this is followed by: for k in F:  D[k] = F[k]|
+|**`.values()`**| D.values() -> an object providing a view on D's values|
+
+
+<br><hr>
+
+##### `set` 
+
+Sets differ from lists and dictionaries in that we can perform set operations. In addition, no duplicate values are retained in the set, so it provides an efficient way to isolate _unique_ values in a list of inputs.
+
+```{python}
+my_set = {1,2,3,8,4,4,6}
+my_set
+```
+Note that **_values in a set cannot be accessed using an index_**.
+
+```{python,eval=F}
+my_set[1]
+```
+
+```
+TypeError: 'set' object does not support indexing
+
+Detailed traceback: 
+  File "<string>", line 1, in <module>
+```
+
+Rather we either `.pop()` values out of the `set.`
+
+```{python}
+my_set.pop()
+```
+
+Or we can `.remove()` specific values from the `set.`
+
+```{python}
+my_set.remove(3)
+my_set
+```
+
+Finally, note that **sets can contain heterogeneous scalar types, but they cannot contain other _mutable_ container data types**.
+
+```{python}
+set_a = {.5,6,"a",None}
+set_a
+```
+
+In `set_b`, the `list` object is mutable. 
+
+```{python,eval=F}
+set_b = {.5,6,"a",None,[8,5,6]}
+```
+
+```
+TypeError: unhashable type: 'list'
+
+Detailed traceback: 
+  File "<string>", line 1, in <module>
+```
+
+<br>
+
+Here are the `set` **methods** to keep in mind.
+
+<center>**Methods in object type `set`**</center>
+
+| Method  | Description |
+|:---------|:---------|
+|**`.add()`**| Add an element to a set.|
+|**`.clear()`**| Remove all elements from this set.|
+|**`.copy()`**| Return a shallow copy of a set.|
+|**`.difference()`**| Return the difference of two or more sets as a new set.|
+|**`.difference_update()`**| Remove all elements of another set from this set.|
+|**`.discard()`**| Remove an element from a set if it is a member.|
+|**`.intersection()`**| Return the intersection of two sets as a new set.|
+|**`.intersection_update()`**| Update a set with the intersection of itself and another.|
+|**`.isdisjoint()`**| Return True if two sets have a null intersection.|
+|**`.issubset()`**| Report whether another set contains this set.|
+|**`.issuperset()`**| Report whether this set contains another set.|
+|**`.pop()`**| Remove and return an arbitrary set element. Raises KeyError if the set is empty.|
+|**`.remove()`**| Remove an element from a set; it must be a member.|
+|**`.symmetric_difference()`**| Return the symmetric difference of two sets as a new set.|
+|**`.symmetric_difference_update()`**| Update a set with the symmetric difference of itself and another.|
+|**`.union()`**| Return the union of sets as a new set.|
+|**`.update()`**| Update a set with the union of itself and others.|
+
+
+
+
+
+<br><hr>
+
+#### Mutable vs. Immutable
+
+In discussion of the collection data types, I make the distinction between **"mutable"** and **"immutable"** data objects. 
+
+<br><hr>
+
+### R {.tabset}
+
+R comes with a number of built-in data types. When talking about data types, it's useful to differentiate between **_scalar_** types (data types that hold one atomic piece of information, like a digit) and **_data structure_** types (data types that hold multiple pieces of information). A collection in Python and a data structure in R are similar but differ in their flexibility (with the Python collection data types being the most flexible). 
+
+<br>
+
+#### Scalars
+
+<br>
+
+<center> **Scalar Data Types** </center>
+
+|  _Type_ | _Description_ | _Example_ | _Literal_ | _Coercion_ |
+|:-----:|:-------------|:-----------:|:-----------:|:-----------:|
+|  Integers | integer types | `4L` |`x <- 4L` |  `as.interger(4.1)` |
+| Numeric | floating point numbers | `4.567` | `x <- 4.567` | `as.numeric(4)` |
+| Character | string  | `"Hello!"` | `x <- "cat"` | `as.character(4)` |
+| Logical | boolean logical values | `True`| `x <- True` | `as.logical(5)` |
+| Factor | character with corresponding integer value  | `"A" (1)` | `x <- factor("A")` | `as.factor("cat")` | 
+| Missing | missing data value  | `NA` | `x <- NA`  |  | 
+| Null  | empty value | `NULL` | `x <- NULL`  |  | 
+
+Scalar data types in R are the fundamental building blocks from more complex data structures. When compared to Python's scalar data types, a few things should stand out. 
+
+- Characters (strings) are scalar _not_ container data types. A string represents a single atomic value in R. 
+- Factors are unique to R. Factors assign an interger value to each unique character value in the vector. Factors are how R converts non-numeric strings into numerical entries, which is key for statistical analyses. You can't regress a string. 
+- R contains a dedicated coercion method, using the `as.<class name>()`
+
+When need be, an object can be coerced to be a different class.
+
+```{r}
+# Create an integer data object
+x <- 3
+class(x)
+
+# Coerce to a string
+x <- as.character(x)
+class(x)
+```
+
+Don't be thrown off by the `L` in the integer. R is pretty loose with the difference between a numeric and integer value. As we can see below, the integer 1 is actually processed as a numeric entry in practice. 
+
+```{r}
+x <- 1
+class(x)
+```
+The benefit of the `L` syntax is to clearly specify that `1` is an integer. A reason to do this is that `1L` takes up less space on the computer than `1` as a numeric scalar type uses 8 bytes where an integer type only uses 1. In practice, the distinction doesn't really matter. 
+
+
+<br><hr>
+
+#### Data Structures {.tabset}
+
+<center> **Data Structure Types** </center>
+
+| _Type_ | _Description_ | _Constructor_ | _Coercion_ |
+|:------:|:-------------:|:-------------:|:----------:|
+| Vector | A 1-Dim container of homogeneous scalars | `c()` | `as.vector()` |
+| List | A 1-Dim container of heterogeneous data types | `list()` | `as.list()` |
+| Matrix | A 2-Dim container of homogeneous scalars | `matrix()` | `as.matrix()` |
+| Data Frame | A 2-Dim container of heterogeneous scalars | `data.frame()` | `as.data.frame()` |
+| Array | A $n$-D container of homogeneous scalars | `array()` | `as.array()` |
+
+It's important to keep in mind that R was build for statistics, unlike Python which was designed to be a general purpose scripting language. Thus, the data structure in R are specially built for statistical operations. With this in mind, it's no surprise that the `matrix` and `data.frames` are built-in data structures in R. [We need to import special modules to get similar behavior in Python.]
+
+There are **many ways to organize the same piece of information**. Different data structures afford us different advantages and bring with them different limitations. Let's explore the different data structures in R.^[Note that in practice, one rarely encounters an `array`, so we won't go in depth into it's operations. That said, an `array` behaves like a `matrix` just in more than 2 dimensions.]
+
+##### _
+
+<br><hr>
+<br>
+<br>
+
+##### `vector`
+
+<br>
+
+##### `list`
+
+<br>
+
+##### `matrix`
+
+<br>
+
+##### `data.frame`
+
+<br>
+
+
+
+# Practice {.tabset .tabset-pills}
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the previous section. Please answer the questions in your preferred IDE then compare your answers to the ones provided below. 
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Blah blah blah?
+
+<br>
+
+### _
+
+### Python
+
+### R
+
+## Question 2
+
+## Question 3
+
+
+<!-- MOVE THIS MATERIAL TO ANOTHER WEEK -->
+
+<!-- ## Control Sequences and Error Handling{.tabset} -->
+
+<!-- ### _ -->
+
+<!-- ### Python -->
+
+<!-- ### R -->
+
+
+<!-- ## Loops {.tabset} -->
+
+<!-- ### _ -->
+
+<!-- ### Python -->
+
+<!-- ### R -->
+
+
+<!-- ## Functions {.tabset} -->
+
+<!-- ### _ -->
+
+<!-- ### Python -->
+
+<!-- ### R -->
+
+
+<!-- ## Libaries {.tabset} -->
+
+<!-- ### _ -->
+
+<!-- ### Python -->
+
+<!-- ### R -->
+
+
+

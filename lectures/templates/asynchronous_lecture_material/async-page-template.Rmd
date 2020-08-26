@@ -1,0 +1,129 @@
+---
+pagetitle: "PPOL564 | Week XXX - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> LECTURE TITLE <br> _SUBTITLE_</center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week XX </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University </center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- A
+- B
+- C
+
+<br>
+
+**In the Synchronous Lecture**
+
+- A
+- B
+- C
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: XXX
+
+<br>
+
+## Topic 1
+
+### [**Relevant Slides**]()
+
+[VIDEO HERE]
+
+### Code from the video
+
+```{r,eval=F}
+# ENTER CODE
+```
+
+<br><hr><br>
+
+## Topic 2
+
+### [**Relevant Slides**]()
+
+[VIDEO HERE]
+
+### Code from the video
+
+```{r,eval=F}
+# ENTER CODE
+```
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+[Enter Question Here]
+
+<br>
+
+### _
+
+### Answer
+
+## Question 2  {.tabset}
+
+<br>
+
+[Enter Question Here]
+
+<br>
+
+### _
+
+### Answer
+
+## Question 3  {.tabset}
+
+<br>
+
+[Enter Question Here]
+
+<br>
+
+### _
+
+### Answer
+
+

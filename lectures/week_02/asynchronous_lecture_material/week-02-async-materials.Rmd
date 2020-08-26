@@ -1,0 +1,298 @@
+---
+pagetitle: "PPOL564 | Week 2 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Time Travel and Other Necessities <br> _Version Control, Workflow, and Reproducibility_</center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 2 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br> </center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- **Version control** using `git`
+- Using git from the **commandline** 
+- Time traveling with `git` **checkout** & creating alternative realities with **branching**
+- **Tagging** commits for easy navigating
+- Dealing with **merge conflicts**
+
+<br>
+
+**In the Synchronous Lecture**
+
+- **Reproducibility**
+- More on Git/Github 
+  + Linking Git to **Github**
+  + **Cloning** repositories 
+  + Setting up a **`.gitignore`** to ignore files you don't want to commit
+  + Using third-party software to **manage** `git` repositories
+
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 12 minutes
+
+<br>
+
+## Version Control with Git/Github
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=b7467c6b-765b-41db-aa27-ac220107f48d&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+## Git using the Commandline
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7f036a8c-c113-409e-870c-ac21013fa734&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{bash,eval=F}
+# Here are the commandline commands we used in the video
+cd <directory-path> # Set a working directory
+ls                  # List all files in the working directory
+l                   # List all files + hidden files in the working directory
+touch <file-name>   # To create a file
+
+# Here are the git commands that we used in the video 
+git init            # to initialize a git repository
+git status          # to see which files we've staged and git is tracking
+git add <file-name> # to add a file to the staging area (to be committed)
+git commit -m ""    # To create a snap shot of the project (i.e. of all staged files)
+git log             # To look up the timeline of commits
+git log --reflog    # To look up the entire timeline (even when we've gone back in time)
+git checkout <hash-code> # To go back to a previous moment in the project timeline. 
+```
+
+
+<br><hr><br>
+
+## Checking out & Branching
+
+<br>
+
+### [**Visualize Git**](http://git-school.github.io/visualizing-git/#free)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ba5bd788-cc2a-4906-bc98-ac2101570294&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{r,eval=F}
+# Here are the git commands we used in this video
+git commit              # To commit staged changes
+git checkout <hash>     # To checkout a prior snap shot in the project
+git branch <name>       # To create a new named branch
+git branch              # To list off all existing branches
+git merge <branch-name> # To merge one branch with the current branch
+```
+
+
+<br><hr><br>
+
+## Tagging Commits
+
+<br>
+
+### [**Visualize Git**](http://git-school.github.io/visualizing-git/#free)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=cd6678fa-1be4-48a8-b2aa-ac210161d0ec&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{r,eval=F}
+# Here are the git commands we used in this video
+git commit              # To commit staged changes
+git checkout <hash>     # To checkout a prior snap shot in the project
+git branch <name>       # To create a new named branch
+git branch              # To list off all existing branches
+git tag <tag-name>      # To generate a tag for the specific commit
+```
+
+
+<br><hr><br>
+
+## Merge Conflicts
+
+<br>
+
+### [**Visualize Git**](http://git-school.github.io/visualizing-git/#free)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=18c40fac-6d64-417c-9838-ac210165edca&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{r,eval=F}
+# Here are the git commands we used in this video
+git commit                 # To commit staged changes
+git checkout <branch-name> # To checkout branch
+git merge <branch-name>    # To merge one branch with the current branch
+```
+
+<br><hr><br>
+
+# [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+Overwhelmed? No worries. `git` (like most languages) is something you learn best by doing. But here is a cheatsheet to help you along the way. Remember, when programming, cheating is okay! Use Google, use cheatsheets, reference in-class examples --- do whatever it takes to learn.
+
+<br><hr><br>
+
+# [Feedback](https://forms.gle/xUDrCRtxitDLRDZ56)
+
+The following survey asks you quick questions regarding the usefulness of the asynchronous lecture materials. Feedback will be used to modify aspect of the asynchronous materials moving forward.
+
+
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Create a folder called "Practice" on your desktop. Next, use the commandline to navigate to that folder. Finally, initialize a git repository in that folder.
+
+<br>
+
+### _
+
+### Answer
+
+```{bash,eval=F}
+cd ~/Desktop/Practice # Navigate to the Practice/ folder you created
+git init # Initialize a git repository
+```
+
+
+## Question 2  {.tabset}
+
+<br>
+
+Using the git repository that you created in Question 1. Do the following: 
+
+1. Create a simple `.txt` file using the `touch` command (or make this file yourself on your compute). Call the file `test_file.txt`. Add a sentence to this file and then save; 
+2. Add that file to the staging area;
+3. Check to see if the file is staged using `git status`;
+4. Commit that file and add the message "My first commit"; 
+5. Now update the file (i.e., make some change to it) and stage and commit that change;
+6. Look at your git log to see the two commits you made.
+
+<br>
+
+### _
+
+### Answer
+
+```{bash,eval=F}
+# (1) Create a file
+touch test_file.txt # Create the file and open it up and add a sentence
+# Here is another way to create a file with the sentence included 
+echo "This is a file" > test_file.txt
+
+# (2) Add file to the staging area
+git add test_file.txt
+
+# (3) Double check file is staged
+git status
+
+# (4) Commit file
+git commit -m "My first commit"
+
+# (5) Update file and commit. 
+echo "This is a file. New information" > test_file.txt
+git add test_file.txt
+git commit -m "Updated test_file.txt"
+
+# (6) Look at git log to see commits.
+git log
+```
+
+
+## Question 3  {.tabset}
+
+<br>
+
+Using the git repository from Q1 & Q2, let's practice branching and managing merge conflicts.
+
+1. Create and checkout a new branch called "new"
+2. Make a change `test_file.txt` and commit. 
+3. Check out the `master` branch.
+4. Make a change `test_file.txt` and commit; Make sure that change is to the same line as you change in step 2. Make sure the change differs from what you did in step two. 
+5. Now merge the `new` and `master` branches.
+6. Manually resolve the git conflict and then commit the resolved version.
+7. Look at your git log to see the timeline of changes. 
+
+<br>
+
+### _
+
+### Answer
+
+```{bash,eval=F}
+# (1) create and checkout new branch
+git checkout -b "new" 
+
+# (2) Make a change `test_file.txt` and commit. 
+echo "This is a file. New information. More info" > test_file.txt
+git add test_file.txt
+git commit -m "Made change to new branch"
+
+# (3) Check out the `master` branch.
+git checkout master
+
+# (4) Make a change `test_file.txt` and commit
+echo "This is a file. New information. The cat is black." > test_file.txt
+git add test_file.txt
+git commit -m "Added material to test_file"
+
+# (5) Now merge the `new` and `master` branches.
+git merge new
+
+# (6) Manually resolve the git conflict and then commit the resolved version. 
+# Do this by openning the file and manually correcting the discrepancy. 
+git add test_file.txt
+git commit -m "managed the merge conflict"
+
+# (7) Look at your git log to see the timeline of changes.
+git log
+```
+
+
+
+

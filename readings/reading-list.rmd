@@ -201,16 +201,16 @@ output:
 
 - **_Required Readings_**
 
+  + _Databases_
+      - [SQL to Pandas DataFrame (with examples)](https://datatofish.com/sql-to-pandas-dataframe/) - datatofish.com
+
   + _Web Scraping_
       - [Tutorial: Python Web Scraping Using BeautifulSoup](https://www.dataquest.io/blog/web-scraping-tutorial-python/) - dataquest.io
       + _On the legality of webscraping_
           + [Web Scraping and Crawling are Perfectly Legal, Right?](https://benbernardblog.com/web-scraping-and-crawling-are-perfectly-legal-right/)
           
-  + _APIs_
-      - [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/) - realpython.org
-      
-  + _Databases_
-      - [SQL to Pandas DataFrame (with examples)](https://datatofish.com/sql-to-pandas-dataframe/) - datatofish.com
+  <!-- + _APIs_ -->
+  <!--     - [API Integration in Python – Part 1](https://realpython.com/api-integration-in-python/) - realpython.org -->
       
   + _Documents_ (PDF, Word)
       - [Chapter 13 – Working with PDF and Word Documents](https://automatetheboringstuff.com/chapter13/) - automatetheboringstuff.com
