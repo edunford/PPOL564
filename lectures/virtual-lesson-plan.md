@@ -8,8 +8,9 @@ None
 
 ### _Synchronous_ Component
 
-- Course overview, learning objectives, assignments.
+- Course overview & learning objectives
 - Introduce TA and talk about office hours.
+- Assignments
 - Review three IDEs: Jupyter Notebook, Atom + Hydrogen, RStudio
   - Outline the 
   - Go over Jupyter Magic Commands
@@ -41,34 +42,40 @@ None
     + Setting up a github remote and pushing to that remote.
     + .gitignore
     + Importing a git repository from github.
-    + Using Git with Jupyter Notebooks, Atom, RStudio
+  + Advanced git
+    - `git log --graph` to visualize the log
+    - `git diff <commit1> <commit2>` to look at what changed. 
     
-+ Practice working with Git:
-  + Have students download an example repository.
-  + Have them answer 3 or 4 questions using the repository (questions that require them to checkout, revert, & merge)
-  + Go over as a class
+  + Practice working with Git:
+    + Complete Git Scavenger Hunt in Breakout Groups
+      + Distribute repository manually (so branch info remains)
+      + Go over as a class
+
+  + Using Git with Atom and RStudio
   
-+ Talk about coding discussions & first one. 
+  + Talk about coding discussions and assign the first one. 
 
 # Week 3: Intro to Python Week
 
 ### _Asynchronous_ Component
 
 - Conceptual video on objects in Python
-- "Batteries Included" and installing Modules
 - Scalar Data Types
   + type, methods, 
 - Data Containers
   + short video on each
   + Indices and keys
-- Mutable/Immutability + copying 
+  + Mutable/Immutability
+-  Shall/Deep Copies
 
 ### _Synchronous_ Component 
 
 - COVER:
-  - Indices and Keys
   - loops + control sequences
   - writing functions: how and when to do so. 
+  - Modules: 
+      - "Batteries Included"
+      - installing Modules using pip
   - Writing programs: .py script
   
 - BREAKOUT:

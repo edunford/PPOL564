@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science I - Foundations   Reproducibility</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science I - Foundations </font> <font size=100, face="bold"> Reproducibility</font> <br> <br>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science I - Foundations
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 2 &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Work Flow and Reproducibility&lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+## We focus on things like this...
+
+&lt;!-- &lt;img src="figures/lecture01_ethnic-exposure-boko-haram.png" width="600"&gt; --&gt;
+
+.center[![description of the image](figures/lecture01_gapminder-animation.gif)]
+
+---
+
+## And forget the reality that is this... 
+
+.center[&lt;img src="figures/lecture01_messy-files.png" width="800"&gt;]
+
+
+---
+
+## Reproducibility with a captial "R"
+
+**...is fundamental to the scientific method, but it is also a &lt;u&gt; practical reality &lt;/u&gt;.**
+
+&lt;br&gt;
+
+- juggling multiple versions of the same file
+
+- collaboration can create conflicts across versions
+
+- projects are picked up and put down &amp;rarr; tracing the progression of a project across a spiderweb of files is not always easy (or possible)
+
+- new people enter the fray &amp;rarr; getting them up-to-speed means walking them through the labyrinth, which wastes time and resources.
+
+---
+
+# Generating Reproducible Work
+
+&lt;br&gt;
+### 1. Readable
+
+### 2. Portable
+
+### 3. Well-Named
+
+### 4. Repeatable
+
+### 5. Version Control
+
+---
+
+## Readable
+
+
+```python
+x = np.random.normal(size=100)
+y = 1 + 2*x + np.random.normal(size=100)
+plt.scatter(x,y)
+```
+
+vs.
+
+
+```r
+# Monte Carlo Simulation of a bivariate linear regression
+
+sample_size = 100  # simulated sample size
+
+indep_var = np.random.normal(size=sample_size) # independent variable
+
+error = np.random.normal(size=sample_size) # simulate error
+
+# generate dependent variable as function of the
+# independent variable and some error.
+dep_var = 1 + 2*indep_var + error 
+
+# plot values
+plt.scatter(indep_var,dep_var)
+```
+
+
+???
+
+- Well Commented Code and Functions**
+- Well-Named Objects
+- Leverage Spacing
+
+To a degree, Code (like writing) should be more Hemmingway than Faulkner: concise,
+clear, readable.
+
+---
+
+## Portable
+
+- **Project can easily travel across computers**
+    - Python's Virtual Environments (`venv`) and R Project (`.rproj`)
+
+- **Scripts avoid "machine" specific designations**
+    + Avoid **specific file paths**: `/Users/my-user-name/data-projects/my-project`
+    + **Retain software and packages versions**.
+      
+- **Use text files**
+    + Not software dependent (e.g. .docx, .ia); Can open on any system
+    + Can be easily searched via the commandline
+    + Easy to track changes via version control
+
+---
+
+# Well-named
+
+- **No spaces!**
+    + A space between designations can mean many things
+    + spaces are ambiguous for the computer
+    + `data analysis 2.py` &amp;rarr; `data-analysis-2.py`
+    
+- **Names that state the purpose of the file** (no matter how long).
+    + `data-analysis-2.py` &amp;rarr; `Analysis01_wrangling-census-data-for-visualization_v2.py`
+ 
+---
+
+# Well-named   
+  
+- Maintain **designated folders** for different aspects of the project.
+
+```bash
+data-project
+├── raw-data/        # Where our input data lives
+├── output-data/     # Where our manipulated data lives
+├── py/              # Where our Python functions live
+├── R/               # Where our R functions live
+├── figures/         # Where our generated figures live
+├── reports/         # Where our text-based (.tex/.md/.txt) live
+└── analysis/        # Where our analyses live
+```
+
+---
+
+## Repeatable
+
+&lt;br&gt;&lt;br&gt;
+
+- **Every step of the project can be expressed as code**
+
+- **Automate what you can**
+
+- **Use functions to repeat common tasks**
+
+- **Clearly state all dependencies** (i.e. packages/modules) at the top of every script
+
+---
+
+## Version Control
+
+&lt;br&gt;
+
+- **Retain a record of all changes** made throughout the **_project's lifespan_**
+
+- **Easily handle collaboration**:
+    + track who did what
+    + uniform method dealing with conflicting changes
+    
+- **Provides a room for experimentation and non-linear exploration**
+
+- No more **version file names**!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": true,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,937 @@
+---
+pagetitle: "PPOL564 | Week 3 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Learning Parseltongue <br> _Object-Oriented Programming in Python_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 3 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Let the intuition behind **objects** in Python
+- Explore the different built-in **data types**.
+- Examine how to look up values in collection data type using an **index** and/or **key**
+- Learn about the issues that can arrise when copying mutable objects. 
+
+<br>
+
+**In the Synchronous Lecture**
+
+- **Importing** "batteries-included" modules
+- Explore iterating through containers using **loops**
+- Control the behavior of code when iterating using **control sequences** and **error handling**
+- **installing** modules.
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Objects & Classes
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=13c22759-b1dd-4682-90d2-ac25013fd590&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br>
+
+Python is an [object-oriented programming language](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) where the object plays a more fundamental role for how we structure a program. Specifically, OOP allows one to bundle properties and behavior into individual objects. In Python, objects can hold both the data and the methods used to manipulate that data.
+
+`=` is the **assignment** operator in Python. When using it, a **reference** is assigned to an object (e.g. below, `x` references the object `4` in the statement `x = 4`). There can be multiple references to the same object (more on this later). 
+
+```{python}
+x = 4
+```
+
+An **_objects type_** is defined at runtime (also known as ["duck typing"](https://en.wikipedia.org/wiki/Duck_typing)). Python is a dynamically typed language, which differs from other languages where type must be made explicit (e.g. C++, Java). Type cannot be changed once an object is created (coercing an object into a different type actually creates a new object).
+  
+```{python}
+type(x)
+```
+
+Objects are assigned a unique **_object id_** when initiated in python.
+```{python}
+id(x)
+```
+An objects **_class_** provides a blueprint for object behavior and functionality. We use the pointer `.` to access an objects methods. 
+
+```
+x.
+  |
+  V
+   __add__()  # method dictating behavior to the `+` operator 
+   __mult__() # method dictating behavior to the `*` operator 
+   __mod__()  # method dictating behavior to the `%` operator 
+   __eq__()   # method dictating behavior to the `==` operator 
+     .
+     .
+     .
+```
+
+Object's class is [**_instantiated_**](https://www.tutorialspoint.com/Explain-Inheritance-vs-Instantiation-for-Python-classes#:~:text=Instantiating%20a%20class%20is%20creating,__init__%20method%20defines.) upon assignment. For example, below I instantiate a collection object containing 4 integer values. `x` is now an object of class 'set', and `set` classes have different properties and methods than other class types, such as `dict`ionaries, `tuple`s, and/or `list`s. 
+
+```{python}
+x = set([1,2,3,4])
+```
+
+Here we can print out all the different methods using the `dir()` function (which provides an internal directory of all the methods contained within the class). As we can see, there is a lot going on inside this single `set` object!
+```{python}
+dir(x)
+```
+
+
+<br><hr><br>
+
+## Data Types {.tabset}
+
+<br>
+
+There are two ways of instantiating a data class in Python:
+
+1. **Literals**: syntatic representation in Python, e.g. `[]`
+2. **Constructors**: class constructors, e.g. `list()`
+
+
+Python comes with a number of built-in data types. When talking about data types, it's useful to differentiate between **_scalar_** types (data types that hold one piece of information, like a digit) and **_collection_** types (data types that hold multiple pieces of information). These built-in data types are the building blocks for more complex data types, like a pandas DataFrame (which we'll cover later). 
+
+<br>
+
+### _
+
+<br><hr><br>
+
+### Scalars
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4e194a17-2e8b-4224-a669-ac2501456860&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br>
+
+<center> **Scalar Data Types** </center>
+
+|  _Type_ | _Description_ | _Example_ | _Literal_ | _Constructor_ |
+|:-----:|:-------------|:-----------:|:-----------:|:-----------:|
+| `int`| integer types | `4` |`x = 4` |  `int(4)` |
+|`float`| 64-bit floating point numbers | `4.567` | `x = 4.567` | `float(4)` |
+|`bool`| boolean logical values | `True`| `x = True` | `bool(0)` |
+| `None`|  null object (serves as a valuable place holder) | `None` | `x = None` | | 
+
+<br>
+
+Note two things from the above table: 
+
+1. the literal occurs through assignment, and 
+2. the constructor can be used to **_coerce_** one data type into another.
+
+Here we assign an integer (`3`) to the object `x`. 
+```{python}
+x = 3
+x
+type(x)
+```
+
+Now let's coerce the integer to a float using the constructor `float()`.
+
+```{python}
+float(x)
+```
+
+Note that behavior of the object being coerced depends both on the initial class and the output class. Below we can see that when coercing `3` into an integer class, the value becomes `True`. This is because all non-zero values are treated at `True` in a boolean context. The output depends on the behavior of the `bool()` class. 
+
+```{python}
+bool(3)
+```
+
+Not every object can be coerced. In fact, every class object contains instructions on regarding what constructors it can play along with. Note when we look at all the methods in the `int` object instanitiated in `x`, we see a `__bool__` method. This method provides instructions on how to convert the `int` class into a `bool` class. 
+
+```{python}
+x = 3
+dir(x)
+```
+
+```{python}
+x.__bool__()
+```
+
+> NOTE: the double underscores (`__`) are known as **"dunder"** in Python. Dunder methods describe how the object interfaces with other methods in the Python environment, such as with constructors or operators like addition. 
+
+Finally, all scalar data types are **immutable**, meaning they can't be changed after assignment. When we make changes to a data type, say by coercing it to be another type as we do above, we're actually **_creating a new object_**. We can see this by looking at the object id. 
+
+> `id()` tells us the "identity" of an object. That shouldn't mean anything to you. Just know that when an object id is the same, it's referencing the same data in the computer. We'll explore the implications of this when we look at copying. 
+
+```{python}
+x = 4
+id(x) 
+```
+Here we coerce `x` to be a `float` and then look up its `id()`. As we can see, there is a new number associated with it. This means `x` is a different object after coercion. 
+```{python}
+id(float(x))
+```
+
+
+<br><hr><br>
+
+### Collections {.tabset}
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=82a7a314-686a-4af6-af89-ac2501496212&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br>
+
+<center> **Collection Data Types** </center>
+
+|  _Type_   |  _Description_  | _Example_ | _Mutable_ | _Literal_ | _Constructor_ |
+|:------:|:------|:------:|:------:|:-----------:|:-----------:|
+| `list` | heterogeneous sequences of objects | `[1,"2",True]` | &#10003; | `x = ["c","a","t"]` | `x = list("cat")` |
+| `str`  | sequences of characters | `"A word"` | &#10008; |  `x = "12345"` | `x = str(12345)` |
+|`tuples`| heterogeneous sequence of objects | `(1,2)` | &#10008; | `x = (1,2)` | `x = tuple([1,2])`|
+| `sets` | unordered collection of _distinct_ objects | `{1,2}` | &#10003; | `x = {1,2}` | `x = set([1,2])`|
+| `dicts`|  associative array of key/value mappings | `{"a": 1}`| keys &#10008;<br>values  &#10003; | `x = {'a':1}` | `x = dict(a = 1)`|
+
+Each built-in collection data type in Python is distinct in important ways. Recall that an object's class defines how the object behaves with operators and its methods. I'll explore some of the differences in behavior for each class type so we can see what this means in practice 
+
+<br>
+
+#### _
+
+<br><hr><br>
+
+
+#### Mutable vs. Immutable
+
+
+<br>
+
+Note the column referring to **Mutable** and **Immutable** collection types. Simply put, mutable objects can be changed after it is created, immutable objects cannot be changed. _All the scalar data types are immutable_. Even when we coerced objects into a different class, we aren't changing the existing object, we are creating a new one.  
+
+Some collection types, however, allow us to edit the data values contained within without needing to create a new object. This can allow us to effectively use the computer's memory. It can also create some problems down the line if we aren't careful (see the tab on copies). 
+
+In practice, **_mutability means we can alter values in the collection on the fly_**. 
+
+```{python}
+my_list = ["sarah","susan","ralph","eddie"]
+id(my_list)
+```
+
+```{python}
+my_list[1] = "josh"
+my_list
+id(my_list) # Still the same object, even though we changed something in it
+```
+
+**Immutability**, on the other hand, means that we **_cannot alter values after the object is created_**. Python will throw an error at us if we try.
+
+```{python,eval=F}
+my_tuple =("sarah","susan","ralph","eddie")
+my_tuple[1] = "josh"
+```
+
+```
+TypeError: 'tuple' object does not support item assignment
+```
+
+<br><hr><br>
+
+#### `list` {.tabset}
+
+<br>
+
+**Lists** allow for _heterogeneous_ membership in the various object types. This means one can hold many different data types (even other collection types!). In a list, one can change items contained within the object after creating the instance. 
+
+```{python}
+x = [1, 2.2, "str", True, None] 
+x
+```
+
+A list constructor takes in an **_iterable object_** as input. (We'll delve more into what makes an object iterable when covering loops, but the key is that the object must have an `.__iter__()` method.)
+
+```{python}
+list("This")
+```
+
+At it's core, a list is a bucket for collecting different types of information. This makes it useful for collecting data items when one needs to store them. For example, we can store multiple container types in a list.
+
+```{python}
+a = (1,2,3,4) # Tuple
+b = {"a":1,"b":2} # Dictionary
+c = [1,2,3,4] # List
+
+together = [a,b,c] # Combine these different container objects into a single list
+together
+```
+
+
+A `list` class has a range of specific *methods* geared toward querying, counting, sorting, and adding/removing elements in the container. [**For a list of all the `list` methods, see here.**](https://www.w3schools.com/python/python_ref_list.asp)
+
+Let's explore some of the common methods used. 
+
+```{python}
+country_list = ["Russia","Latvia","United States","Nigeria","Mexico","India","Costa Rica"]
+```
+
+**Inserting values**
+
+_Option 1_: use the `.append()` method.
+
+```{python}
+country_list.append("Germany")
+country_list
+```
+_Option 2_: use the `+` (add) operator.
+
+```{python}
+country_list = country_list + ['Canada']
+country_list
+```
+
+> **Addition means "append"?**: Recall that an objects class dictates how it behaves in place of different operators. A `list` object has a `.__add__()` method built into it that provides instructions for what the object should do when it encounters `+` operator. Likewise, when it encounters a `*` multiplication operator and so on. This is why it's so important to know the class that you're using. Different object classes == different behavior.  
+
+**Deleting values**
+
+
+_Option 1_: use the `del` operator + index.
+
+```{python}
+# Drop Latvia
+del country_list[1]
+country_list
+```
+_Option 2_: use the `.remove()` method
+
+```{python}
+country_list.remove("Nigeria")
+country_list
+```
+
+**Sorting values**
+
+```{python}
+country_list.sort()
+country_list
+```
+
+<br><hr><br>
+
+#### `str` 
+
+<br>
+
+**_Strings are containers too_**. String elements can be accessed using an index, much like objects in a list (See the tab on indices and keys).
+
+```{python}
+s = "This is a string"
+s[:4]
+```
+
+The literal for a string is quotations: `''` or `""`. When layering quotations, one needs to opt for the quotation type different than the one used to instantiate the string object. 
+
+```{python}
+s = 'This is a "string"'
+print(s)
+
+s = "This is a 'string'"
+print(s)
+```
+
+A **Multiline string** can be created using three sets of quotations. This is useful when writing documentation for a function. 
+
+```{python}
+s2 = '''
+This is a long string!
+    
+    With many lines
+    
+    Many. Lines.
+'''
+print(s2)
+```
+
+
+String are quite versatile in Python! In fact, many of the manipulations that we like to perform on strings, such as splitting text up (also known as "tokenizing"), cleaning out punctuation and characters we don't care for, and changing the case (to name a few) are **_built into the string class method_**. 
+
+For example, say we wanted to convert a string to upper case.
+```{python}
+str1 = "the professor is here!"
+str1.upper()
+```
+
+Or remove words.
+
+```{python}
+str1.replace("professor","student")
+```
+
+This is just a taste. The best way to learn what we can do with a string is to use it. We'll deal with strings all the time when dealing with public policy data. So keep in mind that the `str` data type is a powerful tool in Python. [**For a list of all the `str` methods, see here.**](https://www.w3schools.com/python/python_ref_string.asp)
+
+<br><hr><br>
+
+
+#### `tuple`
+
+<br> 
+
+Like a `list`, a `tuple` allows for _heterogeneous_ membership among the various scalar data types. However, unlike a `list`, a `tuple` is immutable, meaning you cannot change the object after creating it. 
+
+The **literal** for a `tuple` is the parentheses `()`
+```{python}
+my_tuple = (1,"a",1.2,True)
+my_tuple
+```
+The constructor is `tuple()`. Like the `list` constructor, `tuple()` an **_iterable object_** (like a `list`) as an input.
+
+```{python}
+my_tuple = tuple([1,"a",1.2,True])
+my_tuple
+```
+
+Tuples are valuable if you want a data value to be fixed, such as if it were an index on a data frame, denoting a unit of analysis, or key on a dictionary. Tuples pop up all the time in the wild when dealing with more complex data modules, like Pandas. So we'll see them again and again. 
+
+One nice thing that tuples allow for is **_unpacking_**. Unpacking allows one to deconstruct the `tuple` object into named references (i.e. assign the values in the `tuple` to their own objects). This allows for flexibility regarding which objects we want when performing sequential operations, like iterating.
+
+```{python}
+my_tuple = ("A","B","C")
+
+# Here we're unpacking the three values into their own objects
+obj1, obj2, obj3 = my_tuple 
+
+# Now let's print each object
+print(obj1)
+print(obj2)
+print(obj3)
+```
+
+Also, like a `list`, a `tuple` can store different collection data types as well as the scalar types. For example, we can store multiple container types in a `tuple`.
+
+```{python}
+a = (1,2,3,4) # Tuple
+b = {"a":1,"b":2} # Dictionary
+c = [1,2,3,4] # List
+
+together = (a,b,c) # Combine these different container objects into a single tuple
+together
+```
+
+As we've seen, the way `tuple`s (and other collection data types) behave when using operators such as addition and multiplication differ from the classic numerical operations that we're used to. This is because the collection type have a special `.__add__` and `.__mult__` methods the outline how the data type should behave when these operations are in play. 
+
+Let's see what this looks like in practice. **Adding** two or more tuples combines them.
+```{python}
+(1,2,3) + ("A","B")
+```
+
+**Multiplying** a `tuple` repeats the `tuple.`
+
+```{python}
+(1,2,3) * 3
+```
+
+
+A `tuple` class has a more limited range of *methods* (two in fact!) geared toward counting and locating elements in the container. The reason a `tuple` has so few methods when compared to a `list` is because we can't edit values in a tuple (i.e. it's immutable) so all those methods built toward that end don't cut it here. [**For a list of all the `tuple` methods, see here.**](https://www.w3schools.com/python/python_ref_tuple.asp)
+
+
+<br><hr><br>
+
+#### `set`
+
+<br>
+
+A `set` is an unordered collection of unique elements (this just means there can be no duplicates). `set` is a mutable data type (elements can be added and removed). Moreover, the `set` methods allow for set algebra. This will come in handy if we want to know something about unique values and membership. 
+
+The **literal** for `set` is the brackets `{}`.^[Note that this is very similar to the literal for a `dict`ionary but in that data structure we define a key/value pair (see the `dict` tab)]
+
+```{python}
+my_set = {1,2,3,3,3,4,4,4,5,1}
+my_set
+```
+
+The **constructor** is `set()`. As before, it takes an iterable object as an input.
+```{python}
+new_set1 = set([1,2,4,4,5])
+new_set1
+
+new_set2 = set("Georgetown")
+new_set2
+```
+
+In the above, we can see that order isn't a thing for a `set`. 
+
+We can add elemets to a `set` using the `.add()` or `.update()` methods.
+
+```{python}
+my_set.add(6)
+my_set
+
+my_set.update({8})
+my_set
+```
+
+Where a `set` really shines is with the set operations. Say we had a set of country names.
+```{python}
+countries = {"nigeria","russia","united states","canada"}
+```
+
+And we wanted to see which countries from our set were in another set (say another data set). Not a problem for a set!
+
+```{python}
+other_data = {"nigeria","netherlands","united kingdom","canada"}
+```
+
+Which countries are in both sets?
+```{python}
+countries.intersection(other_data)
+```
+Which countries are in our data but not in the other data?
+```{python}
+countries.difference(other_data)
+```
+
+Note that **_values in a set cannot be accessed using an index_**.
+
+```{python,eval=F}
+my_set[1]
+```
+
+```
+TypeError: 'set' object does not support indexing
+
+Detailed traceback: 
+  File "<string>", line 1, in <module>
+```
+
+Rather we either `.pop()` values out of the `set.`
+
+```{python}
+my_set.pop()
+```
+
+Or we can `.remove()` specific values from the `set.`
+
+```{python}
+my_set.remove(3)
+my_set
+```
+
+Finally, note that **sets can contain heterogeneous scalar types, but they cannot contain other _mutable_ container data types**.
+
+```{python}
+set_a = {.5,6,"a",None}
+set_a
+```
+
+In `set_b`, the `list` object is mutable. 
+
+```{python,eval=F}
+set_b = {.5,6,"a",None,[8,5,6]}
+```
+
+```
+TypeError: unhashable type: 'list'
+```
+
+All this is barely scratching the surface of what we can do with sets. [**For a list of all the `set` methods, see here.**](https://www.w3schools.com/python/python_ref_set.asp)
+
+
+<br><hr><br>
+
+
+#### `dict`
+
+<br>
+
+A dictionary is the true star of the Python data types. `dict` is an associative array of key-value pairs. That means, we have some data (value) that we can quickly reference by calling its name (key). As we'll see next week, this allows for a very efficient way to look data values, especially when the dictionary is quite large. 
+
+There is no intrinsic ordering to the keys, and keys can't be changed once created (that is, the keys are immutable), but the values can be changed (assuming that the data type occupying the value spot is mutable, like a `list`). Finally, keys cannot be duplicated. Recall we're going to use the keys to look up data values, so if those keys were the same, it would defeat purpose!
+
+The **literal** for a `dict` is `{:}` as in  `{<key>:<value>}`.
+```{python}
+my_dict = {'a': 4, 'b': 7, 'c': 9.2}
+my_dict
+```
+The **constructor** is `dict()`. Note the special way we can designate the key value pairing when using the constructor. 
+```{python}
+my_dict = dict(a = 4.23, b = 10, c = 6.6)
+my_dict
+```
+
+The `dict` class has a number of methods geared toward listing the information contained within. To access the `dict`'s keys, use the `.keys()` method.
+
+```{python}
+my_dict.keys()
+```
+Just want the values? Use `.values()`
+```{python}
+my_dict.values()
+```
+Want both? Use `.items()`. Note how the data comes back to us --- as `tuple`s nested in a `list`! This just goes to show you how intertwined the different data types are in Python. 
+```{python}
+my_dict.items()
+```
+
+We can combine dictionary with other data types (such as a list) to make an efficient and effective data structure.
+
+```{python}
+grades = {"John": [90,88,95,86],"Susan":[87,91,92,89],"Chad":[56,None,72,77]}
+```
+
+We can use the keys for efficient look up.
+
+```{python}
+grades["John"]
+```
+
+We can also use the `.get()` method to get the values that correspond to a specific key.
+```{python}
+grades.get("Susan")
+```
+
+**Updating Dictionaries**
+
+We can add new dictionary data entries using the `.update()` method.
+
+```{python}
+new_entry = {"Wendy":[99,98,97,94]} # Another student dictionary entry with grades
+grades.update(new_entry) # Update the current dictionary 
+grades
+```
+
+In a similar fashion, we can update the dictionary directly by providing a new key entry and storing the data.
+
+```{python}
+grades["Seth"] = [66,72,79,81]
+grades
+```
+
+One can also **drop** keys by `.pop()`ing the key value pair out of the collection...
+
+```{python}
+grades.pop("Seth")
+```
+...or deleting the key using the `del` operator.
+
+```{python}
+del grades['Wendy']
+grades
+```
+
+Likewise, one can drop values by:
+
+- overwriting the original data stored in the key
+- dropping the key (and thus deleting the data value)
+- clearing the dictionary (and deleting _all_ the data values stored within. )
+
+```{python}
+# Example of using .clear()
+grades.clear()
+grades
+```
+
+
+This is barely scratching the surface. [**For a list of all the `dict` methods and all the things you can do with a dictionary, see here.**](https://www.w3schools.com/python/python_ref_dictionary.asp)
+
+
+<br><hr><br>
+
+
+## Indices & Keys 
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7ff3d393-8e57-437d-bb06-ac2501547059&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br>
+
+### Code from the video
+
+```
+0-based index
+
+    standard index:  0,  1 ,   2  ,   3 ,  4
+                    [1, 2.2, "str", True, None]
+    reverse index:   -5, -4 ,  -3  ,  -2 ,  -1
+```
+
+
+```{python,eval=F}
+# %% Indices -----------------------------------------
+
+  # Define a list 
+  x = [1, 2.2, "str", True, None]
+  x
+
+  # can see how many values are in our container with len()
+  len(x)
+  
+  # Can look up individual data values by referencing its location
+  x[3]
+  
+  # Python throws an error if we reference an index location that doesn't exist
+  x[7]
+  
+  # We use a negative index to count BACKWARDS in our collection data type.
+  x[-3]
+
+
+# %% Slicing -----------------------------------------
+
+  # We use the : operator to slice (i.e. select ranges of values)
+  # Slicing in a nutshell <start-here>:<go-until-right-before-here>
+  
+  # To pull out values in position 1 and 2
+  x[1:3]
+  
+  # When we leave left or right side blank, Python implicitly goes to the beginning or end
+  x[:3]
+  x[2:]
+
+# %% Keys -----------------------------------------
+
+  # Define a dictionary
+  grades = {"John":[90,88,95,86],"Susan":[87,91,92,89],"Chad":[56,None,72,77]}
+
+  # Unlike lists/tuples/sets, we use a key to look up a value in a dictionary
+  grades["John"]
+  
+  # We can then index in the data structure housed in that key's value position
+  # as is appropriate for that data object
+  grades["John"][1]
+```
+
+<br><hr><br>
+
+## Copies
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=e106c922-fe35-4e91-a852-ac25016ec0ae&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br>
+
+
+### Code from the video
+
+```{python,eval=F}
+# Copies with mutable objects -----------------------
+
+# Create a list object
+x = ["a","b","c","d"]
+
+# Dual assignment: when objects reference the same data.
+x = y
+print(id(x)) 
+print(id(y))
+
+# If we make a change in one
+y[1] = "goat"
+
+# That change is reflected in the other
+print(x)
+
+# Because these aren't independent objects
+
+# We can get around this issue by making **copies**
+y = x.copy() # Here y is a copy of x.
+# This duplicates the data in memory, so that y and x are independent. 
+
+# Three ways to make a copy:
+# (1) Use copy method
+y = x.copy()
+# (2) Use constructor
+y = list(x)
+# (3) Slice it
+y = x[:]
+
+
+# Copies with nested objects -----------------------
+nested_list = [[1,2,3],[4,7,88],[69,21,9.1]]
+
+# Create a shallow copy
+new_list = nested_list.copy()
+
+# This copy only works for the "first layer" in the nested data structure.
+new_list[0][1] = 1000
+print(nested_list)
+
+# Creating a deep copy
+import copy
+new_list = copy.deepcopy(nested_list)
+```
+
+<br><hr><br>
+
+
+# [Feedback](https://forms.gle/AyQryE4TnAeJm4cr8)
+
+The following survey asks you quick questions regarding the usefulness of the asynchronous lecture materials. Feedback will be used to modify aspect of the asynchronous materials moving forward.
+
+
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Let's looks look at a `list` scalar data type. If you run the directory `dir()` on an list object, you'll note the following functions: `.append()`, `.clear()`,`.copy()`, `.count()`, `.extend()`, `.index()`, `.insert()`, `.pop()`, `.remove()`,`.reverse()`, and `.sort()`.
+
+Let's exlpore these functions using the following `list` object, by answering the below questions.
+
+```{python}
+friends = ["Benny","Juice","Hewy","Samantha"]
+```
+
+1. Add "Ralph" to the list.
+2. Look up the index position for "Hewy".
+3. Pop and/or remove "Juice" from the list. 
+4. Sort the list in alphabetical order.
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+friends = ["Benny","Juice","Hewy","Samantha"]
+
+# (1) Add "Ralph" to the list.
+
+# There are a few ways we could do this.
+friends.append("Ralph") # Append
+friend = friends + ["Ralph"] # Addition == Append
+friend.extend(["Ralph"])
+
+# Notice that when using the methods, the operation occurs in place (i.e. we
+# don't need to write over the object). But now I have two more Ralphs than I intended. Let's drop those with remove and pop
+friend.pop() # Pop out the last item in the list
+friend.remove("Ralph")
+
+# Note when we pop that value can be assigned to an object. 
+
+# (2) Look up the index position for "Hewy".
+friend.index("Hewy")
+
+# (3) Pop and/or remove "Juice" from the list. 
+friend.remove("Juice")
+
+# Or
+# loc_of_juice = friend.index("Juice")
+# friend.pop(loc_of_juice) 
+
+# (4) Sort the list in alphabetical order.
+friend.sort()
+```
+
+
+## Question 2  {.tabset}
+
+<br>
+
+Use the following dictionary containing student grades to answer the questions below. 
+
+```{python}
+grades = {"John": [90,88,95,86],"Susan":[87,91,92,89],"Chad":[56,None,72,77]}
+```
+
+
+1. Look up the keys in the dictionary, and story them in a `list` object called `keys`
+2. Your students just finished another assignment. John received an 83, Susan a 92, and Chad an 81. Please add these grades to the dictionary. 
+3. Chad is transferring schools. Please remove Chad from the grades dictionary and store his data in an object call `transfer_file`
+
+<br>
+
+### _
+
+### Answer
+
+```{python}
+grades = {"John": [90,88,95,86],"Susan":[87,91,92,89],"Chad":[56,None,72,77]}
+
+# (1) Look up the keys in the dictionary, and story them in a `list` object
+# called `keys`
+keys = list(grades.keys())
+
+# (2) 2. Your students just finished another assignment. John received an 83,
+# Susan a 92, and Chad an 81. Please add these grades to the dictionary.
+grades["John"].append(83)
+grades["Susan"].append(92)
+grades["Chad"].append(81)
+
+# The key to the above is to remember that once we reference the values in the dictionary, we are then dealing with a list (since that is what is stored in the dictionary value position). So we can use the list append method to add values to this list. 
+
+# (3) Chad is transferring schools. Please remove Chad from the grades
+# dictionary and store his data in an object call `transfer_file`
+transfer_file = grades.pop("Chad")
+
+# .pop() method allows us to "pop out" a value from the list. After we do so,
+# neither the key nor value remain.
+```
+
+## Question 3  {.tabset}
+
+<br>
+
+Make a copy of the `grades` object from Q2 and store it in a new object called `new`. Now change John's grade on the second assignment from an 88 to a 90 in the `new` object. Make sure that the `grades` object wasn't also changed when you changed `new`.
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+# We'll need to make a deep copy, as dictionaries are inherently nested
+import copy
+new = copy.deepcopy(grades)
+new["John"][1] = 90 # Change the grade
+
+# Compare the object values to make sure they differ. 
+print(new)
+print(grades)
+```
+
+

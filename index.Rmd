@@ -317,7 +317,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 3: Learning Parseltongue**<br>_Object-Oriented Programming in Python_
+### **Week 3: Learning Parseltongue**<br>[_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html)
 
 <br><br>
 

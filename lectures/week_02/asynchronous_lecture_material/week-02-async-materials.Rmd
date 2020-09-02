@@ -38,14 +38,34 @@ knitr::opts_chunk$set(echo = TRUE)
 **In the Synchronous Lecture**
 
 - **Reproducibility**
+- Review git commands + new ones
+  - `git diff <hash1> <hash2>`: compare differences between instances.
+  - `git log --graph`: for a simple visual representation of the git log
 - More on Git/Github 
   + Linking Git to **Github**
   + **Cloning** repositories 
+    + `git clone <url>`
+  + Interacting with `git` remotes
+    + `git push`
+    + [`git pull`/`git fetch`](https://www.freecodecamp.org/news/git-fetch-vs-pull/#:~:text=git%20fetch%20is%20the%20command,changes%20from%20the%20remote%20repository.)
   + Setting up a **`.gitignore`** to ignore files you don't want to commit
-  + Using third-party software to **manage** `git` repositories
+- Using third-party software to **manage** `git` repositories
+  + [gitkraken](https://www.gitkraken.com/)
+  - `git` in RStudio
+  - [using `git` in Atom](https://github.atom.io/)
 
+
+<br>
 
 > If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Synchronous Materials
+
+- Slides on [**Reproducibility**](http://ericdunford.com/ppol564/Lectures/week_02/reproducibility.html)
+
+- **Practice** using `git` with a `git-scavenger-hunt`: https://github.com/edunford/git-scavenger-hunt
 
 <br><hr><br>
 

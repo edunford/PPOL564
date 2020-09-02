@@ -2,7 +2,7 @@
 pagetitle: "PPOL564 | Week XXX - Asynchronous lecture materials"
 title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> LECTURE TITLE <br> _SUBTITLE_</center>
 subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week XX </center><br>
-author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University </center>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
 output: 
   html_document:
     includes: 
@@ -10,6 +10,7 @@ output:
     css: async-page-style.css
     highlight: breezedark
     theme: flatly
+    toc: true
 ---
 
 <br><hr><br>
@@ -38,6 +39,8 @@ knitr::opts_chunk$set(echo = TRUE)
 - B
 - C
 
+<br>
+
 > If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
 
 <br><hr><br>
@@ -60,7 +63,7 @@ _The following tabs contain pre-recorded lecture materials for class this week. 
 
 ### Code from the video
 
-```{r,eval=F}
+```{python,eval=F}
 # ENTER CODE
 ```
 
@@ -74,7 +77,7 @@ _The following tabs contain pre-recorded lecture materials for class this week. 
 
 ### Code from the video
 
-```{r,eval=F}
+```{python,eval=F}
 # ENTER CODE
 ```
 
