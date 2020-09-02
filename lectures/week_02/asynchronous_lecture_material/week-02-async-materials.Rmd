@@ -63,7 +63,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Synchronous Materials
 
-- Slides on [**Reproducibility**](http://ericdunford.com/ppol564/Lectures/week_02/reproducibility.html)
+- Slides on [**Reproducibility**](http://ericdunford.com/ppol564/lectures/week_02/reproducibility.html)
 
 - **Practice** using `git` with a `git-scavenger-hunt`: https://github.com/edunford/git-scavenger-hunt
 
