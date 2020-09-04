@@ -27,19 +27,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **In the Asynchronous Lecture**
 
-- Let the intuition behind **objects** in Python
+- Get some intuition behind **objects** in Python
 - Explore the different built-in **data types**.
 - Examine how to look up values in collection data type using an **index** and/or **key**
-- Learn about the issues that can arrise when copying mutable objects. 
+- Learn about the issues that can arise when **copying mutable objects** and how to resolve them. 
 
 <br>
 
 **In the Synchronous Lecture**
 
-- **Importing** "batteries-included" modules
 - Explore iterating through containers using **loops**
+- Using **logical operators** for comparisons.
 - Control the behavior of code when iterating using **control sequences** and **error handling**
-- **installing** modules.
+- Defining **functions** to make code more flexible, debuggable, and readable.
+<!-- - **Importing** "batteries-included" modules -->
+<!-- - **installing** modules. -->
 
 <br>
 
