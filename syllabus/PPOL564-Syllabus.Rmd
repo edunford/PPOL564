@@ -2,18 +2,18 @@
 fontsize: 12pt
 pagetitle: "PPOL 564 | Syllabus"
 output:
-  pdf_document: default
-  # html_document:
-  #   css: style.css
-  #   theme: flatly
-  #   highlight: default
-  #   toc_depth: 3
-  #   toc: true
-  #   toc_collapsed: true
-  #   toc_float: true
+  # pdf_document: default
+  html_document:
+    css: style.css
+    theme: flatly
+    highlight: default
+    toc_depth: 3
+    toc: true
+    toc_collapsed: true
+    toc_float: true
 ---
 
-<!-- ### [Home](../index.html) -->
+### [Home](../index.html)
 
 
 \begin{center}
@@ -320,12 +320,12 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
   # select(-`Class No.`,-CD,-Assignment) %>% 
   # filter(Topic != "No Class") %>% 
   {.[is.na(.)]="";.} %>%
-  # kable(., "html", booktabs = T,align = c('c','l','l','l','c')) %>%
-  kable(., "latex", booktabs = T,align = c('c','l','l','l','c')) %>%
+  kable(., "html", booktabs = T,align = c('c','l','l','l','c')) %>%
+  # kable(., "latex", booktabs = T,align = c('c','l','l','l','c')) %>%
   kable_styling(latex_options = c("striped", 
                                   "scale_down","repeat_header"),
-                full_width = T,font_size = 13
-                # full_width = T,font_size =  18
+                # full_width = T,font_size = 13
+                full_width = T,font_size =  18
                 ) %>% 
   column_spec(1,width = '.5in') %>% 
   column_spec(2,width = '1in') %>% 

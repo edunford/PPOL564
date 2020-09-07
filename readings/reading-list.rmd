@@ -110,15 +110,15 @@ output:
 
 <br>
 
-### **Week 4: On Time and Space**<br>_Introduction to Algorithms and Data Structures_
+### **Week 4: On Time and Space**<br>_Introduction to Algorithms_
 
 <br>
   
 - **_Required Readings_**
    - [Ch. 3: Analysis](https://runestone.academy/runestone/books/published/pythonds/AlgorithmAnalysis/toctree.html) - Miller, Brad and David Ranum
       + Read 3.1 - 3.3
-   - [Ch. 4: Basic Data Structures](https://runestone.academy/runestone/books/published/pythonds/BasicDS/toctree.html) (in part) - Miller, Brad and David Ranum
-      + Read 4.1 - 4.3, 4.10, 4.15
+   <!-- - [Ch. 4: Basic Data Structures](https://runestone.academy/runestone/books/published/pythonds/BasicDS/toctree.html) (in part) - Miller, Brad and David Ranum -->
+   <!--    + Read 4.1 - 4.3, 4.10, 4.15 -->
    - [Ch. 6 Sorting and Searching](https://runestone.academy/runestone/books/published/pythonds/SortSearch/toctree.html) - Miller, Brad and David Ranum
       + Read 6.1 - 6.5
   

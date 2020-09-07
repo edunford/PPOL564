@@ -11,7 +11,8 @@ labs/labs_to_TA/
 *ipynb_checkpoints
 admin/
 syllabus/ml-section-lesson-plan.txt
-virtual-lesson-plan.md
+lectures/virtual-lesson-plan.md
+
 
 # Ignore because there is a repo in the repo
 lectures/week_02/exercise/git-scavenger-hunt

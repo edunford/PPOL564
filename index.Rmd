@@ -321,7 +321,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 4: On Time and Space**<br>_Introduction to Algorithms and Data Structures_
+### **Week 4: On Time and Space**<br>_Introduction to Algorithms_
 
 <br><br>
 
