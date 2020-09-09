@@ -1,0 +1,562 @@
+---
+pagetitle: "PPOL564 | Week 4 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> On Time and Space <br> _Introduction to Algorithms_</center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 4 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Get a general sense of what an **algorithm** is and how we write **programs** that execute them. 
+- Learn **Big-O notation** for formalizing the run time of an algorithm 
+<!-- - Introduce ourselves with two types of **data structures**: Stacks and queues/dequeues -->
+- Learn about **searching** algorithms and think about how we look up items from a data list. 
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Practice **evaluating the run time** for algorithms/programs.
+- Analyze the run time of **Python data types**.
+- Think about **coding interview** questions.
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: 1 hour and 50 minutes.
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Algorithms
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d8052a10-0aa7-49f2-99dc-ac2c015a2680&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+# Same algorithm but the readability of the program differs
+def alg1(n):
+   theSum = 0
+   for i in range(1,n+1):
+       theSum = theSum + i
+   return theSum
+
+def alg2(tom):
+    fred = 0
+    for bill in range(1,tom+1):
+       barney = bill
+       fred = fred + barney
+    return fred
+
+print(alg1(10))
+print(alg2(10))
+
+# Faster algorithm using a closed form solution to the problem 
+def alg3(n):
+   return (n*(n+1))/2
+   
+print(alg3(10))
+```
+
+<br><hr><br>
+
+## Big-O Notation
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7ab4501c-8f7c-45fc-bfda-ac2c01627970&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Big-O Complexity
+
+| f(n) |  Name | Notation|
+|:----:|:-----:|:--------:|
+| $1$ | Constant| $O(1)$ |
+| $log(n)$ | Logarithmic | $O(log n)$ |
+| $n$ | Linear | $O(n)$ |
+| $n log(n)$ | Log Linear | $O(n log n)$ |
+| $n^2$ | Quadratic | $O(n^2)$ |
+| $n^3$ | Cubic | $O(n^3)$ |
+| $2^n$ | Exponential | $O(2^n)$ |
+
+### Code from the video
+
+```{python,eval=F}
+# %% Constant Time O(1) -----------------------------------------
+def fun_constant(n):
+    print(n)
+fun_constant(10)
+
+# %% Logarithmic Time O(log n) -----------------------------------------
+def fun_log(n):
+
+    while n > 0:
+        n = int(n/2)
+        print(n,end=" ")
+
+fun_log(10)
+
+# %% Linear Time O(n) -----------------------------------------
+
+def fun_linear(n):
+    
+    for i in range(n):
+        print(i,end=" ")
+
+fun_linear(10)
+
+# %% Log Linear Time O(n log n) -----------------------------------------
+
+def fun_log_lin(n):
+    for i in range(n):
+        a = i
+        while a > 0.1:
+            a = a/2
+        print(a)
+
+fun_log_lin(10)
+
+# %% Quadratic Time O(n^2) -----------------------------------------
+def fun_quadratic(n):
+
+    for i in range(n):
+        for j in range(n):
+            print( (i,j))
+
+fun_quadratic(10)
+
+# %% Cubic Time O(n^3) -----------------------------------------
+def fun_cubic(n):
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                print( (i,j,k))
+fun_cubic(10)
+```
+
+<br><hr><br>
+
+## Searching Algorithms {.tabset}
+
+### Sequential Search 
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=c8d068d2-beb1-45f4-bf6a-ac2f0127d4f1&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+#### Code from the video
+
+```{python,eval=F}
+# %% Sequential Search -----------------------------------------
+
+# Input: 
+students = ["Madeline","Yousuf","Justine","Ella","Ruyi"]
+value = "Eric"
+
+# Output: True/False
+
+
+# Sequentially compare every item in the list
+students[0] == value
+students[1] == value
+# ... 
+students[4] == value
+
+
+
+# A function that accomplishes sequential comparisosn
+def sequential_search(data,value):
+    for d in data:
+        if d == value:
+            return True
+    return False
+
+
+# Test
+sequential_search(students,"Yousuf")
+sequential_search(students,"Eric")
+
+
+# What is the best case run time? O(1)
+
+
+# What is the worst case run time? O(N)
+```
+
+<br><hr><br>
+
+### Binary Search 
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=dc28984f-e899-4c11-b5ad-ac2f012bf806&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+#### Code from the video
+
+```{python,eval=F}
+# %% Binary Search -----------------------------------------
+numbers = [3,7,55,2,90,10,25,33]
+numbers.sort() # List must be sorted. Best Run time for a sorting alg. is O(n log n)
+numbers
+
+
+# The Gist of Binary Search
+item = 3
+first = 0
+last = 7
+numbers[first]
+numbers[last]
+
+midpoint = (first + last)//2
+numbers[midpoint] == item
+item > numbers[midpoint]
+item < numbers[midpoint]
+last = midpoint -1
+
+midpoint = (first + last)//2
+numbers[midpoint] == item # Found it!
+
+
+# Written up as an algorithm 
+def binarySearch(alist, item):
+    first = 0
+    last = len(alist)-1
+    found = False
+    while first<=last and not found:
+        
+        midpoint = (first + last)//2
+
+        if alist[midpoint] == item:
+            found = True
+            
+        else:
+            if item < alist[midpoint]:
+                last = midpoint-1
+            else:
+                first = midpoint+1
+    return found
+
+
+# Implement the Algorithm 
+numbers
+binarySearch(numbers,90)
+
+# What is the best case run time? O(1)
+
+# What is the worst case runtime? O(log n)
+```
+
+<br><hr><br>
+
+
+### Hashing
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bfb4f5f9-1d72-42cf-a620-ac2f0133392c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+#### Code from the video
+
+```{python,eval=F}
+# %% Hashing -----------------------------------------
+
+hash_table = [None]*11
+hash_table
+
+numbers = [33,51,23,97,13]
+numbers
+
+numbers[4]%11
+
+# F(item) -> pos in table
+
+
+# %% Hash Function -----------------------------------------
+def hash_function(item):
+    '''remainder hash function'''
+    return item%11 
+
+for i in numbers:
+    ind = hash_function(i)
+    hash_table[ind] = i
+
+hash_table
+
+hash_function(13)
+hash_table[2]
+
+
+# Look up in O(1)
+
+
+
+
+# %% More complicated hash function -----------------------------------
+students = ["Madeline","Yousuf","Justine","Ella","Ruyi"]
+
+hash_table = ['']*11
+
+
+ord("E") + ord("l") +ord("l") +ord("a") 
+381%11
+
+list("Ella")
+
+
+def hash_func2(name):
+    score = 0
+    for i in list(name):
+        score += ord(i)
+    return score%11
+
+hash_func2("Ruyi")
+
+
+for student in students:
+    ind = hash_func2(student)
+    hash_table[ind] = student
+
+
+hash_table
+
+hash_func2("Madeline")
+hash_func2("Ruyi")
+
+
+
+# %% Collision Resolution -----------------------------------------
+
+# When the hash function stores values in the same location, we get a "collision"
+hash_table = [None]*11
+
+
+# One way to deal with a collision is to store multiple values in the same
+# location and then iterate through them when looking a value up. 
+for student in students:
+    ind = hash_func2(student)
+    if hash_table[ind] is None:
+        hash_table[ind] = [student]
+    else:
+        hash_table[ind].append(student)
+
+# Run time for instances with a collision is O(m) where m is the number of items
+# in the name location. That is, we have constant time for looking the value up
+# and then it's a sequential search from there. 
+```
+
+<br><hr><br>
+
+# [Feedback](https://forms.gle/DURYfPCL6VAfFCLu7)
+
+The following survey asks you quick questions regarding the usefulness of the asynchronous lecture materials. Feedback will be used to modify aspect of the asynchronous materials moving forward.
+
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Give the Big-O performance of the following code fragment:
+
+```{python,eval=F}
+i = n
+while i > 0:
+   k = 2 + 2
+   i = i // 2
+```
+
+
+<br>
+
+### _
+
+<br><hr><br>
+
+### Answer
+
+$O(log N)$
+
+<br><hr><br>
+
+## Question 2  {.tabset}
+
+<br>
+
+Give the Big-O performance of the following code fragment:
+
+```{python,eval=F}
+for i in range(n):
+   for j in range(n):
+      for k in range(n):
+         k = 2 + 2
+```
+
+
+<br>
+
+### _
+
+<br><hr><br>
+
+### Answer
+
+$O(N^3)$
+
+<br><hr><br>
+
+## Question 3  {.tabset}
+
+<br>
+
+Give the Big-O performance of the following code fragment:
+
+```{python,eval=F}
+for i in range(n):
+   k = 2 + 2
+for j in range(n):
+   k = 2 + 2
+for k in range(n):
+   k = 2 + 2
+```
+
+<br>
+
+### _
+
+<br><hr><br>
+
+### Answer
+
+$O(N)$
+
+<br><hr><br>
+
+
+
+
+<!-- # Bonus -->
+
+
+<!-- ## Data Structures {.tabset} -->
+
+<!-- ### Stacks -->
+
+<!-- <br> -->
+
+<!-- <iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1b700d69-2b13-4b08-9756-ac2f0106e4ee&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
+
+<!-- #### Code from the video -->
+
+<!-- ```{python,eval=F} -->
+<!-- stack = [] # List operates as a Stack Data Structure -->
+
+<!-- # Place books (data) on top of the stack -->
+<!-- stack.append("Wuthering Heights") -->
+<!-- stack.append("One Flew Over the Cuckoo's Nest") -->
+<!-- stack.append("A Separate Peace") -->
+<!-- stack.append("Idiot's Guide: Intro to Data Science") -->
+<!-- stack.append("1984") -->
+
+<!-- # Print off everything in the stack -->
+<!-- stack -->
+
+<!-- # Last one in, first one out -->
+<!-- print(stack.pop()) # O(1) -->
+
+
+<!-- # To pull out the first item from a list is O(n) where n=length of the list -->
+<!-- stack.pop(0) -->
+<!-- ``` -->
+
+<!-- <br><hr><br> -->
+
+<!-- ### Queues/Dequeues -->
+
+<!-- <br> -->
+
+<!-- <iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=cb7359a0-61ce-4cd8-8c5e-ac2f010ab5a0&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe> -->
+
+<!-- #### Code from the video -->
+
+<!-- ```{python,eval=F} -->
+<!-- # %% Queue ----------------------------------------- -->
+<!-- from queue import SimpleQueue -->
+<!-- waiting_line = SimpleQueue() -->
+
+<!-- waiting_line.put("Madeline") -->
+<!-- waiting_line.put("Justine") -->
+<!-- waiting_line.put("Yousuf") -->
+<!-- waiting_line.put("Ruyi") -->
+<!-- waiting_line.put("Ella") -->
+
+
+<!-- # First one in, first one out (FIFO) -->
+<!-- waiting_line.get() -->
+
+
+<!-- # %% Deque ----------------------------------------- -->
+<!-- from collections import deque -->
+<!-- other_line = deque() -->
+
+
+<!-- # Depending on which -->
+<!-- other_line.append("Madeline") -->
+<!-- other_line.append("Justine") -->
+<!-- other_line.append("Yousuf") -->
+<!-- other_line.appendleft("Ruyi") -->
+<!-- other_line.appendleft("Ella") -->
+
+<!-- # Look at the deque -->
+<!-- other_line -->
+
+<!-- # Pull data values out from either side. -->
+<!-- other_line.pop() -->
+<!-- other_line.popleft() -->
+<!-- ``` -->
+
+<!-- <br><hr><br> -->

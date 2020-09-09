@@ -1,0 +1,124 @@
+---
+title: "Week 3 Practice"
+subtitle: "Piece together the Code!" 
+output: 
+  html_document:
+    highlight: breezedark
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br><br>
+
+# Instructions
+
+In your breakout groups, please but the following code chunks in order so that the code runs. Each function is designed to process the following string object. 
+
+```{python}
+text = "An initial attempt to rescue the group, stranded in mountain refuge for two nights, was abandoned on Monday night because of smoke from the Creek Fire. But helicopters were able to land early on Tuesday and are have begun taking the hikers to safety. Fires in California have burned through a record 2m acres in recent weeks. In total, these blazes span an area larger than the US state of Delaware. California is currently experiencing an unprecedented heatwave."
+print(text)
+```
+
+<br><br>
+
+# Questions
+
+### (1) Piece together this function which **_counts the number of words in the text_**. 
+
+A.
+```{python,eval=F}
+tmp = text.split(" ")
+```
+
+B.
+```{python,eval=F}
+count = len(tmp)
+```
+
+C.
+```{python,eval=F}
+def word_count(text):
+```
+
+D.
+```{python,eval=F}
+return count
+```
+
+<br><br>
+
+### (2) Piece together this function which **_counts the number of unique words in the text_**. 
+
+A.
+```{python,eval=F}
+def unique_words(text):
+```
+
+B.
+```{python,eval=F}
+return count
+```
+
+C.
+```{python,eval=F}
+count = len(a)
+```
+
+D.
+```{python,eval=F}
+a = set(text)
+```
+
+<br><br>
+
+### (3) Piece together this function which **_counts up the number of times each word is used in the text_**. 
+
+A.
+```{python,eval=F}
+word = word.replace(".","")
+word = word.replace(",","")
+```
+
+B.
+```{python,eval=F}
+if word in word_count.keys():
+    word_count[word] += 1
+```
+
+C.
+```{python,eval=F}
+word = word.lower()
+```
+
+D.
+```{python,eval=F}
+for word in words:
+```
+
+E.
+```{python,eval=F}
+else:
+    word_count[word] = 1
+```
+
+
+F.
+```{python,eval=F}
+words = text.split()
+word_count = {}
+```
+
+
+G.
+```{python,eval=F}
+return word_count
+```
+
+
+H.
+```{python,eval=F}
+def usage_count(text):
+```

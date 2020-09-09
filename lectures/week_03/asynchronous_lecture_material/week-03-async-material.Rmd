@@ -38,7 +38,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - Explore iterating through containers using **loops**
 - Using **logical operators** for comparisons.
-- Control the behavior of code when iterating using **control sequences** and **error handling**
+- Control the behavior of code when iterating using **control statements**.
 - Defining **functions** to make code more flexible, debuggable, and readable.
 <!-- - **Importing** "batteries-included" modules -->
 <!-- - **installing** modules. -->
@@ -46,6 +46,12 @@ knitr::opts_chunk$set(echo = TRUE)
 <br>
 
 > If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Synchronous Materials
+
+- [**Practice Piecing together code**](http://ericdunford.com/ppol564/lectures/week_03/exercise/piece-together-function.html)
 
 <br><hr><br>
 
