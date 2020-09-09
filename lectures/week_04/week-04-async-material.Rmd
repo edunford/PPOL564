@@ -52,7 +52,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 _The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
 
-**_Total time_**: 1 hour and 50 minutes.
+**_Total time_**: 1 hour and 17 minutes.
 
 <br>
 

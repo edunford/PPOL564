@@ -4,8 +4,12 @@
 # "==" for value equivalency
 x = ["a","b","c"]
 y = ["a","b","c"]
+
+
 x == y
 
+
+dir(x)
 
 # Comparisons
 x = 7
@@ -22,23 +26,34 @@ dir(x)
 
 
 # "in" for contains
-"x" in ["x","a","v"]
+"d" not in ["x","a","v"]
 
 
 # "is" for object equivalency
 x = ["a","b","c"]
 y = ["a","b","c"]
-x is y
+x is not y
 id(x)
 id(y)
 
 z = x
 x is z
 id(x) == id(z)
+id(z)
+id(x)
+
+id(x)
+id(None)
+x = None
+x is None
 
 
 
+x = 4
+y = 7
 
+x =[0,1,0,1,1,0]
+x[0] ==0 or x[0]==1
 
 
 # %% Control Statements -----------------------------------------
@@ -50,7 +65,7 @@ if False:
     print("Goodbye")
 
 
-x = 4
+x = 6
 if x >= 5:
     print("Hello")
 else:
@@ -60,7 +75,7 @@ else:
 
 
 # layered control statement
-x = 1
+x = 6
 if x > 5:
     print("Code Chunk A")
 elif x >= 3 and x <= 5:
@@ -68,6 +83,10 @@ elif x >= 3 and x <= 5:
 else:
     print("Code Chunk C")
 
+
+
+
+x = []
 
 
 
@@ -83,6 +102,11 @@ print(i)
 i = items[2]
 print(i)
 
+[]
+()
+{}
+{:}
+""
 
 # Same idea
 for i in items:
@@ -90,6 +114,12 @@ for i in items:
 
 
 
+
+
+
+dir(items)
+
+items.__iter__()
 # How it works?
 iterator = items.__iter__()
 iterator.__next__()
@@ -101,6 +131,10 @@ iterator.__next__()
 
 
 # %% Loops + Control Statements-----------------------------------------
+
+
+
+
 for i in range(10):
     if i < 4:
         print("hello")
@@ -121,6 +155,10 @@ for i in enumerate(items):
 
 
 
+a,b = (1,2)
+a
+b
+
 # We can use tuple unpacking to great advantage here.
 for index, value in enumerate(items):
     print("The index is", index,"The value is", value)
@@ -137,7 +175,7 @@ for index, value in enumerate(items):
 # Repeat behavior while a condition holds
 
 x = 0
-while x < 5:
+while x != "A":
     print("This")
     x += 1
 
@@ -185,11 +223,13 @@ for item in items:
         continue
     print(item)
 
+
+
 # Compare to pass
 items = ["33",5.4,None,8]
 for item in items:
     if item is None:
-        continue
+        pass
     print(item)
 
 
@@ -211,7 +251,10 @@ for i in range(10):
 
 
 
+
+
 # %% Functions -----------------------------------------
+
 
 
 def fun1():
@@ -221,11 +264,20 @@ def fun1():
 fun1()
 
 
+
+
+
 def fun2(n):
     for i in range(n):
         print(i)
 
-fun2(10)
+fun2()
+
+
+
+
+
+
 
 
 
@@ -252,6 +304,9 @@ my_func("cat","dog")
 
 
 
+
+
+
 # Other way around and python yells.
 def my_func(a="",b):
     return a + b
@@ -263,6 +318,7 @@ my_func("cat","dog")
 
 
 # DOCSTRINGS
+
 
 def paste_strings(string_one,string_two):
     """This is a function that pastes two strings together.

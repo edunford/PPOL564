@@ -10,24 +10,36 @@ def word_count(text):
     tmp = text.split(" ")
     count = len(tmp)
     return count
-    
+
 word_count(text)
+
+
+
+
+
+
 
 
 # Count the number of unique words.
 # Answer: A, D, C, B
 def unique_words(text):
-    a = set(text)
+    a = set(text.split(' '))
     count = len(a)
     return count
 
 unique_words(text)
 
 
+# H F D C A B E G
+
+
+
+
+
 # Count up the number of times each word is used.
 # Answer: H, F, D, A, C, B, E, G
 def usage_count(text):
-    words = text.split()
+    words = text.split(" ")
     word_count = {}
     for word in words:
         word = word.replace(".","")
@@ -38,5 +50,3 @@ def usage_count(text):
         else:
             word_count[word] = 1
     return word_count
-
-usage_count(text)
