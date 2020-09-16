@@ -2075,9 +2075,30 @@ Final Project Due (5:00 PM EST)
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># apm == &quot;Atom package manager&quot;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">apm</span> install <span class="op">&lt;</span>package-name<span class="op">&gt;</span></span></code></pre></div>
 <p>There is also a dedicated package manager built into Atom which you can use to download and install new packages. Open Atom then <code>Settings &gt; Install</code> and type the package name.</p>
+<div id="troubleshooting-hydrogenatom-setup" class="section level4">
+<h4>Troubleshooting Hydrogen/Atom Setup</h4>
+<p>Several students have had issues arise in getting Hydrogen to properly run on their machines. Particularly, after following the installation instructions for Atom and Hydrogen, many people find that upon trying to run Python code, they either (1) receive an error message stating that <code>&quot;no kernel for language Python found&quot;</code> (or something similar), or (2) they are able to connect to a Python kernel but upon trying to run code, nothing happens (they may or may not receive error messages associated with that.</p>
+<p>If you encounter this issue, we suggest trying the following solutions in order until one of the solutions works. If you have tried all three possible solutions and are still not able to properly run Python code in Hydrogen/Atom, please contact Eric LaRose (either by Slack, email, or setting up a Calendly appointment).</p>
+<p><br></p>
+<p><strong>Solution 1</strong></p>
+<p>Open the command line and run the following two commands:</p>
+<pre><code>python3 -m pip install ipykernel
+python3 -m ipykernel install --user</code></pre>
+<p>Then restart Atom and try running Python code.</p>
+<p><br></p>
+<p><strong>Solution 2</strong></p>
+<p>Uninstall Hydrogen on Atom by opening Atom, click <code>&quot;Install a Package&quot;</code>, and search for Hydrogen in the search bar. Click <code>&quot;Uninstall&quot;</code>. Once Hydrogen has finished uninstalling, search Hydrogen again and hit <code>&quot;Install&quot;</code>. Once Hydrogen has finished re-installing, restart Atom and try running Python code.</p>
+<p><br></p>
+<p><strong>Solution 3</strong></p>
+<p>Add the following paths to your list of environmental variables using the command line. Note that exact file paths will need to be adjusted slightly depending on your machine and operating system.</p>
+<pre><code>C:\Anaconda3
+C:\Anaconda3\Scripts
+C:\Anaconda3\Library\bin</code></pre>
+<p>Once these have been added to the list of environmental variables, restart Atom and try running Python code.</p>
 <br>
 <hr>
 <p><br></p>
+</div>
 </div>
 <div id="rstudio-reticulate" class="section level3">
 <h3>RStudio + <code>reticulate</code></h3>
