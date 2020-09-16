@@ -104,7 +104,7 @@ _The following tabs contain pre-recorded lecture materials for class this week. 
 
 - Download the data used in the Notebook:
   + <a href="supplementary-materials/news-story.txt" download><strong>news-story.txt</strong></a>
-  + <a href="supplementary-materials/student_data.csv" download><strong>student_data.txt</strong></a>
+  + <a href="supplementary-materials/student_data.csv" download><strong>student_data.csv</strong></a>
 
 
 <br><hr><br>
