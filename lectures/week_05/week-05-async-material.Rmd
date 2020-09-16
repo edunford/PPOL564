@@ -72,7 +72,7 @@ _The following tabs contain pre-recorded lecture materials for class this week. 
 
 <br>
 
-<a href="lectures/week_05/supplementary-materials/comprehensions-and-generators.ipynb" download><strong>Download</strong></a> Jupyter Notebook used in the video. 
+<a href="week_05/supplementary-materials/comprehensions-and-generators.ipynb" download> <strong>Download</strong> </a> Jupyter Notebook used in the video. 
 
 
 <br><hr><br>
