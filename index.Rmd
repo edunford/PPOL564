@@ -325,7 +325,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 5: Long Live the Data Frame**<br>_From Nested Lists to Data Frames_
+### **Week 5: Long Live the Data Frame**<br>[_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html)
 
 <br><br>
 

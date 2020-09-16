@@ -1,0 +1,547 @@
+---
+pagetitle: "PPOL564 | Week 5 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Long Live the Data Frame <br> _From Nested Lists to Data Frames_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 5 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Understand **comprehensions** and **generators** in Python. 
+- Think through **File management** and reading data into Python. 
+- Discuss navigating data stored as a **nested `list`**
+- Introduction to the **`numpy`** data structure. 
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Delve further into **`numpy`** arrays.
+- Thinking about **managing multiple data types** in a relational array **with `pandas`**
+- Exploring **indices in a `pandas`** series and data frame object. 
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 14 minutes 
+
+<br>
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Comprehensions
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=323282be-b69c-4f19-8e12-ac36011cef31&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+<br>
+
+<a href="lectures/week_05/supplementary-materials/comprehensions-and-generators.ipynb" download><strong>Download</strong></a> Jupyter Notebook used in the video. 
+
+
+<br><hr><br>
+
+## Generators
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d989ee56-cd8d-4f16-87be-ac3601216afc&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+<br>
+
+<a href="lectures/week_05/supplementary-materials/comprehensions-and-generators.ipynb" download><strong>Download</strong></a> Jupyter Notebook used in the video. (NOTE: This is the same notebook as the one downloaded in the "Comprehensions" tab.)
+<br><hr><br>
+
+## File Management
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=cb1f8d02-b482-43ef-89f1-ac3601268451&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+<br>
+
+- <a href="lectures/week_05/supplementary-materials/file-management.ipynb" download><strong>Download</strong></a> Jupyter Notebook used in the video. 
+
+- Download the data used in the Notebook:
+  + <a href="lectures/week_05/supplementary-materials/news-story.txt" download><strong>news-story.txt</strong></a>
+  + <a href="lectures/week_05/supplementary-materials/student_data.csv" download><strong>student_data.txt</strong></a>
+
+
+<br><hr><br>
+
+
+## Data as Nested Lists
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=0b7b364b-a4bd-47a8-bd1e-ac36012ef97d&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+
+
+Download the aggregated version of the <a href="lectures/week_05/supplementary-materials/gapminder.csv" download><strong>gapminder.csv</strong></a> data used in the video. 
+
+```{python,eval=F}
+# Batteries included Functions
+import csv # convert a .csv to a nested list
+import os  # library for managing our operating system. 
+
+
+# Where am I on my computer?
+os.getcwd()
+
+
+# Say I needed to change my working directory
+# os.chdir("file/path/here")
+
+# THIS IS WHERE MY DATA IS LOCATED ON MY MACHINE; THIS WILL NOT RUN ON YOUR
+# COMPUTER. Change this path to point to where the gapminder data is. Above this
+# code chunk you'll see a link to download the data.
+loc_file = "lectures/week_05/supplementary-materials/gapminder.csv"
+
+# Read in the gapminder data 
+with open(loc_file,mode="rt") as file:
+    data = [row for row in csv.reader(file)]
+
+
+# %% -----------------------------------------
+# Indexing Rows
+
+# For any row > 0, row == 0 is the column names. 
+data[100]
+
+
+# %% -----------------------------------------
+# Indexing Columns
+
+# Referencing a column data value
+d = data[100] # First select the row
+d[1] # Then reference the column
+
+# doing the above all in one step
+data[100][1]
+
+# The key is to keep in mind the column names
+cnames = data.pop(0)
+
+# We can now reference this column name list to pull out the columns we're interested in.
+ind = cnames.index("lifeExp") # Index allows us to "look up" the location of a data value. 
+data[99][ind]
+
+
+# %% -----------------------------------------
+# Drawing out specific COLUMN of data
+
+# identify the position
+ind = cnames.index("lifeExp")
+
+# Looping through each row pulling out the relevant data value
+life_exp = []
+for row in data:
+    life_exp.append(float(row[ind]))
+
+# Same idea, but as a list comprehension 
+life_exp = [float(row[ind]) for row in data]
+
+
+# Make this code more flexible 
+var_name = "gdpPercap"
+out = [row[cnames.index(var_name)] for row in data]
+out
+
+
+# %% -----------------------------------------
+# Numpy offers an efficiency boost, especially when indexing
+import numpy as np
+
+
+# Convert to a numpy array
+data_np = np.array(data)
+
+
+# Column Variable we wish to access is easy using slicing. 
+data_np[:,2]
+
+
+# Let's compare runtimes!
+
+# %% -----------------------------------------
+%%timeit
+out1 = []
+for row in data:
+    out1.append(row[var_ind])
+
+
+# %% -----------------------------------------
+%%timeit
+out2 = [row[var_ind] for row in data]
+
+    
+# %% -----------------------------------------
+%%timeit
+out3 = data_np[:,var_ind]
+```
+
+<br><hr><br>
+
+## `numpy`
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bdd0257d-010e-4e2a-a5b1-ac360153b431&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import numpy as np
+
+#### Vectors, Matrices, and N-Dimensional Arrays ####
+
+# %% vectors (1 Dimension) ----------------------------------------- 
+v = np.array([1,2,3,4])
+v
+
+
+# %% Matrix (2 Dimensions) -----------------------------------------
+NL = [[1,2,3,4],[2,3,4,1],[-1,1,2,1]]
+M = np.array(NL)
+M
+
+M.shape
+
+
+# %% N-dimensional Array -----------------------------------------
+
+#  An ndimensional array is a nested list
+A = np.array([
+              [
+                [1,2,3,4],
+                [2,3,4,1],
+                [-1,1,2,1]
+              ],
+             [
+                 [1,2,3,4],
+                 [2,3,4,1],
+                 [-1,1,2,1]]
+              ])
+A
+A.shape
+
+# %%  -----------------------------------------
+
+###### Generating Arrays #####
+
+
+
+# .arange
+np.arange(1, 10, 1 )
+
+
+# .linspace
+np.linspace(1,5,10) 
+
+
+# Zeros
+np.zeros(10)
+
+# Ones
+np.ones(10)
+
+# Random number generation 
+np.random.randn(10) # Random Number 
+np.random.randint(1,10,10) # Random Interger 
+np.random.uniform(1,5,10) # Uniform distribution
+np.random.binomial(1,.5,10) # Binomial (Trials)
+np.random.normal(5,1,10) # Normal
+np.random.poisson(5,5) # Normal
+
+# %% Indexing -----------------------------------------
+
+M 
+
+M.shape
+
+# [ROW, COLUMN]
+# ":" == "all back"
+
+# A cell
+M[0,0] 
+
+# A row
+M[1,:]
+
+
+# A column
+M[:,1]
+
+
+# Slicing the data structure works as it did with other python data types
+
+M[0:2,0:2]
+
+# Last Column
+M[:,-1] 
+
+
+# Last Row
+M[-1, : ] 
+
+
+# Change the order by the requested postions
+M
+M[[2,0,1],:]
+
+
+# %% Indexing Using Conditionals -----------------------------------------
+
+X = np.random.randn(10)
+
+X
+
+# Vector of Boolean values
+X > 0
+
+# Can index using this vector 
+X
+X[X>0]
+
+
+# Logic extends to any N-dimensional Array 
+X = np.random.randn(50).reshape(10,5)
+X
+X[X > 0]
+
+
+# %% Reshaping -----------------------------------------
+
+# Call the shape of an array
+v = np.random.randint(1,100,30)
+v 
+v.shape
+
+# Reshape
+v.reshape(10,3)
+
+
+# Reshape has to be plausible
+v.reshape(10,2)
+
+
+# %% Reassignment -----------------------------------------
+
+X = np.zeros(50).reshape(10,5)
+X
+
+
+
+# Reassign data values by referencing positions
+X[0,0] = 999
+X
+
+
+
+# Reassign whole ranges of values
+X[0,:] = 999
+X
+
+X[:,0] = 999
+X
+
+# Reassignment using boolean values. 
+D = np.random.randn(50).reshape(10,5).round(1)
+D
+
+D > 0
+
+D[D > 0] = 1
+D[D <= 0] = 0
+D
+
+
+# Using where "ifelse()-like" method
+D = np.random.randn(50).reshape(10,5).round(1) # Generate some random numbers again
+D # Before 
+np.where(D>0,1,0) # After
+```
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Convert the following loop into a list comprehension.
+
+```{python,eval=F}
+bind = []
+for i in range(10):
+  for j in "georgetown":
+      if j != "g":
+        bind.append((i,j))
+print(bind)
+```
+
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+bind = [(i,j) for i in range(10) for j in "georgetown" if j != "g"]
+print(bind)
+```
+
+
+## Question 2  {.tabset}
+
+<br>
+
+Save the following lines of text to your Desktop as a `.txt` file named `zen_of_python.txt`.
+
+```
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+```
+
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+# Store the text as a string
+txt = """
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+"""
+
+# Define the relevant file path to your Desktop
+file_path = ""
+
+# Open connection, write lines, then close. 
+with open(file_path + "zen_of_python.txt",mode="wt",encoding="utf-8") as file:
+  file.writelines(txt)
+```
+
+
+## Question 3  {.tabset}
+
+<br>
+
+Using the following data, write a function called `select()` that takes the nested list data and a variable name as input and returns the requested variable as a single `list`. Make sure the function can deal with cases when a variable that is not in the data is requested (e.g. the variable name is misspelled). Make sure you include a docstring with your function. 
+
+```{python}
+data = [
+  ["Var1","Var2","Var3"],
+  [1,"Apples",True],
+  [4,"Horses",None],
+  [-1,"Small Birds",False],
+]
+```
+
+
+<br>
+
+### _
+
+### Answer
+
+```{python}
+def select(data,variable):
+    """Function selects a column variable using a specified 
+    variable name from data organized as a nested list. 
+
+    Args:
+        data (list): data structure organized as a nested list.
+        variable (str): Name of the variable being selected.
+
+    Returns:
+        list: list of containing the requested data column. 
+    """
+    cnames = data.pop(0)
+    if variable in cnames:
+        out = [row[cnames.index(variable)] for row in data]
+        return out
+
+# Test
+print(select(data,"Var2"))
+```
+
+

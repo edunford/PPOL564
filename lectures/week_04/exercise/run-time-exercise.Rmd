@@ -1,0 +1,104 @@
+---
+title: "Week 4 Practice"
+subtitle: "Analyze the Run-Time" 
+output: 
+  html_document:
+    highlight: breezedark
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br><br>
+
+# Instructions
+
+Below I provide simple code for a few functions. As a group, please analyze the run time for the different functions. The questions ask you to consider **time** (and for some **space** complexity) -- that is, how long does the algorithm take to run, and how much space does it take up. I've provided multiple choice answers for each question, choose the correct answer. 
+
+<br><br>
+
+## Question 1 
+
+What is the time, space complexity of following code?
+
+```{python,eval=F}
+import random 
+# M and N are inputs
+a = 0
+b = 0
+for i in range(N):
+  if random.gauss(0,1) > 0:
+    a += 1
+  else:
+    a -= 1
+    
+for j in range(M):
+  if random.gauss(0,1) > 0:
+    b += 1
+  else:
+    b -= 1
+```
+
+<br>
+
+A. $O(NM)$ time, $O(1)$ space
+
+B. $O(N + M)$ time, $O(N + M)$ space
+
+C. $O(N + M)$ time, $O(1)$ space
+
+D. $O(NM)$ time, $O(N + M)$ space
+
+<br><br><br>
+
+## Question 2
+
+What is the time complexity of following code?
+
+```{python,eval=F}
+# N is an input
+a = 0
+for i in range(N):
+  for j in range(i,N):
+    a = a + i + j
+```
+
+<br>
+
+A. $O(N)$
+
+B. $O(N log(N))$
+
+C. $O(N \sqrt N)$
+
+D. $O(N^2)$
+
+<br><br><br>
+
+## Question 3
+
+What is the time complexity of following code?
+
+```{python,eval=F}
+# N is an input
+a = 0
+i = N
+while i > 0:
+  a += i
+  i = i//2
+```
+
+<br>
+
+A. $O(N)$
+
+B. $O(N^2)$
+
+C. $O(\frac{N}{2})$
+
+D. $O(log_2 N)$
+
+
+<br><br><hr><br><br>

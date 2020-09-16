@@ -46,6 +46,30 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
+# Synchronous Materials
+
+<br>
+
+- **_Breakout_**: [**Analyzing the run time**](exercise/run-time-exercise.html)
+
+<br>
+
+- Useful resources if you ever have to pass a coding interview:
+  + [LeetCode](https://leetcode.com/) 
+  + [GeeksQuiz](https://www.geeksforgeeks.org/quiz-corner-gq/)
+  + [Career cup](https://www.careercup.com/page) 
+  
+<br>
+
+- Want to learn more about algorithms? Take:
+  + ANLY-555: Data Structures, Objects, and Algorithms in Python
+  + ANLY-558: Advanced Algorithms for Analytics in Data Science 
+  
+
+
+
+<br><hr><br>
+
 # Asynchronous Materials {.tabset .tabset-pills}
 
 <br>
