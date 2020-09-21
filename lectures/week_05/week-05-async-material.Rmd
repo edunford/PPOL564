@@ -120,7 +120,7 @@ _The following tabs contain pre-recorded lecture materials for class this week. 
 
 
 
-Download the aggregated version of the <a href="lectures/week_05/supplementary-materials/gapminder.csv" download><strong>gapminder.csv</strong></a> data used in the video. 
+Download the aggregated version of the <a href="supplementary-materials/gapminder.csv" download><strong>gapminder.csv</strong></a> data used in the video. 
 
 ```{python,eval=F}
 # Batteries included Functions
