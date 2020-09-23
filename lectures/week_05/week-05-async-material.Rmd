@@ -46,6 +46,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
+# Synchronous Materials 
+
+<br>
+
+- Lecture Notebooks
+  + <a href="synchronous-lecture/more-on-numpy.ipynb" download><strong>More on `numpy`</strong></a>
+  + <a href="synchronous-lecture/introduciton-to-data-in-pandas.ipynb" download><strong>Introduction to Data in `pandas`</strong></a>
+
+<br><hr><br>
+
 # Asynchronous Materials {.tabset .tabset-pills}
 
 <br>
