@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science 1 | Foundations   Week 6       Joining and Reshaping</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations </font> <font size=6, face="bold"> Week 6 </font> <br> <br> <font size=100, face="bold"> Joining and Reshaping </font>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science 1 | Foundations
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 6 &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Joining and Reshaping &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+class:newsection
+
+# Tidy Data
+
+---
+
+The same data can be represented in many different ways...
+
+![:space 15]
+
+.center[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; year &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; cases &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; population &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 745 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19987071 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2666 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20595360 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 37737 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 172006362 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80488 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 174504898 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 212258 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1272915272 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 213766 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1280428583 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+
+&lt;br&gt;&lt;br&gt;
+.center[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; year &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; type &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; count &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; cases &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 745 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; population &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19987071 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; cases &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2666 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; population &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20595360 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; cases &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 37737 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; population &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 172006362 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; cases &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80488 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; population &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 174504898 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; cases &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 212258 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; population &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1272915272 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; cases &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 213766 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; population &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1280428583 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.center[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; year &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; rate &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 745/19987071 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2666/20595360 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 37737/172006362 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80488/174504898 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 212258/1272915272 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 213766/1280428583 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+
+&lt;br&gt;&lt;br&gt;
+.center[
+&lt;table&gt;
+&lt;caption&gt;Cases&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 1999 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 2000 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 745 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2666 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 37737 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80488 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 212258 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 213766 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+&lt;br&gt;
+
+.center[
+&lt;table&gt;
+&lt;caption&gt;Population&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 1999 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 2000 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19987071 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20595360 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 172006362 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 174504898 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1272915272 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1280428583 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+
+
+---
+
+There are three interrelated rules which make a dataset **tidy**:
+&lt;br&gt;&lt;br&gt;
+1. **Each variable must have its own column.**
+
+2. **Each observation must have its own row.**
+
+3. **Each value must have its own cell.**
+
+.center[&lt;img src="Figures/tidy-data.png"&gt;]
+
+---
+
+## Tidy!
+
+&lt;br&gt;&lt;br&gt;
+
+.center[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; year &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; cases &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; population &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 745 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 19987071 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Afghanistan &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2666 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 20595360 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 37737 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 172006362 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Brazil &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 80488 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 174504898 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1999 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 212258 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1272915272 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; China &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 2000 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 213766 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1280428583 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+
+class:newsection
+
+# Joining Data
+
+---
+
+![:space 10]
+
+Consider the following two example datasets...
+
+
+```python
+data_A
+```
+
+```
+##     country  Var1
+## 0   Nigeria     4
+## 1   England     3
+## 2  Botswana     6
+```
+
+```python
+data_B
+```
+
+```
+##          country    Var2
+## 0        Nigeria     Low
+## 1  United States    High
+## 2       Botswana  Medium
+```
+
+---
+
+## Left Join
+
+.center[&lt;img src="Figures/left_join.png", height=100px&gt;]
+
+.center[&lt;img src="Figures/left-join.gif", height=400px&gt;]
+
+---
+
+## Left Join
+
+.center[&lt;img src="Figures/left_join.png", height=100px&gt;]
+
+
+
+![:space 10]
+
+```python
+data_A.merge(data_B,how="left",on="country")
+```
+
+```
+##     country  Var1    Var2
+## 0   Nigeria     4     Low
+## 1   England     3     NaN
+## 2  Botswana     6  Medium
+```
+
+
+---
+
+## Right Join
+
+.center[&lt;img src="Figures/right_join.png", height=100px&gt;]
+
+.center[&lt;img src="Figures/right-join.gif", height=400px&gt;]
+
+---
+
+## Right Join
+
+
+
+.center[&lt;img src="Figures/right_join.png", height=100px&gt;]
+
+
+
+![:space 10]
+
+
+```python
+data_A.merge(data_B,how="right",on="country")
+```
+
+```
+##          country  Var1    Var2
+## 0        Nigeria   4.0     Low
+## 1       Botswana   6.0  Medium
+## 2  United States   NaN    High
+```
+
+---
+
+## Inner Join
+
+.center[&lt;img src="Figures/inner_join.png", height=100px&gt;]
+
+.center[&lt;img src="Figures/inner-join.gif", height=400px&gt;]
+
+---
+
+## Inner Join
+
+.center[&lt;img src="Figures/inner_join.png", height=100px&gt;]
+
+
+
+![:space 10]
+
+
+```python
+data_A.merge(data_B,how="inner",on="country")
+```
+
+```
+##     country  Var1    Var2
+## 0   Nigeria     4     Low
+## 1  Botswana     6  Medium
+```
+
+---
+
+## Full Join
+ 
+.center[&lt;img src="Figures/full_join.png", height=100px&gt;]
+
+.center[&lt;img src="Figures/full-join.gif", height=400px&gt;]
+
+
+
+---
+
+## Full Join
+
+&lt;center&gt; &lt;img src="Figures/full_join.png", height=100px&gt; &lt;/center&gt;
+
+
+
+![:space 10]
+
+
+```python
+data_A.merge(data_B,how="outer",on="country")
+```
+
+```
+##          country  Var1    Var2
+## 0        Nigeria   4.0     Low
+## 1        England   3.0     NaN
+## 2       Botswana   6.0  Medium
+## 3  United States   NaN    High
+```
+
+---
+
+## Anti Join
+ 
+.center[&lt;img src="Figures/anti_join_left.png", height=100px&gt;]
+
+.center[&lt;img src="Figures/anti-join.gif", height=400px&gt;]
+
+---
+
+## Anti Join
+
+.center[&lt;img src="Figures/anti_join_left.png", height=100px&gt;]
+
+![:space 5]
+
+
+
+
+```python
+m = pd.merge(left=data_A, right=data_B, how='left',on="country", indicator=True)
+print(m)
+```
+
+```
+##     country  Var1    Var2     _merge
+## 0   Nigeria     4     Low       both
+## 1   England     3     NaN  left_only
+## 2  Botswana     6  Medium       both
+```
+
+```python
+m.loc[m._merge=="left_only",:].drop(columns="_merge")
+```
+
+```
+##    country  Var1 Var2
+## 1  England     3  NaN
+```
+
+---
+
+## Row Bind
+
+&lt;center&gt; &lt;img src="Figures/rbind.png"&gt; &lt;/center&gt;
+
+
+
+![:space 5]
+
+```python
+pd.concat([data_A,data_B],sort=False)
+```
+
+```
+##          country  Var1    Var2
+## 0        Nigeria   4.0     NaN
+## 1        England   3.0     NaN
+## 2       Botswana   6.0     NaN
+## 0        Nigeria   NaN     Low
+## 1  United States   NaN    High
+## 2       Botswana   NaN  Medium
+```
+
+---
+
+## Column Bind
+
+&lt;center&gt; &lt;img src="Figures/cbind.png"&gt; &lt;/center&gt;
+
+
+
+![:space 5]
+
+```python
+pd.concat([data_A,data_B],axis=1,sort=False)
+```
+
+```
+##     country  Var1        country    Var2
+## 0   Nigeria     4        Nigeria     Low
+## 1   England     3  United States    High
+## 2  Botswana     6       Botswana  Medium
+```
+
+---
+
+## Disparate column names
+
+
+![:space 10]
+
+Sometimes the naming conventions of two datasets don't perfectly align. When this happens, we can specify how data merges onto one another more explicitly using the `by=` argument.
+
+Moreover, we can merge on **_more_ than one dimension** by specifying all relevant column names.
+
+---
+
+![:space 10]
+
+Once again, consider the following example data..
+
+
+```python
+data_A
+```
+
+```
+##        cname  var1
+## 0     Russia     1
+## 1    Nigeria     2
+## 2        USA     3
+## 3  Australia     4
+```
+
+```python
+data_B
+```
+
+```
+##     country  var2
+## 0   Belgium  -1.0
+## 1       USA   0.3
+## 2   Nigeria   2.2
+## 3  Botswana   1.7
+```
+
+---
+
+![:space 20]
+
+
+
+
+```python
+pd.merge(left = data_A,
+         right = data_B,
+         how = "outer",      # The type of join
+         left_on = "cname",  # The left column naming convention 
+         right_on="country") # The right column naming convention 
+```
+
+```
+##        cname  var1   country  var2
+## 0     Russia   1.0       NaN   NaN
+## 1    Nigeria   2.0   Nigeria   2.2
+## 2        USA   3.0       USA   0.3
+## 3  Australia   4.0       NaN   NaN
+## 4        NaN   NaN   Belgium  -1.0
+## 5        NaN   NaN  Botswana   1.7
+```
+
+---
+
+class:newsection
+
+# Reshaping Data
+
+---
+
+![:space 10]
+
+Often, we need to alter the structure of a `data.frame` from a **wide format**...
+
+![:space 10]
+
+.center[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 1992 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 1993 &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; 1994 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Nigeria &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.72 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.06 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.66 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Iran &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.88 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.86 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.78 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Cambodia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.78 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.23 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Australia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.04 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.37 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+
+...into a **long format**
+
+.center[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; country &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; year &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; var &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Nigeria &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1992 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.72 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Nigeria &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1993 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.06 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Nigeria &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1994 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.66 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Iran &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1992 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.88 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Iran &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1993 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.86 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Iran &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1994 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.78 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Cambodia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1992 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.78 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Cambodia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1993 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.23 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Cambodia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1994 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Australia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1992 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.04 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Australia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1993 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 9.37 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; Australia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1994 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 10.18 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+
+---
+
+## From wide-to-long
+
+![:space 15]
+
+![:center_img 100](Figures/gather.png)
+
+---
+
+### From wide-to-long
+
+
+
+
+
+
+
+```python
+dat
+```
+
+```
+##      country   1992   1993   1994
+## 0    Nigeria   9.72  10.06   9.66
+## 1       Iran   9.88  10.86   9.78
+## 2   Cambodia  10.78  10.23  10.61
+## 3  Australia  10.04   9.37  10.18
+```
+
+--
+
+
+
+
+```python
+pd.melt(dat,id_vars=['country'])
+```
+
+```
+##       country variable  value
+## 0     Nigeria     1992   9.72
+## 1        Iran     1992   9.88
+## 2    Cambodia     1992  10.78
+## 3   Australia     1992  10.04
+## 4     Nigeria     1993  10.06
+## 5        Iran     1993  10.86
+## 6    Cambodia     1993  10.23
+## 7   Australia     1993   9.37
+## 8     Nigeria     1994   9.66
+## 9        Iran     1994   9.78
+## 10   Cambodia     1994  10.61
+## 11  Australia     1994  10.18
+```
+
+---
+
+## From long-to-wide
+
+![:space 10]
+
+.center[&lt;img src ="Figures/spread.png"&gt;]
+
+---
+
+## From long-to-wide
+
+
+
+
+
+
+![:space 10]
+
+```python
+dat2
+```
+
+```
+##      country  year  ln_gdppc
+## 0    Nigeria  1992      9.72
+## 1   Cambodia  1992     10.78
+## 2  Australia  1992     10.04
+## 3    Nigeria  1993     10.06
+## 4       Iran  1993     10.86
+## 5  Australia  1993      9.37
+## 6    Nigeria  1994      9.66
+## 7       Iran  1994      9.78
+## 8   Cambodia  1994     10.61
+## 9  Australia  1994     10.18
+```
+
+---
+
+## From long-to-wide
+
+Main arguments:
+
+- `index`: name of the variable that will be spread out into columns. 
+- `values`: values that will populate the cells of each column
+- `columns`: variables to leave alone.
+
+
+
+![:space 3]
+
+
+```python
+dat2.pivot_table(values='ln_gdppc', index='year', columns='country')
+```
+
+```
+## country  Nigeria   Iran  Cambodia  Australia
+## year                                        
+## 1992        9.72    NaN     10.78      10.04
+## 1993       10.06  10.86       NaN       9.37
+## 1994        9.66   9.78     10.61      10.18
+```
+
+---
+
+## From long-to-wide
+
+Main arguments:
+
+
+
+- `index`: name of the variable that will be spread out into columns. 
+- `values`: values that will populate the cells of each column
+- `columns`: variables to leave alone.
+- `fill_value`: fill in missing values
+
+
+```python
+dat2.pivot_table(values='ln_gdppc',index='year',columns='country',
+                fill_value=-99)
+```
+
+```
+## country  Nigeria   Iran  Cambodia  Australia
+## year                                        
+## 1992        9.72 -99.00     10.78      10.04
+## 1993       10.06  10.86    -99.00       9.37
+## 1994        9.66   9.78     10.61      10.18
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

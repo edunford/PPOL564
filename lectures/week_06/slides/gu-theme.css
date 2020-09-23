@@ -1,0 +1,246 @@
+/* Color Scheme for PPOL670 Lecture Notes
+
+Dark Grey: #424242
+Dark Blue: #203f60
+
+*/
+
+a {
+  color: #002196;
+  text-decoration: none;
+}
+
+p {
+  color: #424242;
+  font-size: 25px;
+}
+
+li {
+  color: #424242;
+  font-size: 25px;
+}
+
+strong {
+  /* dodgerblue #1874CD*/
+  color: #1874CD;
+  font-size: 30px;
+}
+
+h1, h2 {
+  color: #203f60;
+  line-height: 0.8em;
+  text-shadow: 0 0 1px #666666;
+}
+
+h3 {
+  color: #424242;
+  line-height: 1em;
+  text-shadow: 0 0 .5px #666666;
+}
+
+h4 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+
+code {
+  font-family: 'monaco';
+}
+
+blockquote {
+  color: #203f60;
+  text-shadow: 0 0 .01px #203f60;
+}
+
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  display: inline-block;
+}
+table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+tr:nth-child(even) { background: #eee }
+
+
+.pull-left {
+  float: left;
+  width: 47%;
+}
+
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
+
+
+/*
+  Title Slide conditions and format
+
+  Blues: #203f60 or #0a3b75
+  Dark Grey #424242
+*/
+.title-slide {
+  background-color: white;
+}
+
+.title-slide h1, .title-slide h2, .title-slide h3{
+  color: #203f60;
+  line-height: 1em;
+  text-shadow: 0 0 1.5px #203f60;
+}
+
+.title-panel {
+    background-color: #203f60;
+    background: #203f60;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 20pt;
+    vertical-align: top;
+    text-shadow: 0 0 .5px #424242;
+}
+
+
+
+
+.title-footer {
+    background-color: #203f60;
+    background: #203f60;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    width: 100%;
+    padding-bottom: 10px;
+    font-size: 12pt;
+    text-align: left;
+    color: white;
+    text-shadow: 0 0 .1px #424242;
+}
+
+.title-footer a {
+  font-size: 12pt;
+  color: white;
+  color: white;
+}
+
+
+.imageTop {
+  vertical-align: top;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+
+.biglist li {
+  color: #424242;
+  font-size: 35px;
+}
+
+/* Aesthetic for the new section slide */
+
+.newsection {
+  padding-top: 200px;
+  text-align: center;
+  background-color: #424242;
+}
+
+.newsection h1, .newsection h2, .newsection h3 {
+  color: white;
+  font-size: 75px;
+  line-height: 1em;
+  text-shadow: 0 0 3px white;
+}
+
+/* Aesthetic for the Outline Section */
+
+.outline {
+  background: #e0f1f9;
+  padding-top: 60px;
+}
+.outline h1 {
+  color: #203f60;
+  line-height: 1em;
+  font-size: 50px;
+  text-shadow: 0 0 1px #203f60;
+}
+
+.outline strong {
+  color: #203f60;
+  line-height: 1em;
+  font-size: 30px;
+  text-shadow: 0 0 1px #203f60;
+}
+
+
+.outline p {
+  color: #424242;
+  line-height: 1em;
+  font-size: 25px;
+}
+
+
+/* Slide Footers/Headers */
+
+div.slide-footer {
+    background-color: #272822;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 17px;
+    width: 100%;
+}
+
+div.slide-footer span {
+    font-size: 10pt;
+    color: #F7F8FA;
+    position: absolute;
+    left: 15px;
+    bottom: 1px;
+    text-shadow: 0 0 .1px #F7F8FA;
+}
+
+
+/* Special Slide Types */
+
+/* Emphazise a point... */
+.exclaim {
+  background: #69b3f4;
+}
+.exclaim h1 {
+  font-size: 60px;
+  color: black;
+}
+.exclaim p {
+  color: white;
+}
+
+
+/* Emphazise a point... */
+.break {
+  background: #e58b8b;
+}
+.break h3 {
+  font-size: 60px;
+  color: white;
+}
+.break p {
+  color: white;
+}
+
+
+
+
+
+
+
+
+
