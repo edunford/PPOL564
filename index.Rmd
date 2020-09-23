@@ -370,7 +370,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 6: Modern Snake Charming**<br>_Approaches to Data Manipulation in Python_
+### **Week 6: Modern Snake Charming**<br>[_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html)
 
 <br><br>
 
