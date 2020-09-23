@@ -1,5 +1,5 @@
 # Example Algorithm 1
-# Locate Students Near By. 
+# Locate Students Near By.
 
 import math
 from matplotlib import pyplot as plt
@@ -34,8 +34,6 @@ def distance(loc1,loc2):
 distance((1,1),(8,8))
 
 
-
-locations
 
 
 def close(locations,dist):

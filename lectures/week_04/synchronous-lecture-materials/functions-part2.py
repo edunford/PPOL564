@@ -3,13 +3,20 @@ MORE ON FUNCTIONS...
 '''
 
 
+# %% -----------------------------------------
 
+# Function basics (refresh)
+def fun(x=1):
+    return 4 + x
+
+fun()
 
 
 
 # %% markdown -----------------------------------------
 
 ## Using Mutable Values as Arguments
+
 
 #%% Never Use a mutable value as default arg -------
 
@@ -38,6 +45,11 @@ my_func()
 
 
 
+x = 3
+def my_func():
+    return x
+
+my_func()
 
 
 
@@ -74,6 +86,7 @@ tt()
 
 
 # %% -----------------------------------------
+
 
 val = 5
 # This is a global variable
@@ -122,9 +135,23 @@ the function as an argument.
 
 # %% markdown -----------------------------------------
 
-## Anyamous Functions
+## Lambda Functions
 
 # %% -----------------------------------------
+
+
+def fun(x):
+    return x**2
+
+fun(4)
+
+lambda x: x**2
+square(4)
+
+
+
+
+
 
 '''
 Sometimes we need to perform a simple computation, but would rather not generate a function to do so.
@@ -138,7 +165,12 @@ Example:
 - The key argument offers us a way to define our own sorting function.
 '''
 
+
+
+
 presidents = ['Barak Obama','Donald Trump','George Bush','Jimmy Carter','Bill Clinton']
+presidents.sort()
+
 sorted(presidents)
 
 
@@ -152,6 +184,9 @@ def sort_by_longest_last_name(x):
 
 # Sort by longest to shortest last name.
 sorted(presidents,key=sort_by_longest_last_name,reverse=True)
+
+sorted(presidents,key=lambda x: len(x),reverse=True)
+
 
 
 
