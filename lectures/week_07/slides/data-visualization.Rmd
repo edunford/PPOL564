@@ -1,0 +1,372 @@
+---
+title: 
+    <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations  </font>
+  <font size=6, face="bold"> Week 7 </font> 
+  <br>
+  <br>
+  <font size=100, face="bold"> Data Visualization </font>
+author: 
+  <font class = "title-footer"> 
+  &emsp;Prof. Eric Dunford &emsp;&#9670;&emsp; Georgetown University &emsp;&#9670;&emsp; McCourt School of Public Policy &emsp;&#9670;&emsp; eric.dunford@georgetown.edu</font>
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "gu-theme.css"
+    nature:
+      beforeInit: "macros.js"
+      highlightStyle: github
+      countIncrementalSlides: False
+      highlightLines: true
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,message=F,error=F,warning = F,cache = T)
+require(lubridate)
+require(tidyverse)
+require(ggthemes)
+require(gghighlight)
+```
+
+layout: true
+
+<div class="slide-footer"><span> 
+PPOL564 | Data Science 1 | Foundations
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+Week 7 <!-- Week of the Footer Here -->
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+Data Visualization <!-- Title of the lecture here -->
+
+</span></div> 
+
+---
+
+class: newsection
+
+# The Components of Data Visualization
+
+---
+
+### What do you see?
+
+```{r,echo=F,fig.align="center",fig.width=10,fig.height=7,dpi=600}
+set.seed(123)
+x <- rnorm(1000)
+y <- 1 + 2*x + 1*x^2 - .5*x^3  + rnorm(1000,sd=3)
+tibble(y,x) %>% 
+  mutate(color = ifelse(x>=0,"Post-Treatment","Pre-Treatment"),
+         y = ifelse(x>=0,y+5,y),
+         color = fct_rev(color)) %>% 
+  ggplot(aes(x,y,color=color,pch=color)) +
+  geom_point(size=3,alpha=.5) +
+  theme_fivethirtyeight() +
+  scale_color_manual(values=c("grey30","steelblue")) +
+  labs(color="",pch="",x="X",y="Y",
+       title="Regression Discontinuity",
+       subtitle="Simulation of a regression discontinuity with discontinuity set to occur at x = 0",
+       caption = "\nSource: Simulated Data") +
+  theme(legend.position = "bottom",
+        plot.title = element_text(size=20,family='serif'),
+        text = element_text(size=20,family='serif'),
+        axis.text = element_text(size=18,family='serif'),
+        axis.title = element_text(size=18,family='serif'))
+```
+
+
+---
+
+### Mapping data to space
+
+.center[<img src="Figures/cartesian-coord-1.png", width=600>]
+
+---
+
+### Aesthetics
+
+<br>
+.center[<img src="Figures/common-aesthetics-1.png", width=500>]
+<br><br>
+.center[<img src="Figures/basic-scales-example-1.png", width=500>]
+
+---
+
+
+
+### Color as a tool to distinguish
+
+.center[<img src="Figures/breakdown-by-year_25km-1day-window.png", width=600>]
+
+---
+
+### Color as a tool to represent values
+
+.center[<img src="Figures/violent-events-2016_by-adm-unit_by-dataset.png", width=100%>]
+
+
+---
+
+### Color as a tool to highlight
+
+```{r,echo=F,fig.align="center",fig.width=10,fig.height=7,dpi=600}
+set.seed(123)
+d <- purrr::map_dfr(
+  letters,
+  ~ data.frame(
+      idx = 1:400,
+      value = cumsum(runif(400, -1, 1)),
+      type = .,
+      flag = sample(c(TRUE, FALSE), size = 400, replace = TRUE),
+      stringsAsFactors = FALSE
+    )
+)
+ggplot(d,aes(idx,value,color=type)) +
+  geom_line(size=1.5) + 
+  gghighlight(max(value) > 20|min(value) < -20,use_direct_label = F) +
+  scale_color_manual(values=c("steelblue","darkred")) +
+  labs(x="Periods",y="Values") +
+  theme_minimal() + 
+  theme(legend.position = "none")
+```
+
+
+---
+
+### Presentation as information
+
+```{r,echo=F,fig.align="center",fig.width=8,fig.height=3}
+set.seed(123)
+D = map2_df(.x=c(1,5,3,10),.y=c("A","B","C","D"),
+            .f= function(x,y) {tibble(v=rnorm(50,mean=x),grp=y)})
+ggplot(D,aes(v)) +
+  geom_density(fill="grey",alpha=.5) +
+  labs(x="Variable",y="Density") +
+  theme_hc()
+```
+
+--
+
+```{r,echo=F,fig.align="center",fig.width=8,fig.height=4}
+ggplot(D,aes(v,fill=factor(grp))) +
+  geom_density(alpha=.5,color="white") +
+  labs(x="Variable",y="Density",fill="Group") +
+  theme_hc()
+```
+
+
+
+---
+
+### Presentation as distortion
+
+```{r,echo=F,fig.align="center",fig.width=8,fig.height=3}
+ggplot(D,aes(v)) +
+  geom_density(fill="grey",alpha=.5) +
+  labs(x="Variable",y="Density") +
+  theme_hc()
+```
+
+--
+
+```{r,echo=F,fig.align="center",fig.width=8,fig.height=4}
+ggplot(D,aes(v,fill=factor(grp))) +
+  geom_histogram(alpha=.5,color="white",binwidth = .2) +
+  geom_rug() +
+  labs(x="Variable",y="Density",fill="Group") +
+  theme_hc()
+```
+
+---
+
+### The data type drives the visualization decisions
+
+Think carefully about what you're trying to convey and what information you're using to make your point. 
+
+<br>
+
+.center[
+
+| Data Type   | Example |  Scale  |
+|-------------|---------|---------|
+| Numerical   | `1.3`, `800`, `10e3` | Continuous | 
+| Integer     | `1`, `2`, `3` | Discrete | 
+| Categorical | `"dog"`, `"Nigeria"`, `"A"` | Discrete |
+| Ordered     | `"Small"`, `"Medium"`, `"Large"` | Discrete |
+| Dates/Time  | `2009-01-02`, `5:32:33` | Continuous |
+
+]
+
+
+
+
+
+---
+
+### The data type drives the visualization decisions
+
+
+.center[
+.center[<img src="Figures/amounts-1.png", width=500>]
+.center[<img src="Figures/proportions-1.png", width=500>]
+.center[<img src="Figures/single-distributions-1.png", width=500>]
+.center[<img src="Figures/basic-scatter-1.png", width=500>]
+]
+
+---
+
+class:newsection
+
+# Grammar of Graphics
+
+---
+
+.pull-left[.center[<img src = "Figures/ggplot-hex.png"><br><br>&#8776;<br><br><img src = "Figures/plotnine_logo.png">]]
+
+.pull-right[
+`plotnine` is an emulator for the powerfu `ggplot2` graphics package in `R`. `ggplot2` offers a flexible and intuitive graphics language capable of building sophisticated graphics.
+
+<br><br>
+
+`plotnine`/`ggplot2` has a **special syntax** that we'll have to get used to, _but_ once we understand the basics, we'll be able to produce some advanced and sophisticated graphics with ease!
+]
+
+---
+
+
+.pull-left[.center[<img src = "Figures/ggplot-hex.png"><br><br>&#8776;<br><br><img src = "Figures/plotnine_logo.png">]]
+
+.pull-right[
+
+`plotnine`/`ggplot2` is based on a **grammar of graphics**. In essence, you can build every graph from the same components that follow the same intuitive naming conventions.
+
+Every graph is composed of
+
+1. a **dataset**
+
+2. **coordinate system**
+
+2. **mappings** &rarr; the variables we're aiming to visualize
+
+3. **geom**etric expressions of how the data should be projected onto a space
+
+]
+
+
+---
+
+.center[
+<font color = "green">`ggplot`</font>(data = `<DATA>`) 
+
+`+` 
+
+<font color = "green">`<GEOM_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`))
+]
+
+--
+
+.center[
+
+`+` 
+
+<font color = "green">`<GEOM_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`)) 
+
+`+` 
+
+<font color = "green">`<GEOM_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`)) 
+
+`+` 
+
+<font color = "green">`<GEOM_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`)) 
+
+$$\vdots$$
+
+]
+
+
+---
+
+.center[
+<font color = "green">`ggplot`</font>(data = `<DATA>`) 
+
+`+` 
+
+<font color = "green">`<GEOM_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`))
+]
+
+.center[
+
+`+` 
+
+<font color = "red">`<SCALE_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`)) 
+
+`+` 
+
+<font color = "blue">`<THEME_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`)) 
+
+`+` 
+
+<font color = "orange">`<FACET_FUNCTION>`</font>(mapping = <font color = "green">aes</font>(`<MAPPINGS>`)) 
+
+$$\vdots$$
+
+]
+
+---
+
+### One variable?
+
+.center[
+| Expression   | Function   |     |
+|----|----|-----|
+| Area  | `geom_area()` | <img src = "Figures/geom_area.png">  | 
+| Density  | `geom_density()` | <img src = "Figures/geom_density.png">  | 
+| Dots  | `geom_dotplot()` | <img src = "Figures/geom_dotplot.png">  | 
+| Frequencies  | `geom_freqpoly()` | <img src = "Figures/geom_freqplot.png">  | 
+| Histogram  | `geom_histogram()` | <img src = "Figures/geom_histogram.png">  | 
+]
+
+---
+
+### Two variables?
+
+.center[
+| Expression   | Function   |     |
+|----|----|-----|
+| Continuous Points  | `geom_point()` | <img src = "Figures/geom_point.png">  | 
+| Continous Lines  | `geom_line()` | <img src = "Figures/geom_line.png">  | 
+| Discrete Counts  | `geom_count()` | <img src = "Figures/geom_count.png">  | 
+| Continuous and Discrete Distributions  | `geom_boxplot()` | <img src = "Figures/geom_boxplot.png">  | 
+| Densities  | `geom_hex()` | <img src = "Figures/geom_hex.png">  | 
+]
+
+---
+
+### Three variables?
+
+.center[
+| Expression   | Function   |     |
+|----|----|-----|
+|  Densities  | `geom_contour()` | <img src = "Figures/geom_contour.png">  | 
+|  Intensities  | `geom_tile()` | <img src = "Figures/geom_tile.png">  | 
+|  Intensities  | `geom_raster()` | <img src = "Figures/geom_raster.png">  | 
+|  Spatial  | `geom_map()` | <img src = "Figures/geom_map.png">  | 
+]
+
+--
+
+See [`plotnine`'s documentation website](https://plotnine.readthedocs.io/en/stable/index.html) for additional guidance and tips on using the API.  
+
+---
+
+### Function Types in `ggplot2`/`plotnine`
+
+| Type | Function Header | Description |
+|------|-----------------|-------------|
+|  Generate layers from data   |  `geom_` | Use a geom function to represent data points, use the geom’s aesthetic properties to represent variables. Each function returns a layer. |
+|   Construct statistics layers   |  `stat_` | A stat builds new variables to plot (e.g., count, prop) |
+|   Change mapping characteristics   |  `scale_` | Scales map data values to the visual values of an aesthetic. To change a mapping, add a new scale. |
+|   Generate subplots   |  `facet_` | Facets divide a plot into subplots based on the values of one or more discrete variables.  |
+|   Alter the plots theme   |  `theme_` | Change the aesthetics of the plot background and feature (e.g. axes, text, grid lines, etc.)  |

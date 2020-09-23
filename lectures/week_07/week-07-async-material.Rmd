@@ -1,0 +1,585 @@
+---
+pagetitle: "PPOL564 | Week 7 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Interrogation Techniques <br> _Data Visualization and Exploration_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 7 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Discuss the components of a good **quantitative visualization**
+- An introduction to plotting using `matplotlib` and `seaborn` 
+- An introduction to the **grammar of graphics** using `plotnine`
+- Delving into visualizing:
+    + continuous on continuous data;
+    + continuous on categorical data; and 
+    + categorical on categorical data.
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Cover **asking questions of data**
+- Discuss approaches to **numerical and visual summaries** of data
+- Explore **trends and fits** on bivariate plots.
+- Talk through how to detect and handle **missing data**
+- Further discuss plotting: 
+    + exporting plots;
+    + customizing plots to be publishable quality.
+
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+<!-- # Synchronous Materials -->
+
+<!-- - [Lecture Code & Data](synchronous-lecture/week_7_lecture_code_and_data.html) -->
+
+<!-- <br><hr><br> -->
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 22 minutes
+
+<br>
+
+Download the <a href="gapminder.csv" download><strong>gapminder.csv</strong></a> dataset used in the asynchronous videos.
+
+<br>
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Data Visualization
+
+### [**Relevant Slides**](slides/data-visualization.html#2)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=7f04653d-3ada-452c-bdd0-ac3c01518b99&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+## `matplotlib` + `seaborn`
+
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=bd4c2b97-62b0-4e27-9a04-ac3c01567b36&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# %% -----------------------------------------
+# Data
+
+# Read data in and transform initial variables
+dat = (pd.read_csv("gapminder.csv")
+       .eval('lngdpPercap = log(gdpPercap)')
+       .eval('lnpop = log(pop)'))
+
+dat.head()
+
+
+# %% -----------------------------------------
+# Matplotlib
+
+plt.figure(figsize=(12,7))
+plt.scatter(x = dat.lngdpPercap, y = dat.lifeExp, c="green", alpha=.5,s=100) 
+plt.xlabel("Log GDP perCapita")
+plt.ylabel("Life Expectancy")
+plt.show()
+
+
+
+# %% -----------------------------------------
+# Matplotlib library is built into pandas 
+
+
+dat.plot.scatter(x="lngdpPercap",y="lifeExp",figsize=(12,7),alpha=0.5,c="green",s=100)
+plt.xlabel("Log GDP perCapita")
+plt.ylabel("Life Expectancy")
+plt.show()
+
+
+# %% -----------------------------------------
+# Seaborn 
+
+plt.figure(figsize=(12,7))
+sns.scatterplot(x = "lngdpPercap",y="lifeExp",
+                alpha=.5,color="green",s=100,
+                data = dat)
+plt.xlabel("Log GDP perCapita")
+plt.ylabel("Life Expectancy")
+plt.show()
+```
+
+<br><hr><br>
+
+## `plotnine`/`ggplot2`
+
+### [**Relevant Slides**](slides/data-visualization.html#15)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=64a6536f-89bb-4ac6-966b-ac3c015b556c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import pandas as pd
+from plotnine import *
+import warnings
+warnings.filterwarnings('ignore') # Ignore warnings
+
+# Run into issues with plotnine here are some resolutions
+#!pip install scipy==1.2 --upgrade
+#!pip install scikit-misc
+
+# Read in data 
+dat = (pd.read_csv("gapminder.csv")
+       .eval('lngdpPercap = log(gdpPercap)')
+       .eval('lnpop = log(pop)'))
+
+
+dat.head()
+
+# %% -----------------------------------------
+# Building a plotnine plot
+
+(ggplot(dat,aes(x = "lngdpPercap",y="lifeExp",color="continent")) + 
+ geom_point(size=3,alpha=.5,show_legend=False) +
+ theme_bw()+
+ labs(x = "Log GDP Per Capita",y="Life Expectancy",color="",title="Life Expectancy on GDP") +
+ scale_color_manual(values = ["blue","steelblue","black","gold","pink"]) +
+ facet_wrap("continent",scales="free",ncol=1) +
+ theme(figure_size=(5,12),
+       legend_position="top"))
+```
+
+<br><hr><br>
+
+
+## Continuous Data
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4eb6df24-abdc-4855-9b2f-ac3c016892bb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import pandas as pd
+from plotnine import *
+import seaborn as sns
+
+import warnings
+warnings.filterwarnings('ignore') # Ignore warnings
+
+# Run into issues with plotnine here are some resolutions
+#!pip install scipy==1.2 --upgrade
+#!pip install scikit-misc
+
+
+
+# Read in data 
+dat = (pd.read_csv("gapminder.csv")
+       .eval('lngdpPercap = log(gdpPercap)')
+       .eval('lnpop = log(pop)'))
+
+
+dat.head()
+
+
+############ Continuous Univariate ############ 
+
+# %% -----------------------------------------
+# Histogram
+
+# plotnine/ggplot2 
+(ggplot(dat, aes(x = 'lifeExp')) +
+  geom_histogram())
+
+
+# Seaborn
+sns.distplot(dat.lifeExp,hist=True,kde=True)
+
+
+
+# %% -----------------------------------------
+# Density Plot
+
+# plotnine/ggplot2 
+(ggplot(dat, aes(x = 'lifeExp')) +
+  geom_density(fill="blue",color="black",alpha=.5)+
+  xlim(0,100))
+
+
+# Seaborn
+sns.kdeplot(dat.lifeExp,shade=True)
+
+
+# %% -----------------------------------------
+############ Continuous Bivariate ############
+
+
+# %% -----------------------------------------
+# Scatter Plot
+
+# plotnine/ggplot2 
+(ggplot(dat, aes(x = 'lngdpPercap', y = 'lifeExp')) +
+  geom_point(alpha=.5))
+
+# Seaborn
+sns.scatterplot(x = 'lngdpPercap', y = 'lifeExp',data=dat)
+
+# %% -----------------------------------------
+# Line Plot
+
+# plotnine/ggplot2 
+(ggplot(dat, aes(x = 'lngdpPercap', y = 'lifeExp')) +
+  geom_line())
+
+nig = dat.query("country == 'Nigeria'")
+(ggplot(nig, aes(x = 'year', y = 'lifeExp')) +
+  geom_line())
+
+# Seaborn
+sns.lineplot(x = 'lngdpPercap', y = 'lifeExp',data=dat)
+
+
+# %% -----------------------------------------
+# Binned Plot (density/histogram)
+
+# plotnine/ggplot2 
+(ggplot(dat, aes(x = 'lngdpPercap', y = 'lifeExp')) +
+  geom_bin2d())
+
+
+# Seaborn
+sns.jointplot(data=dat, x="lngdpPercap", y="lifeExp", kind="hex")
+```
+
+
+## Categorical Data
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4eb6df24-abdc-4855-9b2f-ac3c016892bb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import pandas as pd
+import numpy as np
+from plotnine import *
+import seaborn as sns
+
+import warnings
+warnings.filterwarnings('ignore') # Ignore warnings
+
+# Run into issues with plotnine here are some resolutions
+#!pip install scipy==1.2 --upgrade
+#!pip install scikit-misc
+
+
+# Read in data 
+dat = (pd.read_csv("gapminder.csv")
+       .eval('lngdpPercap = log(gdpPercap)')
+       .eval('lnpop = log(pop)'))
+
+# Create an extra categorical variable 
+dat['wealthy'] = np.where(dat.lngdpPercap > 9,"yes","no")
+
+dat.head()
+
+
+############### Univariate Categorical ###############
+
+
+# %% -----------------------------------------
+
+# Bar Plot
+(ggplot(dat,aes(x='continent')) +
+  geom_bar())
+
+
+# Ordering Bar Plot by Frequency
+cont_order = dat.continent.value_counts().index.tolist()
+(ggplot(dat,aes(x='continent')) +
+  geom_bar() +
+  scale_x_discrete(limits=cont_order))
+
+
+# Adding in more categorical data 
+(ggplot(dat,aes(x='continent',fill='wealthy')) +
+  geom_bar() +
+  scale_x_discrete(limits=cont_order))
+
+
+# Dodge
+(ggplot(dat,aes(x='continent',fill='wealthy')) +
+  geom_bar(position="dodge") +
+  scale_x_discrete(limits=cont_order))
+
+# Seaborn
+sns.catplot(x="continent", hue = "wealthy",data=dat,kind="count")
+
+
+# Bivariate: category on continuous -----------------------------------------
+
+# %% -----------------------------------------
+# Box plot
+
+
+# plotnine
+(ggplot(dat,aes(x='continent',y = 'lifeExp')) +
+  geom_boxplot())
+
+
+# Flip the axis 
+(ggplot(dat,aes(x='continent',y = 'lifeExp')) +
+  geom_boxplot() +
+  coord_flip())
+
+
+# Seaborn
+sns.boxplot(x='continent',y = 'lifeExp',data=dat)
+
+sns.boxplot(x='lifeExp',y = 'continent',data=dat)
+
+
+# %% -----------------------------------------
+# Violin plot
+
+# ggplot
+(ggplot(dat,aes(x='continent',y = 'lifeExp')) + 
+    geom_violin())
+
+
+# Seaborn
+sns.violinplot(x='continent',y = 'lifeExp',data=dat)
+
+# %% -----------------------------------------
+# Jitter plot
+
+(ggplot(dat,aes(x='continent',y = 'lifeExp')) + geom_point())
+
+# ggplot
+(ggplot(dat,aes(x='continent',y = 'lifeExp',color="continent")) +
+  geom_jitter(width = .25,alpha=.5,show_legend=False))
+
+
+# Layer the representations
+(ggplot(dat,aes(x='continent',y = 'lifeExp',color="continent")) +
+  geom_jitter(width = .1,alpha=.1,show_legend=False) +
+  geom_boxplot(alpha=.5,show_legend=False))
+
+
+# Seaborn
+sns.stripplot(x='continent',y = 'lifeExp', data=dat)
+
+# %% -----------------------------------------
+
+# Heatmap: category on category on continous 
+
+# ggplot
+(ggplot(dat,aes(x='continent',y = 'wealthy',fill='lifeExp')) +
+  geom_tile())
+
+# Seaborn
+M = dat.pivot_table('lifeExp','wealthy','continent')
+M
+sns.heatmap(M)
+
+# %% -----------------------------------------
+
+# Fitting categories into continuous on continuous
+
+(ggplot(dat, aes(x='lngdpPercap',y = 'lifeExp',color="continent")) +
+ geom_point())
+```
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+For the following visualizations, please use the [`palmerpenguins` dataset](https://github.com/allisonhorst/palmerpenguins).
+
+
+```{python,eval=F}
+# Data can be imported via the palmerpenguins module
+# !pip install palmerpenguins
+
+import pandas as pd
+from plotnine import *
+import seaborn as sns
+import matplotlib.pyplot as plt
+from palmerpenguins import load_penguins
+
+dat = load_penguins()
+dat.head()
+```
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Plot the body mass in grams (`body_mass_g`) as a boxplot. Make sure the following is true:
+  
+  - `body_mass_g` is on the x-axis with a label that reads "Body Mass (Grams)"; and the y-axis is `species` and has no label. 
+  - Add a title that reads "Penguin Body Mass"
+  - Each boxplot should be a different fill for each `species` but make sure there is no legend. 
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+# plotnine solution
+p =\
+(
+ggplot(dat,aes(x="species",y="body_mass_g",fill='species')) +
+geom_boxplot(alpha=.6,show_legend=False) + # added some additional transparency
+coord_flip() +
+labs(x="", y = "Body Mass (Grams)",title="Penguin Body Mass")
+)
+p
+
+
+# %% -----------------------------------------
+# seaborn solution
+sns.boxplot(x="body_mass_g",y="species",data=dat)
+plt.xlabel("Body Mass (Grams)")
+plt.ylabel("")
+plt.title("Penguin Body Mass")
+plt.show()
+
+# %% -----------------------------------------
+
+# You can also set titles using the seaborn object directly
+ax = sns.boxplot(x="body_mass_g",y="species",data=dat)
+ax.set_title("Penguin Body Mass")
+ax.set_ylabel("")
+ax.set_xlabel("Body Mass (Grams)")
+
+
+
+```
+
+
+## Question 2  {.tabset}
+
+<br>
+
+Using `plotnine`, generate a scatter plot where flipper length (`flipper_length_mm`) is on the x-axis and bill length (`bill_length_mm`) is on the y-axis. The points should be a different color given the `species` of the penguin. Also, the points should be sized differently given the body mass (`body_mass_g`) of the penguin. 
+
+In addition to the above:
+
+- points should be transparent (`alpha=.5`)
+- Labs should read: x-axis = "Flipper Length (MM)", y-axis = "Bill Length (MM)", color legend = "Penguin Species" and size legend = "Body Mass (Grams)"
+- The plot theme should be `minimal`.
+
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+(
+    ggplot(dat,aes(x="flipper_length_mm",
+                   y="bill_length_mm",
+                   color="species",
+                   size="body_mass_g")) +
+    geom_point(alpha=.5) +
+    labs(x = "Flipper Length (MM)",y="Bill Length (MM)",
+         color="Penguin Species",size = "Body Mass (Grams)") +
+    theme_minimal() 
+)
+```
+
+
+## Question 3  {.tabset}
+
+<br>
+
+Using `plotnine`, generate barplot that contains the Penguin `species` on the x-axis and a count of the number of observations for each category on the y-axis. You'll need to drop all missing observations first.
+
+```{python,eval=F}
+dat.dropna()
+```
+
+From there, do the following:
+
+- Use the fill to break up each species by sex so that two bar plots are side-by-side (hint: `position = "dodge"`). 
+- Alter the order so that the "Adelie" species is first, the "Gentoo" second, and the "Chinstrap" third. 
+- Change the fill colors so that "female" is "darkorange" and "male" is "black"
+- x-axis label should read "Penguin Species"; the y-axis "Number of Observations", and the legend should have no title. 
+- Add a title that reads "Distribution of Sex by Species". 
+- The theme should be black and white (`_bw`).
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+(
+    ggplot(dat.dropna(),aes(x="species",fill="sex")) +
+    geom_bar(position="dodge") +
+    scale_x_discrete(limits = ["Adelie","Gentoo","Chinstrap"]) +
+    scale_fill_manual(values=["darkorange","black"]) +
+    labs(x="Penguin Species",y="Number of Observations", fill="",
+         title = "Distribution of Sex by Species") +
+    theme_bw()
+)
+```
+
+
+
