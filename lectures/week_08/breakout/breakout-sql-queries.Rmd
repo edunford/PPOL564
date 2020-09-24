@@ -1,0 +1,47 @@
+---
+title: "PPOL 564 | Week 8 | Breakout"
+subtitle: "Manipulating Data in SQLite" 
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    df_print: paged
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+<br><br>
+
+# Instructions
+
+<br>
+
+Using the `country.sqlite` database, please perform the following tasks. The database can be downloaded via the following [**dropbox link**](https://www.dropbox.com/s/f6z3kpfpbr8xf1j/country.sqlite?dl=0). 
+
+You can use either the SQLite GUI used in lecture ([**DB Browser for SQLite**](https://sqlitebrowser.org/dl/)) or the `sqlite3` and `pandas` modules to answer the questions. 
+
+<br>
+
+# Questions
+
+<br>
+
+### (1) Build a table that calculates the average `ln_gdppc`, `ln_pop`, `infant_mort`, and `polity` score by `continent`-`year`. Order this table in ascending order by average `polity` score. All `float` values should be rounded to the second decimal.
+
+<br><br>
+
+### (2) Build a table that calculates the total number of `protests` and `riots` by `country`-`year`. Create a new variable called `popular_unrest` that sums together the total number of `protests` and `riots` by `country`-`year`. Add `regime_type` field to the table.
+
+<br><br>
+
+### (3) Aggregate the data from Q2 to answer the following question: which regime type has the most `popular_unrest` events?
+
+<br><br><br>
+
+

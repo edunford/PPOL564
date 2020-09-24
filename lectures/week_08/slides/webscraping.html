@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science 1 | Foundations   Week 8       Webscraping</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations </font> <font size=6, face="bold"> Week 8 </font> <br> <br> <font size=100, face="bold"> Webscraping </font>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science 1
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 8 &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Webscraping &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+### What does it mean to "scrape" something off the web?
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+- leveraging the structure of a website to **grab it's contents**
+
+- using a programming environment (such as R, Python, Java, etc.) to **systematically extract** that content.
+
+- accomplishing the above in an "unobtrusive" and **legal** way.
+
+---
+
+### Website 
+
+As internet consumers, we interact with the interface (or a **rendered version**) of a [webpage](https://www.bbc.com/news/world-middle-east-36156865). Since websites are just rendered code, every piece of that code can be tapped into.
+
+.pull-left[
+&lt;img src = "Figures/rendered-webpage.png" width=400&gt;
+]
+
+.pull-right[
+&lt;img src = "Figures/html-webpage.png" width=400&gt;
+]
+
+---
+
+### The many faces of HTML code
+
+Keep in mind that there is 5 types of coding playing out simultaneously when rendering a website:
+
+--
+
+- **HTML**: generates/creates the actual content of a website
+- **XML**: used to transmit data to a webpage from a server
+- **PHP**: relays information between a server and the page (think passwords)
+- **CSS**: responsible for the design of the website
+- **JavaScript**: handles changes and animation.
+
+--
+
+All these different pieces of code work in conjunction (so all will be simultaneously present when viewing a website).
+
+When scraping, we care primarily about **CSS** and **XML**.
+
+
+
+---
+
+### The Sturcture of HTML
+
+![:space 5]
+
+HTML code is structured using tags, and information is organized hierarchcially (like a list or an array) from top to bottom. When scraping, the tags that are of most use are:
+
+- **p** – paragraphs
+- **a href** – links
+- **div** – divisions
+- **h** – headings
+- **table** – tables
+
+We can examine the HTML of a website by inspecting the content within it.
+---
+
+class: break
+
+# Legality
+
+![:space 5]
+
+**Don't scrape too fast!&lt;/font&gt;**
+
+- Your behavior is statistically distinguishable from human users.
+
+- Constitutes a [DDOS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)
+
+- Known the websites **terms of service** – breaking those terms can lead to being banned from the site or even [jail time](https://www.wired.com/2011/07/swartz-arrest/).
+
+
+---
+
+# Solution
+
+&lt;br&gt;
+
+- **Slow down**
+
+- **Add noise** to make your behavior less statistically distinguishable.
+
+- **Know what you're doing** and who you're doing it to.
+  + In the words of Nietzsche: “if thou gaze long into an abyss, the abyss will also gaze into thee”
+  + That is, the internet is a two way street. Scraping content from some sites puts you on peoples' radar.
+
+- [`robot.txt`](http://www.robotstxt.org/) to know what you can and can't scrape.
+  + `www.bbc.com/robots.txt`
+
+---
+
+# Solution
+
+&lt;br&gt;
+
+Create noise by **randomly** putting your scraper to **sleep**.
+
+
+```python
+import random
+# One random unit of time drawn from a uniform distribution
+random.uniform(1,5)
+```
+
+```
+## 2.130965033758015
+```
+
+
+```python
+import time
+# Put the system to sleep by that random unit
+time.sleep(random.uniform(1,5))
+```
+
+--
+
+Keep in mind that if you're a social scientist (which we are), nothing you're doing is **_that_** pressing. You can wait and everyone will be better off for it!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

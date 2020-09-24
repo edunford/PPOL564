@@ -1,0 +1,524 @@
+---
+pagetitle: "PPOL564 | Week 8 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Automated Heists <br> _Drawing from (Un-)Structured Data Sources_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 8 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Understanding **html structure** to look up content on a website
+- **Scrape** content from a website and **build a scraper** to systematically draw content from similarly organized webpages.
+- Discuss scraping content from **PDFs** and **Word** documents. 
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Establishing a **`SQLite` connection** in Python
+- Writing `SQLite` **queries**
+- Building your own **dataverse** with `SQLite`. 
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+# Installations 
+
+<br>
+
+In the synchronous lecture, we'll be discussing writing SQLite queries. I'll be using a simple SQL GUI to demonstrate different types of queries. If you wish to follow along in class, please install the [**DB Browser for SQLite**](https://sqlitebrowser.org/dl/) on your machine prior to class. 
+
+<br><hr><br>
+
+<!-- # Synchronous Materials -->
+
+<!-- <br> -->
+
+<!-- - _Download_: SQLite database used in the lecture -- [**country.sqlite**](https://www.dropbox.com/s/f6z3kpfpbr8xf1j/country.sqlite?dl=0) -->
+<!-- - _Scripts_: -->
+<!--   - <a href="synchronous-lecture-materials/intro_sql_commands.sql" download><strong>intro_sql_commands.sql</strong></a> -->
+<!--   - <a href="synchronous-lecture-materials/using_sql_with_pandas.py" download><strong>using_sql_with_pandas.py</strong></a> -->
+<!-- - _Breakout_: [**Practice with SQL queries**](breakout/breakout-sql-queries.html) -->
+
+<!-- <br><hr><br> -->
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 7 minutes
+
+<br>
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Websites
+
+### [**Relevant Slides**](slides/webscraping.html)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=fa6dfbe0-6d12-4229-ac03-ac3e013aa2b3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+## Scraping Web Content
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=6e34887e-7e80-4965-b901-ac3e013e1d00&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import requests # For downloading the website
+from bs4 import BeautifulSoup # For parsing the website
+
+
+# BBC Url that we'll scrape. 
+url = "https://www.bbc.com/news/world-us-canada-54238936"
+page = requests.get(url)
+page.status_code # 200 == Connection
+
+
+# We've downloaded the entire website
+page.content
+
+# Parse the content 
+soup = BeautifulSoup(page.content, 'html.parser')
+
+# Let's look at the raw code of the downloaded website
+print(soup.prettify())
+
+
+# With the above in hand, we can find all instances of a tag at once.
+soup.find_all('p') # Here I'm locating all the paragraph tags
+
+
+# We can then convert the tag to text
+soup.find_all('p')[15].get_text()
+
+# Using a list comprehension we can do this for each paragraph tag
+content1 = [i.get_text() for i in soup.find_all('p')]
+content1
+
+
+# As we can see, we get things that we want and some things that we don't want.
+# So let's be more specific in targeting specific content.
+
+# Can use a css selector to target specific content
+
+# page > div:nth-child(1) > div.container > div > div.column--primary > div.story-body > div.story-body__inner > p.story-body__introduction
+story_content = [i.get_text() for i in soup.select("div.story-body__inner p")]
+
+
+
+# Join together as a single string
+story_text = "\n".join(story_content)
+print(story_text)
+
+
+# Great! Now let's target different information like the headline and the date.
+
+
+# Date CSS
+#page > div:nth-child(1) > div.container > div > div.column--primary > div.story-body > div.with-extracted-share-icons > div > div.story-body__mini-info-list-and-share-row > div.mini-info-list-wrap > ul > li > div
+css_loc = "div.mini-info-list-wrap > ul > li > div"
+story_date = soup.select(css_loc)[0].get_text()
+
+
+# Get story head line
+story_headline = soup.find_all("h1")[0].get_text()
+
+
+
+# Gather together
+entry = [story_headline,story_date,story_text]
+entry
+```
+
+<br><hr><br>
+
+
+## Building a Webscraper
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=05c13020-5c6f-429c-82ad-ac3e0143de96&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+import pandas as pd
+import requests # For downloading the website
+from bs4 import BeautifulSoup # For parsing the website
+import time # To put the system to sleep
+import random # for random numbers
+
+
+# Building a scraper
+
+# The idea here is to just wrap the above in a function.
+# Input: url
+# Output: relevant content
+
+
+def bbc_scraper(url=None):
+
+    # Download the webpage
+    page = requests.get(url)
+
+    # If a connection was reached
+    if page.status_code == 200:
+
+        # Parse
+        soup = BeautifulSoup(page.content, 'html.parser')
+
+        # Pull Headline
+        story_headline = soup.find_all("h1")[0].get_text()
+
+        # Pull Date
+        story_date = soup.select("div.mini-info-list-wrap > ul > li > div")[0].get_text()
+
+        # Pull story content
+        story_content = [i.get_text() for i in soup.select("div.story-body__inner p")]
+        story_text = " ".join(story_content)
+
+        # Return data
+        return [story_headline,story_date,story_text]
+
+# Extract one webpage
+bbc_scraper("https://www.bbc.com/news/world-us-canada-54238936")
+
+
+
+# Now loop through urls of relevant stories
+# Let's collect urls on all the relevant news stories of the day.
+
+urls = ["https://www.bbc.com/news/world-us-canada-54238936",
+        "https://www.bbc.com/news/world-us-canada-54254141",
+        "https://www.bbc.com/news/world-us-canada-54229799",
+        "https://www.bbc.com/news/world-us-canada-54244515"]
+
+
+#Then just loop through and collect
+scraped_data = []
+for url in urls:
+
+    # Scrape the content
+    scraped_data.append(bbc_scraper(url))
+
+    # Put the system to sleep for a random draw of time (be kind)
+    time.sleep(random.uniform(.5,3))
+
+
+# Look at the data object
+scraped_data
+
+
+# Organize as a pandas data frame
+dat = pd.DataFrame(scraped_data,columns=["headline","date","content"])
+dat.to_csv("scraped_web_data.csv",index=False)
+
+
+
+
+# %% -----------------------------------------
+
+# How to locate URLS?
+
+main_bbc_page_url = "https://www.bbc.com/news"
+main_page = requests.get(main_bbc_page_url)
+main_page.status_code
+main_soup = BeautifulSoup(main_page.content,'html.parser')
+
+
+tag = main_soup.find_all("a")[10]
+tag.attrs.get("href")
+
+
+# Extract relevant links
+links = set()
+for tag in main_soup.find_all("a"):
+    href = tag.attrs.get("href")
+    if "world-us-canada" in href and "https:" not in href:
+        links.update(["https://www.bbc.com" + href])
+links
+
+
+# %% -----------------------------------------
+
+# Let's write the above as a single function
+def link_scrape(urls=None,sleep=3):
+    """Scrape multiple BBC URLS.
+
+    Args:
+        urls (list): list of valid BBC news urls.
+        sleep (int): Integer value specifying how long the machine should be
+                    put to sleep (random uniform). Defaults to 3.
+
+    Returns:
+        DataFrame: frame containing headline, date, and content fields
+    """
+    scraped_data = []
+    for url in urls:
+
+        print(url) # Keep track of where we are at.
+
+        # Scrape the content
+        scraped_data.append(bbc_scraper(url))
+
+        # Put the system to sleep for a random draw of time (be kind)
+        time.sleep(random.uniform(0,sleep))
+
+    dat = pd.DataFrame(scraped_data,columns=["headline","date","content"])
+    return dat
+
+
+# This breaks. Why?
+dat_content = link_scrape(urls=links)
+
+
+# Code only works to scrape a very specific structure of the website.
+links2 = list(links)
+links2.pop(links2.index('https://www.bbc.com/news/world-us-canada-54242205'))
+links2.pop(links2.index('https://www.bbc.com/news/world-us-canada-52497111'))
+links2.pop(links2.index('https://www.bbc.com/news/world-us-canada-54244012'))
+
+dat_content = link_scrape(urls=links2)
+
+dat_content
+
+# More advanced approaches to scraping the web.
+# https://scrapy.org/
+```
+
+<br><hr><br>
+
+## Scraping `.pdf`/`.docx`
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=2dafea85-1073-4bfe-afa8-ac3f011ecd21&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br>
+
+Download the documents being scraped in this video:
+
+- <a href="data/mercy_corp.pdf" download><strong>mercy_corp.pdf</strong></a>
+- <a href="data/thomas_wood.pdf" download><strong>thomas_wood.pdf</strong></a>
+- <a href="data/Easterly_and_Levine.docx" download><strong>Easterly_and_Levine.docx</strong></a>
+
+<br>
+
+### Code from the video
+
+```{python,eval=F}
+# !pip install PyPDF2
+# !pip install python-docx
+
+import PyPDF2 # Scraping PDFs
+import docx # Scraping Word Documents
+
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+# %% -----------------------------------------
+
+#############################################
+########## Scraping TEXT in a PDF ###########
+#############################################
+
+# Mercy Corp Report As example
+# https://www.mercycorps.org/sites/default/files/2019-11/Motivations%20and%20Empty%20Promises_Mercy%20Corps_Full%20Report_0.pdf
+
+pdfFileObj = open('mercy_corp.pdf', 'rb')
+pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+pdfReader.numPages
+pdfReader.isEncrypted
+pageObj = pdfReader.getPage(10)
+print(pageObj.extractText())
+pdfFileObj.close()
+
+
+# %% -----------------------------------------
+
+# Extract all the text content in the PDF
+
+def read_pdf(file):
+    
+    with open(file, 'rb') as pdfFileObj:
+        # Open the pdf
+        pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+
+        # Locate the number of pages
+        n_pages = pdfReader.numPages
+
+        # Loop through the pages and store the content by
+        # appending to a string
+        content = ""
+        for i in range(n_pages):
+            content += pdfReader.getPage(i).extractText()
+            
+    return content
+
+# Examine the content
+mc_content = read_pdf("mercy_corp.pdf")
+print(mc_content)
+
+
+
+
+# %% -----------------------------------------
+
+# CAUTION! Not all PDFs are equal. Some are really difficult to parse.
+# Given that the spaces aren't special characters.
+tw_content = read_pdf("thomas_wood.pdf")
+print(tw_content)
+
+# When you run into this, you'll have to think through an alternative parsing strategy. No free lunch here.
+
+
+# %% -----------------------------------------
+
+################################################
+########## Scraping TEXT in WORD doc ###########
+################################################
+
+doc = docx.Document("Easterly_and_Levine.docx")
+dir(doc)
+
+len(doc.paragraphs)
+
+print(doc.paragraphs[0].text)
+
+for i in doc.paragraphs:
+    print(i.text)
+
+
+# %% -----------------------------------------
+
+# Wrap into a function
+
+def get_word(filename):
+    doc = docx.Document(filename)
+    fullText = []
+    for para in doc.paragraphs:
+        fullText.append(para.text)
+    return '\n'.join(fullText)
+
+print(get_word("Easterly_and_Levine.docx"))
+
+```
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+For the following question, let’s use this Wikipedia page to practice some of the webscraping concepts covered in the asynchronous lecture.
+
+```{python,eval=F}
+wiki_url = "https://en.wikipedia.org/wiki/Machine_learning"
+```
+
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Download the website of the Wikipedia article and parse the webcontent. 
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+import requests
+from bs4 import BeautifulSoup
+wiki = requests.get(wiki_url)
+wiki_parsed = BeautifulSoup(wiki.content, "html.parser")
+```
+
+
+
+## Question 2  {.tabset}
+
+<br>
+
+Scrape the **_title_** and **_subtitles_** from the Wikipedia article.
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+# Scrape the main title of the article 
+article_title = wiki_parsed.find_all("h1")[0].get_text()
+
+# Scrape the subtitles of the article
+article_subtitles = [h.get_text() for h in wiki_parsed.find_all(class_="mw-headline")]
+```
+
+## Question 3  {.tabset}
+
+<br>
+
+Scrape the **_text content_** from the Wikipedia article. Make sure the content is collapsed into a single character string.
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+content = [p.get_text() for p in wiki_parsed.find_all("p")]
+text = "\n".join(content)
+print(text)
+```
+
+
+

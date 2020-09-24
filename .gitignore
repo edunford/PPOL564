@@ -12,6 +12,7 @@ labs/labs_to_TA/
 admin/
 syllabus/ml-section-lesson-plan.txt
 lectures/virtual-lesson-plan.md
+*.sqlite
 
 
 # Ignore because there is a repo in the repo
