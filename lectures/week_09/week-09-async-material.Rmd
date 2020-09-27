@@ -1,0 +1,203 @@
+---
+pagetitle: "PPOL564 | Week 9 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> The Signal and the Noise <br> _Introduction to Statistical Learning_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 9 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Discuss **virtual environments** how they work and why they're useful.
+- Get a general introduction to **statistical learning**.
+- Talk about **supervised learning** problems.
+- Think about **cross-validation** as a strategy to deal with over-fitting. 
+
+<br>
+
+**In the Synchronous Lecture**
+
+- General introduction to the **scikit-learn** api.
+- Delve into **data pre-processing**, why we do it, and how to do it in `sklearn`
+- Talk about how to implement **cross-validation** methods in `sklearn`
+- Talk about ml **pipelines** and why they're useful. 
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+<!-- # Synchronous Materials {.tabset .tabset-pills} -->
+
+<!-- <br> -->
+
+<!-- - Lecture Scripts: -->
+<!--   + <a href="synchronous-materials/introduction-to-sklearn.py" download><strong>introduction-to-sklearn.py</strong></a> -->
+<!--   + <a href="synchronous-materials/introduction-to-data-preprocessing.py" download><strong>introduction-to-data-preprocessing.py</strong></a> -->
+<!--   + <a href="synchronous-materials/introduction-to-CV.py" download><strong>introduction-to-CV.py</strong></a> -->
+<!--   + <a href="synchronous-materials/introduction-to-pipelines.py" download><strong>introduction-to-pipelines.py</strong></a> -->
+
+<!-- <br><hr><br> -->
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 20 minutes
+
+<br>
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Virtual Environments
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=5c4bfe9b-5452-46e3-8a9a-ac43010406b8&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+
+### Code from the video
+
+<br>
+
+**Setting up a virtual environment**
+
+
+```{bash,eval=F}
+# Bash/Unix 
+
+# Create a folder where your project will be
+mkdir my_project && cd my_project
+
+# Create a virtual environment in your project 
+python3 -m venv env
+```
+
+Note that this bit `python3 -m venv` creates the environment, and this bit `env` is the name we gave the environment. 
+
+**Activating your virtual environment**
+
+
+```{bash,eval=F}
+# Bash/Unix 
+
+# Assuming you're still in your project directory 
+source env/bin/activate
+```
+
+You'll note that the commandline prompt has changed. You can now install packages using `pip`. This python environment will only contain the modules that come with python's standard library, so you'll have to import any other modules. That's the whole point!
+
+```{bash,eval=F}
+# Bash/Unix 
+pip install pandas
+```
+
+You can fire Python version up by activating the Python3 REPL.
+
+```{bash,eval=F}
+# Bash/Unix 
+python3
+```
+
+
+To **deactivate** your virtual environment just type:
+
+```{bash,eval=F}
+# Bash/Unix 
+deactivate
+```
+
+
+**Getting your virtual environment to play along with Jupyter/`Hydrogen`**
+
+To be able to activate our virtual environment, we need to register this python kernel with jupyter. 
+
+First, activate your virtual environment 
+```{bash,eval=F}
+# Bash/Unix 
+source env/bin/activate
+```
+
+Next, install `ipykernel`
+```{bash,eval=F}
+# Bash/Unix 
+python -m pip install ipykernel
+python -m ipykernel install --user --name=env
+```
+
+The final bit there (`--name=env`) registers your virtual environment under a specific name (so give it a good name so you can remember which environment is associated with which project). When we run a jupyter notebook, we'll see `env` as a kernel option. 
+
+Likewise, in `Atom` we can access our virtual environment kernel. We first need to update our kernels in `hydrogen`. Press `cmd-shift-p` (or `cnt-shift-p` on a Windows), find `Hydrogen: Update Kernels` (you can also do this from the `packages/hydrogen` menu). Finally, press `cmd-shift-p` again and select `Hydrogen: Start Local Kernel`. You'll see your evnronment (which we named "`env`") appear as a kernel option. 
+
+You can see all your **available kernels** running the following command. 
+
+```{bash,eval=F}
+# Bash/Unix 
+jupyter kernelspec list
+```
+
+To **uninstall** your virtual environment kernel, just type 
+
+```{bash,eval=F}
+# Bash/Unix 
+jupyter kernelspec uninstall env
+```
+
+Where again `env` is what we named our virtual environment. 
+
+
+This all seems involved, but the reproducibility benefits of virtual environments make the hassle well worth it, especially when you need to fire up a project a year or so later and all the dependencies may have changed. 
+
+<br><hr><br>
+
+## Statistical Learning
+
+### [**Relevant Slides**](http://ericdunford.com/ppol564/lectures/week_09/slides/introduction-to-supervised-learning.html#2)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=adcf5691-dbf9-4739-9592-ac4100e80b87&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+## Supervised Learning 
+
+### [**Relevant Slides**](http://ericdunford.com/ppol564/lectures/week_09/slides/introduction-to-supervised-learning.html#12)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=efec0e38-7633-41e1-8ea0-ac4100eda11c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+
+## Cross-Validation
+
+### [**Relevant Slides**](http://ericdunford.com/ppol564/lectures/week_09/slides/introduction-to-supervised-learning.html#31)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ef5e0d0c-e7da-479c-9614-ac4100f78b3f&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+
+<br><hr><br>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science 1 | Foundations   Week 9       Introduction to Statistical Learning</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations </font> <font size=6, face="bold"> Week 9 </font> <br> <br> <font size=100, face="bold"> Introduction to Statistical Learning </font>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science 1
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 9  &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Introduction to Statistical Learning &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+class: newsection
+
+# Statistical Learning
+
+---
+
+### What is statistical learning?
+
+The aim is to model the  relationship between the outcome and some set of features features
+
+`$$y = f(X) + \epsilon$$`
+
+where 
+
+- `\(y\)` is the outcome/dependent/response variable 
+
+- `\(X\)` is a matrix of predictors/features/independent variables 
+
+- `\(f\)` is some fixed but unknown function mapping `\(X\)` to `\(y\)`. The "signal" in the data.
+
+- `\(\epsilon\)` is some random error term. The "noise" in the data.
+
+---
+
+### What is statistical learning?
+
+Statistical learning refers to a set of methods/approaches for estimating `\(f(.)\)` 
+
+`$$\hat{y} = \hat{f}(X)$$`
+
+Where `\(\hat{f}(X)\)` is an approximation of the "true" functional form, `\(f(X)\)`, and `\(\hat{y}\)` is the predicted value.
+
+The aim is to find a `\(\hat{f}(X)\)` that minimizes the **_reducible_ error**.
+
+--
+
+`$$E(y - \hat{y})^2$$`
+`$$E[f(X) + \epsilon -  \hat{f}(X)]^2$$`
+
+`$$\underbrace{E[f(X) -\hat{f}(X)]^2}_{\text{Reducible}} + \underbrace{var(\epsilon)}_{\text{Irreducible}}$$`
+
+---
+
+### Reducible vs. Irreducible Error
+
+`$$\underbrace{E[f(X) -\hat{f}(X)]^2}_{\text{Reducible}} + \underbrace{var(\epsilon)}_{\text{Irreducible}}$$`
+
+
+
+The **"reducible" error** is the systematic **signal**. We can reduce this error by using different functional forms, better data, or a mixture of those two. 
+
+The **"irreducible" error** is associated with the random **noise** around `\(y\)`. 
+
+Statistical learning is concerned with minimizing the reducible error. However, our predictions  will never be perfect given the irreducible error. 
+
+There is a lower bound on how accurate we can be.
+
+---
+
+### Inference vs. Prediction
+
+Two reasons we want to estimate `\(f(\cdot)\)`: 
+
+--
+
+- **Inference**
+
+  + Goal is **_interpretation_**
+  
+      - _Which predictors are associated with the response?_
+      - _What is the relationship between the response and the predictors?_
+      - _Is the relationship causal?_
+      
+  + **&lt;font color = "darkred"&gt; Key limitation&lt;/font&gt;**: 
+  
+      - using functional forms that are easy to interpret (e.g. lines) might be far away from the true function form of `\(f(X)\)`.
+  
+---
+  
+### Inference vs. Prediction
+
+Two reasons we want to estimate `\(f(\cdot)\)`: 
+  
+- **Prediction**
+
+  + Goal is to **_predict_** future values of the outcome, `\(\hat{y}_{t+1}\)`
+  
+  + `\(\hat{f}(X)\)` is treated as a **&lt;font color=#282828&gt;_black box_&lt;/font&gt;**
+      + model doesn't need to be interpretable as long as it provides an accurate prediction of `\(y\)`.
+  
+  + **&lt;font color = "darkred"&gt; Key limitation&lt;/font&gt;**: 
+  
+      - &lt;u&gt;Interpretation&lt;/u&gt;: it is difficult to know which variables are doing the heavy lifting and the exact influence of `\(x\)` on `\(y\)`.
+      
+
+---
+
+### Supervised vs. Unsupervised Learning
+
+- &lt;u&gt;**Supervised Learning**&lt;/u&gt; 
+
+  - for each observation of the predictor measurement `\(x_i\)` there is an associated response measurement `\(y_i\)`. In essence, there is an _outcome_ we are aiming to accurately predict or understand.
+  
+  - use regression and classification methods
+  
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+  
+ 
+---
+  
+### Supervised vs. Unsupervised Learning
+  
+- &lt;u&gt;**Unsupervised Learning**&lt;/u&gt;  
+
+  - we observe a vector of measurements `\(x_i\)` but _no_ associated response `\(y_i\)`.
+  
+  - "unsupervised" because we lack a response variable that can supervise our analysis.
+  
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+  
+
+---
+
+class: newsection
+
+# Supervised Learning
+
+---
+
+### Regression vs. Classification
+
+_Outcomes_ come in many forms. How the outcome is distributed will determine the methods we use. 
+
+--
+
+- **Quantitative** outcome
+
+  + a continuous/interval-based outcome: e.g. housing price, number of bills passed, stock market prices, etc.
+  
+  + Regression Methods: linear, penalization, generalized additive models (GAMs) 
+  
+  + Both parametric and non-parametric ways of approximating `\(f(\cdot)\)`
+
+
+---
+
+### Regression vs. Classification
+
+_Outcomes_ come in many forms. How the outcome is distributed will determine the methods we use. 
+
+- **Quantitative** outcome
+
+- **Qualitative** outcome
+
+  + a discrete outcome
+  
+      + _Binary_: War/No War; Sick/Not Sick
+      
+      + _Ordered_: Don't Support, Neutral, Support
+      
+      + _Categorical_: Cat, Dog, Bus, ... 
+      
+  + Classification Methods: logistic regression, naive Bayes, support vector machines, neural networks
+  
+---
+
+### Regression vs. Classification
+
+_Outcomes_ come in many forms. How the outcome is distributed will determine the methods we use. 
+
+- **Quantitative** outcome
+
+- **Qualitative** outcome
+ 
+- Some methods can be used on either outcome type
+  - K nearest neighbors
+  - tree-based methods (random forest, gradient boosting)
+
+- Every model has specific **tuning parameters** that we can use to optimize performance. 
+  
+---
+
+### Interpretation vs. Flexibility
+
+&lt;br&gt;
+.center[_"There is no free lunch in statistics"_]
+
+.pull-left[
+- No one method dominates all others over all possible data sets. 
+
+- It is an important task to decide for any given set of data which method produces the best results
+
+- Balance between  model interpretation and model flexibility
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+&lt;img src="Figures/interpret-vs-flexible.png",width=700px,height=700&gt;
+]
+
+---
+
+### Under-fitting (Bias)
+
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Over-fitting (Variance)
+
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Model Accuracy
+
+- We need to quantify the extent to which the predicted response value for a given observation is close to the true response value for that observation
+
+--
+
+- There are many metrics for model accuracy. Which metric you use depends on:
+
+  + type of learning problem you are trying to solve 
+  
+  + what you aspect of the model you're aiming to optimize
+  
+--
+  
+- In the regression setting, the most common accuracy metric is _mean squared error_ (MSE).
+
+`$$MSE = \frac{\sum^N_{i=1} (y_i - \hat{f}(X_i))^2}{N}$$`
+---
+
+
+### Model Accuracy
+
+`$$MSE = \frac{\sum^N_{i=1} (y_i - \hat{f}(X_i))^2}{N}$$`
+
+
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+### Model Accuracy
+
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+### Training and Test Data
+
+- Utilize accuracy metrics to assess model performance, &lt;u&gt;_but we can always make our models flexible enough to minimize the MSE_&lt;/u&gt;. 
+
+--
+
+- Need to see how accurate the model is on **_previously unseen data_**.
+
+- Data is usually hard to come by so we partition the data we _do have_ into **training** and **test** sets. The idea is to hold the test data back and &lt;u&gt;never look at it&lt;/u&gt;.
+
+--
+
+- Use the test data to calculate the **out of sample predictive accuracy**. 
+
+- By holding off some data we can reduce the tendency to **overfit** the data.
+
+---
+
+### Model accuracy on New Data 
+
+
+
+&lt;img src="introduction-to-supervised-learning_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Bias-Variance Tradeoff
+
+.center[&lt;img src = "Figures/bias-variance-tradeoff.png",width=800&gt;]
+
+- **high variance**: new data, new pattern.
+
+- **high bias**: rigid pattern, doesn't reflect the data 
+
+
+---
+
+### Bias-Variance Tradeoff
+
+.center[&lt;img src = "Figures/bias-variance-tradeoff.png"&gt;]
+
+- Reality is a **tradeoff**
+
+  - More variance, less bias
+  
+  - More bias, less variance
+
+---
+
+class: newsection
+
+# Cross-Validation
+
+---
+
+### What is cross-validation?
+
+&lt;br&gt;
+
+- As we saw, the training error will always be less than the test error due to over-fitting. We need to see how our model performs on data it wasn't trained on (test error)
+
+- "**Re-sampling**" involves repeatedly drawing samples from a training set and refitting a model of interest on each sample in order to obtain additional information about the fitted model. 
+
+- We can use re-sampling techniques to **generate estimates for the test error**. 
+
+- Let's look at **_three cross-validation approaches_**.
+
+
+---
+
+### Validation Set Approach
+
+- Involves randomly dividing the data into two comparably sized samples, a training set and a validation/test/hold-out set.
+
+- Model is fit to the training set then used to predict the response in the validation set. 
+
+- The resulting error provides an estimate of the test error rate. 
+&lt;br&gt;
+.center[
+&lt;img src="Figures/validation-set.png"&gt;
+]
+
+---
+
+### Validation Set Approach
+
+**&lt;font color = "darkred"&gt;Drawbacks&lt;/font&gt;**
+
+- Highly variable: test error rate is sensitive to the estimates that are in the training and test set. 
+
+- Overestimates the test error: only trained on one sub-sample of the data. Models tend to perform worse when trained on less data. 
+&lt;br&gt;
+.center[
+&lt;img src="Figures/validation-set.png"&gt;
+]
+
+---
+
+### "Leave-One-Out" Cross-Validation (LOOCV)
+
+- Involves splitting the set of observations into two parts. Rather than creating two subsets of comparable size, a single observation is used for the validation set. 
+
+- Estimate the model on `\(N-1\)` observation, then test on the remaining observation.
+
+- Do this `\(N\)` times and average the test error. 
+
+![:space 2]
+
+.center[
+&lt;img src="Figures/LOOCV.gif"&gt;
+]
+
+---
+
+### "Leave-One-Out" Cross-Validation (LOOCV)
+
+Far less biased than the validation approach. Does not overestimate the test error. No randomness in the training/test split
+
+**&lt;font color = "darkred"&gt;Drawbacks&lt;/font&gt;**: 
+
+- Computationally expensive: you have to re-estimate the same model N times!
+
+![:space 2]
+
+.center[
+&lt;img src="Figures/LOOCV.gif"&gt;
+]
+
+---
+
+
+### `\(K\)`-Fold Cross-Validation
+
+- Involves randomly dividing the data into `\(k\)` groups (or folds). Model is trained on `\(k-1\)` folds, then test on the remaining fold. 
+
+- Process is repeated `\(k\)` times, each time using a new fold. Offers `\(k\)` estimates of the test error, which we average. 
+
+&lt;br&gt;&lt;br&gt;
+
+.center[
+&lt;!-- &lt;img src="Figures/k-fold-validation.png"&gt; --&gt;
+&lt;img src="Figures/KfoldCV.gif"&gt;
+]
+
+---
+
+### `\(K\)`-Fold Cross-Validation
+
+- Less computationally expensive (LOOCV is a special case of `\(K\)`-fold where `\(k = n\)`) 
+
+- Gives more accurate estimates of the test error rate than LOOCV
+
+&lt;br&gt;&lt;br&gt;
+
+.center[
+&lt;!-- &lt;img src="Figures/k-fold-validation.png"&gt; --&gt;
+&lt;img src="Figures/KfoldCV.gif"&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
