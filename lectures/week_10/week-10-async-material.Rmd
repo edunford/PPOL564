@@ -1,0 +1,154 @@
+---
+pagetitle: "PPOL564 | Week 10 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Casting Shadows in N-Dimensions <br> _Continuous Outcomes and Linear Regression_</center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 10 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Catch-up (or learn for the first time!) key concepts related to **linear algebra**:
+  + Vectors
+  + Linear combinations, linear independence, and span
+  + Linear transformations
+  + Matrix Multiplication
+  + The Determinant and Inverse Matrices
+  + Dot Product
+  
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Explore the **angle between vectors** and what this tells us. We'll also discuss **orthogonality**. 
+- Discuss **projecting** one vector onto another.
+- Delve into a geometric interpretation of **linear regression**.
+- Talk through fit **metrics** for continuous outcomes.
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+<!-- # Synchronous Materials -->
+
+<!-- <br> -->
+
+<!-- - **Lecture Notebooks**: -->
+<!--   - <a href="synchronous-materials/trigonometry-of-vectors.ipynb" download><strong>Trigonometry of Vectors (`.ipynb`)</strong></a> -->
+<!--   - <a href="synchronous-materials/building-linear-regression.ipynb" download><strong>Building the linear model from Scratch (`.ipynb`)</strong></a> -->
+<!--   - _Supplement_: <a href="synchronous-materials/matrix-operations.ipynb" download><strong>More on Matrix Operations (`.ipynb`)</strong></a> -->
+
+<!-- <br><hr><br> -->
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 17 minutes.
+
+<br>
+
+This week I'll draw from videos produced by [Grant Sanderson](https://www.3blue1brown.com/about). These videos will help give you a visual intuition of key concepts in linear algebra. I've pulled a few of these videos, but I encourage you to also watch the ones I didn't flag. 
+
+Are you already a master of linear algebra? Awesome! Feel free to ignore the asynchronous materials this week. That said, if you haven't seen a visual presentation of these concepts before, I'd encourage you to watch the videos. Doing so will only deepen your understanding. 
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Vectors
+
+<br>
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/fNk_zzaMoSs?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<br><hr><br>
+
+## Linear combinations & Span
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/k7RM-ot2NWY?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Supplementary Notebook
+
+The following notebook walks through some of the applications covered in the video outlining the math in greater detail and using `numpy` for the linear algebra manipulations
+
+<center><a href="asynchronous-notebooks/manipulating-vectors.ipynb" download><strong>manipulating-vectors.ipynb</strong></a></center>
+
+<br><hr><br>
+
+
+## Linear Transformations and Matrices
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/kYB8IZa5AuE?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Supplementary Notebook
+
+The following notebook walks through some of the applications covered in the video outlining the math in greater detail and using `numpy` for the linear algebra manipulations.
+
+<center><a href="asynchronous-notebooks/matrices-as-transformations.ipynb" download><strong>matrices-as-transformations.ipynb</strong></a></center>
+
+<br><hr><br>
+
+## Matrix Multiplication
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/XkY2DOUCWMU?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Supplementary Notebook
+
+The following notebook walks through some of the applications covered in the video outlining the math in greater detail and using `numpy` for the linear algebra manipulations. (This is the same notebook as downloaded in the last tab.)
+
+<center><a href="asynchronous-notebooks/matrices-as-transformations.ipynb" download><strong>matrices-as-transformations.ipynb</strong></a></center>
+
+<br><hr><br>
+
+## The Determinant
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/Ip3X9LOh2dk?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><hr><br>
+
+## Inverse Matrices
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/uQhTuRlWMxw?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+### Supplementary Notebook
+
+The following notebook walks through some of the applications covered in the video outlining the math in greater detail and using `numpy` for the linear algebra manipulations. 
+
+<center><a href="asynchronous-notebooks/inverting-matrices.ipynb" download><strong>inverting-matrices.ipynb</strong></a></center>
+
+<br><hr><br>
+
+## Dot Products
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/LyGKycYT2v0?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><hr><br>
