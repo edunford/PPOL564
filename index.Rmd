@@ -374,7 +374,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 7: Interrogation Techniques**<br>_Data Visualization and Exploration_
+### **Week 7: Interrogation Techniques**<br>[_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html)
 
 <br><br>
 

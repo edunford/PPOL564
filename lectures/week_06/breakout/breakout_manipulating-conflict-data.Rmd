@@ -24,7 +24,7 @@ ACLED is a "disaggregated data collection, analysis, and crisis mapping project.
 
 <br>
 
-<a href="acled_africa.csv" download><strong>Download theACLED data</strong></a>.
+<a href="acled_africa.csv" download><strong>Download the ACLED data</strong></a>.
 
 <br>
 
