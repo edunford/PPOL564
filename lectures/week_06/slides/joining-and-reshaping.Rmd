@@ -510,9 +510,9 @@ dat2
 
 Main arguments:
 
-- `index`: name of the variable that will be spread out into columns. 
+- `columns`: name of the variable that will be spread out into columns. 
 - `values`: values that will populate the cells of each column
-- `columns`: variables to leave alone.
+- `index`: variables to set as the index
 
 ```{python,echo=F}
 import pandas as pd
@@ -522,7 +522,7 @@ dat2 = r.dat
 ![:space 3]
 
 ```{python}
-dat2.pivot_table(values='ln_gdppc', index='year', columns='country')
+dat2.pivot_table(values='ln_gdppc', columns='country', index='year')
 ```
 
 ---
@@ -536,13 +536,13 @@ import pandas as pd
 dat2 = r.dat
 ```
 
-- `index`: name of the variable that will be spread out into columns. 
+- `columns`: name of the variable that will be spread out into columns. 
 - `values`: values that will populate the cells of each column
-- `columns`: variables to leave alone.
+- `index`: variables to set as the index
 - `fill_value`: fill in missing values
 
 ```{python}
-dat2.pivot_table(values='ln_gdppc',index='year',columns='country',
+dat2.pivot_table(values='ln_gdppc',columns='country', index='year',
                 fill_value=-99)
 ```
 
