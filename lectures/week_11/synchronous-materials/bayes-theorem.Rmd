@@ -1,0 +1,229 @@
+---
+pagetitle: "PPOL564 | Week 11 | Bayes Theorm"
+title:  <a href="http://ericdunford.com/ppol564/lectures/week_11/week-11-async-material.html">Back to Course Website</a> <br><br><center> _Probability and Bayes Theorem_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations<br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    df_print: paged
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+    toc_float: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
+```
+
+
+# Probability Refresher
+
+We can display the joint frequency distributions for two discrete random variables as a table, which can offer an straightforward way for calculating probabilities given observed data (also, it provides a better intuition of what is going on). These are also known as cross-tabs (or "cross-tabulation tables")
+
+We can calculate the "**marginal probabilities**" by summing across the rows and columns (and reporting those sums in the margins of the table (i.e. thus why we say "marginal")).
+
+> **Key Idea**: Probability at the end of the day is just counting with style.
+
+<br>
+<br>
+
+|             | Previous Drug Use | No Previous Drug Use | _Total_ |
+|---------------|:-------------------:|:----------------------:|:-------:|
+| **Voted (2016)**  |       344         |     456              | _800_
+| **Did Not Vote (2016)**|       566    |      132             | _698_
+| **_Total_** |       _910_    |      _588_           | _1498_
+
+<br>
+<br>
+
+
+<br>
+
+1. What is the probability of someone voted in 2016?
+
+<br>
+<br>
+
+$$ Pr(\text{Voted}) = \frac{800}{1498} \approx .53$$
+
+<br>
+<br>
+
+2. What is the probability that someone voted <u>**_AND_**</u> reported previous drug use?
+
+<br>
+<br>
+
+$$ Pr(\text{Voted} \cap \text{Drug Use}) = \frac{344}{1498} \approx .23 $$
+
+<br>
+<br>
+
+3. What is the probability someone voted <u>**_OR_**</u> reported no previous drug use?
+
+<br>
+<br>
+
+$$ Pr(\text{Voted} \cup \text{No Drug Use}) = \frac{800}{1498} + \frac{588}{1498} - \frac{456}{1498} \approx .62 $$
+
+<br>
+<br>
+
+4. What is the probability someone voted <u>**_GIVEN_**</u> reporting previous drug use?
+
+<br>
+<br>
+
+$$ Pr(\text{Voted} | \text{Drug Use}) = \frac{344}{910} \approx .38 $$
+
+<br>
+<br>
+
+$$ Pr(\text{Voted} | \text{Drug Use}) = \frac{Pr(\text{Voted} \cap \text{Drug Use})}{Pr(\text{Drug Use})} = \frac{\frac{344}{1498}}{\frac{910}{1498}} \approx .38 $$
+
+<br>
+<br>
+
+
+## Conditional Probability as Aggregating and Subsetting Data
+
+In terms of data, conditional probability is just **aggregating** and **subsetting** data. 
+
+<br>
+
+```{r,echo=F}
+set.seed(123)
+tmp <- 
+  tibble(
+    voted = c(1,0,1,0),
+    drugs = c(1,1,0,0),
+    count = c(344,566,456,132)
+  ) %>% 
+  uncount(count) %>% 
+  mutate(respondent_id = row_number()+1000) %>% 
+  select(respondent_id,everything()) %>% 
+  sample_frac(1.000)
+tmp
+```
+```{python,echo=F}
+import pandas as pd
+dat = r.tmp
+```
+
+<br>
+
+**_Calculating Conditional Probability_**
+
+```{python}
+(dat
+.groupby('voted')
+.drugs
+.sum()
+.rename({0.0:"Pr(Voted =  0 | Drugs == 1)",
+         1.0:"Pr(Voted =  1 | Drugs == 1)"}) 
+.reset_index()
+)
+```
+
+<br>
+
+Use cross-tabs to build out the contingency tables with the marginal counts. 
+```{python}
+pd.crosstab(dat['voted'],dat['drugs'],margins=True)
+```
+
+
+<br>
+
+With the above in mind, calculating probabilities is really straight forward. 
+
+For example, let's consider question 4 again:  What is the probability someone voted <u>**_GIVEN_**</u> reporting previous drug use?
+
+```{python}
+total_drugs = dat.query("drugs == 1").shape[0]
+total_voted_given_drugs = dat.query("drugs == 1 & voted == 1").shape[0]
+pr = total_voted_given_drugs/total_drugs
+round(pr,2)
+```
+
+
+<br><hr><br>
+
+# Bayes Theorem
+
+<br>
+
+We can define a conditional probability as follows
+
+<br><br>
+
+$$Pr(B | A)Pr(A) = Pr(A|B)Pr(B)$$
+
+<br><br>
+
+Thus, a conditional probability can be expressed as: 
+
+<br>
+
+\begin{equation}
+Pr(B | A) = \frac{Pr(A|B)Pr(B)}{Pr(A)}
+\end{equation}
+
+<br><br>
+
+Bayes rule (or Bayes Theorem) offers a way of re-arranging the above. 
+
+<br><br>
+
+\begin{equation}
+Pr(A | B) = \frac{Pr(B|A)Pr(A)}{Pr(B)}
+\end{equation}
+
+<br><br>
+
+This is useful when $Pr(A | B)$ is easier to calculate than $Pr(B | A)$ (or vice versa) or when the joint probability is unknown. 
+
+Looking at the above equation, we might not know $Pr(B)$. However, we can calculate it by using information that we do have. 
+
+<br><br>
+
+$$ Pr(B) = Pr(B | A)Pr(A) + Pr(B | A^{not})Pr(A^{not}) $$
+
+<br><br>
+
+where 
+
+- $Pr(A^{not}) = 1 - Pr(A)$
+- $Pr(B | A^{not}) = 1 - Pr(B^{not}|A^{not})$
+
+This offers a complete formulation of Bayes theorem. 
+
+<br><br>
+
+\begin{equation}
+Pr(A | B) = \frac{Pr(B|A)Pr(A)}{Pr(B | A)Pr(A) + Pr(B | A^{not})Pr(A^{not})}
+\end{equation}
+
+<br><br>
+
+Where 
+
+- $Pr(B|A)$ is the **likelihood** of event $B$ given $A$.
+- $Pr(A)$ is the **prior** probability of event $A$ (i.e. our belief about the likelihood of event $A$)
+- $Pr(B)$ or $Pr(B | A)Pr(A) + Pr(B | A^{not})Pr(A^{not})$ is a **normalizing constant** (it ensures the probabilities sum to 1). 
+- $Pr(A|B)$ is known as the **posterior** probability. The updated probability of event $A$ given $B$ after learning something from the data. 
+
+<br><br>
+
+Put simply, 
+
+$$\text{Posterior} \propto \text{Likelihood}\times \text{Prior}$$
+
+<br><br>

@@ -1,0 +1,115 @@
+---
+pagetitle: "PPOL564 | Week 11 | Breakout"
+title:  <a href="http://ericdunford.com/ppol564/lectures/week_11/week-11-async-material.html">Back to Course Website</a> <br><br><center> _Practice Bayes Theorem_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations<br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    df_print: paged
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+    toc_float: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
+```
+
+
+# Question 1
+
+Say we have a test that predicts HIV in a patient. The test successfully detects all infections. However, the test returns positive result for 1% of healthy people. Only .1% of people are believed to have HIV in the population. Now, say you just took the test and received a positive result. **_What's the probability that you have HIV?_**
+
+<br><br>
+
+<!-- ## Answer -->
+
+<!-- Let's set the problem up into a Bayesian formulation. -->
+
+<!-- <br><br> -->
+
+<!-- $$ Pr(HIV = 1 | Test = 1) = \frac{Pr(Test = 1 | HIV = 1)Pr(HIV=1)}{Pr(Test = 1)}$$ -->
+
+<!-- <br><br> -->
+
+<!-- Now, let's plug in the information that we know. -->
+
+<!-- - The test perfectly detects all true HIV cases: $Pr(Test = 1 | HIV = 1) = 1$ -->
+<!-- - The test reports positive in 1% of healthy: $Pr(Test = 1 | HIV = 0) = .01$ -->
+<!-- - Only .1% of the population has HIV: $Pr(HIV = 1) = .001$ -->
+
+<!-- We don't know the probability of a positive test, but we can calculate it from the information provided. -->
+
+<!-- <br><br> -->
+
+<!-- $$ Pr(Test = 1) = Pr(Test = 1 | HIV = 1 ) Pr(HIV = 1) + Pr(Test = 1 | HIV = 0 )Pr(HIV=0) $$ -->
+
+<!-- $$ Pr(Test = 1) = 1 (.001) + .01 (1 - .001) $$ -->
+
+<!-- $$ Pr(Test = 1) = .01099 $$ -->
+
+<!-- <br><br> -->
+
+<!-- Plug everything back into the equation. -->
+
+<!-- <br><br> -->
+
+<!-- $$ Pr(HIV = 1 | Test = 1) = \frac{1 (.001)}{.01099} = .091$$ -->
+
+<!-- <br><br> -->
+
+<!-- What's the probability that you have HIV given you tested positive? 9.1% -- really low! -->
+
+<!-- <br><br> -->
+
+# Question 2
+
+Suppose Facebook is concerned about hate speech on its platform. It developed an algorithm that correctly detects posts with hate speech 80% of the time $Pr(Flagged = 1 | Hate = 1) = .8$. However, it makes mistakes: 14% of the time it incorrectly classifies a normal post as hate speech $Pr(Flagged = 1 | Hate = 0) = .14$. Across it's platform, Facebook estimates that hate speech is rare: only .3% of all posts are considered hate speech. Finally, Facebook wants to rid itself of hate speech entirely, so it blocks the accounts of all people who posted any hate speech content. 
+
+Your friend's account was just block for using hate speech. **_What's the probability that he/she actually posted hate speech?_**
+
+<br><br>
+
+<!-- ## Answer -->
+
+<!-- <br><br> -->
+
+<!-- $$ Pr(Hate = 1 | Flagged = 1) = \frac{Pr(Flagged = 1|Hate =1)Pr(Hate =1)}{Pr(Flagged=1)} $$ -->
+
+<!-- <br><br> -->
+
+<!-- ```{python} -->
+<!-- pr_flagged_given_hs = .8 # Positive Classification given hate speech post -->
+<!-- pr_flagged_given_n = .14 # Positive Classification given normal post -->
+<!-- pr_hs = .003 # Prop. of hate speech content on FB -->
+<!-- pr_n = 1 - pr_hs # Prop. of hate speech -->
+
+<!-- # Denominator -->
+<!-- pr_flagged = (pr_flagged_given_hs * pr_hs) + (pr_flagged_given_n*pr_n) -->
+
+
+<!-- # Calculate the probability. -->
+<!-- (pr_flagged_given_hs*pr_hs)/pr_flagged # only 1.7% -->
+<!-- ``` -->
+
+<!-- Let's think about the same set up, but a little differently. Rather than providing probabilities, let's use frequencies. -->
+
+<!-- - Out of a sample of a 1 million posts, 3000 contain hate speech content. -->
+<!-- - Of those 3000, 2400 were correctly flagged by the algorithm. -->
+<!-- - The algorithm incorrectly classified 139580 "normal posts" as hate speech. -->
+
+<!-- With this information, what's the probability that your friend &mdash; who was just kicked off the platform &mdash; actually posted hate content? -->
+
+<!-- Here all we need to do is divide the true positives by all posts with a positive classifications (true positives + false positives). -->
+
+<!-- ```{python} -->
+<!-- 2400/(139580 + 2400) -->
+<!-- ``` -->
+

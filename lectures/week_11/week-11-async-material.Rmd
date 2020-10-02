@@ -1,0 +1,320 @@
+---
+pagetitle: "PPOL564 | Week 11 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> [Hot Dog, Not Hot Dog](https://www.youtube.com/watch?v=ACmydtFDTGs) <br> _Probability, Bayes Theorem, and Classification_ </center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 11 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Discuss writing **classes** in Python 
+- Delve into **classification problems** and talk through their respective **performance metrics**. 
+- Learn about **probability theory** and **Bayes theorem**. 
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Talk through how to use **Bayes theorem to make predictions** with data. 
+- Build a **Naive Bayes Classifier** from scratch. 
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+<!-- # Synchronous Materials  -->
+
+<!-- <br> -->
+
+<!-- - [**Bayes Theorem**](synchronous-materials/bayes-theorem.html) -->
+
+<!-- - _Breakout_: [**Practice Calculating Bayesian Problems**](breakout/breakout-practice-bayes-theorem.html) -->
+
+<!-- - [**Building a Naive Bayes Classifier**](synchronous-materials/naive-bayes-classifier.html) -->
+<!--   + <a href="synchronous-materials/naive-bayes-classifier.ipynb" download><strong>Download `.ipynb`</strong></a> -->
+<!--   + Download data used in this notebook from [**Dropbox**](https://www.dropbox.com/t/K8ibXTnVwNm4NDqa). -->
+
+<!-- <br><hr><br> -->
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 13 minutes
+<br>
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Writing Classes
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=31b06ce1-39f1-4d3e-a557-ac47014a112c&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+The following notebook delves into the basic elements of class construction and provides a simple example of writing our own class. 
+
+<br>
+
+<center>[**Writing Classes**](async-notebooks/classes.html)</center>
+
+<br><hr><br>
+
+## Classification
+
+### [**Relevant Slides**](slides/classification.html)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=c80b2c97-8c60-4643-9990-ac470141f824&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+
+<br><hr><br>
+
+
+## On Probability {.tabset .tabset-pills}
+
+<br>
+
+As was the case last week, this week I'll again draw from videos produced by [Grant Sanderson](https://www.3blue1brown.com/about). These videos will help give you a visual intuition of key ideas in probability. 
+
+In addition, I've written up a notebook on probability that provides a more traditional (but less intuitive) presentation of these concepts. 
+
+<br>
+
+<center>[**Probability Overview** (_Using Python)_](async-notebooks/probability.html)</center>
+
+<br>
+
+Please review both. If you're already comfortable with probability theory, that's great; feel free to skip these materials.
+
+
+<br><br>
+
+
+### _
+
+<br><hr><br>
+
+### Binomial Distribution
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/8idr1WZ1A7Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<br><hr><br>
+
+
+### Probability Densities
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/ZA4JkHKZM50" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<br><hr><br>
+
+## Bayes Theorem {.tabset .tabset-pills}
+
+<br>
+
+As was the case last week, this week I'll again draw from videos produced by [Grant Sanderson](https://www.3blue1brown.com/about). These videos will help give you a visual intuition of key ideas. We'll build on these ideas when constructing a classifier during the synchronous lecture. If you're already comfortable with Bayes theorem, that's great; feel free to skip these materials. 
+
+<br>
+
+
+### _
+
+<br><hr><br>
+
+### Bayes Theorem
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/HZGCoVF3YvM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br><hr><br>
+
+
+### Bayes Theorem Proof
+
+
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/U_85TaXbeIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<br><hr><br>
+
+# Practice {.tabset .tabset-pills}
+
+<br>
+
+These exercises are designed to help you reinforce your grasp of the concepts covered in the asynchronous lecture material. 
+
+<br>
+
+The following questions ask you to construct a class that streamlines some of the data processing tasks learned in Week 9. Use the `gapminder` data to test your class method. 
+
+```{python,eval=F}
+from gapminder import gapminder
+dat = gapminder
+```
+
+
+<br>
+
+## _
+
+## Question 1  {.tabset}
+
+<br>
+
+Write a class called `MyML` that takes in a `Pandas` `DataFrame` as input upon instantiation. The class method should also take an argument called `outcome` that provides the column name of the outcome variable. The outcome variable (`y`) and the features matrix (`X`) should be stored as separate objects in the class instance (`self`).
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+class MyML:
+    '''
+    Class to streamline the processing of data for
+    a machine learning task.
+    '''
+
+    def __init__(self,data=None,outcome=""):
+        self.X = data.drop(columns=outcome)
+        self.y = data[[outcome]]
+        
+# Run
+obj = MyML(data=dat,outcome="lifeExp")
+self.X.head()
+```
+
+
+## Question 2  {.tabset}
+
+<br>
+
+Add a method to your `MyML` class called `.split()` that splits your data into training and test datasets and stores the splits in the object instance. `.split()` should take the arguments `prop=.25`, which dictates the proportion of data that should be held out as test data, and `seed=123` which specifies the seed on the random state. 
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+from sklearn.model_selection import train_test_split
+
+class MyML:
+    '''
+    Class to streamline the processing of data for
+    a machine learning task.
+    '''
+
+    def __init__(self,data=None,outcome=""):
+        self.X = data.drop(columns=outcome)
+        self.y = data[[outcome]]
+
+    def split(self,prop = .25,seed=123):
+        '''
+        Method splits the data into training and test datasets
+        '''
+
+        # Split the data
+        splits = train_test_split(self.X,self.y,
+                                  test_size=prop,
+                                  random_state = seed)
+
+        # Save the split data in the correct dictionary location
+        self.train_x = splits[0]
+        self.test_x = splits[1]
+        self.train_y = splits[2]
+        self.test_y = splits[3]
+
+# Run
+obj = MyML(data=dat,outcome="lifeExp")
+obj.split()
+self.train_x.head()
+```
+
+
+## Question 3  {.tabset}
+
+<br>
+
+Add a method to your `MyML` class called `.describe_training()` which generates summary statistics for the training data. Summary statistics should be round to the second decimal place.
+
+<br>
+
+### _
+
+### Answer
+
+```{python,eval=F}
+from sklearn.model_selection import train_test_split
+
+class MyML:
+    '''
+    Class to streamline the processing of data for
+    a machine learning task.
+    '''
+
+    def __init__(self,data=None,outcome=""):
+        self.X = data.drop(columns=outcome)
+        self.y = data[[outcome]]
+
+    def split(self,prop = .25,seed=123):
+        '''
+        Method splits the data into training and test datasets
+        '''
+
+        # Split the data
+        splits = train_test_split(self.X,self.y,
+                                  test_size=prop,
+                                  random_state = seed)
+
+        # Save the split data in the correct dictionary location
+        self.train_x = splits[0]
+        self.test_x = splits[1]
+        self.train_y = splits[2]
+        self.test_y = splits[3]
+
+    def describe_training(self):
+        '''
+        Method summarizes the training data. 
+        '''
+        return self.train_x.describe().round(2)
+
+# Run
+obj = MyML(data=dat,outcome="lifeExp")
+obj.split()
+obj.describe_training()
+```
+
+
+

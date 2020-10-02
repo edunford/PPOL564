@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science 1 | Foundations   Week 11       Classification</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations </font> <font size=6, face="bold"> Week 11 </font> <br> <br> <font size=100, face="bold"> Classification </font>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science 1
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 11  &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Classification &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+class: newsection
+
+# Classification Problems
+
+---
+
+### How is the outcome `\(y\)` distributed?
+
+_Outcomes_ come in many forms. How the outcome is distributed will determine the methods we use. 
+
+--
+
+- **Quantitative** outcome
+
+  + a continuous/interval-based outcome: e.g. housing price, number of bills passed, stock market prices, etc.
+
+--
+
+- **Qualitative** outcome
+
+  + a discrete outcome
+  
+      + _Binary_: War/No War; Sick/Not Sick
+      
+      + _Ordered_: Don't Support, Neutral, Support
+      
+      + _Categorical_: Cat, Dog, Bus, ... 
+      
+
+---
+
+![:space 10]
+
+&lt;img src="classification_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;br&gt;
+
+.center[&lt;img src = "Figures/seperability.gif", width = 500&gt;]
+
+---
+
+### Decision Boundary 
+
+.center[&lt;img src = "Figures/decision-boundary.png", width = 600&gt;]
+
+
+---
+
+class: newsection
+
+# Performance Metrics 
+
+---
+
+### How did we do? 
+
+- Central to any machine learning task is how we choose to define "good" performance. 
+
+--
+
+- When dealing with quantitative outcomes (intervals), we can utilize metrics like MSE to assess performance.
+
+`$$MSE = \frac{\sum^N_{i=1} (y_i - \hat{f}(X_i))^2}{N}$$`
+
+---
+
+### How did we do? 
+
+- Central to any machine learning task is how we choose to define "good" performance. 
+
+- When dealing with quantitative outcomes (intervals), we can utilize metrics like MSE to assess performance.
+
+- When dealing with qualitative outcome (categories), we need to rely on different metrics to assess performance.
+
+&lt;br&gt;
+
+`$$\text{Accuracy} = \frac{\text{Correctly Classified}}{\text{Total Possible}}$$`
+`$$\text{Error} = 1 - \text{Accuracy}$$`
+
+
+---
+
+### The Weather Today 
+
+Consider if we were testing the accuracy of two weather persons. Below are their forecasts for the weather in a given week alongside the observed weather pattern. (For now, let's just focus on two types of weather: sunny day or rainy day)
+
+.center[
+|Weather Person | M | Tu | W | Th | F | St | Su |
+|---------------|---|----|---|----|---|----|----|
+| `\(WP_1\)` Prediction | Rain | Sun  | Rain | Sun | Sun | Rain | Rain |
+| `\(WP_2\)` Prediction | Sun  | Sun  | Sun  | Sun | Sun | Sun  | Sun  |
+| Actual            | Sun  | Sun  | Rain | Sun | Sun | Sun  | Sun |
+]
+
+--
+
+.center[
+|Weather Person | Correct | Total | Accuracy | Error |
+|---------------|---------|-------|----------|-------|
+| `\(WP_1\)`        |    4    |   7   |   57.1%  | 42.9% |
+| `\(WP_2\)`        |    6    |   7   |   85.7%  | 14.3% |
+]
+
+If we calculate the accuracy for each, it looks as if Weather Person 2 is the most accurate. Does that make sense?
+
+---
+
+### The Weather Today 
+
+Consider if we were testing the accuracy of two weather persons. Below are their forecasts for the weather in a given week alongside the observed weather pattern. (For now, let's just focus on two types of weather: sunny day or rainy day)
+
+.center[
+|Weather Person | M | Tu | W | Th | F | St | Su |
+|---------------|---|----|---|----|---|----|----|
+| `\(WP_1\)` Prediction | Rain | Sun  | Rain | Sun | Sun | Rain | Rain |
+| `\(WP_2\)` Prediction | Sun  | Sun  | Sun  | Sun | Sun | Sun  | Sun  |
+| Actual            | Sun  | Sun  | Rain | Sun | Sun | Sun  | Sun |
+]
+
+.center[
+|Weather Person | Correct | Total | Accuracy | Error |
+|---------------|---------|-------|----------|-------|
+| `\(WP_1\)`        |    4    |   7   |   57.1%  | 42.9% |
+| `\(WP_2\)`        |    6    |   7   |   85.7%  | 14.3% |
+]
+
+Rain is **rare**. We can always have high accuracy if we just guess sun every day. This is generates a problem if what people care about is when to pack an umbrella!
+
+---
+
+### Confusion Matrix
+
+&lt;br&gt; 
+
+.center[
+|                       |  `\(Positive_{~~\text{Actual}}\)` |  `\(Negative_{~~\text{Actual}}\)` |
+|-----------------------|----------|----------|
+| `\(Positive_{~~\text{Predicted}}\)`  |   True Positive (TP)       | False Positive (FP)          |
+| `\(Negative_{~~\text{Predicted}}\)`  |   False Negative (FN)       |  True Negative (TN)         |
+
+]
+
+--
+
+&lt;br&gt;
+
+| Metric | Calculation |  Description |
+|---|-----| -----|
+| Accuracy | `\(\frac{TP + TN}{TP+FP+TN+FN}\)` | In total, how accurate is the model |
+| Precision | `\(\frac{TP}{TP+FP}\)` | Of the true positives classified, how many are actually positive | 
+| Specificity | `\(\frac{ TN }{ TN + FP }\)` | Of the actual true negatives, how many were correctly classified | 
+| Recall/Sensitivity | `\(\frac{TP}{ TP + FN}\)` | Of the actual true positives, how many were correctly classified |
+
+
+---
+
+### Weather Person 1
+
+&lt;br&gt;
+
+.center[
+|                       |  `\(Positive_{~~\text{Actual}}\)` |  `\(Negative_{~~\text{Actual}}\)` |
+|-----------------------|----------|----------|
+| `\(Positive_{~~\text{Predicted}}\)`  |   3      |  0   |
+| `\(Negative_{~~\text{Predicted}}\)`  |   3      |  1   |
+
+]
+
+&lt;br&gt;
+
+- Accuracy = 57.1%
+
+- Precision = 1%
+
+- Specificity = 100%
+
+- Recall = 50%
+
+
+---
+
+### Weather Person 2
+
+&lt;br&gt;
+
+.center[
+|                       |  `\(Positive_{~~\text{Actual}}\)` |  `\(Negative_{~~\text{Actual}}\)` |
+|-----------------------|----------|----------|
+| `\(Positive_{~~\text{Predicted}}\)`  |   6      |  1   |
+| `\(Negative_{~~\text{Predicted}}\)`  |   0      |  0   |
+
+]
+
+&lt;br&gt;
+
+- Accuracy = 85.7%
+
+- Precision = 85.7%
+
+- Specificity = 0%
+
+- Recall = 100%
+
+---
+
+### ROC Curves
+
+Consider the following: 
+
+- We want to predict how many rainy days (1) there will be, sunny otherwise (0). 
+
+- Our model outputs probabilities of a rainy day where 0 means no chance, 1 means it's absolutely going to rain. 
+  
+&lt;br&gt;  
+  
+
+
+
+```python
+# Our estimated probabilities 
+est_probs = [.4,.7,.3,.5,.9,.1,.7]
+est_probs 
+```
+
+```
+## [0.4, 0.7, 0.3, 0.5, 0.9, 0.1, 0.7]
+```
+
+
+
+---
+
+### ROC Curves
+
+Consider the following: 
+
+- We need to convert these probabilities to predictions. We can do this by setting a **threshold**.
+  
+&lt;br&gt;&lt;br&gt;&lt;br&gt;  
+
+```python
+threshold = .5
+our_preds = [1 if e &gt;= threshold else 0 for e in est_probs]
+our_preds
+```
+
+```
+## [0, 1, 0, 1, 1, 0, 1]
+```
+
+
+---
+
+### ROC Curves
+
+
+Consider the following: 
+
+- We can now compare these predictions to the actual values. 
+
+.center[
+|                       |  `\(Positive_{~~\text{Actual}}\)` |  `\(Negative_{~~\text{Actual}}\)` |
+|-----------------------|----------|----------|
+| `\(Positive_{~~\text{Predicted}}\)`  |   2      |  1   |
+| `\(Negative_{~~\text{Predicted}}\)`  |   1      |  3   |
+
+]
+
+- Thresholds reflect how sensitive we are to true or false positives. 
+  
+  + The higher the threshold, the less false positives.
+  
+  + The lower the threshold, the more false positives but more true positives. 
+  
+  + **It's another tradeoff!**
+  
+---
+
+### ROC Curves
+
+Receiver operating characteristic (ROC) curve offers a visual representation of model performance across different potential thresholds.  
+
+.center[&lt;img src = "Figures/roc-plot.png", width=400&gt;]
+
+
+---
+
+### Area Under the Curve (AUC)
+
+We can calculate the area under the ROC curve to quickly and easily compare model performance.
+
+
+.center[&lt;img src = "Figures/roc-mueller-rauh.png"&gt;]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
