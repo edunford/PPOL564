@@ -101,6 +101,22 @@ scores['test_r2'].mean()
 -1*scores['test_mse'].mean()
 
 
+# ISSUE: Note there is one issue with the above. If we want to compare the performance
+# of different models (which we often want to do), then we need to ensure that
+# the splits for each fold are the same across models (else the difference 
+# in performance between two models might just be statistical fluke given 
+# how the data was scrambled). 
+
+# How do we get around this? Use the KFold generator to generate consistent folds 
+# that we can use again and again 
+
+# By seeding the random state, we can ensure the same folds are generated each time. 
+gen_folds = KFold(n_splits=5,random_state=111)  
+
+scores = cross_validate(pipe,X=X_train,y=y_train,
+                        scoring=scores_we_care_about,
+                        cv=gen_folds) # Just drop the generator in for the cv arg
+
 
 
 # %% -----------------------------------------
@@ -131,7 +147,7 @@ pipe2 = Pipeline([("preproces",preprocessor), ('dtree', DecisionTreeRegressor())
 # Use the cross_validation method to validate.
 scores2 = cross_validate(pipe2,X=X_train,y=y_train,
                         scoring=scores_we_care_about,
-                        cv=5)
+                        cv=gen_folds)
 
 # Predicted fit on the test data test error. Country info adds a lot!
 scores2['test_r2'].mean()
