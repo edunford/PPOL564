@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science I | Foundations   Week 12      Trees, Bags, and Forests</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science I | Foundations </font> <font size=6, face="bold"> Week 12 </font> <br> <br> <font size=50, face="bold">Trees, Bags, and Forests</font> <br> <br>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | DS1 | Foundations
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 12 &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Trees, Bags, and Forests &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+class: newsection
+
+# Regression Trees
+
+---
+
+
+.center[&lt;img src =  "Figures/cart-full.png", width = 600&gt; ]
+
+---
+
+### Hitting Averages and Experience on Salary
+
+&lt;br&gt;
+
+.pull-left[
+.center[&lt;img src =  "Figures/regression-tree-01.png", width = 700&gt; ]
+]
+
+.pull-right[
+.center[&lt;img src =  "Figures/regression-tree-02.png", width = 700&gt; ]
+]
+
+---
+
+&lt;br&gt;
+
+The goal is to ﬁnd boxes ( `\(R_1 ,\dots , R_j\)` ) that minimize the RSS, given by
+
+`$$\sum^J_{j=1} \sum_{i \in R_j} (y_i - \hat{y}_{R_j})^2$$`
+
+where `\(\hat{y}_{R_j}\)` is the mean response for the training observations within the `\(j\)`th box.
+
+--
+
+We take a top-down, greedy approach that is known as **_recursive binary splitting_**
+
+- **Top-down**: start with one region and break from there.
+
+- **Greedy**: best split is made at each step (best split given the other splits that have been made)
+
+---
+
+### The essence of recursive binary splitting
+
+- (1) From the predictors `\(X\)` select a predictor `\(X_j\)`
+
+--
+
+- (2) Find a cutpoint ( `\(s\)` ) that splits `\(X_j\)` into two regions that leads to the greatest possible reduction in RSS.
+
+`$$R_1(j,s) = \{X~|~X_j &lt;s\}~\text{and}~ R_2 (j,s) = \{X~|~X_j \ge s\}$$` 
+
+--
+
+- (3) Looking for an `\(s\)` and `\(j\)` that minimizes
+
+`$$\sum_{i: ~x_i \in R_1(j,s)} (y_i - \hat{y}_{R_1})^2 + \sum_{i: ~x_i \in R_2(j,s)} (y_i - \hat{y}_{R_2})^2$$`
+
+where `\(\hat{y}_{R_1}\)` and `\(\hat{y}_{R_2}\)` are the mean responses for the training data in region 1 ( `\(R_1(j,s)\)` ) and region 2  ( `\(R_2(j,s)\)` )
+
+--
+
+- (4) Repeat the process until a stopping criterion is met
+
+---
+
+### Tree Pruning as a tuning parameter
+
+
+.center[&lt;img src =  "Figures/regression-tree-03.png", width = 600&gt; ]
+
+
+---
+
+### Tree Pruning as a tuning parameter
+
+- Shallow trees (a few splits) can result in underfitting. 
+
+- Deep trees (many splits) can result in overfitting
+
+--
+
+&lt;br&gt;
+
+Controlling the maximum **_tree depth_** works a tuning parameter that offers control over under and over fitting. 
+
+--
+
+&lt;br&gt;
+
+In addition, we can adjust the **_minimum number of observations_** for each split (note in the video we set this to 2).
+
+
+---
+
+### Tree Pruning as a tuning parameter
+
+- Shallow trees (a few splits) can result in underfitting. 
+
+- Deep trees (many splits) can result in overfitting
+
+&lt;br&gt;
+
+Finally, we can balance between under and overfitting by penalizing depth using a "**_complexity criterion_**" ( `\(\alpha\)` )
+
+`$$\sum^T_{m=1}\sum_{i:x_i \in R_m} (y_i - \hat{y}_{R_m}) ^2 + \alpha T$$`
+
+- `\(T\)` indicates the number of terminal nodes, 
+- `\(R_m\)` is the rectangle (i.e. the subset of predictor space) corresponding to the `\(m\)`th terminal node
+- `\(\hat{y}_{R_m}\)` is the predicted response associated with `\(R_m\)`.
+
+
+---
+
+### Tree Pruning as a tuning parameter
+
+![:space 2]
+
+Tuning parameters control the trade-off between over-fitting and under-fitting. 
+
+Need to use **_cross-validation_** to figure out the right value of `max_depth`, `min_samples_split`, and/or `\(\alpha\)`.
+
+
+![:center_img 62](Figures/tree-complexity.png)
+
+---
+
+### Classification Trees
+
+&lt;br&gt;
+
+- Categorical rather than continuous outcome
+
+- Similar process to a regression tree.
+
+- Predict most commonly occurring class of training observations in the region to which it belongs.
+
+- Use the **_Gini Index_** as a measurement of error
+
+`$$G = \sum^K_{k=1} \hat{p}_{mk} (1-\hat{p}_{mk})$$`
+
+- Gini index gets small if all `\(\hat{p}_{mk}\)` are close to zero or one ("node purity")
+
+---
+
+### Regression vs. Trees
+
+.center[
+&lt;img src =  "Figures/reg-v-trees.png", width = 600&gt; 
+]
+
+---
+
+### Pros and Cons of Trees
+
+![:text_color forestgreen](Pros):
+
+- Easy to explain/visualize
+
+- Easy handle qualitative predictors
+
+- Can deal well with data inconsistencies
+
+![:space 5]
+
+![:text_color darkred](Cons):
+
+- Less predictive accuracy
+
+- Suffer from high variance
+
+
+---
+
+class: newsection
+
+## Bagging &amp; Random Forest
+
+---
+
+### Bagging
+
+**Bootstrap aggregation**, or **bagging**, is a general-purpose procedure for reducing the variance of a statistical learning method.
+
+--
+
+The idea:
+
+- take many training sets from the data
+- build separate trees on each training set 
+- average across the predictions from each tree.
+
+--
+
+.center[
+&lt;img src =  "Figures/bagging.png", width = 600&gt; 
+]
+
+---
+
+### What is bootstrapping?
+
+
+.center[
+&lt;img src =  "Figures/bootstrap.png", width = 600&gt; 
+]
+
+---
+
+Say we have two groups (people on a bus) and we want to know that their average age is statistically different. 
+
+
+```python
+from pandas import DataFrame
+bus1 = DataFrame(dict(age = [5,20,21,14,17,23,26]))
+bus2 = DataFrame(dict(age = [23,28,37,51,18,30,48]))
+```
+
+--
+
+We can just run a difference in means, but how can we determine if this difference is statistically meaningful?
+
+
+```python
+real_diff = bus1.age.mean() - bus2.age.mean()
+real_diff
+```
+
+```
+## -15.57142857142857
+```
+
+---
+
+Say we have two groups (people on a bus) and we want to know that their average age is statistically different. 
+
+
+```python
+from pandas import DataFrame
+bus1 = DataFrame(dict(age = [5,20,21,14,17,23,26]))
+bus2 = DataFrame(dict(age = [23,28,37,51,18,30,48]))
+```
+
+Or we could bootstrap. The key is sampling _with replacement_.
+
+.pull-left[
+
+```python
+bus1.sample(4,replace=True)
+```
+
+```
+##    age
+## 5   23
+## 4   17
+## 5   23
+## 3   14
+```
+]
+.pull-right[
+
+```python
+bus2.sample(4,replace=True)
+```
+
+```
+##    age
+## 2   37
+## 5   30
+## 0   23
+## 0   23
+```
+]
+
+---
+
+Do this many times...
+
+
+```python
+boot_samples = list()
+
+# Resample 100 times
+for i in range(100):
+    
+    # bootstrapped sample from bus 1
+    boot_samp1 = bus1.sample(4,replace=True)
+    
+    # bootstrapped sample from bus 2
+    boot_samp2 = bus2.sample(4,replace=True)
+    
+    # Difference in means
+    diff_mean = boot_samp1.age.mean() - boot_samp2.age.mean()
+    
+    # Store and repeat
+    boot_samples.append(diff_mean)
+    
+# All estimates of the difference in means
+boot_samples
+```
+
+```
+## [-5.75, -18.5, -15.25, -25.5, -4.25, -7.75, 0.25, -28.75, -16.25, -25.0, -6.0, -30.0, -25.5, -11.5, -11.25, -11.75, -19.25, -20.0, -24.0, -23.0, -30.0, -21.0, -5.5, -15.0, -11.75, -4.25, -15.75, -13.75, -18.0, -18.0, -18.0, -15.5, -16.25, -18.75, -13.5, -7.5, -10.75, -15.0, -15.75, -12.75, -9.5, -16.5, -8.25, -8.25, -8.25, -18.75, -13.25, -11.75, -11.75, -13.75, -6.0, 2.25, -16.0, -20.5, -17.0, -8.0, -12.75, -7.25, -22.5, -17.25, -21.75, -22.75, -18.0, -19.5, -27.0, -15.25, -12.0, -14.0, -14.5, -6.0, -23.25, -28.25, -12.5, -17.75, -17.0, -10.5, -9.0, -35.25, -8.5, -17.0, -14.0, -17.25, -7.75, -7.25, -9.5, -14.0, -13.75, -7.25, -5.5, -16.25, -23.25, -22.75, -23.0, -13.75, -25.25, -12.5, -19.5, -13.5, -20.0, -18.25]
+```
+
+---
+
+Do this many times...
+
+
+```python
+import matplotlib.pyplot as plt
+
+d = DataFrame(dict(diff=boot_samples))
+
+# Generate plot 
+plt.figure(figsize=(10,10))
+d.plot.density(c="darkgrey")
+plt.axvline(x=0,c="darkred")
+plt.axvline(x=real_diff,c="steelblue")
+plt.show()
+```
+
+&lt;img src="trees-bagging-and-random-forests_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+Do this many times...
+
+![:space 15]
+
+
+```python
+# Specify a 95% confidence interval
+Q = d.quantile([.025,.975]).T
+Q
+
+# Store these values
+```
+
+```
+##          0.025  0.975
+## diff -29.40625  -4.25
+```
+
+```python
+low = Q.iloc[0,0]
+high = Q.iloc[0,1]
+```
+
+---
+
+Is the interval overlapping with `\(0\)`? No, so it's statistically significant by conventional standards. 
+
+
+```python
+# Generate plot 
+plt.figure(figsize=(10,10))
+d.plot.density(c="darkgrey")
+plt.axvline(x=0,c="darkred")
+plt.axvline(x=real_diff,c="steelblue")
+*plt.hlines(y=0,xmin=low,xmax=high,linewidth=5)
+plt.show()
+```
+
+&lt;img src="trees-bagging-and-random-forests_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+### Same idea but with trees... 
+
+Grow many of trees then average the predictions
+
+
+`$$\hat{f}_{avg}(x) = \frac{\sum^B_{b=1} \hat{f}_b(x) }{B}$$`
+
+&lt;br&gt;
+
+--
+
+.center[
+&lt;img src =  "Figures/bagging-in-practice.png", width = 800&gt; 
+]
+
+---
+
+### Random Forest 
+
+- Issue with bagging is that the trees are **_highly correlated_**. 
+
+--
+
+- One way around this is to also take a **_random sample of predictors_** at each split (in addition to bagging). Algorithm is _not allowed_ to consider a majority of the available predictors.
+
+--
+
+- Number of predictors the algorithm is able to select  (`max_features`) is a **_tuning parameter_**
+
+.center[
+&lt;img src =  "Figures/random-forest.png", width = 300&gt; 
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
