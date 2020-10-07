@@ -378,7 +378,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 8: Automated Heists**<br>_Drawing from (Un-)Structured Data Sources_
+### **Week 8: Automated Heists**<br>[_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html)
 
 <br><br>
 

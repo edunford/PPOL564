@@ -54,11 +54,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-<!-- # Synchronous Materials -->
+# Synchronous Materials
+
+- Download the <a href="country_data.csv" download><strong>country_data.csv</strong></a> dataset used in the lecture.
 
 <!-- - [Lecture Code & Data](synchronous-lecture/week_7_lecture_code_and_data.html) -->
 
-<!-- <br><hr><br> -->
+<br><hr><br>
 
 # Asynchronous Materials {.tabset .tabset-pills}
 
@@ -296,7 +298,7 @@ sns.jointplot(data=dat, x="lngdpPercap", y="lifeExp", kind="hex")
 
 <br>
 
-<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=4eb6df24-abdc-4855-9b2f-ac3c016892bb&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d61dcd7b-484f-45dc-ab69-ac3c01743a52&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
 
 ### Code from the video
 

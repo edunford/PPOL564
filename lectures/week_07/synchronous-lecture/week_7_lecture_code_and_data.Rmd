@@ -15,11 +15,6 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br><br>
-
-# Data
-
-Download the <a href="country_data.csv" download><strong>country_data.csv</strong></a> dataset used in the code below.
 
 <br><br><br>
 
@@ -27,15 +22,15 @@ Download the <a href="country_data.csv" download><strong>country_data.csv</stron
 
 ## Common questions to ask:
 
-+ What is the unit of observation?
++ **What is the unit of observation?**
     - Is the data tidy?
     - What does each row signify?
     - Does the unit of observation map to your unit of analysis (i.e. the theoretical population you care about)?
-+ What is the coverage of the data?
++ **What is the coverage of the data?**
     - Time (year, months, days)
     - Space (countries, subnational units like states, census tracks, point locations)
     - Groups (relevant populations)
-+ Who put the data together?
++ **Who put the data together?**
     - Why was the data created and for what purpose?
     - Potential source of bias? (e.g. does everyone on the research team look the same and come from the same background?)
 + **How was the data generated?**
@@ -45,7 +40,7 @@ Download the <a href="country_data.csv" download><strong>country_data.csv</stron
     - Extent of missingness globally
     - Extend of missingness by subgroup
 
-Remember you're almost always "borrowing" data, commandeering it to fit a purpose it wasn't entirely built for, so we must always be wary of our data. We must investigate it, vet it, make sure it's a good fit for our analytical needs.
+Remember you're almost always "borrowing" data, commandeering it to fit a purpose it wasn't entirely built for, so we must always be wary of our data. We must investigate it, vet it, make sure it's a good fit for our analytic needs.
 
 
 <br><br><br>
