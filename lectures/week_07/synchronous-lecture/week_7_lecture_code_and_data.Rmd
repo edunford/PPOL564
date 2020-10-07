@@ -151,7 +151,7 @@ pd.crosstab(dat.regime_type,dat.continent).apply(lambda x: x/x.sum(), axis=0).ro
 
 
 # Categorical by Continuous Data: use groupby and numerical summaries
-dat.groupby(['continent'])['gdppc'].mean().sort_values(ascending=False)
+dat.groupby(['continent'])['ln_gdppc'].mean().sort_values(ascending=False)
 
 
 
