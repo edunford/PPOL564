@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science 1 | Foundations   Week 13       Data Exploration in the Social Sciences</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations </font> <font size=6, face="bold"> Week 13 </font> <br> <br> <font size=100, face="bold"> Data Exploration in the Social Sciences </font>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science 1 | Foundations
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 13 &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+EDA in the SS &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+### Exploratory Data Analysis (EDA)
+
+EDA is an **_iterative cycle_**:
+
+![:space 5]
+
+1. **_Generate_** questions about your data.
+
+2. Search for answers by **_visualizing_**, **_transforming_**, and **_modelling_** your data.
+
+3. Use what you learn to **_refine_** your questions and/or generate new questions.
+
+![:space 5]
+
+EDA is not a formal process with a strict set of rules. Feel free to investigate every idea that occurs to you. Some will work and offer valuable insights, others won't.
+
+---
+
+### Weak priors on the DGP
+
+Often we are need to elicit answers from data where we know little about the **_data generating process_** (DGP)
+
+  - Little to no academic work to guide our expectations.
+  
+  - New data type that does not conform cleanly to past operationalizations of well-defined theoretical concepts.
+  
+  - Data is entirely foreign to you 
+      
+      + Data outside your domain of _expertise_ --- e.g., you study conflict but you need to examine healthcare data.
+      
+      + Data outside your domain of _expectation_ --- e.g., a company's internal data logs that you need to draw insight on.
+
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+--
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+  
+  - Always the first step. 
+  - Split the data and never look at, learn from, or examine the test data.
+  - We can probe, model, and theorize about the training data _as long as we've held off test data_ to validate our conclusions. 
+
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+- **_![:text_color darkorange](Step 1)_**: **_Understanding what data you have_**
+  
+  - &lt;u&gt;_Data Properties_&lt;/u&gt;
+      - What is the unit of analysis?
+      - What are the data types?
+          - integers, floats, categorical, ordered scales?
+      - What sources of variation are there?
+      - How is that data distributed?
+      - Are there oddities in the data? 
+          - e.g. housing price data with a lot of 0s. 
+      - Is the data incomplete? If so, why?
+      - Should the data be transformed?
+      - Are there ways to back out new variables from the variables you have? ("feature engineering")
+    
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+- **_![:text_color darkorange](Step 1)_**: **_Understanding what data you have_**
+  
+  - &lt;u&gt;_Data Properties_&lt;/u&gt;
+  - &lt;u&gt;_Data Generation_&lt;/u&gt; (questions to ask yourself)
+      - How was the data generated?
+          - Hand coded vs. machine coded?
+          - Self-reported?
+          - Convenience sample?
+          - Complete? Incomplete? Why?
+      - How fit is the data to answer your (or any) inquiry?
+      - In what ways could the data be distorted or biased?
+      - Are the concepts measured in the data clearly defined? 
+          - If so, why do you believe that? 
+          - If not, where does the issue lie?
+    
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+- **_![:text_color darkorange](Step 1)_**: **_Understanding what data you have_**
+- **_![:text_color darkorange](Step 2)_**: **_Analyzing the relationships_**
+
+  - What variables are highly correlated?
+  - What is the relationship between the variables?
+  - What can bi-variate models tell us about the relationship between two (or more) variables?
+  - Does a decomposition reveal anything interesting about the variation in the data?
+  - Does the data cluster in interesting ways? 
+  - Can we plot the data spatially or temporally? Do any interesting patterns emerge? 
+  
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+- **_![:text_color darkorange](Step 1)_**: **_Understanding what data you have_**
+- **_![:text_color darkorange](Step 2)_**: **_Analyzing the relationships_**
+- **_![:text_color darkorange](Step 3)_**: **_Unpacking the outcome_**
+
+  - What outcome variable do you care about (or seems important) in the data? 
+  - Build a model that best predicts this outcome.
+  - Explore the most predictive model
+      - What features/variables mattered most in the prediction task?
+      - What are the marginal effects of these most predictive features?
+      - Is there any heterogeneity in the predicted value of the model across certain observations?
+
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+- **_![:text_color darkorange](Step 1)_**: **_Understanding what data you have_**
+- **_![:text_color darkorange](Step 2)_**: **_Analyzing the relationships_**
+- **_![:text_color darkorange](Step 3)_**: **_Unpacking the outcome_**
+- **_![:text_color darkorange](Step 4)_**: **_Theorize_**
+
+  - What are some hypotheses that we might be able to generate from the data?
+  - What confounders might be lurking generating spurious correlations?
+	- What are some plausible interventions that we might be able to employ to test a causal relationship?
+		- Are those interventions ethical?
+		- Are those interventions practical?
+		
+---
+
+###  Data Exploration Steps 
+
+Given new data, how best should one draw novel insights?
+
+- **_![:text_color darkorange](Step 0)_**: **_Train/Test Split_**
+- **_![:text_color darkorange](Step 1)_**: **_Understanding what data you have_**
+- **_![:text_color darkorange](Step 2)_**: **_Analyzing the relationships_**
+- **_![:text_color darkorange](Step 3)_**: **_Unpacking the outcome_**
+- **_![:text_color darkorange](Step 4)_**: **_Theorize_**
+
+
+- **_![:text_color darkorange](Step 5)_**: **_Repeat 1 - 4_**
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title> PPOL564 | Data Science 1 | Foundations   Week 13       Interpretable Machine Learning</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  eric.dunford@georgetown.edu" />
+    <link rel="stylesheet" href="gu-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# <font class = "title-panel"> PPOL564 | Data Science 1 | Foundations </font> <font size=6, face="bold"> Week 13 </font> <br> <br> <font size=100, face="bold"> Interpretable Machine Learning </font>
+### <font class = "title-footer">  Prof. Eric Dunford  ◆  Georgetown University  ◆  McCourt School of Public Policy  ◆  <a href="mailto:eric.dunford@georgetown.edu" class="email">eric.dunford@georgetown.edu</a></font>
+
+---
+
+
+
+
+layout: true
+
+&lt;div class="slide-footer"&gt;&lt;span&gt; 
+PPOL564 | Data Science 1 | Foundations
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Week 13 &lt;!-- Week of the Footer Here --&gt;
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+
+Interpretable Machine Learning &lt;!-- Title of the lecture here --&gt;
+
+&lt;/span&gt;&lt;/div&gt; 
+
+---
+
+## Model Interpretation
+
+- Knowing a model is predictive is _necessary_ but rarely _sufficient_ to draw **_substantive insights_**. 
+
+--
+
+- In the social sciences, we are interested in understanding **_why_** certain features matter in an effort to detect potential **_interventions_**: if we change `\(X\)` will we get a different outcome?
+
+--
+
+- Interpretability offers insights into the features the model **_relies on to make its prediction_**. 
+
+--
+
+- In addition, interpretability is a useful debugging tool for **_detecting bias_** in machine learning models. 
+
+--
+
+- Model needs to be a fairly **_good approximation of the data generating process_** (i.e. high predictive accuracy) for interpretation to matter
+
+
+
+---
+
+## Variable Importance
+
+![:space 2]
+
+- Variable/Feature importance is concerned with how much a given model **_relies on a set of variables/features to make accurate predictions_**. 
+
+- If those variables/features were removed, the model should **_perform worse_** (i.e. diminished predictive capacity).
+
+- Determining variable importance helps with **_variable selection_**.
+
+  - What variables could we drop from the model (not contributing much information)? 
+  
+  - What variables should we make sure to always measure and use in the model?
+
+---
+
+## Variable Importance
+
+Consider output from a simple multivariate variable OLS regression, what variables seem to matter most?
+
+![:space 3]
+
+
+```
+## # A tibble: 4 x 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept) -0.00776    0.0314    -0.247   0.805
+## 2 x1           2.00       0.0318    62.9     0    
+## 3 x2          -0.00812    0.0312    -0.260   0.795
+## 4 x3           0.0515     0.0321     1.60    0.109
+```
+
+--
+
+![:space 3]
+
+- `x1` is clearly both substantively and statistically significant. We should keep it in the model.
+
+---
+
+
+## Variable Importance
+
+![:space 2]
+
+- Some models offer a natural way of determining importance:
+
+  - _Regression_: coefficient and test statistic size
+  
+  - _Trees_: split importance
+  
+![:space 2]
+
+- But other models are more complicated (e.g. support vector machines, KNN, Neural Networks). We call these **_black box_** models because it's difficult to "peer inside" the model to understand how it works. 
+
+![:space 2]
+
+- We need ways of determining predictive performance that are **_model agnostic_** (i.e. doesn't depend on the type of model you use).
+
+---
+
+### Permutation Importance
+
+- Permutation Importance offers a model agnostic way to determine variable importance.
+
+- The idea: **_scramble the data_** one variable at a time and see if the predictive performance of the model _decreases_. 
+
+--
+
+- How it works:
+
+  + **_Train_** a model
+  
+  + **_Permute_** (i.e. scramble the order) a single variable/feature in the training data.
+  
+  + Use the model to **_predict_** on the data with the permuted variable
+  
+  + See if there is a **_drop in predictive performance_**
+  
+  + **_Repeat_**
+  
+---
+
+### The logic of permuting
+
+![:space 5]
+
+- Permuting a variable effectively **_breaks the statistical relationship_** between outcome and predictor.
+
+- If a **_variable doesn't matter, then permuting it won't change the performance_** (as the model already doesn't rely on this variable )
+
+- We must permute each variable **_multiple times_** as permuting is a random process 
+  
+  + We want to ensure a specific importance ordering isn't a results of a single permutation.
+
+
+---
+
+## Partial Dependence Plots (PDP)
+
+![:space 5]
+
+- Variable importance cannot tell us how variables **_relate_** to the outcome.
+
+- Partial dependency plots show the **_marginal effect_** one or two features have on the predicted outcome of the model.
+
+- A partial dependence plot can show whether the **_relationship_** between the target and a feature is linear, monotonic or more complex.
+
+- The partial dependence plot is a **_global method_**: The method considers all instances and gives a statement about the global relationship of a feature with the predicted outcome.
+
+
+---
+
+## Partial Dependence Plots (PDP)
+
+![:space 5]
+
+- The steps:
+  
+  + Train a model
+  
+  + Identify the features that matter most (feature importance)
+  
+  + Manipulate the values of those features (one at a time) and take the average prediction, holding all other features at their observed values. 
+  
+  + Plot the values and interpret the curve. 
+
+
+---
+
+##  Individual Conditional Expectation Plots (ICE)
+
+- Partial dependency offers a plot of the **_average marginal effect_**; however, can obscure a heterogeneous relationship created by **_interactions_**. 
+
+&lt;img src="interpretable-ml_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+##  Individual Conditional Expectation Plots (ICE)
+
+- Partial dependency offers a plot of the **_average marginal effect_**; however, can obscure a heterogeneous relationship created by **_interactions_**.
+
+![:space 3]
+
+- ICE plots plots show the **_marginal effect for each observation_** in the data. 
+
+- We can observe if there are **_divergence_** or **_convergence_** in the predicted effect cross observations. 
+
+- The PDP is just the average taken across the different ICE curves.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

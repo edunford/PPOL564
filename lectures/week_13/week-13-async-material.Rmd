@@ -1,0 +1,656 @@
+---
+pagetitle: "PPOL564 | Week 13 - Asynchronous lecture materials"
+title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Peeking inside the Black Box <br> _Interpretable Machine Learning_</center>
+subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 13 </center><br>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+output: 
+  html_document:
+    includes: 
+      after_body: async-footer.html
+    css: async-page-style.css
+    highlight: breezedark
+    theme: flatly
+    toc: true
+---
+
+<br><hr><br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Learning Objectives 
+
+<br>
+
+**In the Asynchronous Lecture**
+
+- Delve into what **interpretable machine learning** is and why it matters.
+- Talk through **variable importance** and model agnostic approaches to determining importance.
+- Explore the marginal effect of a predictor in blackbox model using **partial dependency plots**.
+- Expand upon partial dependencies with **individual conditional expectation** plots.
+
+<br>
+
+**In the Synchronous Lecture**
+
+- Cover **how to implement** interpretability methods within an `sklearn` framework.
+- Discuss rules of thumb for **data exploration in the social sciences** when we have **weak priors** on the data being explored.
+
+<br>
+
+> If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
+
+<br><hr><br>
+
+<!-- # Synchronous Materials -->
+
+<!-- <br> -->
+
+<!-- - [**Practice applying interpretable machine learning methods**](synchronous-material/interpretable_ml_walkthrough.html) -->
+<!--   - Download the <a href="synchronous-materials/interpretable_ml_walkthrough.ipynb" download><strong>`.ipynb` Notebook</strong></a>. -->
+
+<!-- - [**Data Exploration in the Social Sciences**](slides/data-exploration-in-the-social-sciences.html) -->
+
+<!-- <br><hr><br> -->
+
+# Asynchronous Materials {.tabset .tabset-pills}
+
+<br>
+
+_The following tabs contain pre-recorded lecture materials for class this week. Please review these materials prior to the synchronous lecture._
+
+**_Total time_**: Approx. 1 hour and 7 minutes
+
+<br>
+
+<br>
+
+## _
+
+<br><hr><br>
+
+## Interpretable Machine Learning 
+
+### [**Relevant Slides**](slides/interpretable-ml.html#2)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d82115c8-871c-4367-afee-ac4f00eddefe&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+
+## Variable Importance (concept)
+
+### [**Relevant Slides**](slides/interpretable-ml.html#7)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=1c5c72bf-f791-42c2-a01b-ac4f00f01553&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+<br><hr><br>
+
+## Variable Importance (implementation)
+
+<br>
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d9f6b221-3da3-480b-a6b5-ac4f00f3e546&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+'''
+Variable Importance
+'''
+
+# Data processing 
+import pandas as pd
+import numpy as np
+
+# Learning Models
+from sklearn.ensemble import RandomForestRegressor as RF
+from sklearn.linear_model import LinearRegression as LM
+import sklearn.metrics as m
+
+# Ploting 
+from plotnine import *
+
+# Suppress warnings 
+import warnings
+warnings.filterwarnings('ignore')
+
+
+
+# %% Generate Synthetic Data -----------------------------------------
+
+
+def gen_data(N=1000,seed=1234):
+
+    # Set seed
+    np.random.seed(seed)
+
+    # Generate predictors
+    x1 = np.random.normal(loc=0,scale=1, size = N)
+    x2 = np.random.normal(loc=0,scale=1, size = N)
+    x3 = np.random.normal(loc=0,scale=1, size = N)
+    e = np.random.normal(loc=0,scale=1, size  = N)  # irreducible error
+
+    # Generate outcome (which is a function of the predictors -- x3 intentionally left out)
+    y = -2*np.cos(x1)*np.sin(x2) - x1 + x2 + -.75*x2**2 + e
+
+    # Organize predictors
+    X = np.stack([x1,x2,x3],axis=1)
+
+    # Return the data
+    return X,y
+
+
+
+# %% -----------------------------------------
+
+# Generate the sample of the data.
+X, y = gen_data(N=1000)
+
+# Plot at the synthetic data
+D= pd.DataFrame(dict(y=y,x1=X[:,0],x2=X[:,1],x3=X[:,2]))
+(
+    ggplot(D.melt(id_vars='y'),
+           aes(x="value",y='y')) +
+    geom_point(alpha=.25) +
+    facet_wrap('variable') +
+    theme(figure_size=(10,5))
+)
+
+
+
+# %% -----------------------------------------
+
+# Build a model
+
+# Linear model 
+mod_lm = LM()
+mod_lm.fit(X,y)
+
+# Random Forest Model
+mod_rf = RF()
+mod_rf.fit(X,y)
+
+
+# Performance: RF > LM
+m.mean_squared_error(y,mod_lm.predict(X))
+m.mean_squared_error(y,mod_rf.predict(X))
+
+# Performance on future data. 
+ test_X, test_y = gen_data(N=1000,seed=2000)
+
+
+m.mean_squared_error(test_y,mod_lm.predict(test_X))
+m.mean_squared_error(test_y,mod_rf.predict(test_X))
+
+
+
+# %% -----------------------------------------
+
+# Variable Importance 
+
+mod_lm.coef_
+
+
+# %% -----------------------------------------
+
+v = np.array([1,3,5,2,6])
+np.random.permutation(v)
+
+# Idea: Permute the order of a specific feature to break the statistical
+# association with the outcome. If the variable matters, then the model should
+# perform WORSE.
+
+# Make a copy (so we don't distort the actual data)
+tmp = X.copy()
+
+# permute a specific column.
+tmp[:,0] = np.random.permutation(tmp[:,0])
+
+baseline_performance = m.mean_squared_error(y,mod_rf.predict(X))
+perm_perf = m.mean_squared_error(y,mod_rf.predict(tmp))
+
+# increase in the MSE
+perm_perf - baseline_performance
+
+
+# %% -----------------------------------------
+
+# Let's build out a permutation variable importance method. 
+
+def permutation_vi(model,X,y,n_permutations = 25):
+
+    # what is our baseline performance (i.e. performance before we permute anything)?
+    baseline_performance = m.mean_squared_error(y,model.predict(X))
+
+    # Build a container (using a dictionary comprehension)
+    store = {f'x_{i}':[] for i in range(X.shape[1])}
+
+
+    # Iterate and permute the variables one at a time.
+    for i, key in enumerate(store.keys()):
+
+        perms = n_permutations
+        tmp = X.copy()
+
+        # permute multiple times. 
+        while perms > 0:
+
+            # Permute the order of the variable 
+            tmp[:,i] = np.random.permutation(tmp[:,i])
+
+            # Calculate the error when predicting with the "corrupted" variable 
+            perm_perf = m.mean_squared_error(y,model.predict(tmp)) 
+
+            # Calculate the change in error
+            change = perm_perf - baseline_performance
+
+            # Store the change in the error 
+            store[key].append(change)
+
+            # tick down
+            perms -= 1
+
+    # Organize as a data frame
+    vi = pd.DataFrame(store)
+
+    return vi
+
+
+vi = permutation_vi(mod_rf,X,y)
+
+vi
+
+# %% -----------------------------------------
+
+
+# Plot Variable Importance 
+
+(
+    ggplot(vi.melt(),
+           aes(x="variable",y="value")) +
+    geom_boxplot() +
+    coord_flip() +
+    ylim(0,5)
+)
+
+# %% -----------------------------------------
+
+# Look at which variables the model relied on using the test data
+vi2 = permutation_vi(mod_rf,test_X,test_y)
+
+(
+    ggplot(vi2.melt(),
+           aes(x="variable",y="value")) +
+    geom_boxplot() +
+    coord_flip() +
+    ylim(0,5)
+)
+
+# %% -----------------------------------------
+
+# Let's use a completely different class of model, and the
+# method still works. This is the model "agnostic" bit. 
+
+from sklearn.svm import SVR
+mod_svr = SVR()
+mod_svr.fit(X,y)
+
+vi3 = permutation_vi(mod_svr,X,y)
+
+
+(
+    ggplot(vi3.melt(),
+           aes(x="variable",y="value")) +
+    geom_boxplot() +
+    coord_flip() +
+    ylim(0,5)
+)
+```
+
+<br><hr><br>
+
+
+## Partial Dependencies
+
+### [**Relevant Slides**](slides/interpretable-ml.html#14)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=d2bf6d50-c819-482f-bf98-ac4f00ffd036&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+'''
+Partial Dependency Plots
+'''
+
+import pandas as pd
+import numpy as np
+
+# Learning Models
+from sklearn.ensemble import RandomForestRegressor as RF
+from sklearn.linear_model import LinearRegression as LM
+import sklearn.metrics as m
+
+from plotnine import *
+
+import warnings
+warnings.filterwarnings('ignore')
+
+# %% Generate Synthetic Data -----------------------------------------
+
+def gen_data(N=1000,seed=1234):
+
+    # Set seed
+    np.random.seed(seed)
+
+    # Generate predictors
+    x1 = np.random.normal(loc=0,scale=1, size = N)
+    x2 = np.random.normal(loc=0,scale=1, size = N)
+    x3 = np.random.normal(loc=0,scale=1, size = N)
+    e = np.random.normal(loc=0,scale=1, size  = N)  # irreducible error
+
+    # Generate outcome (which is a function of the predictors -- x3 intentionally left out)
+    y = -2*np.cos(x1)*np.sin(x2)  + -1*x1 + x2 + -.75*x2**2 + e
+
+    # Organize predictors
+    X = np.stack([x1,x2,x3],axis=1)
+
+    # Return the data
+    return X,y
+
+
+# %% -----------------------------------------
+
+# Generate the sample of the data.
+X, y = gen_data(N=1000)
+
+# Plot at the synthetic data
+D= pd.DataFrame(dict(y=y,x1=X[:,0],x2=X[:,1],x3=X[:,2]))
+(
+    ggplot(D.melt(id_vars='y'),
+           aes(x="value",y='y')) +
+    geom_point(alpha=.25) +
+    facet_wrap('variable') +
+    theme(figure_size=(10,5))
+)
+
+
+
+# %% Build Model -----------------------------------------
+
+
+# Linear model
+mod_lm = LM()
+mod_lm.fit(X,y)
+
+
+# Random Forest model
+mod_rf = RF()
+mod_rf.fit(X,y)
+
+# RF > LM
+m.mean_squared_error(y,mod_lm.predict(X))
+m.mean_squared_error(y,mod_rf.predict(X))
+
+# Performance on future data.
+test_X,test_y = gen_data(N=1000,seed=2000)
+
+m.mean_squared_error(test_y,mod_lm.predict(test_X))
+m.mean_squared_error(test_y,mod_rf.predict(test_X))
+
+# %% -----------------------------------------
+
+# The idea 
+
+X_tmp = X.copy()
+
+
+# What is the average prediction when X1 == 0?
+X_tmp[:,0] = 0
+X_tmp
+pred = mod_rf.predict(X_tmp)
+pred.mean()
+
+
+# What is the average prediction when X1 == 1?
+X_tmp[:,0] = 1
+pred = mod_rf.predict(X_tmp)
+pred.mean()
+
+
+# What is the average prediction when X1 == 2?
+X_tmp[:,0] = 2
+pred = mod_rf.predict(X_tmp)
+pred.mean()
+
+# %% -----------------------------------------
+
+X_tmp = X.copy()
+target_var = 1
+possible_values = np.arange(-3,3,.25)
+
+# Container 
+store = list()
+
+for val in possible_values:
+
+    # Manipulate the value 
+    X_tmp[:,target_var] = val
+
+    # Average Prediction
+    pred = mod_rf.predict(X_tmp).mean()
+
+    # Store this 
+    store.append([val,pred])
+
+marginal_effect = pd.DataFrame(store,columns = ['val','pred'])
+
+# %% -----------------------------------------
+
+(
+    ggplot(marginal_effect,
+           aes(x="val",y="pred")) +
+    geom_path() +
+    theme(figure_size=(10,5))
+)
+
+
+# %% -----------------------------------------
+
+# Partial Dependency for two variables 
+
+X_tmp = X.copy()
+possible_values = np.arange(-3,3,.25)
+target_a = 0
+target_b = 2
+
+# Container 
+store = list()
+for a in possible_values:
+
+    # Manipulate the value 
+    X_tmp[:,target_a] = a
+
+    for b in possible_values:
+
+        # Manipulate the value 
+        X_tmp[:,target_b] = b
+
+        # Average Prediction
+        pred = mod_rf.predict(X_tmp).mean()
+
+        # Store this 
+        store.append([a,b,pred])
+
+
+marginal_effect = pd.DataFrame(store,columns = ['x0','x1','pred'])
+
+# %% -----------------------------------------
+
+# Visualize 
+
+(
+    ggplot(marginal_effect,
+           aes(x="x0",y="x1",fill="pred")) +
+    geom_tile() +
+    theme(figure_size=(7,7))
+)
+
+```
+
+<br><hr><br>
+
+
+## Individual Conditional Expectations
+
+### [**Relevant Slides**](slides/interpretable-ml.html#16)
+
+<iframe src="https://georgetown.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=ac476ecc-ea48-48a6-a1d7-ac4f0107120d&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&start=0&interactivity=all" height="506" width="900" style="border: 1px solid #464646;" allowfullscreen allow="autoplay"></iframe>
+
+### Code from the video
+
+```{python,eval=F}
+'''
+Individual Conditional Expectations
+'''
+
+import pandas as pd
+import numpy as np
+
+# Learning Models
+from sklearn.ensemble import RandomForestRegressor as RF
+from sklearn.linear_model import LinearRegression as LM
+import sklearn.metrics as m
+
+from plotnine import *
+
+import warnings
+warnings.filterwarnings('ignore')
+
+
+# %% Generate Synthetic Data -----------------------------------------
+
+def gen_data(N=1000,seed=1234):
+
+    # Set seed
+    np.random.seed(seed)
+
+    # Generate predictors
+    x1 = np.random.normal(loc=0,scale=1, size = N)
+    x2 = np.random.normal(loc=0,scale=1, size = N)
+    x3 = np.random.normal(loc=0,scale=1, size = N)
+    e = np.random.normal(loc=0,scale=1, size  = N)  # irreducible error
+
+    # Generate outcome (which is a function of the predictors -- x3 intentionally left out)
+    y = -2*np.cos(x1)*np.sin(x2) - x1 + x2 + -.75*x2**2 + e
+
+    # Organize predictors
+    X = np.stack([x1,x2,x3],axis=1)
+
+    # Return the data
+    return X,y
+
+
+# %% -----------------------------------------
+
+# Generate the sample of the data.
+X, y = gen_data(N=250)
+
+# Plot at the synthetic data
+D= pd.DataFrame(dict(y=y,x1=X[:,0],x2=X[:,1],x3=X[:,2]))
+(
+    ggplot(D.melt(id_vars='y'),
+           aes(x="value",y='y')) +
+    geom_point(alpha=.25) +
+    facet_wrap('variable') +
+    theme(figure_size=(10,3))
+)
+
+
+
+# %% Build Model -----------------------------------------
+
+
+# Linear model
+mod_lm = LM()
+mod_lm.fit(X,y)
+
+
+# Random Forest model
+mod_rf = RF()
+mod_rf.fit(X,y)
+
+# RF > LM
+m.mean_squared_error(y,mod_lm.predict(X))
+m.mean_squared_error(y,mod_rf.predict(X))
+
+# Performance on future data.
+test_X,test_y = gen_data(N=250,seed=2000)
+
+m.mean_squared_error(test_y,mod_lm.predict(test_X))
+m.mean_squared_error(test_y,mod_rf.predict(test_X))
+
+
+# %% -----------------------------------------
+
+# Same idea as the PDP, just don't average
+
+X_tmp = X.copy()
+target_var = 1
+possible_values = np.arange(-3,3,.25)
+
+ice_store = pd.DataFrame()
+for val in possible_values:
+
+    # Manipulate the value
+    X_tmp[:,target_var] = val
+
+    # Predict
+    pred = mod_rf.predict(X_tmp)
+
+    # Store the individual predictions
+    vals = [val for i in range(pred.shape[0])]
+    id = [i for i in range(pred.shape[0])]
+    entry = pd.DataFrame(dict(id=id,val=vals,pred=pred))
+    ice_store = ice_store.append(entry)
+
+ice_store
+
+# %% -----------------------------------------
+
+# Visualize
+(
+    ggplot(data=ice_store) +
+    geom_line(mapping=aes(x="val",y="pred",group="id"),alpha=.1) +
+    theme_bw() +
+    theme(figure_size = (10,5))
+)
+
+
+
+# %% -----------------------------------------
+
+# PDP on top of the ICE
+
+pdp = (ice_store
+       .groupby("val").pred.mean()
+       .reset_index()
+       .rename(columns={"pred":'pdp'})
+       .merge(ice_store,on="val",how="right")
+       )
+
+
+(
+    ggplot(data=pdp) +
+    geom_line(mapping=aes(x="val",y="pred",group="id"),alpha=.1) +
+    geom_line(mapping=aes(x="val",y="pdp"),color="darkred",size=1.5) +
+    theme_bw() +
+    theme(figure_size = (10,5))
+)
+```
+
+<br><hr><br>
