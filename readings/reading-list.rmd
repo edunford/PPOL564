@@ -364,42 +364,6 @@ output:
   + [Ch. 5.5: Permutation Feature Importance](https://christophm.github.io/interpretable-ml-book/feature-importance.html) - Interpretable Machine Learning - Molnar, Christoph
   + [Ch. 5.1: Partial Dependency Plots](https://christophm.github.io/interpretable-ml-book/pdp.html) - Interpretable Machine Learning - Molnar, Christoph
   + [Ch. 5.2: Individual Conditional Expectation](https://christophm.github.io/interpretable-ml-book/ice.html) - Interpretable Machine Learning - Molnar, Christoph
-  + [Ch. 5.4: Feature Interaction](https://christophm.github.io/interpretable-ml-book/interaction.html) - Interpretable Machine Learning - Molnar, Christoph
   
 <br>
 
-
-
-<!-- ### Week 10: Introduction to Supervised Learning: Classification -->
-
-<!-- <br> -->
-
-<!-- - **_Required Readings_**: -->
-<!--   - Classification - **James et al. Ch. 4.1 & 4.2** -->
-<!--   - Logistic Regression - **James et al. Ch. 4.3** -->
-<!--   - _(Refresh from Week 9)_ Tree-Based & KNN Methods  -->
-
-<!-- - <font color = "grey">**_Additional Resources and Suggested Materials_**</font> -->
-<!--     + On Implementation, consult the scikit-learn documentation: -->
-<!--         + [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) -->
-<!--         + [1.6.2. Nearest Neighbors Classification](https://scikit-learn.org/stable/modules/neighbors.html) -->
-<!--         + Trees -->
-<!--             + [1.10.1. Decision Trees (Classification)](https://scikit-learn.org/stable/modules/tree.html#classification) -->
-<!--             + [1.11.2. Forests of randomized trees](https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees) -->
-
-<!-- <br> -->
-
-<!-- ### Week 12: Special Topics: Geospatial Data -->
-
-<!-- <br> -->
-
-<!-- - **_Required Readings_**: -->
-<!--   - [Fundamentals of Data viz](https://serialmentor.com/dataviz/geospatial-data.html) , chapter 15 -->
-
-<!-- <br> -->
-
-<!-- ### Week 13: Special Topics: Text-as-Data -->
-
-<!-- <br> -->
-
-<!-- - **_Required Readings_**: -->
