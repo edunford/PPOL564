@@ -332,9 +332,9 @@ dat_content
 
 Download the documents being scraped in this video:
 
-- <a href="data/mercy_corp.pdf" download><strong>mercy_corp.pdf</strong></a>
-- <a href="data/thomas_wood.pdf" download><strong>thomas_wood.pdf</strong></a>
-- <a href="data/Easterly_and_Levine.docx" download><strong>Easterly_and_Levine.docx</strong></a>
+- <a href="data/documents_scraped_in_async/mercy_corp.pdf" download><strong>mercy_corp.pdf</strong></a>
+- <a href="data/documents_scraped_in_async/thomas_wood.pdf" download><strong>thomas_wood.pdf</strong></a>
+- <a href="data/documents_scraped_in_async/Easterly_and_Levine.docx" download><strong>Easterly_and_Levine.docx</strong></a>
 
 <br>
 
