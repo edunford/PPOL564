@@ -382,7 +382,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 9: The Signal and the Noise**<br>_Introduction to Statistical Learning_
+### **Week 9: The Signal and the Noise**<br>[_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html)
 
 <br><br>
 
