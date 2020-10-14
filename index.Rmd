@@ -310,6 +310,12 @@ Data science is an applied field and therefore, it is important that you underst
 **_More information regarding the final project will be circulated during class on Week 8_**
 
 <br>
+
+<center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center>
+
+<br>
+
+<br>
 <br>
 <br>
 <hr>

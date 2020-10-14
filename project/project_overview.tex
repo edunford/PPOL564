@@ -1,0 +1,420 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdfauthor={PPOL564 \textbar{} Data Science 1 \textbar{} Foundations},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\title{\textbf{Project Overview}}
+\author{\Large PPOL564 \textbar{} Data Science 1 \textbar{} Foundations}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{overview}{%
+\section{Overview}\label{overview}}
+
+The following provides an overview of the data science project that you
+will be responsible for completing by the end of the semester. The
+project is an opportunity to apply the skills and tools that you've
+learned throughout the course on an area of substantive interest to you.
+
+The project is composed of three distinct parts: a proposal, a
+presentation, and a report. The proposal should outline the general plan
+for the project and will serve as an opportunity for the professor to
+provide guidance on the project's feasibility. The presentation is an
+opportunity to present your work in mid-stream to receive verbal
+feedback from the professor, TA, and classmates. These comments will
+help you as you move forward with the final report. The report is the
+written analysis of the project in its entirety. The report will be due
+on December 19 @ 5pm EST (PPOL564's designated finals slot).
+
+While completing your project, you will be responsible for creating and
+maintaining a public repository on \texttt{Github}, tracking all
+progress made on your project using the version control implementations
+discussed at the start of the semester. All work product should be
+reflected on the repository. The proposal, presentation materials, and
+the report should be generated using
+\href{https://rmarkdown.rstudio.com/authoring_quick_tour.html}{RMarkdown}
+or \href{https://jupyter.org/}{Jupyter Notebook} and should follow all
+reproducibility practices discussed in class.
+
+\hypertarget{project-proposal}{%
+\section{Project Proposal}\label{project-proposal}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Due} & \textbf{Proportion of Grade} &
+\textbf{Length}\tabularnewline
+\midrule
+\endhead
+October 28 & 5\% & 2 pages (single-spaced; 12pt font)\tabularnewline
+\bottomrule
+\end{longtable}
+
+The project proposal asks that you sketch out a general 2 page
+(single-spaced; 12pt font) project proposal. The proposal should offer
+the following information:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A high-level statement of the problem you intend to address or the
+  analysis you aim to generate;
+\item
+  The data source(s) you intend to use;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The data you choose to utilize should take some effort to compose
+    (it shouldn't be entirely ``off-the-shelf data'', i.e.~data easily
+    downloaded online).
+  \item
+    If using API's or other easily downloadable data sources (such as
+    World Bank data) to collect your data, try joining other data to the
+    downloaded data, change the unit of analysis, etc.
+  \item
+    In general, one should have some wrangling component to get their
+    data in order.
+  \end{itemize}
+\item
+  Your plan to obtain that data;
+\item
+  The methods (learned in class) that you aim to employ; and
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The project must contain:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      a data wrangling component
+    \item
+      (multiple) data visualizations
+    \item
+      a machine (statistical) learning component
+    \end{itemize}
+  \end{itemize}
+\item
+  A definition for what ``success'' means with respect to your project.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In your words, what would a successful project look like? How will
+    you know that you solved the problem or accomplished your goal?
+  \item
+    Four weeks isn't a long time to complete a project like this.
+    Thinking serious about what a ``finished'' or ``successful'' project
+    might look like. This will help you set realistic
+    goals/expectations.
+  \end{itemize}
+\end{enumerate}
+
+Please be detailed but \emph{succinct} as possible when writing.
+\emph{Any material that exceeds page 2 (1000 words) will not be
+considered when grading/reading}. There is no advantage/incentive to
+exceeding the page limit. Be sure to properly cite any referenced
+materials and/or packages (it is okay if your work cited runs onto a
+third page).
+
+\hypertarget{project-presentation}{%
+\section{Project Presentation}\label{project-presentation}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Due} & \textbf{Proportion of Grade} &
+\textbf{Length}\tabularnewline
+\midrule
+\endhead
+December 2 & 10\% & 7 minutes in length\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{part-1-video-presentation}{%
+\subsection{Part 1: Video
+Presentation}\label{part-1-video-presentation}}
+
+Please prepare and record a 7 minute presentation that walks us through
+the progress you've made on your project to date. The presentation is an
+opportunity to summarize your project and talk through your
+(preliminary) results. Moreover, it'll provide an opportunity for both
+your peers and the Professor/TA to provide constructive feedback, which
+you can then incorporate into your final paper.
+
+When preparing your recording, please prepare slides \emph{using
+\texttt{R\ Markdown} or \texttt{Jupyter\ Notebook}}. \textbf{Students
+should not ``live code'' or show output from their computer.} This is
+meant to be a polished presentation as if you were giving it in-person.
+
+The slides should generally adhere to the following format. You should
+plan on having up to 5-10 slides in total. The layout of the
+presentation should take on the following form.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  (1-3 slides) Problem statement and Background
+\item
+  (1-3 slides) Methods you explored or considered using.
+\item
+  (1-3 slides) The methods/tools you used, and the rationale for their
+  use.
+\item
+  (2-4 slides) Results (however preliminary).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Show main visuals, analyses/tables, and/or any products built
+    (interactive graphics, websites, etc.)
+  \end{itemize}
+\item
+  (1-2 slides) Lessons learned thus far and/or plans to mitigate
+  challenges.
+\end{enumerate}
+
+Students must submit both their slides \emph{and} the
+\texttt{.rmd}/\texttt{.ipynb} file used to render the slides along with
+their video recording as a \texttt{.zip} file to CANVAS by the end of
+the scheduled class time. There will be no in-person and/or virtual
+class meeting this day.
+
+\begin{quote}
+\emph{Note that it is vital that all students submit their video on time
+so that others will have sufficient time to provide feedback.}
+\end{quote}
+
+\hypertarget{part-2-feedback}{%
+\subsection{Part 2: Feedback}\label{part-2-feedback}}
+
+Each student will be randomly assigned the names of 5 peers in their
+class. The names will be circulated on \textbf{December 2}. Each student
+will be required to watch the recordings of their assigned classmates
+and provide substantive feedback by \textbf{Sunday December 6 11:59PM}.
+All comments/Feedback should be written on a shared \textbf{Google
+Document}, which will be circulated on \textbf{December 2} via the class
+Slack channel. The recorded presentations will be stored in a share
+folder on CANVAS. All enrolled students will have access to this folder.
+
+\hypertarget{project-report}{%
+\section{Project Report}\label{project-report}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Due} & \textbf{Proportion of Grade} &
+\textbf{Length}\tabularnewline
+\midrule
+\endhead
+December 19 & 30\% & 12 pages/3000 words (double-spaced; 12pt
+font)\tabularnewline
+\bottomrule
+\end{longtable}
+
+The report is a complete description of the project's analysis and
+results. The report should be 12 pages (3000 words) in length
+(\emph{double-spaced; 12 pt font}) and cover the below bullet points. As
+with the proposals, no written material will be considered beyond page
+12 (3000 words) when reviewing the report (a work cited can span onto a
+13th page (and or \textgreater{} 3000 words)). Below I've outlined
+points that one should aim to discuss in each section. Note that paper
+should read as a cohesive report, so do not respond to these bullet
+points verbatim.
+
+\begin{itemize}
+\item
+  \textbf{Introduction}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    What is the aim of the project?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Summarize the problem
+    \item
+      State your goals
+    \end{itemize}
+  \item
+    What do you do in this report?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      offer a roadmap of the project
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Problem Statement and Background}
+
+  \begin{itemize}
+  \item
+    Give a clear and complete statement of the problem and/or aim of
+    your analysis.
+  \item
+    Include a brief summary of any related work that has tried to tackle
+    a project similar to yours (i.e.~a \emph{light} literature review)
+  \end{itemize}
+\item
+  \textbf{Data}
+
+  \begin{itemize}
+  \item
+    Where does the data come from?
+  \item
+    What is the unit of observation?
+  \item
+    What are the variables of interest?
+  \item
+    What steps did you take to wrangle the data?
+  \end{itemize}
+\item
+  \textbf{Analysis}
+
+  \begin{itemize}
+  \item
+    Describe the methods/tools you explored in your project.
+  \item
+    Outline in detail our entire analysis.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Justify the tools/methods that you used.
+    \item
+      Assume the reader is smart but doesn't know \texttt{Python} and/or
+      Machine Learning well. That is, be crystal clear about what you're
+      doing and why.
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Results}
+
+  \begin{itemize}
+  \item
+    Give a detailed summary of your results.
+  \item
+    Present your results clearly and concisely.
+  \item
+    Please use visualizations and tables whenever possible.
+  \end{itemize}
+\item
+  \textbf{Discussion}
+
+  \begin{itemize}
+  \item
+    Speak on the ``success'' of your project (as defined in your
+    proposal).
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Did you achieve what you set out to do? If not why?
+    \end{itemize}
+  \item
+    What tools/methods did you consider but \emph{not} use in the final
+    analysis?
+  \item
+    How would you expand the analysis if given more time?
+  \end{itemize}
+\end{itemize}
+
+The reports must be submitted as a hardcopy (i.e.~the \texttt{.rmd}
+notebook must be rendered as a \texttt{.pdf} or \texttt{.html}) to
+CANVAS by 5PM on December 19th. \textbf{\emph{The code for all the
+tables and visuals in the rendered document must be included in your
+Github repository}}. The professor or TA should be able to clone the
+repository and run your code without issue. \textbf{\emph{Note that
+given the page constraints, no \texttt{Python3} code should be visible
+in the rendered document.}}
+
+\end{document}
