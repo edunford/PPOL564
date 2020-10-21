@@ -47,17 +47,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-<!-- # Synchronous Materials {.tabset .tabset-pills} -->
+# Synchronous Materials {.tabset .tabset-pills}
 
-<!-- <br> -->
+<br>
 
-<!-- - Lecture Scripts: -->
-<!--   + <a href="synchronous-materials/introduction-to-sklearn.py" download><strong>introduction-to-sklearn.py</strong></a> -->
-<!--   + <a href="synchronous-materials/introduction-to-data-preprocessing.py" download><strong>introduction-to-data-preprocessing.py</strong></a> -->
-<!--   + <a href="synchronous-materials/introduction-to-CV.py" download><strong>introduction-to-CV.py</strong></a> -->
-<!--   + <a href="synchronous-materials/introduction-to-pipelines.py" download><strong>introduction-to-pipelines.py</strong></a> -->
+- Lecture Scripts:
+  + <a href="synchronous-materials/introduction-to-sklearn.py" download><strong>introduction-to-sklearn.py</strong></a>
+  + <a href="synchronous-materials/introduction-to-data-preprocessing.py" download><strong>introduction-to-data-preprocessing.py</strong></a>
+  + <a href="synchronous-materials/introduction-to-CV.py" download><strong>introduction-to-CV.py</strong></a>
+  + <a href="synchronous-materials/introduction-to-pipelines.py" download><strong>introduction-to-pipelines.py</strong></a>
 
-<!-- <br><hr><br> -->
+<br><hr><br>
 
 # Asynchronous Materials {.tabset .tabset-pills}
 

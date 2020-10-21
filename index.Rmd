@@ -392,7 +392,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 10: Casting Shadows in $N$-Dimensions**<br>_Continuous Outcomes and Linear Regression_
+### **Week 10: Casting Shadows in $N$-Dimensions**<br>[_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html)
 
 <br><br>
 
