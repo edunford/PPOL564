@@ -396,7 +396,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 11: Hot Dog, Not Hot Dog**<br>_Probability, Bayes Theorem, and Classification_
+### **Week 11: Hot Dog, Not Hot Dog**<br>[_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html)
 
 <br><br>
 

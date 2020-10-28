@@ -190,7 +190,7 @@ dat = gapminder
 
 <br>
 
-Write a class called `MyML` that takes in a `Pandas` `DataFrame` as input upon instantiation. The class method should also take an argument called `outcome` that provides the column name of the outcome variable. The outcome variable (`y`) and the features matrix (`X`) should be stored as separate objects in the class instance (`self`).
+Write a class called `MyML` that takes in a `Pandas` `DataFrame` as input upon instantiation. The class method should also take an argument called `outcome` that provides the column name of the outcome variable. Initiation of the object should break the provided data up into an outcome object (`y`) and a features matrix (`X`). These should be stored as separate objects in the class instance (`self`).
 
 <br>
 
@@ -267,7 +267,7 @@ self.train_x.head()
 
 <br>
 
-Add a method to your `MyML` class called `.describe_training()` which generates summary statistics for the training data. Summary statistics should be round to the second decimal place.
+Add a method to your `MyML` class called `.describe_training()` which generates summary statistics for the training data. Summary statistics should be rounded to the second decimal place.
 
 <br>
 
