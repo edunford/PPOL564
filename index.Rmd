@@ -400,7 +400,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 12: Trees and Neighbors**<br>_Non-Parametric Approaches to Supervised Learning_
+### **Week 12: Trees and Neighbors**<br>[_Non-Parametric Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html)
 
 <br><br>
 
