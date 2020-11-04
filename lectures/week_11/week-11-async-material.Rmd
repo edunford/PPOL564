@@ -211,7 +211,7 @@ class MyML:
         
 # Run
 obj = MyML(data=dat,outcome="lifeExp")
-self.X.head()
+obj.X.head()
 ```
 
 
@@ -259,7 +259,7 @@ class MyML:
 # Run
 obj = MyML(data=dat,outcome="lifeExp")
 obj.split()
-self.train_x.head()
+obj.train_x.head()
 ```
 
 
