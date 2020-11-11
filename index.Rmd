@@ -404,7 +404,7 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 13: Peeking inside the Black Box**<br>_Interpretable Machine Learning_
+### **Week 13: Peeking inside the Black Box**<br>[_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html)
 
 <br><br><br><br>
 
