@@ -50,7 +50,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <br>
 
 - [**Practice applying interpretable machine learning methods**](synchronous-material/interpretable_ml_walkthrough.html)
-  - Download the <a href="synchronous-materials/interpretable_ml_walkthrough.ipynb" download><strong>`.ipynb` Notebook</strong></a>.
+  - Download the <a href="synchronous-material/interpretable_ml_walkthrough.ipynb" download><strong>`.ipynb` Notebook</strong></a>.
 
 - [**Data Exploration in the Social Sciences**](slides/data-exploration-in-the-social-sciences.html)
 
