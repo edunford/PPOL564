@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **In the Synchronous Lecture**
 
-- Cover **how to implement** interpretability methods within an `sklearn` framework.
+- Cover **how to implement** interpretability methods within an `sklearn` framework (plus touch on global surrogate models).
 - Discuss rules of thumb for **data exploration in the social sciences** when we have **weak priors** on the data being explored.
 
 <br>
