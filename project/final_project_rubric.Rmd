@@ -1,0 +1,113 @@
+---
+title: \textbf{Final Project Rubric}
+author: \Large PPOL564 -- Data Science 1 - Foundations
+date: 'Fall 2020'
+fontsize: 11pt
+output: 
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Student**:_____________________________________________
+
+**Project Name**: ________________________________________
+
+**Total Score**: ____ / 50
+
+
+### Project Materials 
+
+_2 points_
+
+- Report was posted to Canvas as a `.zip` containing the following items:
+  - Report was rendered using a scripting language (RMarkdown, Latex, etc.) as any one of the following file types: `.pdf`/`.docx`. File was titled `lastname_firstname_final_report.pdf` (or whatever file the relevant file prefix). (__/1 point)
+  - Student included the data used in a `Data/` folder. (__/1 point)
+
+
+### Project Code
+
+_2 points_
+
+- Student posted link (url) to their Github repository (corresponding to their project work progress) as a comment on Canvas with their project submission. (__/1 point)
+- Student used their Github repository for every deliverable (i.e. their first commit is on or before the first project deadline, and all work product was committed along the way). (__/1 point)
+  
+### Document Presentation 
+
+_16 points_
+
+- **Student used professional looking visualizations in the report:**
+  + Figures were easy to understand? (__/1 point)
+  + Figures made sense within the context of the report? (__/1 point)
+  + Student described the purpose and the insight drawn from the figure in the text? (__/1 point)
+  + Figures referenced in the text are labeled, i.e. references to "figure 1" correspond to the figure title (e.g. "Figure 1: Title")? (__/1 point)
+  + Figures include titles? (__/1 point)
+  + Figures labels/axes/text are readable? (__/1 point)
+  + Color scheme made sense; easy to differentiate between colored items (__/1 point)
+  + Figures were appropriately proportioned to the document? (__/1 point)
+  
+- **Student generated a professional looking report:**
+  + Report was rendered without errors or warnings. (__/1 point)
+  + No code was visible in the report. (__/1 point)
+  + No raw output was visible in the report. (__/1 point)
+  + Report includes a title, author byline, and word count. (__/1 point)
+  + Report is 12 pages in length (double-spaced; 12 pt font) or 3000 words.^[Note that your citations do not count against your word/page count.]  (__/1 point)
+  + Report contained no (or few) grammatical/spelling errors. (__/1 point)
+  + Report reads as a single cohesive document. (__/1 point)
+  + Student cited academic, data, and package sources.  (__/1 point)
+  
+### Content
+
+_Points 30_
+
+The student's project sufficiently addressed these general areas.
+
+- **Introduction** (__/5 point)
+
+    + Student clearly established the aim of the project.
+      
+    + Student offered a clear roadmap of the report (i.e what is covered in the report).
+
+- **Problem Statement and Background** (__/5 point)
+    
+    + Student offered a clear and complete statement of the problem and/or aim of their analysis. 
+    
+    + Student included a brief summary of any related work (i.e. a _light_ literature review)
+    
+- **Data** (__/5 point)
+
+    + Student outlined where their data came from.
+    
+    + Student clearly specified: 
+        + the unit of observation;
+        + variables of interest;
+        + potential issues in the data (e.g. missingness, coverage, etc.)
+    
+    + Student articulate the steps they took to wrangle the data.
+
+- **Analysis** (__/5 point)
+
+    + Student described the methods/tools they explored in their project. 
+        - Justified the tools/methods that they used.
+        - Adequately described what the tools/methods are doing.
+        - Note: Assume the reader is smart but doesn't know `R`/Machine Learning well. That is, be crystal clear about what you're doing and why.
+
+- **Results** (__/5 point)
+
+    + Student gave a detailed summary of their results. 
+    
+    + Student presented their results clearly and concisely. 
+    
+    + Student used visualizations (and tables) whenever possible/appropriate. 
+
+- **Discussion** (__/5 point)
+
+  + Student spoke on the "success" of their project (as defined in their proposal). 
+      + "Did you achieve what you set out to do? If not why?"
+  
+  + Student articulate how they would expand the analysis if given more time.
+
+  
+  
