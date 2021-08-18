@@ -21,7 +21,7 @@ require(kableExtra)
 
 <center><h1>Data Science I: Foundations</h1></center>
 <center><h2>PPOL564-01</h2></center>
-<center>**Fall 2020**</center>
+<center>**Fall 2021**</center>
 <center>**Georgetown University**</center>
 
 <br>
@@ -36,7 +36,7 @@ require(kableExtra)
 <br>
 
 ```{r,echo=F,message=F,warning=F,results='asis'}
-read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
+read_csv('Syllabus/Fall-2021-Timeline.csv') %>%
   # select(-`Class No.`,-CD,-Assignment) %>% 
   filter(Topic != "No Class") %>% 
   {.[is.na(.)]="";.} %>% 
@@ -63,11 +63,11 @@ read_csv('Syllabus/Fall-2020-Timeline.csv') %>%
 <br> 
 
 
-#### [**Virtual Zoom Classroom**](https://georgetown.zoom.us/j/98660441600)
+#### [**Virtual Zoom Classroom**](https://georgetown.zoom.us/j/98660441600) (If we need to meet virtually)
   
 <br>
   
-#### [**Virtual Zoom Office Hours**](https://georgetown.zoom.us/j/96444963432) (Wednesdays 12pm - 2pm)
+#### [**Virtual Zoom Office Hours**](https://georgetown.zoom.us/j/96444963432) (Wednesdays 4pm - 6pm)
 
   
 <br>
@@ -311,18 +311,18 @@ Data science is an applied field and therefore, it is important that you underst
 
 <br>
 
-<center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center>
+<!-- <center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center> -->
 
-<br>
+<!-- <br> -->
 
 
-<center><strong>[Presentation Rubric](project/project_presentation_assessment_sheet.pdf)</strong></center>
+<!-- <center><strong>[Presentation Rubric](project/project_presentation_assessment_sheet.pdf)</strong></center> -->
 
-<br>
+<!-- <br> -->
 
-<center><strong>[Final Report Rubric](project/final_project_rubric.pdf)</strong></center>
+<!-- <center><strong>[Final Report Rubric](project/final_project_rubric.pdf)</strong></center> -->
 
-<br>
+<!-- <br> -->
 
 <br>
 <br>
@@ -337,22 +337,31 @@ Data science is an applied field and therefore, it is important that you underst
 
 #### [Eric Dunford](http://ericdunford.com/) (Professor)
 
-- **Office**: Bedroom (formerly 404 Old North)
-- **Office Hours**: Tuesdays 9am to 11am (See `Virtual Classroom` tab for link)
+- **Office**: 404 Old North
+- **Office Hours**: Wednesdays 4pm to 6pm (See `Virtual Classroom` tab for link)
 - **Email**: [eric.dunford@georgetown.edu](mailto:eric.dunford@georgetown.edu)
 
 <br>
 
-#### Eric LaRose (Teaching Assistant)
+#### Madeline Pickens (Teaching Assistant)
 
-- **Office Hours**: [Book an appointment via Calendly](https://calendly.com/eml119/)
-- **Email**: [eml119@georgetown.edu](mailto:eml119@georgetown.edu)
+- **Office Hours**: [Book an appointment via Calendly]()
+- **Email**: [mp1595@georgetown.edu ](mailto:mp1595@georgetown.edu )
+
+<br>
+
+#### Chandler Dawson (Teaching Assistant)
+
+- **Office Hours**: [Book an appointment via Calendly]()
+- **Email**: [cad162@georgetown.edu](mailto:cad162@georgetown.edu)
+
+ 
 
 <br>
 
 #### Slack
 
-The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2020). Please click on the [Class Slack Channel Invite](https://join.slack.com/t/georgetown-jt44872/shared_invite/zt-gntolqrn-BiCH6ChQTKKODMyb5PdRAw) to join the class work-space. 
+The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2021). Please click on the [Class Slack Channel Invite](https://join.slack.com/t/ppol-564-fall-2021/shared_invite/zt-ukj26377-a00MPhjVTkh2rs8VSTrmzw) to join the class work-space. 
 
 <br>
 <br>
@@ -365,56 +374,56 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html)
+<!-- ### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html)
+<!-- ### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 3: Learning Parseltongue**<br>[_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html)
+<!-- ### **Week 3: Learning Parseltongue**<br>[_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 4: On Time and Space**<br>[_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html)
+<!-- ### **Week 4: On Time and Space**<br>[_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 5: Long Live the Data Frame**<br>[_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html)
+<!-- ### **Week 5: Long Live the Data Frame**<br>[_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 6: Modern Snake Charming**<br>[_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html)
+<!-- ### **Week 6: Modern Snake Charming**<br>[_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 7: Interrogation Techniques**<br>[_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html)
+<!-- ### **Week 7: Interrogation Techniques**<br>[_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 8: Automated Heists**<br>[_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html)
+<!-- ### **Week 8: Automated Heists**<br>[_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 9: The Signal and the Noise**<br>[_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html)
+<!-- ### **Week 9: The Signal and the Noise**<br>[_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 10: Casting Shadows in $N$-Dimensions**<br>[_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html)
+<!-- ### **Week 10: Casting Shadows in $N$-Dimensions**<br>[_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 11: Hot Dog, Not Hot Dog**<br>[_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html)
+<!-- ### **Week 11: Hot Dog, Not Hot Dog**<br>[_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 12: Trees and Neighbors**<br>[_Non-Parametric Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html)
+<!-- ### **Week 12: Trees and Neighbors**<br>[_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html) -->
 
-<br><br>
+<!-- <br><br> -->
 
-### **Week 13: Peeking inside the Black Box**<br>[_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html)
+<!-- ### **Week 13: Peeking inside the Black Box**<br>[_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html) -->
 
-<br><br><br><br>
+<!-- <br><br><br><br> -->
 
 <hr>

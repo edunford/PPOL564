@@ -64,6 +64,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script>/*! jQuery UI - v1.11.4 - 2016-01-05
 * http://jqueryui.com
 * Includes: core.js, widget.js, mouse.js, position.js, draggable.js, droppable.js, resizable.js, selectable.js, sortable.js, accordion.js, autocomplete.js, button.js, dialog.js, menu.js, progressbar.js, selectmenu.js, slider.js, spinner.js, tabs.js, tooltip.js, effect.js, effect-blind.js, effect-bounce.js, effect-clip.js, effect-drop.js, effect-explode.js, effect-fade.js, effect-fold.js, effect-highlight.js, effect-puff.js, effect-pulsate.js, effect-scale.js, effect-shake.js, effect-size.js, effect-slide.js, effect-transfer.js
@@ -313,7 +322,7 @@ float: none;
         self._setEventHandlers();
 
         // Binding to the Window load event to make sure the correct scrollTop is calculated
-        $(window).load(function() {
+        $(window).on("load", function() {
 
           // Sets the active TOC item
           self._setActiveElement(true);
@@ -1309,12 +1318,16 @@ color: #d14;
 });
 </script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -1327,32 +1340,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <style type="text/css">
 title{
@@ -1403,10 +1391,6 @@ font-family: Garamond;
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -1422,6 +1406,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -1434,7 +1421,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1560,18 +1546,18 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -1587,8 +1573,8 @@ div.tocify {
 <h1>Instructor</h1>
 <p><strong>Professor</strong>: Eric Dunford</p>
 <ul>
-<li><strong>Office</strong>: Bedroom (formerly 404 Old North)</li>
-<li><strong>Office Hours</strong>: Tuesdays 9:00am to 11:00am (EST) or by appointment</li>
+<li><strong>Office</strong>: 404 Old North</li>
+<li><strong>Office Hours</strong>: Wednesdays 4:00pm to 6:00pm (EST) or by appointment</li>
 <li><strong>Email</strong>: <a href="mailto:eric.dunford@georgetown.edu">eric.dunford@georgetown.edu</a></li>
 <li><strong>Pronouns</strong>: He/Him</li>
 </ul>
@@ -1607,32 +1593,30 @@ div.tocify {
 </div>
 <div id="time-and-location" class="section level1">
 <h1>Time and location</h1>
-<p>Classes will be held <strong><em>virtually</em></strong> on <strong>Wednesdays</strong> from <strong><em>9:00am to 10:30am</em></strong> (previously <em>3:30pm to 6:00pm</em> but adjusted to incorporate students from other time zones):</p>
+<p>Classes will be held on <strong>Wednesdays</strong> from <strong><em>6:30pm to 9:00pm</em></strong> in <strong>Car Barn 204</strong>:</p>
 <ul>
-<li>August 26</li>
-<li>September 2, 9, 16, 23, 30</li>
-<li>October 7, 14, 21, 28</li>
-<li>November 4, 11, 18</li>
-<li>December 2</li>
+<li>September 1, 8, 15, 22, 29</li>
+<li>October 6, 13, 20, 27</li>
+<li>November 3, 10, 17, 24</li>
+<li>December 1</li>
 </ul>
-<p>Holidays/Breaks/Away (No class):</p>
-<ul>
-<li>November 25 (Thanksgiving Recess)</li>
-</ul>
+<!-- Holidays/Breaks/Away (No class): -->
+<!-- - November 25 (Thanksgiving Recess) -->
 <div id="asynchronous-synchronous-lectures" class="section level2">
 <h2>Asynchronous &amp; Synchronous Lectures</h2>
 <p>The lecture will be broken up into <em>synchronous</em> and <em>asynchronous</em> components.</p>
 <ul>
-<li>The <strong><em>asynchronous components</em></strong> will cover the main concepts of the lecture. These materials will take the form of embedded videos in class lecture notes on the course website. Students are required to review this content along with the lecture notes and readings prior to the start of class. <strong><em>Asynchronous materials will be made available a <strong>week prior</strong> to the scheduled lecture date</em>.</strong></li>
-<li>The <strong><em>synchronous component</em></strong> will take place at the scheduled class time and will involve active coding walkthrough, breakout group sessions, and questions. The aim of the synchronous class time is to reinforce the concepts covered in the asynchronous lecture materials. Thus, it is imperative that students complete the asynchronous material <em>prior to the start of the synchronous lecture</em>.</li>
+<li>The <strong><em>asynchronous components</em></strong> will cover the main concepts of the lecture. These materials will take the form of embedded videos in class lecture notes on the course website. Students are required to review this content along with the lecture notes and readings prior to the start of class. <strong><em>Asynchronous materials will be made available a week prior to the scheduled lecture date</em>.</strong></li>
+<li>The <strong><em>synchronous component</em></strong> will take place at the scheduled class time/place and will involve active coding walkthrough, breakout group sessions, and questions. The aim of the synchronous class time is to reinforce the concepts covered in the asynchronous lecture materials. Thus, it is imperative that students complete the asynchronous material <em>prior to the start of the synchronous lecture</em>.</li>
 </ul>
-<p>Note that this class is scheduled to meet weekly for 2.5 hours. I will do my best to ensure that the asynchronous and synchronous material in combination does not exceed 2.5 hours weekly. Put differently, students will not be required to commit more than 2.5 hours to lecture. This does not include readings, homework and/or coding discussions; rather, bifurcating lecture materials into synchronous and asynchronous components is necessary when learning virtually. Zoom fatigue is real, and lectures that exceed an 1.5 hours are not effective. When we do meet in-person, five minute breaks will be taken approximately every 40 minutes.</p>
-<p><strong>All synchronous lecture material will be recorded and stored on the class Canvas site.</strong> Students who are unable to attend the synchronous lecture will be able to review the materials covered in class at a future date.</p>
-<p><strong>For students attending class from afar</strong> (i.e. in time zones more than 4 hours off Eastern standard time), participating in the synchronous lecture component may not be a viable option. Please let the professor know if you’re planning on attending the course from afar. These students will not be required to attend synchronous components of the lecture. <em>It is the students responsibility to review all lecture materials and to keep pace with the course.</em></p>
+<p>Note that this class is scheduled to meet weekly for 2.5 hours. I will do my best to ensure that the asynchronous and synchronous material in combination does not exceed 2.5 hours weekly. Put differently, students will not be required to commit more than 2.5 hours to lecture (on average). This does not include readings, homework and/or coding discussions; rather, bifurcating lecture materials into synchronous and asynchronous components is necessary when learning technical material. Lectures that exceed an 1.5 hours are not effective. Moreover, to best absorb technical concepts, it helps to be able to return to them. The recorded asynchronous lecture material allows students this opportunity to pause, ponder, and repeat.</p>
+<p>Five minute breaks will be taken approximately every 40 minutes during the synchronous lecture.</p>
+<p><strong>All synchronous lecture material will be recorded and stored on the class Canvas site.</strong> Students who are unable to attend the synchronous lecture will be able to review the materials covered in class at a future date. <em>It is the students responsibility to review all lecture materials and to keep pace with the course.</em></p>
+<!-- **For students attending class from afar** (i.e. in time zones more than 4 hours off Eastern standard time), participating in the synchronous lecture component may not be a viable option. Please let the professor know if you're planning on attending the course from afar. These students will not be required to attend synchronous components of the lecture. _It is the students responsibility to review all lecture materials and to keep pace with the course._ -->
 </div>
 <div id="virtual-classroom" class="section level2">
 <h2>Virtual Classroom</h2>
-<p>We will use <a href="https://zoom.us/download"><strong>Zoom</strong></a> (a web-conferencing platform) to hold class each week. Class will meet at its regularly scheduled time each week for synchronous lectures. If you do not have Zoom, you can download it <a href="https://zoom.us/download"><strong>here</strong></a> prior to the start of class.</p>
+<p>In case we must switch to a virtual classroom due to a COVID-19 outbreak, we will use <a href="https://zoom.us/download"><strong>Zoom</strong></a> (a web-conferencing platform) to hold class each week. Class will meet at its regularly scheduled time each week for synchronous lectures. If you do not have Zoom, you can download it <a href="https://zoom.us/download"><strong>here</strong></a> prior to the start of class.</p>
 <p>A link for the synchronous component of the weekly lecture along with a link for virtual office hours is posted on the course website and Canvas. Students will use this link to access the live Zoom call for lecture.</p>
 <p><strong><em>If the link breaks or does not function properly, please check the <code>#general</code> channel on Slack for information regarding the new link. If there is no message regarding a new link, please contact the professor and/or TA via Slack.</em></strong> All synchronous lecture material will be recorded.</p>
 </div>
@@ -1659,7 +1643,7 @@ div.tocify {
 <li><p><strong><em>Additional readings will be posted for each class and can be found on the course website</em></strong>. Most reading material is open source and available via a link on the reading list, otherwise it can be found on Canvas.</p></li>
 </ul>
 <p><strong>Class Website</strong>: A class website (www.ericdunford.com/ppol564) will be used throughout the course and should be checked on a regular basis for lecture materials and required readings.</p>
-<p><strong>Class Slack Channel</strong>: The class also has a dedicated slack channel (ppol564-foundations.slack.com). The channel serves as an open forum to discuss, collaborate, pose problems/questions, and offer solutions. Students are encouraged to pose any questions they have there as this will provide the professor and TA the means of answering the question so that all can see the response. If you’re unfamiliar with, please consult the following start-up tutorial (<a href="https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members" class="uri">https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members</a>). Please follow the <a href="https://join.slack.com/t/georgetown-jt44872/shared_invite/zt-gntolqrn-BiCH6ChQTKKODMyb5PdRAw"><strong><em>invite link</em></strong></a> to be added to the Slack channel.</p>
+<p><strong>Class Slack Channel</strong>: The class also has a dedicated slack channel (ppol-564-fall-2021.slack.com). The channel serves as an open forum to discuss, collaborate, pose problems/questions, and offer solutions. Students are encouraged to pose any questions they have there as this will provide the professor and TA the means of answering the question so that all can see the response. If you’re unfamiliar with, please consult the following start-up tutorial (<a href="https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members" class="uri">https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members</a>). Please follow the <a href="https://join.slack.com/t/ppol-564-fall-2021/shared_invite/zt-ukj26377-a00MPhjVTkh2rs8VSTrmzw"><strong><em>invite link</em></strong></a> to be added to the Slack channel.</p>
 <p><strong>Canvas</strong>: A Canvas site (<a href="http://canvas.georgetown.edu" class="uri">http://canvas.georgetown.edu</a>) will be used throughout the course and should be checked on a regular basis for announcements, readings, and assignments. All readings and assignments will be posted on Canvas; they will not be distributed in class or by e-mail. Support for Canvas is available at (202) 687-4949</p>
 <p><strong>NOTE: Students are encouraged to run lecture code on their own machines. If you do not have access to a laptop on which you can install <code>python3</code>, please contact the professor and/or TA for assistance. Only <code>python3</code> will be used in this course.</strong></p>
 </div>
@@ -1674,7 +1658,7 @@ div.tocify {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Participation</td>
+<td>Participation/Attendance</td>
 <td align="center">5%</td>
 </tr>
 <tr class="even">
@@ -1691,7 +1675,7 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p><strong>Preparation and Participation</strong> (5%): It is imperative that students keep up with the asynchronous materials and attend synchronous lectures on time. See the “Participation” section in the Course Policies section for more details.</p>
+<p><strong>Preparation, Participation and Attendance</strong> (5%): It is imperative that students keep up with the asynchronous materials and attend synchronous lectures on time. See the “Participation” section in the Course Policies section for more details.</p>
 <p><strong>Coding Discussions</strong> (15%): Some weeks there will be a coding problem/prompt/dataset to explore pushed to the class Github repository. Students will be required to submit an original response to the prompt. A point will be awarded for (1) submitting on time and (2) the quality of the submission. “Quality” is defined as an <em>original</em>, well-commented, and clear solution/analysis (i.e. the solution follows the guidelines required for assignments - see below).<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>All submission must be posted Sunday 11:59 PM (EST). The schedule for the coding assignments are listed below.</p>
 <table>
@@ -1706,37 +1690,37 @@ div.tocify {
 <tr class="odd">
 <td align="center">1</td>
 <td align="center">Week 2</td>
-<td align="center">September 2</td>
+<td align="center">September 8</td>
 </tr>
 <tr class="even">
 <td align="center">2</td>
 <td align="center">Week 3</td>
-<td align="center">September 9</td>
+<td align="center">September 15</td>
 </tr>
 <tr class="odd">
 <td align="center">3</td>
 <td align="center">Week 6</td>
-<td align="center">September 30</td>
+<td align="center">October 6</td>
 </tr>
 <tr class="even">
 <td align="center">4</td>
 <td align="center">Week 10</td>
-<td align="center">October 28</td>
+<td align="center">November 3</td>
 </tr>
 <tr class="odd">
 <td align="center">5</td>
 <td align="center">Week 11</td>
-<td align="center">November 4</td>
+<td align="center">November 10</td>
 </tr>
 <tr class="even">
 <td align="center">6</td>
 <td align="center">Week 12</td>
-<td align="center">November 11</td>
+<td align="center">November 17</td>
 </tr>
 </tbody>
 </table>
 <p>The goal of the coding discussions is to apply a concept learned during the week in a way that helps build a greater level of programming fluency. Programming skills are honed through active usage and repetition. Learning to read other people’s code and detecting issues is vital to successful collaborations in applied work. The point is not to be “right” necessarily but rather to try, learn, and collaborate.</p>
-<p><strong>Problem Sets</strong> (40%): Students will be assigned four problem sets over the course of the semesters. While you are encouraged to discuss the problem sets with your peers and/or consult online resources, <strong>the finished product must be your own work</strong>. The goal of the assignment is to reinforce the student’s comprehension of the materials covered in each section. All assignments will be posted Wednesday afternoon by 6:00PM (i.e., by the scheduled end of class) on the class Canvas site for the weeks marked on the syllabus. Problem sets are due on the date and time posted on Canvas and must be submitted on Canvas. Generally, a week will be allotted to complete each assignment. <strong><em>Late assignments will be penalized a letter grade for every day they are overdue</em></strong>.</p>
+<p><strong>Problem Sets</strong> (40%): Students will be assigned four problem sets over the course of the semesters. While you are encouraged to discuss the problem sets with your peers and/or consult online resources, <strong>the finished product must be your own work</strong>. The goal of the assignment is to reinforce the student’s comprehension of the materials covered in each section. All assignments will be posted Wednesday evening by 9:00PM (i.e., by the scheduled end of class) on the class Canvas site for the weeks marked on the syllabus. Problem sets are due on the date and time posted on Canvas and must be submitted on Canvas. Generally, a week will be allotted to complete each assignment. <strong><em>Late assignments will be penalized a letter grade for every day they are overdue</em></strong>.</p>
 <p>The assignments can be in the form of a Jupyter Notebook (<code>.ipynb</code>) or R Markdown (<code>.Rmd</code>). Student’s must submit completed assignments as a rendered <code>.html</code> file to Canvas on the assigned due date. All assignment submissions must adhere to the following guidelines:</p>
 <ul>
 <li><ol style="list-style-type: lower-roman">
@@ -1772,23 +1756,23 @@ div.tocify {
 <tbody>
 <tr class="odd">
 <td align="center">No. 1</td>
-<td align="center">September 16</td>
-<td align="center">September 23</td>
+<td align="center">September 22</td>
+<td align="center">September 29</td>
 </tr>
 <tr class="even">
 <td align="center">No. 2</td>
-<td align="center">October 7</td>
-<td align="center">October 14</td>
+<td align="center">October 13</td>
+<td align="center">October 20</td>
 </tr>
 <tr class="odd">
 <td align="center">No. 3</td>
-<td align="center">October 14</td>
-<td align="center">October 21</td>
+<td align="center">October 20</td>
+<td align="center">October 27</td>
 </tr>
 <tr class="even">
 <td align="center">No. 4</td>
-<td align="center">November 18</td>
-<td align="center">November 25</td>
+<td align="center">November 24</td>
+<td align="center">December 1</td>
 </tr>
 </tbody>
 </table>
@@ -1805,20 +1789,20 @@ div.tocify {
 <tbody>
 <tr class="odd">
 <td>Project Proposal</td>
-<td>October 28</td>
-<td>2 pages</td>
+<td>November 3</td>
+<td>2 pages (500 words)</td>
 <td>5%</td>
 </tr>
 <tr class="even">
 <td>Presentation</td>
-<td>December 2</td>
+<td>December 1</td>
 <td>7 minutes</td>
 <td>10%</td>
 </tr>
 <tr class="odd">
 <td>Project Report</td>
-<td>December 19</td>
-<td>12 pages</td>
+<td>December 16</td>
+<td>12 pages (3000 words)</td>
 <td>25%</td>
 </tr>
 </tbody>
@@ -1900,27 +1884,36 @@ div.tocify {
 <h3>Participation</h3>
 <p>Participation is required in this course. I define participation as:</p>
 <ul>
-<li>Attending synchronous lecture components over Zoom.</li>
-<li>Completing the readings and asynchronous materials prior to the synchronous lecture.</li>
+<li>Attending synchronous lecture components over Zoom (if we must switch to a virtual format).</li>
+<li>Completing the readings and asynchronous materials prior to the synchronous (in-person) lecture.</li>
 <li>Asking questions and participating in class.</li>
 <li>During synchronous lectures, cameras are active at all times.</li>
 <li>Paying attention to the professor during lecture</li>
 <li>Engage in break-out group discussions when assigned.</li>
-<li>Responding to questions asked during synchronous sessions. <!-- - When **_in-person_** --> <!--     + Not looking at your computer screen for extended periods of time; --> <!--     + Never looking at your phone during class; --> <!--     + No side conversations during lecture. --></li>
+<li>Responding to questions asked during synchronous sessions.</li>
+<li>When <strong><em>in-person</em></strong>
+<ul>
+<li>Not looking at your computer screen for extended periods of time;</li>
+<li>Never looking at your phone during class;</li>
+<li>No side conversations during lecture.</li>
+</ul></li>
 </ul>
 <p>I reserve the right to deduct participation points from students who are not participating as expected.</p>
-<!-- ### Attendance  -->
-<!-- Being virtual, "attending" class will take multiple forms.  -->
-<!-- - **_When in-person_**, a sheet of paper will be made available at the front of the room at the start of every class. Students must write their name on the paper. The **_paper will be removed 5 minutes after the start of class_**. Students who walk in late after that point will not have an opportunity to write their name and will be considered absent. This log will be used, in part, to calculate the attendance grade. -->
-<!-- - **_When virtual_**, attendance will be drawn from the Zoom attendance log. The instructor will take attendance at the start of class. Students who join the Zoom call after that point will not be counted.  -->
-<!-- If absent, each student is responsible to make up the materials missed during a lecture on their own. All lecture notes/lecture materials will be posted on the class website. Thus, students who missed a lecture should reach out to their peers in the class for lecture notes. It is not the responsibility of the Professor/TA to fill absentee students in on any missed content. -->
+</div>
+<div id="attendance" class="section level3">
+<h3>Attendance</h3>
+<ul>
+<li><p><strong><em>When in-person</em></strong>, a sheet of paper will be made available at the front of the room at the start of every class. Students must write their name on the paper. The <strong><em>paper will be removed 5 minutes after the start of class</em></strong>. Students who walk in late after that point will not have an opportunity to write their name and will be considered absent. This log will be used, in part, to calculate the attendance grade.</p></li>
+<li><p><strong><em>When virtual</em></strong>, attendance will be drawn from the Zoom attendance log. The instructor will take attendance at the start of class. Students who join the Zoom call after that point will not be counted.</p></li>
+</ul>
+<p>If absent, each student is responsible to make up the materials missed during a lecture on their own. All lecture notes/lecture materials will be posted on the class website. Thus, students who missed a lecture should reach out to their peers in the class for lecture notes. It is not the responsibility of the Professor/TA to fill absentee students in on any missed content.</p>
 </div>
 <div id="communication" class="section level3">
 <h3>Communication</h3>
 <ul>
-<li><p>Class-relevant and/or coding-related questions, <code>Slack</code> is the preferred method of communication. Please use the general or the relevant channel for these questions.</p></li>
+<li><p>Class-relevant and/or coding-related questions, <strong><code>Slack</code> is the preferred method of communication</strong>. Please use the general or the relevant channel for these questions.</p></li>
 <li><p>For private questions concerning the class, email is the preferred method of communication. All email messages must originate from your Georgetown University email account(s). Please use a professional salutation, proper spelling and grammar, and patience in waiting for a response. The professor reserves the right to not respond to emails that are drafted inappropriately. <strong><em>Please email the professor and the TA directly rather than through the Canvas messaging system.</em></strong> Emails sent through CANVAS will be ignored.</p></li>
-<li><p>I will respond to all emails/slack questions <strong><em>within 24 hours</em></strong> of being sent during a weekday. <strong><em>I will not respond to emails/slack sent late Friday (after 5:00 pm) or during the weekend until Monday (9:00 am)</em></strong>. Please plan accordingly if you have questions regarding current or upcoming assignments. Please address the professor and TA by their last name unless stated otherwise.</p></li>
+<li><p>I will try my best to respond to all emails/slack questions <strong><em>within 24 hours</em></strong> of being sent during a weekday. <strong><em>I will not respond to emails/slack sent late Friday (after 5:00 pm) or during the weekend until Monday (9:00 am)</em></strong>. Please plan accordingly if you have questions regarding current or upcoming assignments. Please address the professor and TA by their last name unless stated otherwise.</p></li>
 </ul>
 </div>
 <div id="electronic-devices" class="section level3">
@@ -1934,6 +1927,7 @@ div.tocify {
 <div id="proof-of-diligent-debugging" class="section level3">
 <h3>Proof of Diligent Debugging</h3>
 <p>When reaching out to the professor or teaching assistant regarding a technical question, error, or issue you <strong><em>must</em></strong> demonstrate that you made a good faith effort to debugging/isolate your problem prior to reaching out. In as concise a way as possible, send a record of what you tried to do. <strong><em>The professor/TA is a resource of last resort</em></strong>. As software is continually being refined in data science and new approaches continually emerge and changing, learning how to frame your question and find a similar solution online is a key tool for success in this domain. If you make a diligent effort beforehand to solve your problem, we will do the same in trying to help you figure out a solution.</p>
+<p><strong>You should always consult with the TAs regarding your problem before reaching out to the professor.</strong></p>
 <!-- ### Class Seating -->
 <!-- When meeting in person: students should (and must) sit beside a different student each time the class meets. The aim is to facilitate diverse interactions. If all or some students fail to follow this procedure, then the professor reserves the right to generate a random seating assignment each class. Failure to comply with the class seating policy will result in a deduction in participation points.   -->
 </div>
@@ -2002,7 +1996,7 @@ Coding Discussion
 1
 </td>
 <td style="text-align:left;width: 1in; ">
-26-Aug
+1-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Introductions, Installations, and IDEs
@@ -2017,7 +2011,7 @@ Introductions, Installations, and IDEs
 2
 </td>
 <td style="text-align:left;width: 1in; ">
-2-Sep
+8-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Version Control, Workflow, and Reproducibility
@@ -2033,7 +2027,7 @@ X
 3
 </td>
 <td style="text-align:left;width: 1in; ">
-9-Sep
+15-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Object-Oriented Programming in Python
@@ -2049,7 +2043,7 @@ X
 4
 </td>
 <td style="text-align:left;width: 1in; ">
-16-Sep
+22-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Introduction to Algorithms
@@ -2065,7 +2059,7 @@ Assignment 1 Assigned
 5
 </td>
 <td style="text-align:left;width: 1in; ">
-23-Sep
+29-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 From Nested Lists to Data Frames
@@ -2081,7 +2075,7 @@ Assignment 1 Due
 6
 </td>
 <td style="text-align:left;width: 1in; ">
-30-Sep
+6-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Approaches to Data Manipulation in Python
@@ -2097,7 +2091,7 @@ X
 7
 </td>
 <td style="text-align:left;width: 1in; ">
-7-Oct
+13-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Data Visualization and Exploration
@@ -2113,7 +2107,7 @@ Assignment 2 Assigned
 8
 </td>
 <td style="text-align:left;width: 1in; ">
-14-Oct
+20-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Drawing from (Un-)Structured Data Sources
@@ -2129,7 +2123,7 @@ Assignment 2 Due; Assignment 3 Assigned
 9
 </td>
 <td style="text-align:left;width: 1in; ">
-21-Oct
+27-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Introduction to Statistical Learning
@@ -2145,7 +2139,7 @@ Assignment 3 Due
 10
 </td>
 <td style="text-align:left;width: 1in; ">
-28-Oct
+3-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
 Continuous Outcomes and Linear Regression
@@ -2162,7 +2156,7 @@ X
 11
 </td>
 <td style="text-align:left;width: 1in; ">
-4-Nov
+10-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
 Probability, Bayes Theorem, and Classification
@@ -2178,10 +2172,10 @@ X
 12
 </td>
 <td style="text-align:left;width: 1in; ">
-11-Nov
+17-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
-Non-parametric Approaches to Supervised Learning
+Algorithmic Approaches to Supervised Learning
 </td>
 <td style="text-align:left;width: 2in; ">
 </td>
@@ -2194,7 +2188,7 @@ X
 13
 </td>
 <td style="text-align:left;width: 1in; ">
-18-Nov
+24-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
 Interpretable Machine Learning
@@ -2207,13 +2201,13 @@ Assignment 4 Assigned
 </tr>
 <tr>
 <td style="text-align:center;width: .5in; ">
-<ul>
-<li></td>
+14
+</td>
 <td style="text-align:left;width: 1in; ">
-25-Nov
+1-Dec
 </td>
 <td style="text-align:left;width: 3in; ">
-Thanksgiving Break
+Project Presentations
 </td>
 <td style="text-align:left;width: 2in; ">
 Assignment 4 Due
@@ -2223,28 +2217,13 @@ Assignment 4 Due
 </tr>
 <tr>
 <td style="text-align:center;width: .5in; ">
-14
-</td>
-<td style="text-align:left;width: 1in; ">
-2-Dec
-</td>
-<td style="text-align:left;width: 3in; ">
-Project Presentations
-</td>
-<td style="text-align:left;width: 2in; ">
-</td>
-<td style="text-align:center;width: 1in; ">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;width: .5in; ">
 Final
 </td>
 <td style="text-align:left;width: 1in; ">
-19-Dec
+16-Dec
 </td>
 <td style="text-align:left;width: 3in; ">
-Final Project Due (5:00 PM EST)
+Final Project Due (9:00 PM EST)
 </td>
 <td style="text-align:left;width: 2in; ">
 </td>
@@ -2252,8 +2231,7 @@ Final Project Due (5:00 PM EST)
 </td>
 </tr>
 </tbody>
-</table></li>
-</ul>
+</table>
 <p><strong>IMPORTANT: This syllabus is subject to change and may be amended throughout the course to reflect any changes deemed necessary by the professor. Any changes will be announced in class or over Slack.</strong></p>
 </div>
 <div class="footnotes">
@@ -2274,7 +2252,7 @@ Final Project Due (5:00 PM EST)
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -2292,7 +2270,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

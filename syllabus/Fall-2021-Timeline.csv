@@ -1,0 +1,16 @@
+Week,Date,Topic,Assignment,"Coding Discussion"
+1,1-Sep,"Introductions, Installations, and IDEs", 
+2,8-Sep,"Version Control, Workflow, and Reproducibility","",X
+3,15-Sep,Object-Oriented Programming in Python,"",X
+4,22-Sep,Introduction to Algorithms, Assignment 1 Assigned
+5,29-Sep,From Nested Lists to Data Frames, Assignment 1 Due, 
+6,6-Oct,Approaches to Data Manipulation in Python,"",X
+7,13-Oct,Data Visualization and Exploration,Assignment 2 Assigned
+8,20-Oct,Drawing from (Un-)Structured Data Sources,Assignment 2 Due; Assignment 3 Assigned
+9,27-Oct,Introduction to Statistical Learning,Assignment 3 Due 
+10,3-Nov,Continuous Outcomes and Linear Regression,Project Proposals Due,X
+11,10-Nov,"Probability, Bayes Theorem, and Classification",, X
+12,17-Nov,Algorithmic Approaches to Supervised Learning,, X
+13,24-Nov,Interpretable Machine Learning,Assignment 4 Assigned
+14,1-Dec,Project Presentations,Assignment 4 Due
+Final,16-Dec,Final Project Due (9:00 PM EST),

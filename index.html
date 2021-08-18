@@ -64,6 +64,15 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script>/*! jQuery UI - v1.11.4 - 2016-01-05
 * http://jqueryui.com
 * Includes: core.js, widget.js, mouse.js, position.js, draggable.js, droppable.js, resizable.js, selectable.js, sortable.js, accordion.js, autocomplete.js, button.js, dialog.js, menu.js, progressbar.js, selectmenu.js, slider.js, spinner.js, tabs.js, tooltip.js, effect.js, effect-blind.js, effect-bounce.js, effect-clip.js, effect-drop.js, effect-explode.js, effect-fade.js, effect-fold.js, effect-highlight.js, effect-puff.js, effect-pulsate.js, effect-scale.js, effect-shake.js, effect-size.js, effect-slide.js, effect-transfer.js
@@ -313,7 +322,7 @@ float: none;
         self._setEventHandlers();
 
         // Binding to the Window load event to make sure the correct scrollTop is calculated
-        $(window).load(function() {
+        $(window).on("load", function() {
 
           // Sets the active TOC item
           self._setActiveElement(true);
@@ -1306,8 +1315,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
-<style type="text/css">code{white-space: pre;}</style>
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1398,39 +1423,9 @@ code span.wa { color: #da4453; } /* Warning */
   }
 })();
 </script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <style type="text/css">
 title{
@@ -1481,10 +1476,6 @@ font-family: Garamond;
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -1500,6 +1491,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -1512,7 +1506,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1638,18 +1631,18 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -1668,7 +1661,7 @@ PPOL564-01
 </h2>
 </center>
 <center>
-<strong>Fall 2020</strong>
+<strong>Fall 2021</strong>
 </center>
 <center>
 <strong>Georgetown University</strong>
@@ -1705,7 +1698,7 @@ Coding Discussion
 1
 </td>
 <td style="text-align:left;width: 1in; ">
-26-Aug
+1-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Introductions, Installations, and IDEs
@@ -1720,7 +1713,7 @@ Introductions, Installations, and IDEs
 2
 </td>
 <td style="text-align:left;width: 1in; ">
-2-Sep
+8-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Version Control, Workflow, and Reproducibility
@@ -1736,7 +1729,7 @@ X
 3
 </td>
 <td style="text-align:left;width: 1in; ">
-9-Sep
+15-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Object-Oriented Programming in Python
@@ -1752,7 +1745,7 @@ X
 4
 </td>
 <td style="text-align:left;width: 1in; ">
-16-Sep
+22-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 Introduction to Algorithms
@@ -1768,7 +1761,7 @@ Assignment 1 Assigned
 5
 </td>
 <td style="text-align:left;width: 1in; ">
-23-Sep
+29-Sep
 </td>
 <td style="text-align:left;width: 3in; ">
 From Nested Lists to Data Frames
@@ -1784,7 +1777,7 @@ Assignment 1 Due
 6
 </td>
 <td style="text-align:left;width: 1in; ">
-30-Sep
+6-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Approaches to Data Manipulation in Python
@@ -1800,7 +1793,7 @@ X
 7
 </td>
 <td style="text-align:left;width: 1in; ">
-7-Oct
+13-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Data Visualization and Exploration
@@ -1816,7 +1809,7 @@ Assignment 2 Assigned
 8
 </td>
 <td style="text-align:left;width: 1in; ">
-14-Oct
+20-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Drawing from (Un-)Structured Data Sources
@@ -1832,7 +1825,7 @@ Assignment 2 Due; Assignment 3 Assigned
 9
 </td>
 <td style="text-align:left;width: 1in; ">
-21-Oct
+27-Oct
 </td>
 <td style="text-align:left;width: 3in; ">
 Introduction to Statistical Learning
@@ -1848,7 +1841,7 @@ Assignment 3 Due
 10
 </td>
 <td style="text-align:left;width: 1in; ">
-28-Oct
+3-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
 Continuous Outcomes and Linear Regression
@@ -1865,7 +1858,7 @@ X
 11
 </td>
 <td style="text-align:left;width: 1in; ">
-4-Nov
+10-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
 Probability, Bayes Theorem, and Classification
@@ -1881,10 +1874,10 @@ X
 12
 </td>
 <td style="text-align:left;width: 1in; ">
-11-Nov
+17-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
-Non-parametric Approaches to Supervised Learning
+Algorithmic Approaches to Supervised Learning
 </td>
 <td style="text-align:left;width: 2in; ">
 </td>
@@ -1897,7 +1890,7 @@ X
 13
 </td>
 <td style="text-align:left;width: 1in; ">
-18-Nov
+24-Nov
 </td>
 <td style="text-align:left;width: 3in; ">
 Interpretable Machine Learning
@@ -1910,13 +1903,13 @@ Assignment 4 Assigned
 </tr>
 <tr>
 <td style="text-align:center;width: .5in; ">
-<ul>
-<li></td>
+14
+</td>
 <td style="text-align:left;width: 1in; ">
-25-Nov
+1-Dec
 </td>
 <td style="text-align:left;width: 3in; ">
-Thanksgiving Break
+Project Presentations
 </td>
 <td style="text-align:left;width: 2in; ">
 Assignment 4 Due
@@ -1926,28 +1919,13 @@ Assignment 4 Due
 </tr>
 <tr>
 <td style="text-align:center;width: .5in; ">
-14
-</td>
-<td style="text-align:left;width: 1in; ">
-2-Dec
-</td>
-<td style="text-align:left;width: 3in; ">
-Project Presentations
-</td>
-<td style="text-align:left;width: 2in; ">
-</td>
-<td style="text-align:center;width: 1in; ">
-</td>
-</tr>
-<tr>
-<td style="text-align:center;width: .5in; ">
 Final
 </td>
 <td style="text-align:left;width: 1in; ">
-19-Dec
+16-Dec
 </td>
 <td style="text-align:left;width: 3in; ">
-Final Project Due (5:00 PM EST)
+Final Project Due (9:00 PM EST)
 </td>
 <td style="text-align:left;width: 2in; ">
 </td>
@@ -1955,8 +1933,7 @@ Final Project Due (5:00 PM EST)
 </td>
 </tr>
 </tbody>
-</table></li>
-</ul>
+</table>
 <br> <br> <br>
 <hr>
 <p><br></p>
@@ -1964,12 +1941,12 @@ Final Project Due (5:00 PM EST)
 <div id="virtual-classroom" class="section level2">
 <h2>Virtual Classroom</h2>
 <p><br></p>
-<div id="virtual-zoom-classroom" class="section level4">
-<h4><a href="https://georgetown.zoom.us/j/98660441600"><strong>Virtual Zoom Classroom</strong></a></h4>
+<div id="virtual-zoom-classroom-if-we-need-to-meet-virtually" class="section level4">
+<h4><a href="https://georgetown.zoom.us/j/98660441600"><strong>Virtual Zoom Classroom</strong></a> (If we need to meet virtually)</h4>
 <p><br></p>
 </div>
-<div id="virtual-zoom-office-hours-wednesdays-12pm---2pm" class="section level4">
-<h4><a href="https://georgetown.zoom.us/j/96444963432"><strong>Virtual Zoom Office Hours</strong></a> (Wednesdays 12pm - 2pm)</h4>
+<div id="virtual-zoom-office-hours-wednesdays-4pm---6pm" class="section level4">
+<h4><a href="https://georgetown.zoom.us/j/96444963432"><strong>Virtual Zoom Office Hours</strong></a> (Wednesdays 4pm - 6pm)</h4>
 <p><br></p>
 <p>Recurrent Zoom link can also be found on Canvas. If the link breaks or does not function properly, please check the <code>#general</code> channel on Slack for information regarding the new link. If there is no message regarding a new link, please contact the professor and/or TA via Slack. All synchronous lecture material will be recorded.</p>
 <br> <br> <br>
@@ -2137,18 +2114,12 @@ C:\Anaconda3\Library\bin</code></pre>
 <p>Data science is an applied field and therefore, it is important that you understand how to conduct a complete analysis from collecting data, to cleaning and analyzing it, to presenting your findings. Toward this end, students are required to complete an independent data science project, <em>applying concepts learned throughout the course</em>. The project is composed of three parts: a 2 page project proposal, an in-class presentation, and a 12-page project report.</p>
 <p><strong><em>More information regarding the final project will be circulated during class on Week 8</em></strong></p>
 <p><br></p>
-<center>
-<strong><a href="project/project_overview.pdf">Final Project Overview</a></strong>
-</center>
-<p><br></p>
-<center>
-<strong><a href="project/project_presentation_assessment_sheet.pdf">Presentation Rubric</a></strong>
-</center>
-<p><br></p>
-<center>
-<strong><a href="project/final_project_rubric.pdf">Final Report Rubric</a></strong>
-</center>
-<p><br></p>
+<!-- <center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center> -->
+<!-- <br> -->
+<!-- <center><strong>[Presentation Rubric](project/project_presentation_assessment_sheet.pdf)</strong></center> -->
+<!-- <br> -->
+<!-- <center><strong>[Final Report Rubric](project/final_project_rubric.pdf)</strong></center> -->
+<!-- <br> -->
 <br> <br> <br>
 <hr>
 <p><br></p>
@@ -2159,23 +2130,31 @@ C:\Anaconda3\Library\bin</code></pre>
 <div id="eric-dunford-professor" class="section level4">
 <h4><a href="http://ericdunford.com/">Eric Dunford</a> (Professor)</h4>
 <ul>
-<li><strong>Office</strong>: Bedroom (formerly 404 Old North)</li>
-<li><strong>Office Hours</strong>: Tuesdays 9am to 11am (See <code>Virtual Classroom</code> tab for link)</li>
+<li><strong>Office</strong>: 404 Old North</li>
+<li><strong>Office Hours</strong>: Wednesdays 4pm to 6pm (See <code>Virtual Classroom</code> tab for link)</li>
 <li><strong>Email</strong>: <a href="mailto:eric.dunford@georgetown.edu">eric.dunford@georgetown.edu</a></li>
 </ul>
 <p><br></p>
 </div>
-<div id="eric-larose-teaching-assistant" class="section level4">
-<h4>Eric LaRose (Teaching Assistant)</h4>
+<div id="madeline-pickens-teaching-assistant" class="section level4">
+<h4>Madeline Pickens (Teaching Assistant)</h4>
 <ul>
-<li><strong>Office Hours</strong>: <a href="https://calendly.com/eml119/">Book an appointment via Calendly</a></li>
-<li><strong>Email</strong>: <a href="mailto:eml119@georgetown.edu">eml119@georgetown.edu</a></li>
+<li><strong>Office Hours</strong>: <a href>Book an appointment via Calendly</a></li>
+<li><strong>Email</strong>: <a href="mailto:mp1595@georgetown.edu">mp1595@georgetown.edu</a></li>
+</ul>
+<p><br></p>
+</div>
+<div id="chandler-dawson-teaching-assistant" class="section level4">
+<h4>Chandler Dawson (Teaching Assistant)</h4>
+<ul>
+<li><strong>Office Hours</strong>: <a href>Book an appointment via Calendly</a></li>
+<li><strong>Email</strong>: <a href="mailto:cad162@georgetown.edu">cad162@georgetown.edu</a></li>
 </ul>
 <p><br></p>
 </div>
 <div id="slack" class="section level4">
 <h4>Slack</h4>
-<p>The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2020). Please click on the <a href="https://join.slack.com/t/georgetown-jt44872/shared_invite/zt-gntolqrn-BiCH6ChQTKKODMyb5PdRAw">Class Slack Channel Invite</a> to join the class work-space.</p>
+<p>The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2021). Please click on the <a href="https://join.slack.com/t/ppol-564-fall-2021/shared_invite/zt-ukj26377-a00MPhjVTkh2rs8VSTrmzw">Class Slack Channel Invite</a> to join the class work-space.</p>
 <br> <br> <br>
 <hr>
 <p><br></p>
@@ -2186,59 +2165,33 @@ C:\Anaconda3\Library\bin</code></pre>
 <h1>Lecture Materials</h1>
 <p><em>Asynchronous lecture materials will go live approximately one week prior to the scheduled synchronous meeting date.</em></p>
 <p><br><br></p>
-<div id="week-1-choosing-your-poison-introductions-installations-and-ides" class="section level3">
-<h3><strong>Week 1: Choosing your Poison</strong><br><a href="lectures/week_01/asynchronous_lecture_material/week01-async-materials.html"><em>Introductions, Installations, and IDEs</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-2-time-travel-and-other-necessities-version-control-workflow-and-reproducibility" class="section level3">
-<h3><strong>Week 2: Time Travel and Other Necessities</strong><br><a href="lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html"><em>Version Control, Workflow, and Reproducibility</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-3-learning-parseltongue-object-oriented-programming-in-python" class="section level3">
-<h3><strong>Week 3: Learning Parseltongue</strong><br><a href="lectures/week_03/asynchronous_lecture_material/week-03-async-material.html"><em>Object-Oriented Programming in Python</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-4-on-time-and-space-introduction-to-algorithms" class="section level3">
-<h3><strong>Week 4: On Time and Space</strong><br><a href="lectures/week_04/week-04-async-material.html"><em>Introduction to Algorithms</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-5-long-live-the-data-frame-from-nested-lists-to-data-frames" class="section level3">
-<h3><strong>Week 5: Long Live the Data Frame</strong><br><a href="lectures/week_05/week-05-async-material.html"><em>From Nested Lists to Data Frames</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-6-modern-snake-charming-approaches-to-data-manipulation-in-python" class="section level3">
-<h3><strong>Week 6: Modern Snake Charming</strong><br><a href="lectures/week_06/week-06-async-material.html"><em>Approaches to Data Manipulation in Python</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-7-interrogation-techniques-data-visualization-and-exploration" class="section level3">
-<h3><strong>Week 7: Interrogation Techniques</strong><br><a href="lectures/week_07/week-07-async-material.html"><em>Data Visualization and Exploration</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-8-automated-heists-drawing-from-un-structured-data-sources" class="section level3">
-<h3><strong>Week 8: Automated Heists</strong><br><a href="lectures/week_08/week-08-async-material.html"><em>Drawing from (Un-)Structured Data Sources</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-9-the-signal-and-the-noise-introduction-to-statistical-learning" class="section level3">
-<h3><strong>Week 9: The Signal and the Noise</strong><br><a href="lectures/week_09/week-09-async-material.html"><em>Introduction to Statistical Learning</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-10-casting-shadows-in-n-dimensions-continuous-outcomes-and-linear-regression" class="section level3">
-<h3><strong>Week 10: Casting Shadows in <span class="math inline">\(N\)</span>-Dimensions</strong><br><a href="lectures/week_10/week-10-async-material.html"><em>Continuous Outcomes and Linear Regression</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-11-hot-dog-not-hot-dog-probability-bayes-theorem-and-classification" class="section level3">
-<h3><strong>Week 11: Hot Dog, Not Hot Dog</strong><br><a href="lectures/week_11/week-11-async-material.html"><em>Probability, Bayes Theorem, and Classification</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-12-trees-and-neighbors-non-parametric-approaches-to-supervised-learning" class="section level3">
-<h3><strong>Week 12: Trees and Neighbors</strong><br><a href="lectures/week_12/week-12-async-material.html"><em>Non-Parametric Approaches to Supervised Learning</em></a></h3>
-<p><br><br></p>
-</div>
-<div id="week-13-peeking-inside-the-black-box-interpretable-machine-learning" class="section level3">
-<h3><strong>Week 13: Peeking inside the Black Box</strong><br><a href="lectures/week_13/week-13-async-material.html"><em>Interpretable Machine Learning</em></a></h3>
-<p><br><br><br><br></p>
+<!-- ### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 3: Learning Parseltongue**<br>[_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 4: On Time and Space**<br>[_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 5: Long Live the Data Frame**<br>[_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 6: Modern Snake Charming**<br>[_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 7: Interrogation Techniques**<br>[_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 8: Automated Heists**<br>[_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 9: The Signal and the Noise**<br>[_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 10: Casting Shadows in $N$-Dimensions**<br>[_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 11: Hot Dog, Not Hot Dog**<br>[_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 12: Trees and Neighbors**<br>[_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html) -->
+<!-- <br><br> -->
+<!-- ### **Week 13: Peeking inside the Black Box**<br>[_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html) -->
+<!-- <br><br><br><br> -->
 <hr>
-</div>
 </div>
 
 
@@ -2252,7 +2205,7 @@ C:\Anaconda3\Library\bin</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -2270,7 +2223,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
