@@ -343,7 +343,7 @@ Data science is an applied field and therefore, it is important that you underst
 
 <br>
 
-#### Madeline Pickens (Teaching Assistant)
+#### Madeline ("Maddie") Pickens (Teaching Assistant)
 
 - **Office Hours**: [Book an appointment via Calendly]()
 - **Email**: [mp1595@georgetown.edu ](mailto:mp1595@georgetown.edu )
@@ -374,56 +374,79 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-<!-- ### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html) -->
+### **Week 1: Choosing your Poison**<br>_Introductions, Installations, and IDEs_
+<!-- [_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html) -->
 
-<!-- <br><br> -->
+<br><br>
 
-<!-- ### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html) -->
+### **Week 2: Time Travel and Other Necessities**<br>_Version Control, Workflow, and Reproducibility_
+<!-- [_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html) -->
 
-<!-- <br><br> -->
+<br><br>
 
-<!-- ### **Week 3: Learning Parseltongue**<br>[_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html) -->
+### **Week 3: Learning Parseltongue**<br>_Object-Oriented Programming in Python_
+<!-- [_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html) -->
 
-<!-- <br><br> -->
+<br><br>
 
-<!-- ### **Week 4: On Time and Space**<br>[_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html) -->
+### **Week 4: On Time and Space**<br>_Introduction to Algorithms_
 
-<!-- <br><br> -->
+<!-- [_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html) -->
 
-<!-- ### **Week 5: Long Live the Data Frame**<br>[_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html) -->
+<br><br>
 
-<!-- <br><br> -->
+### **Week 5: Long Live the Data Frame**<br>_From Nested Lists to Data Frames_
 
-<!-- ### **Week 6: Modern Snake Charming**<br>[_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html) -->
+<!-- [_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html) -->
 
-<!-- <br><br> -->
+<br><br>
 
-<!-- ### **Week 7: Interrogation Techniques**<br>[_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html) -->
+### **Week 6: Modern Snake Charming**<br>_Approaches to Data Manipulation in Python_
 
-<!-- <br><br> -->
+<!-- [_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html) -->
 
-<!-- ### **Week 8: Automated Heists**<br>[_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html) -->
+<br><br>
 
-<!-- <br><br> -->
+### **Week 7: Interrogation Techniques**<br>_Data Visualization and Exploration_
 
-<!-- ### **Week 9: The Signal and the Noise**<br>[_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html) -->
+<!-- [_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html) -->
 
-<!-- <br><br> -->
+<br><br>
 
-<!-- ### **Week 10: Casting Shadows in $N$-Dimensions**<br>[_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html) -->
+### **Week 8: Automated Heists**<br>_Drawing from (Un-)Structured Data Sources_
 
-<!-- <br><br> -->
+<!-- [_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html) -->
 
-<!-- ### **Week 11: Hot Dog, Not Hot Dog**<br>[_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html) -->
+<br><br>
 
-<!-- <br><br> -->
+### **Week 9: The Signal and the Noise**<br>_Introduction to Statistical Learning_
 
-<!-- ### **Week 12: Trees and Neighbors**<br>[_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html) -->
+<!-- [_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html) -->
 
-<!-- <br><br> -->
+<br><br>
 
-<!-- ### **Week 13: Peeking inside the Black Box**<br>[_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html) -->
+### **Week 10: Casting Shadows in $N$-Dimensions**<br>_Continuous Outcomes and Linear Regression_
 
-<!-- <br><br><br><br> -->
+<!-- [_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html) -->
+
+<br><br>
+
+### **Week 11: Hot Dog, Not Hot Dog**<br>_Probability, Bayes Theorem, and Classification_
+
+<!-- [_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html) -->
+
+<br><br>
+
+### **Week 12: Trees and Neighbors**<br>_Algorithmic Approaches to Supervised Learning_
+
+<!-- [_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html) -->
+
+<br><br>
+
+### **Week 13: Peeking inside the Black Box**<br>_Interpretable Machine Learning_
+
+<!-- [_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html) -->
+
+<br><br><br><br>
 
 <hr>
