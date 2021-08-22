@@ -237,6 +237,8 @@ To install any one of these packages from the commandline, type:
 ```{bash,eval = F}
 # apm == "Atom package manager"
 apm install <package-name>
+# For example
+apm install Hydrogen@2.16.3
 ```
 
 There is also a dedicated package manager built into Atom which you can use to download and install new packages. Open Atom then `Settings > Install` and type the package name. 
@@ -246,57 +248,7 @@ There is also a dedicated package manager built into Atom which you can use to d
 Several students have had issues arise in getting Hydrogen to properly run on their machines. Particularly, after following the installation instructions for Atom and Hydrogen, many people find that upon trying to run Python code, they either (1) receive an error message stating that `"no kernel for language Python found"` (or something similar), or (2) they are able to connect to a Python kernel but upon trying to run code, nothing happens (they may or may not receive error messages associated with that.
 
 If you encounter this issue, we suggest trying the following solutions in order until one of the solutions works. If you have tried all three possible solutions and are still not able to properly run Python code in Hydrogen/Atom, please contact the teaching assistants (either by Slack, email, or setting up a Calendly appointment). 
-Hydrogen@2.16.3
-Zen@0.18.0
-advanced-open-file@0.16.8
-atom-beautify@0.33.4
-atom-clock@0.1.18
-atom-html-preview@0.2.6
-atom-language-r@1.4.8
-atom-material-syntax@1.0.8
-atom-material-syntax-light@0.4.6
-atom-material-ui@2.1.3
-atom-path-intellisense@1.2.2
-atom-python-virtualenv@1.0.4
-atom-todoist@2.0.0
-auto-update-packages@1.0.1
-autocomplete-R@0.6.0
-autocomplete-latex-cite@0.3.5
-autocomplete-modules@2.3.0
-autocomplete-python@1.17.0
-autocomplete-sql@0.5.0
-browser-plus@0.0.98
-color-picker@2.3.0
-data-explorer@0.7.0
-docblock-python@0.19.1
-file-icons@2.1.47
-fix-indent-on-paste@0.1.1
-fold-comments@0.6.0
-git-log@0.4.1
-hey-pane@1.2.0
-hydrogen-cell-separator@0.4.1
-indent-guide-improved@1.4.13
-jupyter-notebook@0.0.10
-kite@0.206.0
-language-latex@1.2.0
-language-weave@0.7.2
-latex@0.50.2
-latex-tree@0.5.0
-latexer@0.3.0
-minimap@4.39.14
-oceanic-next@1.0.0
-pdf-view@0.73.0
-platformio-ide-terminal@2.10.1
-project-manager@3.3.8
-python-indent@1.2.6
-quick-query-sqlite@0.4.1
-reindent@1.5.0
-scroll-through-time@0.3.1
-simple-drag-drop-text@0.5.0
-symbols-tree-view@0.14.0
-todo-show@2.3.2
-typewriter@0.8.0
-wordcount@3.2.0
+
 <br>
 
 **Solution 1**
