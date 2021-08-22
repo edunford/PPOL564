@@ -333,7 +333,7 @@ output:
 
 
 
-### **Week 12: Trees and Neighbors**<br>_Non-Parametric Approaches to Supervised Learning_
+### **Week 12: Trees and Neighbors**<br>_Algorithmic Approaches to Supervised Learning_
 
 <br>
 

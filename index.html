@@ -64,15 +64,6 @@ if (!!window.navigator.userAgent.match("MSIE 8")) {
 !function(a){"use strict";a.matchMedia=a.matchMedia||function(a){var b,c=a.documentElement,d=c.firstElementChild||c.firstChild,e=a.createElement("body"),f=a.createElement("div");return f.id="mq-test-1",f.style.cssText="position:absolute;top:-100em",e.style.background="none",e.appendChild(f),function(a){return f.innerHTML='&shy;<style media="'+a+'"> #mq-test-1 { width: 42px; }</style>',c.insertBefore(e,d),b=42===f.offsetWidth,c.removeChild(e),{matches:b,media:a}}}(a.document)}(this),function(a){"use strict";function b(){u(!0)}var c={};a.respond=c,c.update=function(){};var d=[],e=function(){var b=!1;try{b=new a.XMLHttpRequest}catch(c){b=new a.ActiveXObject("Microsoft.XMLHTTP")}return function(){return b}}(),f=function(a,b){var c=e();c&&(c.open("GET",a,!0),c.onreadystatechange=function(){4!==c.readyState||200!==c.status&&304!==c.status||b(c.responseText)},4!==c.readyState&&c.send(null))};if(c.ajax=f,c.queue=d,c.regex={media:/@media[^\{]+\{([^\{\}]*\{[^\}\{]*\})+/gi,keyframes:/@(?:\-(?:o|moz|webkit)\-)?keyframes[^\{]+\{(?:[^\{\}]*\{[^\}\{]*\})+[^\}]*\}/gi,urls:/(url\()['"]?([^\/\)'"][^:\)'"]+)['"]?(\))/g,findStyles:/@media *([^\{]+)\{([\S\s]+?)$/,only:/(only\s+)?([a-zA-Z]+)\s?/,minw:/\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,maxw:/\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/},c.mediaQueriesSupported=a.matchMedia&&null!==a.matchMedia("only all")&&a.matchMedia("only all").matches,!c.mediaQueriesSupported){var g,h,i,j=a.document,k=j.documentElement,l=[],m=[],n=[],o={},p=30,q=j.getElementsByTagName("head")[0]||k,r=j.getElementsByTagName("base")[0],s=q.getElementsByTagName("link"),t=function(){var a,b=j.createElement("div"),c=j.body,d=k.style.fontSize,e=c&&c.style.fontSize,f=!1;return b.style.cssText="position:absolute;font-size:1em;width:1em",c||(c=f=j.createElement("body"),c.style.background="none"),k.style.fontSize="100%",c.style.fontSize="100%",c.appendChild(b),f&&k.insertBefore(c,k.firstChild),a=b.offsetWidth,f?k.removeChild(c):c.removeChild(b),k.style.fontSize=d,e&&(c.style.fontSize=e),a=i=parseFloat(a)},u=function(b){var c="clientWidth",d=k[c],e="CSS1Compat"===j.compatMode&&d||j.body[c]||d,f={},o=s[s.length-1],r=(new Date).getTime();if(b&&g&&p>r-g)return a.clearTimeout(h),h=a.setTimeout(u,p),void 0;g=r;for(var v in l)if(l.hasOwnProperty(v)){var w=l[v],x=w.minw,y=w.maxw,z=null===x,A=null===y,B="em";x&&(x=parseFloat(x)*(x.indexOf(B)>-1?i||t():1)),y&&(y=parseFloat(y)*(y.indexOf(B)>-1?i||t():1)),w.hasquery&&(z&&A||!(z||e>=x)||!(A||y>=e))||(f[w.media]||(f[w.media]=[]),f[w.media].push(m[w.rules]))}for(var C in n)n.hasOwnProperty(C)&&n[C]&&n[C].parentNode===q&&q.removeChild(n[C]);n.length=0;for(var D in f)if(f.hasOwnProperty(D)){var E=j.createElement("style"),F=f[D].join("\n");E.type="text/css",E.media=D,q.insertBefore(E,o.nextSibling),E.styleSheet?E.styleSheet.cssText=F:E.appendChild(j.createTextNode(F)),n.push(E)}},v=function(a,b,d){var e=a.replace(c.regex.keyframes,"").match(c.regex.media),f=e&&e.length||0;b=b.substring(0,b.lastIndexOf("/"));var g=function(a){return a.replace(c.regex.urls,"$1"+b+"$2$3")},h=!f&&d;b.length&&(b+="/"),h&&(f=1);for(var i=0;f>i;i++){var j,k,n,o;h?(j=d,m.push(g(a))):(j=e[i].match(c.regex.findStyles)&&RegExp.$1,m.push(RegExp.$2&&g(RegExp.$2))),n=j.split(","),o=n.length;for(var p=0;o>p;p++)k=n[p],l.push({media:k.split("(")[0].match(c.regex.only)&&RegExp.$2||"all",rules:m.length-1,hasquery:k.indexOf("(")>-1,minw:k.match(c.regex.minw)&&parseFloat(RegExp.$1)+(RegExp.$2||""),maxw:k.match(c.regex.maxw)&&parseFloat(RegExp.$1)+(RegExp.$2||"")})}u()},w=function(){if(d.length){var b=d.shift();f(b.href,function(c){v(c,b.href,b.media),o[b.href]=!0,a.setTimeout(function(){w()},0)})}},x=function(){for(var b=0;b<s.length;b++){var c=s[b],e=c.href,f=c.media,g=c.rel&&"stylesheet"===c.rel.toLowerCase();e&&g&&!o[e]&&(c.styleSheet&&c.styleSheet.rawCssText?(v(c.styleSheet.rawCssText,e,f),o[e]=!0):(!/^([a-zA-Z:]*\/\/)/.test(e)&&!r||e.replace(RegExp.$1,"").split("/")[0]===a.location.host)&&("//"===e.substring(0,2)&&(e=a.location.protocol+e),d.push({href:e,media:f})))}w()};x(),c.update=x,c.getEmValue=t,a.addEventListener?a.addEventListener("resize",b,!1):a.attachEvent&&a.attachEvent("onresize",b)}}(this);
 };
 </script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
 <script>/*! jQuery UI - v1.11.4 - 2016-01-05
 * http://jqueryui.com
 * Includes: core.js, widget.js, mouse.js, position.js, draggable.js, droppable.js, resizable.js, selectable.js, sortable.js, accordion.js, autocomplete.js, button.js, dialog.js, menu.js, progressbar.js, selectmenu.js, slider.js, spinner.js, tabs.js, tooltip.js, effect.js, effect-blind.js, effect-bounce.js, effect-clip.js, effect-drop.js, effect-explode.js, effect-fade.js, effect-fold.js, effect-highlight.js, effect-puff.js, effect-pulsate.js, effect-scale.js, effect-shake.js, effect-size.js, effect-slide.js, effect-transfer.js
@@ -322,7 +313,7 @@ float: none;
         self._setEventHandlers();
 
         // Binding to the Window load event to make sure the correct scrollTop is calculated
-        $(window).on("load", function() {
+        $(window).load(function() {
 
           // Sets the active TOC item
           self._setActiveElement(true);
@@ -1315,24 +1306,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
-
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
+<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1423,9 +1398,39 @@ code span.wa { color: #da4453; } /* Warning */
   }
 })();
 </script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
-
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
 
 <style type="text/css">
 title{
@@ -1476,6 +1481,10 @@ font-family: Garamond;
   margin-left: auto;
   margin-right: auto;
 }
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
 img {
   max-width:100%;
 }
@@ -1491,9 +1500,6 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
-pre code {
-  padding: 0;
-}
 </style>
 
 
@@ -1506,6 +1512,7 @@ pre code {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -1631,18 +1638,18 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-sm-12 col-md-4 col-lg-3">
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
 
-<div id="header">
+<div class="fluid-row" id="header">
 
 
 
@@ -2021,33 +2028,57 @@ Final Project Due (9:00 PM EST)
 <p><br></p>
 <p><a href="https://atom.io/"><strong>Atom</strong></a> is a hack-able text editor built by Github. The following are <a href="https://flight-manual.atom.io/getting-started/sections/installing-atom/">instruction on how to install Atom</a> on your machine.</p>
 <p>Atom allows you to install open-source packages that provide additional functionality. The following packages will help you as you use Atom to program in Python. Of these, <a href="https://atom.io/packages/hydrogen"><code>Hydrogen</code></a> is the most important. It’ll allow you to use a Jupyter kernel from within Atom to evaluate code.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>├── <span class="ex">Hydrogen@2.14.4</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>├── <span class="ex">atom-beautify@0.33.4</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>├── <span class="ex">atom-language-r@1.4.8</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>├── <span class="ex">atom-material-syntax@1.0.8</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>├── <span class="ex">atom-material-syntax-light@0.4.6</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>├── <span class="ex">atom-material-ui@2.1.3</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>├── <span class="ex">auto-update-packages@1.0.1</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>├── <span class="ex">autocomplete-R@0.6.0</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a>├── <span class="ex">autocomplete-modules@2.3.0</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>├── <span class="ex">autocomplete-python@1.16.0</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>├── <span class="ex">color-picker@2.3.0</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>├── <span class="ex">docblock-python@0.19.0</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a>├── <span class="ex">file-icons@2.1.42</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>├── <span class="ex">fix-indent-on-paste@0.1.1</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>├── <span class="ex">fold-comments@0.6.0</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a>├── <span class="ex">git-log@0.4.1</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a>├── <span class="ex">hey-pane@1.2.0</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a>├── <span class="ex">hydrogen-cell-separator@0.4.1</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a>├── <span class="ex">language-weave@0.7.2</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>├── <span class="ex">minimap@4.29.9</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a>├── <span class="ex">pdf-view@0.72.0</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a>├── <span class="ex">platformio-ide-terminal@2.10.0</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a>├── <span class="ex">python-indent@1.2.6</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a>├── <span class="ex">reindent@1.5.0</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a>├── <span class="ex">simple-drag-drop-text@0.5.0</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a>├── <span class="ex">symbols-tree-view@0.14.0</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a>└── <span class="ex">wordcount@3.2.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">Hydrogen@2.16.3</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">Zen@0.18.0</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">advanced-open-file@0.16.8</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="ex">atom-beautify@0.33.4</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">atom-clock@0.1.18</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="ex">atom-html-preview@0.2.6</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="ex">atom-language-r@1.4.8</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="ex">atom-material-syntax@1.0.8</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="ex">atom-material-syntax-light@0.4.6</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="ex">atom-material-ui@2.1.3</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="ex">atom-path-intellisense@1.2.2</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="ex">atom-python-virtualenv@1.0.4</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="ex">atom-todoist@2.0.0</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="ex">auto-update-packages@1.0.1</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="ex">autocomplete-R@0.6.0</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="ex">autocomplete-latex-cite@0.3.5</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="ex">autocomplete-modules@2.3.0</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="ex">autocomplete-python@1.17.0</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="ex">autocomplete-sql@0.5.0</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="ex">browser-plus@0.0.98</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="ex">color-picker@2.3.0</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="ex">data-explorer@0.7.0</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="ex">docblock-python@0.19.1</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="ex">file-icons@2.1.47</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="ex">fix-indent-on-paste@0.1.1</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="ex">fold-comments@0.6.0</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="ex">git-log@0.4.1</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="ex">hey-pane@1.2.0</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="ex">hydrogen-cell-separator@0.4.1</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="ex">indent-guide-improved@1.4.13</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="ex">jupyter-notebook@0.0.10</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="ex">kite@0.206.0</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="ex">language-latex@1.2.0</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="ex">language-weave@0.7.2</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="ex">latex@0.50.2</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="ex">latex-tree@0.5.0</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="ex">latexer@0.3.0</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="ex">minimap@4.39.14</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="ex">oceanic-next@1.0.0</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="ex">pdf-view@0.73.0</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="ex">platformio-ide-terminal@2.10.1</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="ex">project-manager@3.3.8</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="ex">python-indent@1.2.6</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="ex">quick-query-sqlite@0.4.1</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="ex">reindent@1.5.0</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="ex">scroll-through-time@0.3.1</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="ex">simple-drag-drop-text@0.5.0</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="ex">symbols-tree-view@0.14.0</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="ex">todo-show@2.3.2</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="ex">typewriter@0.8.0</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="ex">wordcount@3.2.0</span></span></code></pre></div>
 <p>To install any one of these packages from the commandline, type:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># apm == &quot;Atom package manager&quot;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">apm</span> install <span class="op">&lt;</span>package-name<span class="op">&gt;</span></span></code></pre></div>
@@ -2055,8 +2086,7 @@ Final Project Due (9:00 PM EST)
 <div id="troubleshooting-hydrogenatom-setup" class="section level4">
 <h4>Troubleshooting Hydrogen/Atom Setup</h4>
 <p>Several students have had issues arise in getting Hydrogen to properly run on their machines. Particularly, after following the installation instructions for Atom and Hydrogen, many people find that upon trying to run Python code, they either (1) receive an error message stating that <code>&quot;no kernel for language Python found&quot;</code> (or something similar), or (2) they are able to connect to a Python kernel but upon trying to run code, nothing happens (they may or may not receive error messages associated with that.</p>
-<p>If you encounter this issue, we suggest trying the following solutions in order until one of the solutions works. If you have tried all three possible solutions and are still not able to properly run Python code in Hydrogen/Atom, please contact Eric LaRose (either by Slack, email, or setting up a Calendly appointment).</p>
-<p><br></p>
+<p>If you encounter this issue, we suggest trying the following solutions in order until one of the solutions works. If you have tried all three possible solutions and are still not able to properly run Python code in Hydrogen/Atom, please contact the teaching assistants (either by Slack, email, or setting up a Calendly appointment). <a href="mailto:Hydrogen@2.16.3" class="email">Hydrogen@2.16.3</a> <a href="mailto:Zen@0.18.0" class="email">Zen@0.18.0</a> <a href="mailto:advanced-open-file@0.16.8" class="email">advanced-open-file@0.16.8</a> <a href="mailto:atom-beautify@0.33.4" class="email">atom-beautify@0.33.4</a> <a href="mailto:atom-clock@0.1.18" class="email">atom-clock@0.1.18</a> <a href="mailto:atom-html-preview@0.2.6" class="email">atom-html-preview@0.2.6</a> <a href="mailto:atom-language-r@1.4.8" class="email">atom-language-r@1.4.8</a> <a href="mailto:atom-material-syntax@1.0.8" class="email">atom-material-syntax@1.0.8</a> <a href="mailto:atom-material-syntax-light@0.4.6" class="email">atom-material-syntax-light@0.4.6</a> <a href="mailto:atom-material-ui@2.1.3" class="email">atom-material-ui@2.1.3</a> <a href="mailto:atom-path-intellisense@1.2.2" class="email">atom-path-intellisense@1.2.2</a> <a href="mailto:atom-python-virtualenv@1.0.4" class="email">atom-python-virtualenv@1.0.4</a> <a href="mailto:atom-todoist@2.0.0" class="email">atom-todoist@2.0.0</a> <a href="mailto:auto-update-packages@1.0.1" class="email">auto-update-packages@1.0.1</a> <a href="mailto:autocomplete-R@0.6.0" class="email">autocomplete-R@0.6.0</a> <a href="mailto:autocomplete-latex-cite@0.3.5" class="email">autocomplete-latex-cite@0.3.5</a> <a href="mailto:autocomplete-modules@2.3.0" class="email">autocomplete-modules@2.3.0</a> <a href="mailto:autocomplete-python@1.17.0" class="email">autocomplete-python@1.17.0</a> <a href="mailto:autocomplete-sql@0.5.0" class="email">autocomplete-sql@0.5.0</a> <a href="mailto:browser-plus@0.0.98" class="email">browser-plus@0.0.98</a> <a href="mailto:color-picker@2.3.0" class="email">color-picker@2.3.0</a> <a href="mailto:data-explorer@0.7.0" class="email">data-explorer@0.7.0</a> <a href="mailto:docblock-python@0.19.1" class="email">docblock-python@0.19.1</a> <a href="mailto:file-icons@2.1.47" class="email">file-icons@2.1.47</a> <a href="mailto:fix-indent-on-paste@0.1.1" class="email">fix-indent-on-paste@0.1.1</a> <a href="mailto:fold-comments@0.6.0" class="email">fold-comments@0.6.0</a> <a href="mailto:git-log@0.4.1" class="email">git-log@0.4.1</a> <a href="mailto:hey-pane@1.2.0" class="email">hey-pane@1.2.0</a> <a href="mailto:hydrogen-cell-separator@0.4.1" class="email">hydrogen-cell-separator@0.4.1</a> <a href="mailto:indent-guide-improved@1.4.13" class="email">indent-guide-improved@1.4.13</a> <a href="mailto:jupyter-notebook@0.0.10" class="email">jupyter-notebook@0.0.10</a> <a href="mailto:kite@0.206.0" class="email">kite@0.206.0</a> <a href="mailto:language-latex@1.2.0" class="email">language-latex@1.2.0</a> <a href="mailto:language-weave@0.7.2" class="email">language-weave@0.7.2</a> <a href="mailto:latex@0.50.2" class="email">latex@0.50.2</a> <a href="mailto:latex-tree@0.5.0" class="email">latex-tree@0.5.0</a> <a href="mailto:latexer@0.3.0" class="email">latexer@0.3.0</a> <a href="mailto:minimap@4.39.14" class="email">minimap@4.39.14</a> <a href="mailto:oceanic-next@1.0.0" class="email">oceanic-next@1.0.0</a> <a href="mailto:pdf-view@0.73.0" class="email">pdf-view@0.73.0</a> <a href="mailto:platformio-ide-terminal@2.10.1" class="email">platformio-ide-terminal@2.10.1</a> <a href="mailto:project-manager@3.3.8" class="email">project-manager@3.3.8</a> <a href="mailto:python-indent@1.2.6" class="email">python-indent@1.2.6</a> <a href="mailto:quick-query-sqlite@0.4.1" class="email">quick-query-sqlite@0.4.1</a> <a href="mailto:reindent@1.5.0" class="email">reindent@1.5.0</a> <a href="mailto:scroll-through-time@0.3.1" class="email">scroll-through-time@0.3.1</a> <a href="mailto:simple-drag-drop-text@0.5.0" class="email">simple-drag-drop-text@0.5.0</a> <a href="mailto:symbols-tree-view@0.14.0" class="email">symbols-tree-view@0.14.0</a> <a href="mailto:todo-show@2.3.2" class="email">todo-show@2.3.2</a> <a href="mailto:typewriter@0.8.0" class="email">typewriter@0.8.0</a> <a href="mailto:wordcount@3.2.0" class="email">wordcount@3.2.0</a> <br></p>
 <p><strong>Solution 1</strong></p>
 <p>Open the command line and run the following two commands:</p>
 <pre><code>python3 -m pip install ipykernel
@@ -2080,7 +2110,7 @@ C:\Anaconda3\Library\bin</code></pre>
 <div id="rstudio-reticulate" class="section level3">
 <h3>RStudio + <code>reticulate</code></h3>
 <p><br></p>
-<p>In your classes that are focused on using <code>R</code>, <code>RStudio</code> will be your main IDE. However, <code>RStudio</code> isn’t just for <code>R</code>. It can handle a number of different languages. We’ll Python in <code>RStudio</code> using the <code>reticulate</code> package. We’ll talk about some of the advantages for doing this in class, but for now, let’s cover installation.</p>
+<p>In your classes that are focused on using <code>R</code>, <code>RStudio</code> will be your main IDE. However, <code>RStudio</code> isn’t just for <code>R</code>. It can handle a number of different languages. We can use Python in <code>RStudio</code> using the <code>reticulate</code> package. We’ll talk about some of the advantages for doing this in class, but for now, let’s cover installation.</p>
 <p>To install <code>RStudio</code>, <a href="https://www.rstudio.com/products/rstudio/download/">download from the following link</a> (make sure to scroll all the way to the bottom).</p>
 <p><code>reticulate</code> is an R package that allows one run a Python REPL in the R console. In addition, it allows one to read in and use Python code, and pass data between R and and Python. The following provides <a href="https://rstudio.github.io/reticulate/">instructions on installing <code>reticulate</code></a>.</p>
 <p><strong>Note</strong>: If you have multiple versions of Python on your computer, reticulate can get confused with regard to which version it is referencing. The <a href="https://rstudio.github.io/reticulate/articles/versions.html">following article</a> covers these issues. The best way to resolve this issue is by creating a <code>.Rprofile</code> file that sends instructions regarding the specific version of Python you wish to use.</p>
@@ -2136,8 +2166,8 @@ C:\Anaconda3\Library\bin</code></pre>
 </ul>
 <p><br></p>
 </div>
-<div id="madeline-maddie-pickens-teaching-assistant" class="section level4">
-<h4>Madeline (“Maddie”) Pickens (Teaching Assistant)</h4>
+<div id="maddie-pickens-teaching-assistant" class="section level4">
+<h4><a href="https://maddieclairepickens.com/">Maddie Pickens</a> (Teaching Assistant)</h4>
 <ul>
 <li><strong>Office Hours</strong>: <a href>Book an appointment via Calendly</a></li>
 <li><strong>Email</strong>: <a href="mailto:mp1595@georgetown.edu">mp1595@georgetown.edu</a></li>
@@ -2145,7 +2175,7 @@ C:\Anaconda3\Library\bin</code></pre>
 <p><br></p>
 </div>
 <div id="chandler-dawson-teaching-assistant" class="section level4">
-<h4>Chandler Dawson (Teaching Assistant)</h4>
+<h4><a href="https://www.linkedin.com/in/chandler-dawson-586615114/">Chandler Dawson</a> (Teaching Assistant)</h4>
 <ul>
 <li><strong>Office Hours</strong>: <a href>Book an appointment via Calendly</a></li>
 <li><strong>Email</strong>: <a href="mailto:cad162@georgetown.edu">cad162@georgetown.edu</a></li>
@@ -2244,7 +2274,7 @@ C:\Anaconda3\Library\bin</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -2262,7 +2292,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    $(this).parent().toggleClass('nav-tabs-open')
   });
 });
 </script>
