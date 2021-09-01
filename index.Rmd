@@ -400,13 +400,13 @@ _Asynchronous lecture materials will go live approximately one week prior to the
 
 <br><br>
 
-### **Week 1: Choosing your Poison**<br>_Introductions, Installations, and IDEs_
-<!-- [_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html) -->
+### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html)
+<!-- _Introductions, Installations, and IDEs_ -->
 
 <br><br>
 
-### **Week 2: Time Travel and Other Necessities**<br>_Version Control, Workflow, and Reproducibility_
-<!-- [_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html) -->
+### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html)
+<!-- _Version Control, Workflow, and Reproducibility_ -->
 
 <br><br>
 

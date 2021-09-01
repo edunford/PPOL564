@@ -27,11 +27,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - **Introduce the course**
   + What we'll cover in this course
-  + Assignments and expectation
-  + Learning during a Pandemic
-    + How we'll communicate (Slack/Office Hours)
-    + Grading expectations
-    + Asynchronous and Synchronous Lectures
+  + Asynchronous and Synchronous Lectures
+  + Assignments and expectations
+  + How we'll communicate (Slack/Office Hours/class)
+  + What we'll do if the pandemic gets bad again
+    
     
 - Using **Slack** & passing code
 
