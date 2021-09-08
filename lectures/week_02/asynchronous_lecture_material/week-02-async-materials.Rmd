@@ -41,6 +41,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - Review git commands + new ones
   - `git diff <hash1> <hash2>`: compare differences between instances.
   - `git log --graph`: for a simple visual representation of the git log
+  - `gitk`: for a quick, bare-bones gui.
 - More on Git/Github 
   + Linking Git to **Github**
   + **Cloning** repositories 
