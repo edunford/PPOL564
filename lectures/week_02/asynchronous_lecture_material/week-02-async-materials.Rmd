@@ -61,13 +61,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-<!-- # Synchronous Materials -->
+# Synchronous Materials
 
-<!-- - Slides on best practices for [**Reproducibility**](http://ericdunford.com/ppol564/lectures/week_02/reproducibility.html) -->
+- Slides on best practices for [**Reproducibility**](http://ericdunford.com/ppol564/lectures/week_02/reproducibility.html)
 
-<!-- - **Practice** using `git` with a `git-scavenger-hunt`: https://github.com/edunford/git-scavenger-hunt -->
+- **Practice** using `git` with a `git-scavenger-hunt`: https://github.com/edunford/git-scavenger-hunt
 
-<!-- <br><hr><br> -->
+<br><hr><br>
 
 # Asynchronous Materials {.tabset .tabset-pills}
 

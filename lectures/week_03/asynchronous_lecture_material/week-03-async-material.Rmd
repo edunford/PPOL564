@@ -47,11 +47,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 > If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
 
-<br><hr><br>
+<!-- <br><hr><br> -->
 
-# Synchronous Materials
+<!-- # Synchronous Materials -->
 
-- [**Practice Piecing together code**](http://ericdunford.com/ppol564/lectures/week_03/exercise/piece-together-function.html)
+<!-- - [**Practice Piecing together code**](http://ericdunford.com/ppol564/lectures/week_03/exercise/piece-together-function.html) -->
 
 <br><hr><br>
 

@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Instructions
 
-In your breakout groups, please but the following code chunks in order so that the code runs. Each function is designed to process the following string object. 
+In your breakout groups, please put the following code chunks in order so that the code runs. Each function is designed to process the following string object. 
 
 ```{python}
 text = "An initial attempt to rescue the group, stranded in mountain refuge for two nights, was abandoned on Monday night because of smoke from the Creek Fire. But helicopters were able to land early on Tuesday and are have begun taking the hikers to safety. Fires in California have burned through a record 2m acres in recent weeks. In total, these blazes span an area larger than the US state of Delaware. California is currently experiencing an unprecedented heatwave."
