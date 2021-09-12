@@ -9,6 +9,9 @@ output:
     toc: true
     toc_collapsed: true
     toc_float: true
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r,include=F}
@@ -17,19 +20,41 @@ require(tidyverse)
 require(kableExtra)
 ```
 
+<center>
 
+<h1>
 
-<center><h1>Data Science I: Foundations</h1></center>
-<center><h2>PPOL564-01</h2></center>
-<center>**Fall 2021**</center>
-<center>**Georgetown University**</center>
+Data Science I: Foundations
+
+</h1>
+
+</center>
+
+<center>
+
+<h2>
+
+PPOL564-01
+
+</h2>
+
+</center>
+
+<center>
+
+**Fall 2021**
+
+</center>
+
+<center>
+
+**Georgetown University**
+
+</center>
 
 <br>
 
-
-
 # Course Outline {.tabset .tabset-fade .tabset-pills}
-
 
 ## Course Schedule
 
@@ -51,67 +76,69 @@ read_csv('Syllabus/Fall-2021-Timeline.csv') %>%
   column_spec(5,width = '1in')
 ```
 
-<br>
-<br>
-<br>
+<br> <br> <br>
+
 <hr>
+
 <br>
 
 ## Virtual Classroom
 
-
-<br> 
-
+<br>
 
 #### [**Virtual Zoom Classroom**](https://georgetown.zoom.us/j/98660441600) (If we need to meet virtually)
-  
-<br>
-  
-#### [**Virtual Zoom Office Hours**](https://georgetown.zoom.us/j/96444963432) (Wednesdays 4pm - 6pm)
-
-  
-<br>
-
-Recurrent Zoom link can also be found on Canvas. If the link breaks or does not function properly, please check the `#general` channel on Slack for information regarding the new link. If there is no message regarding a new link, please contact the professor and/or TA via Slack. All synchronous lecture material will be recorded.
 
 <br>
+
+#### [**Virtual Zoom Office Hours**](https://georgetown.zoom.us/j/96444963432) (Mondays/Wednesdays 9am - 10am)
+
 <br>
-<br>
+
+Recurrent Zoom link can also be found on Canvas. If the link breaks or
+does not function properly, please check the `#general` channel on Slack
+for information regarding the new link. If there is no message regarding
+a new link, please contact the professor and/or TA via Slack. All
+synchronous lecture material will be recorded.
+
+<br> <br> <br>
+
 <hr>
-<br>
 
+<br>
 
 ## Syllabus
 
-<br>
-<br>
+<br> <br>
 
 #### Access an [**online version**](syllabus/PPOL564-Syllabus.html)/[**`.pdf` version**](syllabus/PPOL564-Syllabus.pdf).
 
-<br>
-<br>
-<br>
+<br> <br> <br>
+
 <hr>
+
 <br>
 
 ## Readings
 
-<br>
-<br>
+<br> <br>
 
 #### List of all [**required reading**](readings/reading-list.html).
 
-<br>
-<br>
-<br>
+<br> <br> <br>
+
 <hr>
+
 <br>
 
 ## Installations {.tabset}
 
 <br>
 
-Throughout the semester, the instructor will use the commandline and many different IDEs when coding in Python or using Git. The following lists those different software and provides guidance on installation. _If you run into issues, please reach out to the Teaching Assistant for assistance._ 
+Throughout the semester, the instructor will use the commandline and
+many different IDEs when coding in Python or using Git. The following
+lists those different software and provides guidance on installation.
+*If you run into issues, please reach out to the Teaching Assistant for
+assistance.*
 
 <br>
 
@@ -119,65 +146,112 @@ Throughout the semester, the instructor will use the commandline and many differ
 
 <br>
 
-At times, we'll use a unix-based commandline. The commandline will feature into our discussion on using `git` and also running Python programs. If you use a Mac or a Linux operating system, then a functioning commandline comes with your operating system. For Apple machines, this is the **Terminal**. 
+At times, we'll use a unix-based commandline. The commandline will
+feature into our discussion on using `git` and also running Python
+programs. If you use a Mac or a Linux operating system, then a
+functioning commandline comes with your operating system. For Apple
+machines, this is the **Terminal**.
 
-For Windows (specifically Windows 10), you can enable Linux Bash shell. The following offers a [tutorial](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) on how to do this. If you're using a version of Windows that pre-dates version 10, then [Git Bash](https://www.atlassian.com/git/tutorials/git-bash#:~:text=Git%20Bash%20is%20an%20application,operating%20system%20through%20written%20commands.) offers a program will allow you to use `git` commands from your windows machine. 
+For Windows (specifically Windows 10), you can enable Linux Bash shell.
+The following offers a
+[tutorial](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
+on how to do this. If you're using a version of Windows that pre-dates
+version 10, then [Git
+Bash](https://www.atlassian.com/git/tutorials/git-bash#:~:text=Git%20Bash%20is%20an%20application,operating%20system%20through%20written%20commands.)
+offers a program will allow you to use `git` commands from your windows
+machine.
 
-Finally, you'll notice that my terminal will have a slightly different look than the one on your machine. This is because I'm using ["Oh My Zsh"](https://ohmyz.sh/) which is open-source software that allows me to customize my commandline. The above link offers everything you'd need to installing Oh My Zsh on your machine. 
+Finally, you'll notice that my terminal will have a slightly different
+look than the one on your machine. This is because I'm using ["Oh My
+Zsh"](https://ohmyz.sh/) which is open-source software that allows me to
+customize my commandline. The above link offers everything you'd need to
+installing Oh My Zsh on your machine.
 
 <br>
+
 <hr>
-<br>
-
-### Python3 
 
 <br>
 
-We'll use Python3 throughout this course. Below are instructions for downloading Python3 using commandline packages manager (`Homebrew` for mac, `Chocolatey` for windows). 
+### Python3
 
 <br>
 
-- [Installing Python3 using Homebrew on a Mac (Apple)](https://docs.python-guide.org/starting/install3/osx/)
+We'll use Python3 throughout this course. Below are instructions for
+downloading Python3 using commandline packages manager (`Homebrew` for
+mac, `Chocolatey` for windows).
 
-- [Installing Python3 using Chocolatey on a PC (Windows)](https://python-docs.readthedocs.io/en/latest/starting/install3/win.html)
+<br>
+
+-   [Installing Python3 using Homebrew on a Mac
+    (Apple)](https://docs.python-guide.org/starting/install3/osx/)
+
+-   [Installing Python3 using Chocolatey on a PC
+    (Windows)](https://python-docs.readthedocs.io/en/latest/starting/install3/win.html)
 
 <br>
 
-An alternative way to install Python3 is to download an [**Anaconda** distribution](https://www.anaconda.com/products/individual). The instructor will use `pip` rather than `conda` in the instruction for downloading Python modules. These are simply two ways of downloading and managing open-source software packages. <u>Choose which ever works best for you</u>. 
-
+An alternative way to install Python3 is to download an [**Anaconda**
+distribution](https://www.anaconda.com/products/individual). The
+instructor will use `pip` rather than `conda` in the instruction for
+downloading Python modules. These are simply two ways of downloading and
+managing open-source software packages. <u>Choose which ever works best
+for you</u>.
 
 <br>
+
 <hr>
+
 <br>
 
 ### Jupyter Notebook
 
-<br> 
+<br>
 
-Once you have Python3 on your computer, you can install a Jupyter Notebook. If you downloaded Python3 using Anaconda, then Jupyter Notebook comes with the distribution and requires no further installation on your part. If you install Python3 using `Homebrew`/`Chocolately`, you can install Jupyter notebook running the following code using your commandline.
+Once you have Python3 on your computer, you can install a Jupyter
+Notebook. If you downloaded Python3 using Anaconda, then Jupyter
+Notebook comes with the distribution and requires no further
+installation on your part. If you install Python3 using
+`Homebrew`/`Chocolately`, you can install Jupyter notebook running the
+following code using your commandline.
 
 ```{bash,eval=F}
 pip install notebook
 ```
+
 You can then activate a Jupyter Notebook from the commandline by typing:
 
 ```{bash,eval=F}
 jupyter notebook
 ```
 
-If you've installed Python using Anaconda, the distribution provides a click-able icon to fire up a Jupyter Notebook. The advantage of using the commandline, however, is that you can set the working directory prior to firing up a notebook. This will allow you to work within a specific project folder more easily. 
+If you've installed Python using Anaconda, the distribution provides a
+click-able icon to fire up a Jupyter Notebook. The advantage of using
+the commandline, however, is that you can set the working directory
+prior to firing up a notebook. This will allow you to work within a
+specific project folder more easily.
 
 <br>
+
 <hr>
+
 <br>
 
 ### Atom + `hydrogen`
 
 <br>
 
-[**Atom**](https://atom.io/) is a hack-able text editor built by Github. The following are [instruction on how to install Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/) on your machine. 
+[**Atom**](https://atom.io/) is a hack-able text editor built by Github.
+The following are [instruction on how to install
+Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)
+on your machine.
 
-Atom allows you to install open-source packages that provide additional functionality. The following packages will help you as you use Atom to program in Python. Of these, [`Hydrogen`](https://atom.io/packages/hydrogen) is the most important. It'll allow you to use a Jupyter kernel from within Atom to evaluate code.
+Atom allows you to install open-source packages that provide additional
+functionality. The following packages will help you as you use Atom to
+program in Python. Of these,
+[`Hydrogen`](https://atom.io/packages/hydrogen) is the most important.
+It'll allow you to use a Jupyter kernel from within Atom to evaluate
+code.
 
 ```{bash,eval=F}
 Hydrogen@2.16.3
@@ -234,6 +308,7 @@ wordcount@3.2.0
 ```
 
 To install any one of these packages from the commandline, type:
+
 ```{bash,eval = F}
 # apm == "Atom package manager"
 apm install <package-name>
@@ -241,13 +316,26 @@ apm install <package-name>
 apm install Hydrogen@2.16.3
 ```
 
-There is also a dedicated package manager built into Atom which you can use to download and install new packages. Open Atom then `Settings > Install` and type the package name. 
+There is also a dedicated package manager built into Atom which you can
+use to download and install new packages. Open Atom then
+`Settings > Install` and type the package name.
 
 #### Troubleshooting Hydrogen/Atom Setup
 
-Several students have had issues arise in getting Hydrogen to properly run on their machines. Particularly, after following the installation instructions for Atom and Hydrogen, many people find that upon trying to run Python code, they either (1) receive an error message stating that `"no kernel for language Python found"` (or something similar), or (2) they are able to connect to a Python kernel but upon trying to run code, nothing happens (they may or may not receive error messages associated with that.
+Several students have had issues arise in getting Hydrogen to properly
+run on their machines. Particularly, after following the installation
+instructions for Atom and Hydrogen, many people find that upon trying to
+run Python code, they either (1) receive an error message stating that
+`"no kernel for language Python found"` (or something similar), or (2)
+they are able to connect to a Python kernel but upon trying to run code,
+nothing happens (they may or may not receive error messages associated
+with that.
 
-If you encounter this issue, we suggest trying the following solutions in order until one of the solutions works. If you have tried all three possible solutions and are still not able to properly run Python code in Hydrogen/Atom, please contact the teaching assistants (either by Slack, email, or setting up a Calendly appointment). 
+If you encounter this issue, we suggest trying the following solutions
+in order until one of the solutions works. If you have tried all three
+possible solutions and are still not able to properly run Python code in
+Hydrogen/Atom, please contact the teaching assistants (either by Slack,
+email, or setting up a Calendly appointment).
 
 <br>
 
@@ -255,10 +343,8 @@ If you encounter this issue, we suggest trying the following solutions in order 
 
 Open the command line and run the following two commands:
 
-```
-python3 -m pip install ipykernel
-python3 -m ipykernel install --user
-```
+    python3 -m pip install ipykernel
+    python3 -m ipykernel install --user
 
 Then restart Atom and try running Python code.
 
@@ -266,81 +352,118 @@ Then restart Atom and try running Python code.
 
 **Solution 2**
 
-Uninstall Hydrogen on Atom by opening Atom, click `"Install a Package"`, and search for Hydrogen in the search bar. Click `"Uninstall"`. Once Hydrogen has finished uninstalling, search Hydrogen again and hit `"Install"`. Once Hydrogen has finished re-installing, restart Atom and try running Python code. 
+Uninstall Hydrogen on Atom by opening Atom, click `"Install a Package"`,
+and search for Hydrogen in the search bar. Click `"Uninstall"`. Once
+Hydrogen has finished uninstalling, search Hydrogen again and hit
+`"Install"`. Once Hydrogen has finished re-installing, restart Atom and
+try running Python code.
 
 <br>
 
 **Solution 3**
 
-Add the following paths to your list of environmental variables using the command line. Note that exact file paths will need to be adjusted slightly depending on your machine and operating system.
+Add the following paths to your list of environmental variables using
+the command line. Note that exact file paths will need to be adjusted
+slightly depending on your machine and operating system.
 
-```
-C:\Anaconda3
-C:\Anaconda3\Scripts
-C:\Anaconda3\Library\bin
-```
+    C:\Anaconda3
+    C:\Anaconda3\Scripts
+    C:\Anaconda3\Library\bin
 
-
-Once these have been added to the list of environmental variables, restart Atom and try running Python code. 
-
+Once these have been added to the list of environmental variables,
+restart Atom and try running Python code.
 
 <br>
+
 <hr>
+
 <br>
 
 ### RStudio + `reticulate`
 
 <br>
 
-In your classes that are focused on using `R`, `RStudio` will be your main IDE. However, `RStudio` isn't just for `R`. It can handle a number of different languages. We can use Python in `RStudio` using the `reticulate` package. We'll talk about some of the advantages for doing this in class, but for now, let's cover installation.
+In your classes that are focused on using `R`, `RStudio` will be your
+main IDE. However, `RStudio` isn't just for `R`. It can handle a number
+of different languages. We can use Python in `RStudio` using the
+`reticulate` package. We'll talk about some of the advantages for doing
+this in class, but for now, let's cover installation.
 
-To install `RStudio`, [download from the following link](https://www.rstudio.com/products/rstudio/download/) (make sure to scroll all the way to the bottom).
+To install `RStudio`, [download from the following
+link](https://www.rstudio.com/products/rstudio/download/) (make sure to
+scroll all the way to the bottom).
 
-`reticulate` is an R package that allows one run a Python REPL in the R console. In addition, it allows one to read in and use Python code, and pass data between R and and Python. The following provides [instructions on installing `reticulate`](https://rstudio.github.io/reticulate/).
+`reticulate` is an R package that allows one run a Python REPL in the R
+console. In addition, it allows one to read in and use Python code, and
+pass data between R and and Python. The following provides [instructions
+on installing `reticulate`](https://rstudio.github.io/reticulate/).
 
-**Note**: If you have multiple versions of Python on your computer, reticulate can get confused with regard to which version it is referencing. The [following article](https://rstudio.github.io/reticulate/articles/versions.html) covers these issues. The best way to resolve this issue is by creating a `.Rprofile` file that sends instructions regarding the specific version of Python you wish to use. 
+**Note**: If you have multiple versions of Python on your computer,
+reticulate can get confused with regard to which version it is
+referencing. The [following
+article](https://rstudio.github.io/reticulate/articles/versions.html)
+covers these issues. The best way to resolve this issue is by creating a
+`.Rprofile` file that sends instructions regarding the specific version
+of Python you wish to use.
 
-> "By setting the value of the RETICULATE_PYTHON environment variable to a Python binary. Note that if you set this environment variable, then the specified version of Python will always be used (i.e. this is prescriptive rather than advisory). To set the value of RETICULATE_PYTHON, insert Sys.setenv(RETICULATE_PYTHON = PATH) into your project’s .Rprofile, where PATH is your preferred Python binary."
- 
-
+> "By setting the value of the RETICULATE_PYTHON environment variable to
+> a Python binary. Note that if you set this environment variable, then
+> the specified version of Python will always be used (i.e. this is
+> prescriptive rather than advisory). To set the value of
+> RETICULATE_PYTHON, insert Sys.setenv(RETICULATE_PYTHON = PATH) into
+> your project's .Rprofile, where PATH is your preferred Python binary."
 
 <br>
+
 <hr>
+
 <br>
 
 ### Other Software
 
 <br>
 
-Here is an overview of other text editors that are popular for programming in Python, which you won't see featured in this course. Note I'm agnostic on whatever you use to learn Python and some find that different set ups work better for them. If one of these setups works better for you, I encourage you to use it (and tell me about how it went)!
+Here is an overview of other text editors that are popular for
+programming in Python, which you won't see featured in this course. Note
+I'm agnostic on whatever you use to learn Python and some find that
+different set ups work better for them. If one of these setups works
+better for you, I encourage you to use it (and tell me about how it
+went)!
 
 <br>
 
-- [Sublime Text](https://www.sublimetext.com/)
-- [PyCharm](https://www.jetbrains.com/pycharm/)
-- [Spyder](https://www.spyder-ide.org/)
-- [Rodeo](https://rodeo.yhat.com/)
-- [Visual Studio](https://code.visualstudio.com/docs/languages/python)
+-   [Sublime Text](https://www.sublimetext.com/)
+-   [PyCharm](https://www.jetbrains.com/pycharm/)
+-   [Spyder](https://www.spyder-ide.org/)
+-   [Rodeo](https://rodeo.yhat.com/)
+-   [Visual Studio](https://code.visualstudio.com/docs/languages/python)
 
 <br>
+
 <hr>
-<br>
 
+<br>
 
 ## Project
 
 <br>
 
-Data science is an applied field and therefore, it is important that you understand how to conduct a complete analysis from collecting data, to cleaning and analyzing it, to presenting your findings. Toward this end, students are required to complete an independent data science project, _applying concepts learned throughout the course_. The project is composed of three parts: a 2 page project proposal, an in-class presentation, and a 12-page project report.
+Data science is an applied field and therefore, it is important that you
+understand how to conduct a complete analysis from collecting data, to
+cleaning and analyzing it, to presenting your findings. Toward this end,
+students are required to complete an independent data science project,
+*applying concepts learned throughout the course*. The project is
+composed of three parts: a 2 page project proposal, an in-class
+presentation, and a 12-page project report.
 
-**_More information regarding the final project will be circulated during class on Week 8_**
+***More information regarding the final project will be circulated
+during class on Week 8***
 
 <br>
 
 <!-- <center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center> -->
 
 <!-- <br> -->
-
 
 <!-- <center><strong>[Presentation Rubric](project/project_presentation_assessment_sheet.pdf)</strong></center> -->
 
@@ -350,12 +473,11 @@ Data science is an applied field and therefore, it is important that you underst
 
 <!-- <br> -->
 
-<br>
-<br>
-<br>
-<hr>
-<br>
+<br> <br> <br>
 
+<hr>
+
+<br>
 
 ## Contact
 
@@ -363,113 +485,122 @@ Data science is an applied field and therefore, it is important that you underst
 
 #### [Eric Dunford](http://ericdunford.com/) (Professor)
 
-- **Office**: 404 Old North
-- **Office Hours**: Wednesdays 4pm to 6pm (See `Virtual Classroom` tab for link)
-- **Email**: [eric.dunford@georgetown.edu](mailto:eric.dunford@georgetown.edu)
+-   **Office**: 404 Old North
+-   **Office Hours**: Mondays & Wednesdays 9am to 10am (Office hours will be held virtually via Zoom. See `Virtual Classroom` tab for link)
+-   **Email**:
+    [eric.dunford\@georgetown.edu](mailto:eric.dunford@georgetown.edu)
 
 <br>
 
 #### [Maddie Pickens](https://maddieclairepickens.com/) (Teaching Assistant)
 
-- **Office Hours**: [Book an appointment via Calendly](https://calendly.com/maddiepickens)
-- **Email**: [mp1595@georgetown.edu ](mailto:mp1595@georgetown.edu )
+-   **Office Hours**: [Book an appointment via
+    Calendly](https://calendly.com/maddiepickens)
+-   **Email**: [mp1595\@georgetown.edu](mailto:mp1595@georgetown.edu)
 
 <br>
 
 #### [Chandler Dawson](https://www.linkedin.com/in/chandler-dawson-586615114/) (Teaching Assistant)
 
-- **Office Hours**: [Book an appointment via Calendly](https://calendly.com/cad162)
-- **Email**: [cad162@georgetown.edu](mailto:cad162@georgetown.edu)
-
- 
+-   **Office Hours**: [Book an appointment via
+    Calendly](https://calendly.com/cad162)
+-   **Email**: [cad162\@georgetown.edu](mailto:cad162@georgetown.edu)
 
 <br>
 
 #### Slack
 
-The best way to reach the TA/Professor is via the class Slack channel (PPOL-564-Fall-2021). Please click on the [Class Slack Channel Invite](https://join.slack.com/t/ppol-564-fall-2021/shared_invite/zt-ukj26377-a00MPhjVTkh2rs8VSTrmzw) to join the class work-space. 
+The best way to reach the TA/Professor is via the class Slack channel
+(PPOL-564-Fall-2021). Please click on the [Class Slack Channel
+Invite](https://join.slack.com/t/ppol-564-fall-2021/shared_invite/zt-ukj26377-a00MPhjVTkh2rs8VSTrmzw)
+to join the class work-space.
 
-<br>
-<br>
-<br>
+<br> <br> <br>
+
 <hr>
+
 <br>
 
 # Lecture Materials
-_Asynchronous lecture materials will go live approximately one week prior to the scheduled synchronous meeting date._
+
+*Asynchronous lecture materials will go live approximately one week
+prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 1: Choosing your Poison**<br>[_Introductions, Installations, and IDEs_](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html)
+### **Week 1: Choosing your Poison**<br>[*Introductions, Installations, and IDEs*](lectures/week_01/asynchronous_lecture_material/week01-async-materials.html)
+
 <!-- _Introductions, Installations, and IDEs_ -->
 
 <br><br>
 
-### **Week 2: Time Travel and Other Necessities**<br>[_Version Control, Workflow, and Reproducibility_](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html)
+### **Week 2: Time Travel and Other Necessities**<br>[*Version Control, Workflow, and Reproducibility*](lectures/week_02/asynchronous_lecture_material/week-02-async-materials.html)
+
 <!-- _Version Control, Workflow, and Reproducibility_ -->
 
 <br><br>
 
-### **Week 3: Learning Parseltongue**<br>[_Object-Oriented Programming in Python_](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html)
+### **Week 3: Learning Parseltongue**<br>[*Object-Oriented Programming in Python*](lectures/week_03/asynchronous_lecture_material/week-03-async-material.html)
+
 <!-- _Object-Oriented Programming in Python_ -->
 
 <br><br>
 
-### **Week 4: On Time and Space**<br>_Introduction to Algorithms_
+### **Week 4: On Time and Space**<br>*Introduction to Algorithms*
 
 <!-- [_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html) -->
 
 <br><br>
 
-### **Week 5: Long Live the Data Frame**<br>_From Nested Lists to Data Frames_
+### **Week 5: Long Live the Data Frame**<br>*From Nested Lists to Data Frames*
 
 <!-- [_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html) -->
 
 <br><br>
 
-### **Week 6: Modern Snake Charming**<br>_Approaches to Data Manipulation in Python_
+### **Week 6: Modern Snake Charming**<br>*Approaches to Data Manipulation in Python*
 
 <!-- [_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html) -->
 
 <br><br>
 
-### **Week 7: Interrogation Techniques**<br>_Data Visualization and Exploration_
+### **Week 7: Interrogation Techniques**<br>*Data Visualization and Exploration*
 
 <!-- [_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html) -->
 
 <br><br>
 
-### **Week 8: Automated Heists**<br>_Drawing from (Un-)Structured Data Sources_
+### **Week 8: Automated Heists**<br>*Drawing from (Un-)Structured Data Sources*
 
 <!-- [_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html) -->
 
 <br><br>
 
-### **Week 9: The Signal and the Noise**<br>_Introduction to Statistical Learning_
+### **Week 9: The Signal and the Noise**<br>*Introduction to Statistical Learning*
 
 <!-- [_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html) -->
 
 <br><br>
 
-### **Week 10: Casting Shadows in $N$-Dimensions**<br>_Continuous Outcomes and Linear Regression_
+### **Week 10: Casting Shadows in** $N$-Dimensions<br>*Continuous Outcomes and Linear Regression*
 
 <!-- [_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html) -->
 
 <br><br>
 
-### **Week 11: Hot Dog, Not Hot Dog**<br>_Probability, Bayes Theorem, and Classification_
+### **Week 11: Hot Dog, Not Hot Dog**<br>*Probability, Bayes Theorem, and Classification*
 
 <!-- [_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html) -->
 
 <br><br>
 
-### **Week 12: Trees and Neighbors**<br>_Algorithmic Approaches to Supervised Learning_
+### **Week 12: Trees and Neighbors**<br>*Algorithmic Approaches to Supervised Learning*
 
 <!-- [_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html) -->
 
 <br><br>
 
-### **Week 13: Peeking inside the Black Box**<br>_Interpretable Machine Learning_
+### **Week 13: Peeking inside the Black Box**<br>*Interpretable Machine Learning*
 
 <!-- [_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html) -->
 
