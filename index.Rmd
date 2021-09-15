@@ -546,9 +546,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 4: On Time and Space**<br>*Introduction to Algorithms*
+### **Week 4: On Time and Space**<br>[_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html)
 
-<!-- [_Introduction to Algorithms_](lectures/week_04/week-04-async-material.html) -->
+<!-- *Introduction to Algorithms* -->
 
 <br><br>
 
