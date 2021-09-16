@@ -11,6 +11,7 @@ output:
     highlight: breezedark
     theme: flatly
     toc: true
+    self_contained: false
 ---
 
 <br><hr><br>
