@@ -86,10 +86,6 @@ else:
 
 
 
-x = []
-
-
-
 
 
 # %% For Loops -----------------------------------------
@@ -102,18 +98,10 @@ print(i)
 i = items[2]
 print(i)
 
-[]
-()
-{}
-{:}
-""
 
 # Same idea
 for i in items:
     print(i)
-
-
-
 
 
 

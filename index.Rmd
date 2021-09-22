@@ -552,9 +552,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 5: Long Live the Data Frame**<br>*From Nested Lists to Data Frames*
+### **Week 5: Long Live the Data Frame**<br>[_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html)
 
-<!-- [_From Nested Lists to Data Frames_](lectures/week_05/week-05-async-material.html) -->
+<!-- *From Nested Lists to Data Frames* -->
 
 <br><br>
 
