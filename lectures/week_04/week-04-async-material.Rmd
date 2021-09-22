@@ -51,11 +51,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
-- [On Modules](synchronous-lecture-materials/on-modules.html)
+- [Time complexity of Python data types](https://wiki.python.org/moin/TimeComplexity)
 
 <br>
 
 - **_Exercise_**: [**Analyzing the run time**](exercise/run-time-exercise.html)
+
+<br>
+
+- [On Modules](synchronous-lecture-materials/on-modules.html)
 
 <br>
 
@@ -69,8 +73,6 @@ knitr::opts_chunk$set(echo = TRUE)
 - Want to learn more about algorithms? Take:
   + ANLY-555: Data Structures, Objects, and Algorithms in Python
   + ANLY-558: Advanced Algorithms for Analytics in Data Science
-
-
 
 
 <br><hr><br>
