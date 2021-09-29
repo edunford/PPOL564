@@ -11,6 +11,7 @@ output:
     highlight: breezedark
     theme: flatly
     toc: true
+    self_contained: false
 ---
 
 <br><hr><br>
@@ -47,17 +48,17 @@ knitr::opts_chunk$set(echo = TRUE)
 <br><hr><br>
 
 
-# Synchronous Materials
+<!-- # Synchronous Materials -->
 
-<br>
+<!-- <br> -->
 
-- [**Lecture Slides**](slides/joining-and-reshaping.html) on tidy data, joining methods, and reshaping relational data structures.
+<!-- - [**Lecture Slides**](slides/joining-and-reshaping.html) on tidy data, joining methods, and reshaping relational data structures. -->
 
-- Quick discussion on [**method chaining**](synchronous-lecture/chaining-and-misc.html)
+<!-- - Quick discussion on [**method chaining**](synchronous-lecture/chaining-and-misc.html) -->
 
-- [**Breakout**](breakout/breakout_manipulating-conflict-data.html): manipulating conflict event data.
+<!-- - [**Breakout**](breakout/breakout_manipulating-conflict-data.html): manipulating conflict event data. -->
 
-<br><hr><br>
+<!-- <br><hr><br> -->
 
 
 

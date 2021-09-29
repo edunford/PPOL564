@@ -558,9 +558,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 6: Modern Snake Charming**<br>*Approaches to Data Manipulation in Python*
+### **Week 6: Modern Snake Charming**<br>[_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html)
 
-<!-- [_Approaches to Data Manipulation in Python_](lectures/week_06/week-06-async-material.html) -->
+<!-- *Approaches to Data Manipulation in Python* -->
 
 <br><br>
 
