@@ -2,7 +2,7 @@
 pagetitle: "PPOL564 | Week 6 - Asynchronous lecture materials"
 title:  <a href="http://ericdunford.com/ppol564/">Back to Course Website</a> <br><br><center> Modern Snake Charming <br> _Approaches to Data Manipulation in Python_ </center>
 subtitle: <center> PPOL 564 | Data Science I | Foundations <br><br> Lecture Materials for Week 6 </center><br>
-author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University <br><br></center>
+author: <center>Professor Eric Dunford (ed769@georgetown.edu) <br> McCourt School of Public Policy, Georgetown University<br><br></center>
 output: 
   html_document:
     includes: 
@@ -48,17 +48,17 @@ knitr::opts_chunk$set(echo = TRUE)
 <br><hr><br>
 
 
-<!-- # Synchronous Materials -->
+# Synchronous Materials
 
-<!-- <br> -->
+<br>
 
-<!-- - [**Lecture Slides**](slides/joining-and-reshaping.html) on tidy data, joining methods, and reshaping relational data structures. -->
+- [**Lecture Slides**](slides/joining-and-reshaping.html) on tidy data, joining methods, and reshaping relational data structures.
 
-<!-- - Quick discussion on [**method chaining**](synchronous-lecture/chaining-and-misc.html) -->
+- Quick discussion on [**method chaining**](synchronous-lecture/chaining-and-misc.html)
 
-<!-- - [**Breakout**](breakout/breakout_manipulating-conflict-data.html): manipulating conflict event data. -->
+- [**Practice**](breakout/breakout_manipulating-conflict-data.html): manipulating conflict event data.
 
-<!-- <br><hr><br> -->
+<br><hr><br>
 
 
 

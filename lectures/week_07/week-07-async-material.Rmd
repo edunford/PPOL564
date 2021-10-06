@@ -11,6 +11,7 @@ output:
     highlight: breezedark
     theme: flatly
     toc: true
+    self_contained: false
 ---
 
 <br><hr><br>
@@ -54,13 +55,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-# Synchronous Materials
+<!-- # Synchronous Materials -->
 
-- Download the <a href="synchronous-lecture/country_data.csv" download><strong>country_data.csv</strong></a> dataset used in the lecture.
+<!-- - Download the <a href="synchronous-lecture/country_data.csv" download><strong>country_data.csv</strong></a> dataset used in the lecture. -->
 
-- [**Lecture Code**](synchronous-lecture/week_7_lecture_code_and_data.html)
+<!-- - [**Lecture Code**](synchronous-lecture/week_7_lecture_code_and_data.html) -->
 
-<br><hr><br>
+<!-- <br><hr><br> -->
 
 # Asynchronous Materials {.tabset .tabset-pills}
 

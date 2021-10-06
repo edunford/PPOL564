@@ -564,9 +564,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 7: Interrogation Techniques**<br>*Data Visualization and Exploration*
+### **Week 7: Interrogation Techniques**<br>[_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html)
 
-<!-- [_Data Visualization and Exploration_](lectures/week_07/week-07-async-material.html) -->
+<!-- *Data Visualization and Exploration* -->
 
 <br><br>
 
