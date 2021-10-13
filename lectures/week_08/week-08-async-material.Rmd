@@ -11,6 +11,7 @@ output:
     highlight: breezedark
     theme: flatly
     toc: true
+    self_contained: false
 ---
 
 <br><hr><br>
@@ -53,17 +54,17 @@ In the synchronous lecture, we'll be discussing writing SQLite queries. I'll be 
 
 <br><hr><br>
 
-# Synchronous Materials
+<!-- # Synchronous Materials -->
 
-<br>
+<!-- <br> -->
 
-- _Download_: SQLite database used in the lecture -- [**country.sqlite**](https://www.dropbox.com/s/f6z3kpfpbr8xf1j/country.sqlite?dl=0)
-- _Scripts_:
-  - <a href="synchronous-lecture-materials/intro_sql_commands.sql" download><strong>intro_sql_commands.sql</strong></a>
-  - <a href="synchronous-lecture-materials/using_sql_with_pandas.py" download><strong>using_sql_with_pandas.py</strong></a>
-- _Breakout_: [**Practice with SQL queries**](breakout/breakout-sql-queries.html)
+<!-- - _Download_: SQLite database used in the lecture -- [**country.sqlite**](https://www.dropbox.com/s/f6z3kpfpbr8xf1j/country.sqlite?dl=0) -->
+<!-- - _Scripts_: -->
+<!--   - <a href="synchronous-lecture-materials/intro_sql_commands.sql" download><strong>intro_sql_commands.sql</strong></a> -->
+<!--   - <a href="synchronous-lecture-materials/using_sql_with_pandas.py" download><strong>using_sql_with_pandas.py</strong></a> -->
+<!-- - _Breakout_: [**Practice with SQL queries**](breakout/breakout-sql-queries.html) -->
 
-<br><hr><br>
+<!-- <br><hr><br> -->
 
 # Asynchronous Materials {.tabset .tabset-pills}
 
@@ -101,7 +102,6 @@ _The following tabs contain pre-recorded lecture materials for class this week. 
 import requests # For downloading the website
 from bs4 import BeautifulSoup # For parsing the website
 
-
 # BBC Url that we'll scrape. 
 url = "https://www.bbc.com/news/world-us-canada-54238936"
 page = requests.get(url)
@@ -135,9 +135,12 @@ content1
 
 # Can use a css selector to target specific content
 
-# page > div:nth-child(1) > div.container > div > div.column--primary > div.story-body > div.story-body__inner > p.story-body__introduction
-story_content = [i.get_text() for i in soup.select("div.story-body__inner p")]
+# #main-content > div.ssrcss-1ocoo3l-Wrap.e42f8511 > div > div.ssrcss-rgov1k-MainColumn.e1sbfw0p0 > article > div:nth-child(3) > div > p > b
+story_content = [i.get_text() for i in soup.select("article > div > div")] 
 
+# NOTE: Secret here is to remove the :nth-child(3) from div:nth-child(3). Think of :nth-child(3) as the 
+# index on the div tag. div:nth-child(3) says give me all items at position 3, whereas div give me all items at
+# this location. 
 
 
 # Join together as a single string
@@ -149,14 +152,13 @@ print(story_text)
 
 
 # Date CSS
-#page > div:nth-child(1) > div.container > div > div.column--primary > div.story-body > div.with-extracted-share-icons > div > div.story-body__mini-info-list-and-share-row > div.mini-info-list-wrap > ul > li > div
-css_loc = "div.mini-info-list-wrap > ul > li > div"
+#main-content > div.ssrcss-1ocoo3l-Wrap.e42f8511 > div > div.ssrcss-rgov1k-MainColumn.e1sbfw0p0 > article > header > div:nth-child(2) > dl > div > dd > span > time
+css_loc = "article > header > div:nth-child(2) > dl > div > dd > span > time"
 story_date = soup.select(css_loc)[0].get_text()
 
 
 # Get story head line
 story_headline = soup.find_all("h1")[0].get_text()
-
 
 
 # Gather together
@@ -205,10 +207,10 @@ def bbc_scraper(url=None):
         story_headline = soup.find_all("h1")[0].get_text()
 
         # Pull Date
-        story_date = soup.select("div.mini-info-list-wrap > ul > li > div")[0].get_text()
+        story_date = soup.select("article > header > div:nth-child(2) > dl > div > dd > span > time")[0].get_text()
 
         # Pull story content
-        story_content = [i.get_text() for i in soup.select("div.story-body__inner p")]
+        story_content = [i.get_text() for i in soup.select("article > div > div")]
         story_text = " ".join(story_content)
 
         # Return data
@@ -292,8 +294,13 @@ def link_scrape(urls=None,sleep=3):
 
         print(url) # Keep track of where we are at.
 
-        # Scrape the content
-        scraped_data.append(bbc_scraper(url))
+        try:
+            # Scrape the content This will break on URLs that we haven't
+            # accounted for the structure on. So we'll use a try and except 
+            # clause so our code continues even though it breaks on some urls. 
+            scraped_data.append(bbc_scraper(url))
+        except:
+            print("URL doesn't work with scraper")
 
         # Put the system to sleep for a random draw of time (be kind)
         time.sleep(random.uniform(0,sleep))
@@ -302,18 +309,7 @@ def link_scrape(urls=None,sleep=3):
     return dat
 
 
-# This breaks. Why?
 dat_content = link_scrape(urls=links)
-
-
-# Code only works to scrape a very specific structure of the website.
-links2 = list(links)
-links2.pop(links2.index('https://www.bbc.com/news/world-us-canada-54242205'))
-links2.pop(links2.index('https://www.bbc.com/news/world-us-canada-52497111'))
-links2.pop(links2.index('https://www.bbc.com/news/world-us-canada-54244012'))
-
-dat_content = link_scrape(urls=links2)
-
 dat_content
 
 # More advanced approaches to scraping the web.
@@ -341,8 +337,8 @@ Download the documents being scraped in this video:
 ### Code from the video
 
 ```{python,eval=F}
-# !pip install PyPDF2
-# !pip install python-docx
+# !pip3 install PyPDF2
+# !pip3 install python-docx
 
 import PyPDF2 # Scraping PDFs
 import docx # Scraping Word Documents

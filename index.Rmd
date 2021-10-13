@@ -570,9 +570,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 8: Automated Heists**<br>*Drawing from (Un-)Structured Data Sources*
+### **Week 8: Automated Heists**<br>[_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html)
 
-<!-- [_Drawing from (Un-)Structured Data Sources_](lectures/week_08/week-08-async-material.html) -->
+<!-- *Drawing from (Un-)Structured Data Sources* -->
 
 <br><br>
 
