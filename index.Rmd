@@ -461,7 +461,7 @@ during class on Week 8***
 
 <br>
 
-<!-- <center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center> -->
+<center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center>
 
 <!-- <br> -->
 
@@ -576,9 +576,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 9: The Signal and the Noise**<br>*Introduction to Statistical Learning*
+### **Week 9: The Signal and the Noise**<br>[_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html)
 
-<!-- [_Introduction to Statistical Learning_](lectures/week_09/week-09-async-material.html) -->
+<!-- *Introduction to Statistical Learning* -->
 
 <br><br>
 

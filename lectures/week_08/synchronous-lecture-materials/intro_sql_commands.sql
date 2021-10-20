@@ -245,7 +245,37 @@ group by country
 
 
 -------------------------
---- TEMPORARY TABLES ----
+--- SUBQUERIES ----
+-------------------------
+
+
+WITH algeria_a as (
+	SELECT 
+		country,
+		year,
+		'bombings' as type,
+		 explosions_remote_violence as n_events
+	FROM conflict
+	WHERE
+		country =  'Algeria'
+),
+algeria_b as (
+	SELECT 
+		country,
+		year,
+		'vac' as type,
+		 violence_against_civilians as n_events
+	FROM conflict
+	WHERE
+		country =  'Algeria'
+)
+select * from algeria_a
+UNION ALL
+select * from algeria_b
+
+
+-------------------------
+--- TEMP TABLES ----
 -------------------------
 
 

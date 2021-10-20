@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo=FALSE,message=FALSE,error = FALSE,warning = FALSE)
 
 The following provides an overview of the data science project that you will be responsible for completing by the end of the semester. The project is an opportunity to apply the skills and tools that you've learned throughout the course on an area of substantive interest to you. 
 
-The project is composed of three distinct parts: a proposal, a presentation, and a report. The proposal should outline the general plan for the project and will serve as an opportunity for the professor to provide guidance on the project's feasibility. The presentation is an opportunity to present your work in mid-stream to receive verbal feedback from the professor, TA, and classmates. These comments will help you as you move forward with the final report. The report is the written analysis of the project in its entirety. The report will be due on December 19 @ 5pm EST (PPOL564's designated finals slot).
+The project is composed of three distinct parts: a proposal, a presentation, and a report. The proposal should outline the general plan for the project and will serve as an opportunity for the professor to provide guidance on the project's feasibility. The presentation is an opportunity to present your work in mid-stream to receive verbal feedback from the professor, TA, and classmates. These comments will help you as you move forward with the final report. The report is the written analysis of the project in its entirety. The report will be due on December 16 @ 9pm EST (PPOL564's designated finals slot).
 
 While completing your project, you will be responsible for creating and maintaining a public repository on `Github`, tracking all progress made on your project using the version control implementations discussed at the start of the semester. All work product should be reflected on the repository. The proposal, presentation materials, and the report should be generated using [RMarkdown](https://rmarkdown.rstudio.com/authoring_quick_tour.html) or [Jupyter Notebook](https://jupyter.org/) and should follow all reproducibility practices discussed in class. 
 
@@ -30,7 +30,7 @@ While completing your project, you will be responsible for creating and maintain
 
 | **Due** | **Proportion of Grade** | **Length** |
 |---- | ---- | ----|
-October 28 | 5% | 2 pages (single-spaced; 12pt font)
+November 3 | 5% | 500 words
 
 The project proposal asks that you sketch out a general 2 page (single-spaced; 12pt font) project proposal. The proposal should offer the following information:
 
@@ -49,13 +49,13 @@ The project proposal asks that you sketch out a general 2 page (single-spaced; 1
     - In your words, what would a successful project look like? How will you know that you solved the problem or accomplished your goal? 
     - Four weeks isn't a long time to complete a project like this. Thinking serious about what a "finished" or "successful" project might look like. This will help you set realistic goals/expectations. 
 
-Please be detailed but _succinct_ as possible when writing. _Any material that exceeds page 2 (1000 words) will not be considered when grading/reading_. There is no advantage/incentive to exceeding the page limit. Be sure to properly cite any referenced materials and/or packages (it is okay if your work cited runs onto a third page).
+Please be detailed but _succinct_ as possible when writing. _Any material that exceeds 500 words will not be considered when grading/reading_. There is no advantage/incentive to exceeding the page limit. Be sure to properly cite any referenced materials and/or packages (it is okay if your work cited runs onto a third page).
 
 # Project Presentation
 
 | **Due** | **Proportion of Grade** | **Length** |
 |---- | ---- | ----|
-December 2 | 10% | 7 minutes in length
+December 1 | 10% | 7 minutes in length
 
 ## Part 1: Video Presentation
 
@@ -83,16 +83,16 @@ Students must submit both their slides _and_ the `.rmd`/`.ipynb` file used to re
 
 ## Part 2: Feedback
 
-Each student will be randomly assigned the names of 5 peers in their class. The names will be circulated on **December 2**. Each student will be required to watch the recordings of their assigned classmates and provide substantive feedback by **Sunday December 6 11:59PM**. All comments/Feedback should be written on a shared **Google Document**, which will be circulated on **December 2** via the class Slack channel. The recorded presentations will be stored in a share folder on CANVAS. All enrolled students will have access to this folder. 
+Each student will be randomly assigned the names of 5 peers in their class. The names will be circulated on **December 1**. Each student will be required to watch the recordings of their assigned classmates and provide substantive feedback by **Sunday December 5 11:59PM**. All comments/Feedback should be written on a shared **Google Document**, which will be circulated on **December 1** via the class Slack channel. The recorded presentations will be stored in a share folder on CANVAS. All enrolled students will have access to this folder. 
 
 
 # Project Report
 
 | **Due** | **Proportion of Grade** | **Length** |
 |---- | ---- | ----|
-December 19 | 30% | 12 pages/3000 words (double-spaced; 12pt font)
+December 16 | 30% | 3000 words 
 
-The report is a complete description of the project's analysis and results. The report should be 12 pages (3000 words) in length (_double-spaced; 12 pt font_) and cover the below bullet points. As with the proposals, no written material will be considered beyond page 12 (3000 words) when reviewing the report (a work cited can span onto a 13th page (and or > 3000 words)). Below I've outlined points that one should aim to discuss in each section. Note that paper should read as a cohesive report, so do not respond to these bullet points verbatim. 
+The report is a complete description of the project's analysis and results. The report should be 3000 words in length and cover the below bullet points. As with the proposals, no written material will be considered beyond 3000 words when reviewing the report (a work cited can span beyond 3000 words). Below I've outlined points that one should aim to discuss in each section. Note that paper should read as a cohesive report, so do not respond to these bullet points verbatim. 
 
 
 - **Introduction**
@@ -145,5 +145,5 @@ The report is a complete description of the project's analysis and results. The 
   
   + How would you expand the analysis if given more time? 
   
-The reports must be submitted as a hardcopy (i.e. the `.rmd` notebook must be rendered as a `.pdf` or `.html`) to CANVAS by 5PM on December 19th. **_The code for all the tables and visuals in the rendered document must be included in your Github repository_**. The professor or TA should be able to clone the repository and run your code without issue. **_Note that given the page constraints, no `Python3` code should be visible in the rendered document._**
+The reports must be submitted as a hardcopy (i.e. the `.rmd` notebook must be rendered as a `.pdf` or `.html`) to CANVAS by 9PM on December 16th. **_The code for all the tables and visuals in the rendered document must be included in your Github repository_**. The professor or TA should be able to clone the repository and run your code without issue. **_Note that given the page constraints, no `Python3` code should be visible in the rendered document._**
 

@@ -54,17 +54,17 @@ In the synchronous lecture, we'll be discussing writing SQLite queries. I'll be 
 
 <br><hr><br>
 
-<!-- # Synchronous Materials -->
+# Synchronous Materials
 
-<!-- <br> -->
+<br>
 
-<!-- - _Download_: SQLite database used in the lecture -- [**country.sqlite**](https://www.dropbox.com/s/f6z3kpfpbr8xf1j/country.sqlite?dl=0) -->
-<!-- - _Scripts_: -->
-<!--   - <a href="synchronous-lecture-materials/intro_sql_commands.sql" download><strong>intro_sql_commands.sql</strong></a> -->
-<!--   - <a href="synchronous-lecture-materials/using_sql_with_pandas.py" download><strong>using_sql_with_pandas.py</strong></a> -->
-<!-- - _Breakout_: [**Practice with SQL queries**](breakout/breakout-sql-queries.html) -->
+- _Download_: SQLite database used in the lecture -- [**country.sqlite**](https://www.dropbox.com/s/f6z3kpfpbr8xf1j/country.sqlite?dl=0)
+- _Scripts_:
+  - <a href="synchronous-lecture-materials/intro_sql_commands.sql" download><strong>intro_sql_commands.sql</strong></a>
+  - <a href="synchronous-lecture-materials/using_sql_with_pandas.py" download><strong>using_sql_with_pandas.py</strong></a>
+- _Breakout_: [**Practice with SQL queries**](breakout/breakout-sql-queries.html)
 
-<!-- <br><hr><br> -->
+<br><hr><br>
 
 # Asynchronous Materials {.tabset .tabset-pills}
 
