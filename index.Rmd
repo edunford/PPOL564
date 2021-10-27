@@ -582,9 +582,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 10: Casting Shadows in** $N$-Dimensions<br>*Continuous Outcomes and Linear Regression*
+### **Week 10: Casting Shadows in** $N$-Dimensions<br>[_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html)
 
-<!-- [_Continuous Outcomes and Linear Regression_](lectures/week_10/week-10-async-material.html) -->
+<!-- *Continuous Outcomes and Linear Regression* -->
 
 <br><br>
 
