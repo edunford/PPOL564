@@ -14,8 +14,6 @@ warnings.filterwarnings("ignore")
 from gapminder import gapminder as gap
 
 
-
-
 # %% markdown -----------------------------------------
 
 ## Why pre-process data?
@@ -89,12 +87,11 @@ mod.coef_
 
 # %% markdown -----------------------------------------
 
-## <br><br>Standardization<br><br>
+## Standardization
 
 - Center the Mean ($\hat{x} = 0$)
 - Unit variance ($var(x) = 1$)
 
-<br>
 
 $$x_{scaled} = \frac{x-\bar{x}}{\sigma_x}$$
 
@@ -141,7 +138,7 @@ X_scaled.var(axis=0)
 
 # %% markdown -----------------------------------------
 
-### <br><br>Why instantiate the scaler, e.g. `scaler = pp.StandardScaler()`, then fit?<br><br>
+### Why instantiate the scaler, e.g. `scaler = pp.StandardScaler()`, then fit?
 
 
 - Anything we do to the *training* data we want to do to the *test* data.
@@ -175,7 +172,7 @@ scaler.transform(X_test)
 
 # %% markdown -----------------------------------------
 
-## <br><br>Range Scale<br><br>
+## Range Scale
 
 - $min(x) = 0$
 - $max(x) = 1$
@@ -202,7 +199,7 @@ X_range
 
 # %% markdown -----------------------------------------
 
-## <br><br>Max Absolute Range Scalar<br><br>
+## Max Absolute Range Scalar
 
 
 
@@ -263,7 +260,7 @@ gap['gdp_scaled'] = new
 
 # %% markdown -----------------------------------------
 
-## <br><br>Dealing with Categories<br><br>
+## Dealing with Categories
 
 - Transform categories, (.e.g `strings`) into numerical data
     + Convert to dummies
@@ -302,16 +299,18 @@ pd.get_dummies(gap.country)
 
 # Ordinal encoder - When we want to retain information on order
 
-# Example Question data 
+# Example Question data
 questions =  [["Disagree","Neutral"],
               ["Agree","Agree"],
               ["Neutral","Disagree"],
               ["Agree","Disagree"]]
 questions = pd.DataFrame(questions,columns=["Q1","Q2"])
 
-enc = pp.OrdinalEncoder([["Disagree","Neutral","Agree"],["Disagree","Neutral","Agree"]])
-enc.fit(questions)
-ordered_cats = enc.transform(questions)
+enc = pp.OrdinalEncoder(categories=[
+    ["Disagree","Neutral","Agree"],
+    ["Disagree","Neutral","Agree"],
+])
+ordered_cats = enc.fit_transform(questions)
 
 
 # Original
@@ -336,7 +335,7 @@ ordered_cats
 # %% markdown -----------------------------------------
 
 
-## <br><br><br>Takeaway<br><br><br>
+## Takeaway
 - Many more transformations. See [reading](https://scikit-learn.org/stable/modules/preprocessing.html)
 
 - Choice on tranforming data depends on the data and the problem.

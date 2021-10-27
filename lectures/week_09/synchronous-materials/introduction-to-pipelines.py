@@ -9,7 +9,7 @@ from sklearn.compose import ColumnTransformer
 import sklearn.metrics as m
 from sklearn.model_selection import cross_validate
 
-# Data management 
+# Data management
 import pandas as pd
 
 # Data
@@ -103,15 +103,15 @@ scores['test_r2'].mean()
 
 # ISSUE: Note there is one issue with the above. If we want to compare the performance
 # of different models (which we often want to do), then we need to ensure that
-# the splits for each fold are the same across models (else the difference 
-# in performance between two models might just be statistical fluke given 
-# how the data was scrambled). 
+# the splits for each fold are the same across models (else the difference
+# in performance between two models might just be statistical fluke given
+# how the data was scrambled).
 
-# How do we get around this? Use the KFold generator to generate consistent folds 
-# that we can use again and again 
+# How do we get around this? Use the KFold generator to generate consistent folds
+# that we can use again and again
 
-# By seeding the random state, we can ensure the same folds are generated each time. 
-gen_folds = KFold(n_splits=5,random_state=111)  
+# By seeding the random state, we can ensure the same folds are generated each time.
+gen_folds = KFold(n_splits=5,random_state=111,shuffle=True)
 
 scores = cross_validate(pipe,X=X_train,y=y_train,
                         scoring=scores_we_care_about,
