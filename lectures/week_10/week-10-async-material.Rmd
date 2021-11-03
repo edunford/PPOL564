@@ -52,16 +52,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-<!-- # Synchronous Materials -->
+# Synchronous Materials
 
-<!-- <br> -->
+<br>
 
-<!-- - **Lecture Notebooks**: -->
-<!--   - <a href="synchronous-materials/trigonometry-of-vectors.ipynb" download><strong>Trigonometry of Vectors (`.ipynb`)</strong></a> -->
-<!--   - <a href="synchronous-materials/building-linear-regression.ipynb" download><strong>Building the linear model from Scratch (`.ipynb`)</strong></a> -->
-<!--   - _Supplement_: <a href="synchronous-materials/matrix-operations.ipynb" download><strong>More on Matrix Operations (`.ipynb`)</strong></a> -->
+- **Lecture Notebooks**:
+  - <a href="synchronous-materials/trigonometry-of-vectors.ipynb" download><strong>Trigonometry of Vectors (`.ipynb`)</strong></a>
+  - <a href="synchronous-materials/building-linear-regression.ipynb" download><strong>Building the linear model from Scratch (`.ipynb`)</strong></a>
+  - _Supplement_: <a href="synchronous-materials/matrix-operations.ipynb" download><strong>More on Matrix Operations (`.ipynb`)</strong></a>
 
-<!-- <br><hr><br> -->
+<br><hr><br>
 
 # Asynchronous Materials {.tabset .tabset-pills}
 

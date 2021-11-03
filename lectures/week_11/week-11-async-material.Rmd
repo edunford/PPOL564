@@ -11,6 +11,7 @@ output:
     highlight: breezedark
     theme: flatly
     toc: true
+    self_contained: false
 ---
 
 <br><hr><br>
@@ -33,12 +34,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
-**In the Synchronous Lecture**
+<!-- **In the Synchronous Lecture** -->
 
-- Talk through how to use **Bayes theorem to make predictions** with data. 
-- Build a **Naive Bayes Classifier** from scratch. 
+<!-- - Talk through how to use **Bayes theorem to make predictions** with data.  -->
+<!-- - Build a **Naive Bayes Classifier** from scratch.  -->
 
-<br>
+<!-- <br> -->
 
 > If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
 

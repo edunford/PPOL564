@@ -588,9 +588,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 11: Hot Dog, Not Hot Dog**<br>*Probability, Bayes Theorem, and Classification*
+### **Week 11: Hot Dog, Not Hot Dog**<br>[_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html)
 
-<!-- [_Probability, Bayes Theorem, and Classification_](lectures/week_11/week-11-async-material.html) -->
+<!-- *Probability, Bayes Theorem, and Classification* -->
 
 <br><br>
 
