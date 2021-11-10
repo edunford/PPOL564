@@ -11,6 +11,7 @@ output:
     highlight: breezedark
     theme: flatly
     toc: true
+    self_contained: false
 ---
 
 <br><hr><br>
@@ -43,18 +44,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-# Synchronous Materials
+<!-- # Synchronous Materials -->
 
-<br>
+<!-- <br> -->
 
-- Slides on [**Trees, Bags, and Forests**](slides/trees-bagging-and-random-forests.html)
+<!-- - Slides on [**Trees, Bags, and Forests**](slides/trees-bagging-and-random-forests.html) -->
 
-- [**Model comparison** and **hyper parameter tuning** using `sklearn`](synchronous-materials/Comparing-and-Tuning-Models.html)
-  - Download the <a href="synchronous-materials/Comparing-and-Tuning-Models.ipynb" download><strong>`.ipynb` Notebook</strong></a>.
-  - Download the data used in the notebook via the following [**Dropbox Link**](https://www.dropbox.com/t/tWR0b5cFPgXjMuYK)
+<!-- - [**Model comparison** and **hyper parameter tuning** using `sklearn`](synchronous-materials/Comparing-and-Tuning-Models.html) -->
+<!--   - Download the <a href="synchronous-materials/Comparing-and-Tuning-Models.ipynb" download><strong>`.ipynb` Notebook</strong></a>. -->
+<!--   - Download the data used in the notebook via the following [**Dropbox Link**](https://www.dropbox.com/t/tWR0b5cFPgXjMuYK) -->
 
 
-<br><hr><br>
+<!-- <br><hr><br> -->
 
 # Asynchronous Materials {.tabset .tabset-pills}
 

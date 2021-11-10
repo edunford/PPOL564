@@ -594,9 +594,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 12: Trees and Neighbors**<br>*Algorithmic Approaches to Supervised Learning*
+### **Week 12: Trees and Neighbors**<br>[_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html)
 
-<!-- [_Algorithmic Approaches to Supervised Learning_](lectures/week_12/week-12-async-material.html) -->
+<!-- *Algorithmic Approaches to Supervised Learning* -->
 
 <br><br>
 

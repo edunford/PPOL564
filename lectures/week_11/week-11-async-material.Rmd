@@ -45,17 +45,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br><hr><br>
 
-<!-- # Synchronous Materials -->
+# Synchronous Materials
 
-<!-- <br> -->
+<br>
 
-<!-- - [**Bayes Theorem**](synchronous-materials/bayes-theorem.html) -->
+- [**Bayes Theorem**](synchronous-materials/bayes-theorem.html)
 
-<!-- - _Breakout_: [**Practice Calculating Bayesian Problems**](breakout/breakout-practice-bayes-theorem.html) -->
+- _Breakout_: [**Practice Calculating Bayesian Problems**](breakout/breakout-practice-bayes-theorem.html)
 
-<!-- - [**Building a Naive Bayes Classifier**](synchronous-materials/naive-bayes-classifier.html) -->
-<!--   + <a href="synchronous-materials/naive-bayes-classifier.ipynb" download><strong>Download `.ipynb`</strong></a> -->
-<!--   + Download data used in this notebook from [**Dropbox**](https://www.dropbox.com/t/K8ibXTnVwNm4NDqa). -->
+- [**Building a Naive Bayes Classifier**](synchronous-materials/naive-bayes-classifier.html)
+  + <a href="synchronous-materials/naive-bayes-classifier.ipynb" download><strong>Download `.ipynb`</strong></a>
+  + Download data used in this notebook from [**Dropbox**](https://www.dropbox.com/t/YfxmV1pSWMTPvzUa).
 
 <br><hr><br>
 
