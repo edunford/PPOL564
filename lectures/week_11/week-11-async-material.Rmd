@@ -34,28 +34,28 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
-<!-- **In the Synchronous Lecture** -->
+**In the Synchronous Lecture**
 
-<!-- - Talk through how to use **Bayes theorem to make predictions** with data.  -->
-<!-- - Build a **Naive Bayes Classifier** from scratch.  -->
+- Talk through how to use **Bayes theorem to make predictions** with data.
+- Build a **Naive Bayes Classifier** from scratch.
 
-<!-- <br> -->
+<br>
 
 > If you have any questions while watching the pre-recorded material, be sure to **write them down and to bring them up** during the synchronous portion of the lecture.
 
 <br><hr><br>
 
-# Synchronous Materials
+<!-- # Synchronous Materials -->
 
-<br>
+<!-- <br> -->
 
-- [**Bayes Theorem**](synchronous-materials/bayes-theorem.html)
+<!-- - [**Bayes Theorem**](synchronous-materials/bayes-theorem.html) -->
 
-- _Breakout_: [**Practice Calculating Bayesian Problems**](breakout/breakout-practice-bayes-theorem.html)
+<!-- - _Breakout_: [**Practice Calculating Bayesian Problems**](breakout/breakout-practice-bayes-theorem.html) -->
 
-- [**Building a Naive Bayes Classifier**](synchronous-materials/naive-bayes-classifier.html)
-  + <a href="synchronous-materials/naive-bayes-classifier.ipynb" download><strong>Download `.ipynb`</strong></a>
-  + Download data used in this notebook from [**Dropbox**](https://www.dropbox.com/t/K8ibXTnVwNm4NDqa).
+<!-- - [**Building a Naive Bayes Classifier**](synchronous-materials/naive-bayes-classifier.html) -->
+<!--   + <a href="synchronous-materials/naive-bayes-classifier.ipynb" download><strong>Download `.ipynb`</strong></a> -->
+<!--   + Download data used in this notebook from [**Dropbox**](https://www.dropbox.com/t/K8ibXTnVwNm4NDqa). -->
 
 <br><hr><br>
 
