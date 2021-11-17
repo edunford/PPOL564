@@ -600,9 +600,9 @@ prior to the scheduled synchronous meeting date.*
 
 <br><br>
 
-### **Week 13: Peeking inside the Black Box**<br>*Interpretable Machine Learning*
+### **Week 13: Peeking inside the Black Box**<br>[_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html)
 
-<!-- [_Interpretable Machine Learning_](lectures/week_13/week-13-async-material.html) -->
+<!-- *Interpretable Machine Learning* -->
 
 <br><br><br><br>
 
