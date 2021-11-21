@@ -463,11 +463,11 @@ during class on Week 8***
 
 <center><strong>[Final Project Overview](project/project_overview.pdf)</strong></center>
 
-<!-- <br> -->
+<br>
 
-<!-- <center><strong>[Presentation Rubric](project/project_presentation_assessment_sheet.pdf)</strong></center> -->
+<center><strong>[Presentation Rubric](project/project_presentation_assessment_sheet.pdf)</strong></center>
 
-<!-- <br> -->
+<br>
 
 <!-- <center><strong>[Final Report Rubric](project/final_project_rubric.pdf)</strong></center> -->
 
