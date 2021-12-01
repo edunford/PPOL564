@@ -1,7 +1,7 @@
 ---
 title: \textbf{Final Project Rubric}
 author: \Large PPOL564 -- Data Science 1 - Foundations
-date: 'Fall 2020'
+date: 'Fall 2021'
 fontsize: 11pt
 output: 
   pdf_document: default
@@ -82,7 +82,8 @@ The student's project sufficiently addressed these general areas.
     
     + Student clearly specified: 
         + the unit of observation;
-        + variables of interest;
+        + the outcome of interest and how it is measured;
+        + predictor variables of interest (and why they were selected);
         + potential issues in the data (e.g. missingness, coverage, etc.)
     
     + Student articulate the steps they took to wrangle the data.
@@ -92,7 +93,7 @@ The student's project sufficiently addressed these general areas.
     + Student described the methods/tools they explored in their project. 
         - Justified the tools/methods that they used.
         - Adequately described what the tools/methods are doing.
-        - Note: Assume the reader is smart but doesn't know `R`/Machine Learning well. That is, be crystal clear about what you're doing and why.
+        - Note: Assume the reader is smart but doesn't know programming/machine mearning well. That is, be crystal clear about what you're doing and why.
 
 - **Results** (__/5 point)
 
@@ -100,7 +101,9 @@ The student's project sufficiently addressed these general areas.
     
     + Student presented their results clearly and concisely. 
     
-    + Student used visualizations (and tables) whenever possible/appropriate. 
+    + Student used visualizations (and tables) whenever possible/appropriate.
+    
+    + Student highlighted some clear takeaways ("things learned") and theoretical implications ("potential hypotheses") from their analysis.
 
 - **Discussion** (__/5 point)
 
